@@ -1,4 +1,4 @@
-# argsdotfiles
+# dotfiles
 
 super lazy dotfiles repo
 

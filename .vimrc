@@ -1,6 +1,6 @@
 if has('vim_starting')
   if &compatible
-    set nocompatible  " Be iMproved
+    set nocompatible 
   endif
 
   " Required:
@@ -20,9 +20,13 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kien/ctrlp.vim'
+
 
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'Shougo/vimshell'
 
 " Required:
 call neobundle#end()
@@ -61,5 +65,16 @@ if v:version >= 703
   set undolevels=1000
   set backspace=indent,eol,start
 
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip  " MacOSX/Linux
+  set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe " Windows
+
+  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+  let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|dll)$',
+      " \ 'link': 'some_bad_symbolic_links',
+      \ }
+
   autocmd Filetype gitcommit setlocal spell textwidth=72
+
 endif
