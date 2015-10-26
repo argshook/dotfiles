@@ -7,7 +7,7 @@ super lazy dotfiles repo
 clone this repo in your home folder:
 
 ```zsh
-$ git clone https://github.com/argshook/argsdotfiles.git
+$ git clone https://github.com/argshook/dotfiles.git
 ```
 
 # How does it work
