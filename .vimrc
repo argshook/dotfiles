@@ -66,6 +66,11 @@ if v:version >= 703
   set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
   set ttyfast
 
+  " split to right and below
+  set splitbelow
+  set splitright
+  set scrolloff=999
+  set cursorline
 
   set ruler
   set undolevels=1000
@@ -111,12 +116,16 @@ if v:version >= 703
   " remove some files by extension
   let NERDTreeIgnore = ['\.js.map$', '.git']
   " close nerdtree when file was opened
-  let g:NERDTreeQuitOnOpen=0
+  let g:NERDTreeQuitOnOpen=1
   " open in new tab by default
   let NERDTreeMapOpenInTab='<ENTER>'
   " expand to the path of the file in the current buffer
   nmap <silent> <leader>y :NERDTreeFind<cr>
+  let NERDTreeMinimalUI=1
+  let NERDTreeDirArrows=1
 
+  " prevent entering to ex mode
+  nnoremap Q <nop>
 
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
