@@ -102,6 +102,8 @@ if v:version >= 703
   set t_Co=256
   set laststatus=2
 
+  " tab completion
+  imap <Tab> <C-P>
 
   if exists("g:ctrl_user_command")
     unlet g:ctrlp_user_command
