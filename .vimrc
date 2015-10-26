@@ -26,7 +26,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
-
+NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 
 
 " You can specify revision/branch/tag.
@@ -51,6 +51,7 @@ if v:version >= 703
   set textwidth=120
   set showmatch
   set visualbell
+  set t_vb=
 
   set smartcase
   set ignorecase
@@ -80,6 +81,7 @@ if v:version >= 703
   set foldmethod=syntax
   set nofoldenable
   set foldlevel=1
+
   set title
 
   " ui
@@ -98,7 +100,7 @@ if v:version >= 703
   let g:airline_powerline_fonts=1
   let g:airline_left_sep=''
   let g:airline_right_sep=''
-  let g:airline_theme='solarized'
+  let g:airline_theme='bubblegum'
   set t_Co=256
   set laststatus=2
 
@@ -114,7 +116,7 @@ if v:version >= 703
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
   let mapleader = ","
-  colorscheme solarized
+  colorscheme cobalt2
 
   " open nerdree with ,ne
   nmap <leader>k :NERDTree<cr>
