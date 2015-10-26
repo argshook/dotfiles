@@ -88,6 +88,12 @@ if v:version >= 703
   " shortcut to save
   nmap <leader>, :w<cr>
 
+  " move between splits with c + hjkl
+  map <C-J> <C-W>j
+  map <C-K> <C-W>k
+  map <C-H> <C-W>h
+  map <C-L> <C-W>l
+
   " airline options
   let g:airline_powerline_fonts=1
   let g:airline_left_sep=''
@@ -106,7 +112,6 @@ if v:version >= 703
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
   let mapleader = ","
-  " set background = "dark"
   colorscheme solarized
 
   " open nerdree with ,ne
