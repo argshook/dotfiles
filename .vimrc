@@ -1,14 +1,10 @@
 set nocompatible
 set autoread
 
-" Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
-" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
@@ -22,8 +18,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
@@ -32,15 +28,14 @@ NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
 
-" Required:
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 call neobundle#end()
 
 " Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 if v:version >= 703
   syntax enable
@@ -104,6 +99,9 @@ if v:version >= 703
   set t_Co=256
   set laststatus=2
 
+  let g:gitgutter_realtime=1
+  set updatetime=750
+
   " tab completion
   imap <Tab> <C-P>
 
@@ -118,12 +116,12 @@ if v:version >= 703
   let mapleader = ","
   colorscheme cobalt2
 
-  " open nerdree with ,ne
+  " open nerdree with ,k
   nmap <leader>k :NERDTree<cr>
   " show hidden files in NERDTree
   let NERDTreeShowHidden=1
   " remove some files by extension
-  let NERDTreeIgnore = ['\.js.map$', '.git']
+  let NERDTreeIgnore = ['\.js.map$', '.git', 'node_modules', 'bower_components', '.sass-cache', '.tmp']
   " close nerdtree when file was opened
   let g:NERDTreeQuitOnOpen=1
   " open in new tab by default
