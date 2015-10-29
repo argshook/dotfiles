@@ -117,7 +117,7 @@ if v:version >= 703
   colorscheme cobalt2
 
   " open nerdree with ,k
-  nmap <leader>k :NERDTree<cr>
+  nmap <leader>k :NERDTreeToggle<cr>
   " show hidden files in NERDTree
   let NERDTreeShowHidden=1
   " remove some files by extension
