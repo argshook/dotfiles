@@ -23,6 +23,8 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 
 " You can specify revision/branch/tag.
@@ -79,11 +81,14 @@ if v:version >= 703
 
   set title
 
+  " code folding
+  set foldmethod=indent
+
   " ui
   set wildmenu " enhanced comman line completion
 
   " shortcut to save
-  nmap <leader>, :w<cr>
+  nmap <leader>s :w<cr>
 
   " move between splits with c + hjkl
   map <C-J> <C-W>j
