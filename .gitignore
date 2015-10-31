@@ -5,6 +5,7 @@
 !.gitignore
 !.argsdotfiles/
 !.vimrc
+!.gitconfig
 
 
 # also ignore things that might
