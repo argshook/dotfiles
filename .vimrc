@@ -36,17 +36,19 @@ NeoBundleCheck
 
 call neobundle#end()
 
-" allow hidden buffers
-set hidden
-
-source .argsdotfiles/vim/airline
-source .argsdotfiles/vim/ctrlp
-
 " Required:
 filetype plugin indent on
 
 if v:version >= 703
+  source .argsdotfiles/vim/airline
+  source .argsdotfiles/vim/ctrlp
+  source .argsdotfiles/vim/buffergator
+
   syntax enable
+
+  " allow hidden buffers
+  set hidden
+
   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set number
