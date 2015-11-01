@@ -87,9 +87,6 @@ if v:version >= 703
   " ui
   set wildmenu " enhanced comman line completion
 
-  " shortcut to save
-  nmap <leader>s :w<cr>
-
   " move between splits with c + hjkl
   map <C-J> <C-W>j
   map <C-K> <C-W>k
@@ -119,6 +116,10 @@ if v:version >= 703
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
   let mapleader = ","
+
+  " shortcut to save
+  nmap <leader>s :w<cr>
+
   colorscheme cobalt2
 
   " open nerdree with ,k
