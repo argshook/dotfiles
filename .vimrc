@@ -15,7 +15,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'pangloss/vim-javascript'
@@ -37,7 +36,12 @@ NeoBundleCheck
 
 call neobundle#end()
 
+" allow hidden buffers
+set hidden
+
 source .argsdotfiles/vim/airline
+source .argsdotfiles/vim/ctrlp
+
 " Required:
 filetype plugin indent on
 
@@ -69,6 +73,8 @@ if v:version >= 703
   " split to right and below
   set splitbelow
   set splitright
+
+  " keep cursor in middle of screen
   set scrolloff=999
   set cursorline
 
@@ -77,14 +83,11 @@ if v:version >= 703
   set backspace=indent,eol,start
 
   " code folding
-  set foldmethod=syntax
+  set foldmethod=indent
   set nofoldenable
   set foldlevel=1
 
   set title
-
-  " code folding
-  set foldmethod=indent
 
   " ui
   set wildmenu " enhanced comman line completion
@@ -104,13 +107,7 @@ if v:version >= 703
   " tab completion
   imap <Tab> <C-P>
 
-  if exists("g:ctrl_user_command")
-    unlet g:ctrlp_user_command
-  endif
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
-
-  " only show files that are not ignored by git
-  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
   let mapleader = ","
 
