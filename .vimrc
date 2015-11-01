@@ -40,9 +40,9 @@ call neobundle#end()
 filetype plugin indent on
 
 if v:version >= 703
-  source .argsdotfiles/vim/airline
-  source .argsdotfiles/vim/ctrlp
-  source .argsdotfiles/vim/buffergator
+  source ~/.argsdotfiles/vim/airline
+  source ~/.argsdotfiles/vim/ctrlp
+  source ~/.argsdotfiles/vim/buffergator
 
   syntax enable
 
