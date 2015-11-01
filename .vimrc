@@ -25,6 +25,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'jeetsukumaran/vim-buffergator'
 
 
 " You can specify revision/branch/tag.
@@ -36,6 +37,7 @@ NeoBundleCheck
 
 call neobundle#end()
 
+source .argsdotfiles/vim/airline
 " Required:
 filetype plugin indent on
 
@@ -93,11 +95,6 @@ if v:version >= 703
   map <C-H> <C-W>h
   map <C-L> <C-W>l
 
-  " airline options
-  let g:airline_powerline_fonts=1
-  let g:airline_left_sep=''
-  let g:airline_right_sep=''
-  let g:airline_theme='bubblegum'
   set t_Co=256
   set laststatus=2
 
