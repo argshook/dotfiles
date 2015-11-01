@@ -5,6 +5,7 @@
 !.gitignore
 !.argsdotfiles/
 !.vimrc
+!.tmux.conf
 !.gitconfig
 
 

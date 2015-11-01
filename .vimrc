@@ -25,6 +25,7 @@ NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'tpope/vim-obsession'
 
 
 " You can specify revision/branch/tag.
@@ -40,6 +41,8 @@ call neobundle#end()
 filetype plugin indent on
 
 if v:version >= 703
+  let mapleader = ","
+
   source ~/.argsdotfiles/vim/airline
   source ~/.argsdotfiles/vim/ctrlp
   source ~/.argsdotfiles/vim/buffergator
@@ -112,8 +115,6 @@ if v:version >= 703
 
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
-  let mapleader = ","
-
   " shortcut to save
   nmap <leader>s :w<cr>
 
@@ -121,6 +122,9 @@ if v:version >= 703
 
   " prevent entering to ex mode
   nnoremap Q <nop>
+
+  " shorten mapping delay so that esc reacts immediately
+  set timeoutlen=1000 ttimeoutlen=0
 
   " Zoom / Restore window.
   function! s:ZoomToggle() abort
