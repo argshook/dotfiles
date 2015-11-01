@@ -1,7 +1,3 @@
-" I want my own keymappings...
-let g:buffergator_suppress_keymaps = 1
-
-
 " Open a new empty buffer
 nmap <leader>T :enew<cr>
 
