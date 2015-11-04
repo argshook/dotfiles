@@ -26,6 +26,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-obsession'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'mattn/emmet-vim'
 
 
 " You can specify revision/branch/tag.
@@ -81,7 +83,7 @@ if v:version >= 703
   set splitright
 
   " keep cursor in middle of screen
-  set scrolloff=999
+  set scrolloff=5
   set cursorline
 
   set ruler
@@ -92,6 +94,10 @@ if v:version >= 703
   set foldmethod=indent
   set nofoldenable
   set foldlevel=1
+
+  " emmet config
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css EmmetInstall
 
   set title
 
