@@ -83,7 +83,6 @@ if v:version >= 703
   set splitbelow
   set splitright
 
-  " keep cursor in middle of screen
   set scrolloff=5
   set cursorline
 
