@@ -2,10 +2,10 @@
 nmap <leader>T :enew<cr>
 
 " Go to the next buffer open
-nmap <leader>jj :BuffergatorMruCycleNext<cr>
+nmap <leader>j :BuffergatorMruCycleNext<cr>
 
 " Go to the previous buffer open
-nmap <leader>kk :BuffergatorMruCyclePrev<cr>
+nmap <leader>k :BuffergatorMruCyclePrev<cr>
 
 " View the entire list of buffers open
 nmap <leader>bl :BuffergatorOpen<cr>
