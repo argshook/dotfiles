@@ -97,7 +97,7 @@ if v:version >= 703
 
   " emmet config
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css EmmetInstall
+  autocmd FileType html,css,scss EmmetInstall
 
   set title
 
@@ -130,7 +130,7 @@ if v:version >= 703
   nnoremap Q <nop>
 
   " shorten mapping delay so that esc reacts immediately
-  set timeoutlen=1000 ttimeoutlen=0
+  set timeoutlen=200 ttimeoutlen=0
 
   " Zoom / Restore window.
   function! s:ZoomToggle() abort
