@@ -57,6 +57,7 @@ if v:version >= 703
 
   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+  set relativenumber
   set number
   set linebreak
   set textwidth=120
