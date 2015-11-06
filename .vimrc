@@ -28,7 +28,7 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'mattn/emmet-vim'
-
+NeoBundle 'elmcast/elm-vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
