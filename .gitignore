@@ -8,6 +8,8 @@
 !.tmux.conf
 !.gitconfig
 
+# enable few misc thingies
+!.eslintrc
 
 # also ignore things that might
 # come up in allowed folders
