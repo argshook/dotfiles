@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'elmcast/elm-vim'
+NeoBundle 'scrooloose/syntastic'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -45,10 +46,11 @@ filetype plugin indent on
 if v:version >= 703
   let mapleader = ","
 
-  source ~/.argsdotfiles/vim/airline
-  source ~/.argsdotfiles/vim/ctrlp
-  source ~/.argsdotfiles/vim/buffergator
-  source ~/.argsdotfiles/vim/nerdtree
+  source ~/.argsdotfiles/vim/airline.vim
+  source ~/.argsdotfiles/vim/ctrlp.vim
+  source ~/.argsdotfiles/vim/buffergator.vim
+  source ~/.argsdotfiles/vim/nerdtree.vim
+  source ~/.argsdotfiles/vim/syntastic.vim
 
   syntax enable
 
