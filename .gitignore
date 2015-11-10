@@ -6,6 +6,7 @@
 !.argsdotfiles/
 !.vimrc
 !.tmux.conf
+!.zshrc
 !.gitconfig
 
 # enable few misc thingies
