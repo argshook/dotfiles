@@ -30,6 +30,7 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'elmcast/elm-vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -80,6 +81,7 @@ if v:version >= 703
   set smarttab
   set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
   set ttyfast
+  set lazyredraw
 
   " split to right and below
   set splitbelow
