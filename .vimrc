@@ -33,6 +33,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'jiangmiao/auto-pairs'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
