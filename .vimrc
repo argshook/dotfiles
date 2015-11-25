@@ -155,6 +155,30 @@ if v:version >= 703
   " Zoom / Restore with ,,
   nnoremap <leader><leader> :ZoomToggle<CR>
 
+  " map each number to its shift-key character
+  nnoremap 1 !
+  nnoremap 2 @
+  nnoremap 3 #
+  nnoremap 4 $
+  nnoremap 5 %
+  nnoremap 6 ^
+  nnoremap 7 &
+  nnoremap 8 *
+  nnoremap 9 (
+  nnoremap 0 )
+  nnoremap - _
+  " and then the opposite
+  nnoremap ! 1
+  nnoremap @ 2
+  nnoremap # 3
+  nnoremap $ 4
+  nnoremap % 5
+  nnoremap ^ 6
+  nnoremap & 7
+  nnoremap * 8
+  nnoremap ( 9
+  nnoremap ) 0
+  nnoremap _ -
 
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
