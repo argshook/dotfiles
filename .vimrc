@@ -180,6 +180,17 @@ if v:version >= 703
   nnoremap ) 0
   nnoremap _ -
 
+  " map right alt (alt gr) key to switch home row with numbers
+  nnoremap a 1
+  nnoremap s 2
+  nnoremap d 3
+  nnoremap f 4
+  nnoremap g 5
+  nnoremap h 6
+  nnoremap j 7
+  nnoremap k 8
+  nnoremap l 9
+
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
 endif
