@@ -156,29 +156,29 @@ if v:version >= 703
   nnoremap <leader><leader> :ZoomToggle<CR>
 
   " map each number to its shift-key character
-  nnoremap 1 !
-  nnoremap 2 @
-  nnoremap 3 #
-  nnoremap 4 $
-  nnoremap 5 %
-  nnoremap 6 ^
-  nnoremap 7 &
-  nnoremap 8 *
-  nnoremap 9 (
-  nnoremap 0 )
-  nnoremap - _
+  noremap! 1 !
+  noremap! 2 @
+  noremap! 3 #
+  noremap! 4 $
+  noremap! 5 %
+  noremap! 6 ^
+  noremap! 7 &
+  noremap! 8 *
+  noremap! 9 (
+  noremap! 0 )
+  noremap! - _
   " and then the opposite
-  nnoremap ! 1
-  nnoremap @ 2
-  nnoremap # 3
-  nnoremap $ 4
-  nnoremap % 5
-  nnoremap ^ 6
-  nnoremap & 7
-  nnoremap * 8
-  nnoremap ( 9
-  nnoremap ) 0
-  nnoremap _ -
+  noremap! ! 1
+  noremap! @ 2
+  noremap! # 3
+  noremap! $ 4
+  noremap! % 5
+  noremap! ^ 6
+  noremap! & 7
+  noremap! * 8
+  noremap! ( 9
+  noremap! ) 0
+  noremap! _ -
 
   " map right alt (alt gr) key to switch home row with numbers
   nnoremap a 1
