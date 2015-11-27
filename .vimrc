@@ -34,6 +34,10 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'mattn/calendar-vim'
+NeoBundle 'mfransen/vimwiki-todo-jabberbot'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -155,41 +159,22 @@ if v:version >= 703
   " Zoom / Restore with ,,
   nnoremap <leader><leader> :ZoomToggle<CR>
 
-  " map each number to its shift-key character
-  noremap! 1 !
-  noremap! 2 @
-  noremap! 3 #
-  noremap! 4 $
-  noremap! 5 %
-  noremap! 6 ^
-  noremap! 7 &
-  noremap! 8 *
-  noremap! 9 (
-  noremap! 0 )
-  noremap! - _
-  " and then the opposite
-  noremap! ! 1
-  noremap! @ 2
-  noremap! # 3
-  noremap! $ 4
-  noremap! % 5
-  noremap! ^ 6
-  noremap! & 7
-  noremap! * 8
-  noremap! ( 9
-  noremap! ) 0
-  noremap! _ -
+  " for calendar plugin
+  function! ToggleCalendar()
+    execute ":CalendarH"
+    if exists("g:calendar_open")
+      if g:calendar_open == 1
+        execute "q"
+        unlet g:calendar_open
+      else
+        g:calendar_open = 1
+      end
+    else
+      let g:calendar_open = 1
+    end
+  endfunction
 
-  " map right alt (alt gr) key to switch home row with numbers
-  nnoremap a 1
-  nnoremap s 2
-  nnoremap d 3
-  nnoremap f 4
-  nnoremap g 5
-  nnoremap h 6
-  nnoremap j 7
-  nnoremap k 8
-  nnoremap l 9
+  :autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
 
   autocmd Filetype gitcommit setlocal spell textwidth=72
 
