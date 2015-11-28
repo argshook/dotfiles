@@ -151,4 +151,6 @@ bar {
   position top
 }
 
-
+# wallpaper
+exec_always feh --bg-scale /home/argshook/Pictures/wallpapers/wallpaper.jpg
+exec ./config/i3/xautolock.sh
