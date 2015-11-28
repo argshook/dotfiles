@@ -1,5 +1,6 @@
 # Path to oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+# lock screen after 3 minutes of inactivity
 
 # disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -35,35 +36,35 @@ export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
 # git
-alias g='git'
-alias ga='git add'
-alias gc='git commit -m'
-alias gpl='git pl'
-alias gra='git rm $(git ls-files --deleted)'
-alias gs='gst' # TODO: figure out where gst comes from. Yeeaah...
-alias gss='gs -sb'
-alias gd='git diff'
-alias gl='git lg'
-alias glweek='git shortlog -s --since="last week"'
-alias gp='git push'
-alias gm='git merge'
-alias gpo='git push origin'
-alias gsh='git stash'
-alias gshl='git stash list'
-alias gshc='git stash clear'
-alias gsha='git stash apply'
-alias gisnew='git remote update && gs'
+alias g="git"
+alias ga="git add"
+alias gc="git commit -m"
+alias gpl="git pl"
+alias gra="git rm $(git ls-files --deleted)"
+alias gs="gst" # TODO: figure out where gst comes from. Yeeaah...
+alias gss="gs -sb"
+alias gd="git diff"
+alias gl="git lg"
+alias glweek="git shortlog -s --since="last week""
+alias gp="git push"
+alias gm="git merge"
+alias gpo="git push origin"
+alias gsh="git stash"
+alias gshl="git stash list"
+alias gshc="git stash clear"
+alias gsha="git stash apply"
+alias gisnew="git remote update && gs"
 
 # tmux
-alias tmuxa='tmux -2 a -t' # attach to session
-alias tmuxn='tmux -2 new -s' # create new session
-alias tmuxk='tmux kill-session -t' # kill session
-alias tmuxl='tmux ls' # list all sessions
+alias tmuxa="tmux -2 a -t" # attach to session
+alias tmuxn="tmux -2 new -s" # create new session
+alias tmuxk="tmux kill-session -t" # kill session
+alias tmuxl="tmux ls" # list all sessions
 
 # misc
-alias servedir='python -m SimpleHTTPServer 4523 && chrome localhost:4523'
+alias servedir="python -m SimpleHTTPServer 4523 && chrome localhost:4523"
 alias filesize=__fileSize
-alias grep='grep --color=auto'
+alias grep="grep --color=auto"
 
 function __bowerGetMain {
   if [ "$1x" != 'x' ]; then
