@@ -1,10 +1,6 @@
 # Path to oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="steeef-custom"
-
 # disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
 
@@ -17,20 +13,26 @@ export ZSH_THEME="steeef-custom"
 # disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
-# plugins can be found in ~/.oh-my-zsh/plugins/*
-plugins=(git brew git-flow github npm osx sublime autojump)
+# workhorse specific
+if [ $HOST = "workhorse" ]; then
+  export ZSH_THEME="steeef-custom"
+  source ~/.oh-my-zsh/workhorse
+  source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  plugins=(git brew git-flow github npm osx sublime autojump)
 
-source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
+
+# slipper specific
+if [ $HOST = "slipper" ]; then
+  export ZSH_THEME="steeef"
+  plugins=(git git-flow github npm autojump)
+fi
 
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
 export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
-
-# workhorse specific
-if [ $HOST = "workhorse" ]; then
-  source ~/.oh-my-zsh/workhorse
-fi
 
 # git
 alias g='git'
@@ -75,9 +77,6 @@ function __fileSize {
   fi
 }
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-. `brew --prefix`/etc/profile.d/z.sh
-
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8
 
@@ -86,4 +85,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # 10ms for key sequences
 KEYTIMEOUT=1
+
+source $ZSH/oh-my-zsh.sh
 
