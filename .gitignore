@@ -8,6 +8,8 @@
 !.tmux.conf
 !.zshrc
 !.gitconfig
+!.config/i3status
+!.config/i3
 
 # enable few misc thingies
 !.eslintrc

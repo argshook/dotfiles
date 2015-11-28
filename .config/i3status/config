@@ -1,0 +1,52 @@
+general {
+  colors = true
+  interval = 1
+}
+
+order += "battery 0"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "wireless wlp2s0"
+order += "volume master"
+order += "tztime local"
+
+cpu_temperature 0 {
+  format = " T: %degrees °C "
+  path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
+
+battery 0 {
+  format = "%status %percentage %remaining "
+  format_down = "No battery"
+  status_chr = " ⚇  CHR"
+  status_bat = " ⚡ BAT"
+  status_full = " ☻  FULL"
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 10
+}
+
+tztime local {
+  format = " %Y-%m-%d %H:%M:%S "
+}
+
+cpu_usage {
+  format = " CPU: %usage "
+}
+
+wireless wlp2s0 {
+  format_up = "W: %essid (%quality)"
+  format_down = "W: down"
+}
+
+disk "/" {
+  format = " / %free "
+}
+
+volume master {
+  format = "♪: %volume"
+  format_muted = "♪: muted (%volume)"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+}
