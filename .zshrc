@@ -14,6 +14,8 @@ ZSH=$HOME/.oh-my-zsh
 # disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
+source $ZSH/oh-my-zsh.sh
+
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
   export ZSH_THEME="steeef-custom"
@@ -41,9 +43,10 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gpl="git pl"
 alias gra="git rm $(git ls-files --deleted)"
-alias gs="gst" # TODO: figure out where gst comes from. Yeeaah...
+alias gs="git status"
 alias gss="gs -sb"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias gl="git lg"
 alias glweek="git shortlog -s --since="last week""
 alias gp="git push"
@@ -87,5 +90,4 @@ export NVM_DIR="$HOME/.nvm"
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-source $ZSH/oh-my-zsh.sh
 
