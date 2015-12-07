@@ -14,8 +14,6 @@ ZSH=$HOME/.oh-my-zsh
 # disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
-source $ZSH/oh-my-zsh.sh
-
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
   export ZSH_THEME="steeef-custom"
@@ -36,6 +34,8 @@ fi
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
 export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
+
+source $ZSH/oh-my-zsh.sh
 
 # git
 alias g="git"
