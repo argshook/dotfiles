@@ -60,6 +60,12 @@ zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
 zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT_NORMAL="%{$limegreen%}→%{$reset_color%}"
+  VIM_PROMPT_INSERT="%{$orange%}⇶%{$reset_color%}"
+  VIM_MODE="${${KEYMAP/vicmd/$VIM_PROMPT_NORMAL}/(main|viins)/$VIM_PROMPT_INSERT}"
+  zle reset-prompt
+}
 
 function steeef_preexec {
     case "$(history $HISTCMD)" in
@@ -95,9 +101,11 @@ function steeef_precmd {
 }
 add-zsh-hook precmd steeef_precmd
 
-PROMPT=$'
-%{$limegreen%}% %2/%{$reset_color%} $vcs_info_msg_0_
-$(virtualenv_info)→ '
+zle -N zle-line-init
+zle -N zle-keymap-select
 
-RPROMPT=$' %{$limegreen%}◷ %T%{$reset_color%}'
+PROMPT=$'%{$limegreen%}% %2/%{$reset_color%} $vcs_info_msg_0_
+$(virtualenv_info)$VIM_MODE '
+
+RPROMPT=$'%{$limegreen%}◷ %T%{$reset_color%}'
 

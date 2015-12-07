@@ -35,7 +35,11 @@ export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
 source $ZSH/oh-my-zsh.sh
 
+# theme
 source ~/.argsdotfiles/zsh/theme.zsh-theme
+
+# vi keys bindings
+bindkey -v
 
 # git
 alias g="git"
