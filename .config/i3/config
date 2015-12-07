@@ -36,8 +36,8 @@ set $workspace-games "games"
 font pango:DejaVu Sans Mono 10
 
 
-assign [class="Steam"] 3 $workspace-games
-assign [window_role="pop-up" class="google-chrome"] 5 $workspace-chat
+assign [class="Steam"] 6 $workspace-games
+assign [window_role="pop-up" class="google-chrome"] 4 $workspace-chat
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
