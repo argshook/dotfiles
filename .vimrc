@@ -36,6 +36,7 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mfransen/vimwiki-todo-jabberbot'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -112,12 +113,6 @@ if v:version >= 703
 
   " ui
   set wildmenu " enhanced comman line completion
-
-  " move between splits with c + hjkl
-  map <C-J> <C-W>j
-  map <C-K> <C-W>k
-  map <C-H> <C-W>h
-  map <C-L> <C-W>l
 
   set t_Co=256
   set laststatus=2
