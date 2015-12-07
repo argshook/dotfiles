@@ -16,7 +16,6 @@ ZSH=$HOME/.oh-my-zsh
 
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
-  export ZSH_THEME="steeef-custom"
   source ~/.oh-my-zsh/workhorse
   source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   plugins=(git brew git-flow github npm osx sublime autojump)
@@ -27,7 +26,6 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  export ZSH_THEME="steeef"
   plugins=(git git-flow github npm autojump)
 fi
 
@@ -36,6 +34,8 @@ export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
 source $ZSH/oh-my-zsh.sh
+
+source ~/.argsdotfiles/zsh/theme.zsh-theme
 
 # git
 alias g="git"
