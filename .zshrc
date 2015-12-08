@@ -41,6 +41,9 @@ source ~/.argsdotfiles/zsh/theme.zsh-theme
 # vi keys bindings
 bindkey -v
 
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+
 # git
 alias g="git"
 alias ga="git add"
@@ -93,5 +96,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # 10ms for key sequences
 KEYTIMEOUT=1
-
 
