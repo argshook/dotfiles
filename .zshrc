@@ -75,6 +75,7 @@ alias tmuxl="tmux ls" # list all sessions
 alias servedir="python -m SimpleHTTPServer 4523 && chrome localhost:4523"
 alias filesize=__fileSize
 alias grep="grep --color=auto"
+alias cl="clear"
 
 function __bowerGetMain {
   if [ "$1x" != 'x' ]; then
