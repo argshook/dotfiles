@@ -130,6 +130,12 @@ if v:version >= 703
 
   colorscheme cobalt2
 
+  " disable arrow keys
+  noremap <Up> <NOP>
+  noremap <Down> <NOP>
+  noremap <Left> <NOP>
+  noremap <Right> <NOP>
+
   " prevent entering to ex mode
   nnoremap Q <nop>
 
