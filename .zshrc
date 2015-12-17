@@ -95,6 +95,9 @@ export LC_ALL=en_US.UTF-8
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# do not share command history between terminal instances
+unsetopt SHARE_HISTORY
+
 # 10ms for key sequences
 KEYTIMEOUT=1
 
