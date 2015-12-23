@@ -212,7 +212,9 @@ bar {
 # wallpaper
 exec_always feh --bg-scale /home/argshook/Pictures/wallpapers/wallpaper.jpg
 
+exec ~/.config/i3/keyboard-layout-switcher.sh
 exec gtk-redshift
 exec unclutter -idle 3
 exec wicd
 exec wicd-gtk
+
