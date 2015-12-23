@@ -10,6 +10,7 @@
 !.gitconfig
 !.config/i3status
 !.config/i3
+!.ssh/config
 
 # enable few misc thingies
 !.eslintrc
