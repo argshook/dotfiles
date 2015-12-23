@@ -1,180 +1,115 @@
+source ~/.argsdotfiles/vim/neobundle.vim
+source ~/.argsdotfiles/vim/airline.vim
+source ~/.argsdotfiles/vim/ctrlp.vim
+source ~/.argsdotfiles/vim/buffergator.vim
+source ~/.argsdotfiles/vim/nerdtree.vim
+source ~/.argsdotfiles/vim/syntastic.vim
+
+filetype plugin indent on
+syntax enable
+let mapleader = ","
+
 set nocompatible
 set autoread
 
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle'))
+" allow hidden buffers
+set hidden
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set relativenumber
+set number
+set linebreak
+set textwidth=120
+set showmatch
+set visualbell
+set t_vb=
+set mouse=a
+set title
 
-" Add or remove your Bundles here:
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'scrooloose/nerdTree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'jeetsukumaran/vim-buffergator'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'elmcast/elm-vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'mattn/calendar-vim'
-NeoBundle 'mfransen/vimwiki-todo-jabberbot'
-NeoBundle 'christoomey/vim-tmux-navigator'
+set smartcase
+set ignorecase
+set incsearch
 
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell'
+set autoindent
+set cindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set smartindent
+set smarttab
+set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
+set ttyfast
+set lazyredraw
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" split to right and below
+set splitbelow
+set splitright
 
-call neobundle#end()
+set scrolloff=5
+set cursorline
 
-" Required:
-filetype plugin indent on
+set ruler
+set undolevels=1000
+set backspace=indent,eol,start
 
-if v:version >= 703
-  let mapleader = ","
+" code folding
+set foldmethod=indent
+set nofoldenable
+set foldlevel=1
 
-  source ~/.argsdotfiles/vim/airline.vim
-  source ~/.argsdotfiles/vim/ctrlp.vim
-  source ~/.argsdotfiles/vim/buffergator.vim
-  source ~/.argsdotfiles/vim/nerdtree.vim
-  source ~/.argsdotfiles/vim/syntastic.vim
+" emmet config
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,scss EmmetInstall
 
-  syntax enable
+" ui
+set wildmenu " enhanced comman line completion
 
-  " allow hidden buffers
-  set hidden
+set t_Co=256
+set laststatus=2
 
-  set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  set relativenumber
-  set number
-  set linebreak
-  set textwidth=120
-  set showmatch
-  set visualbell
-  set t_vb=
+let g:gitgutter_realtime=1
+set updatetime=750
 
-  set smartcase
-  set ignorecase
-  set incsearch
+" tab completion
+imap <Tab> <C-P>
 
-  set autoindent
-  set cindent
-  set expandtab
-  set shiftwidth=2
-  set softtabstop=2
-  set smartindent
-  set smarttab
-  set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
-  set ttyfast
-  set lazyredraw
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
-  " split to right and below
-  set splitbelow
-  set splitright
+" shortcut to save
+nmap <leader>s :w<cr>
 
-  set scrolloff=5
-  set cursorline
+colorscheme cobalt2
 
-  set ruler
-  set undolevels=1000
-  set backspace=indent,eol,start
+" disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
-  " code folding
-  set foldmethod=indent
-  set nofoldenable
-  set foldlevel=1
+" prevent entering to ex mode
+nnoremap Q <nop>
 
-  " emmet config
-  let g:user_emmet_install_global = 0
-  autocmd FileType html,css,scss EmmetInstall
+" shorten mapping delay so that esc reacts immediately
+set timeoutlen=200 ttimeoutlen=0
 
-  set title
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+  if exists('t:zoomed') && t:zoomed
+    execute t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
+endfunction
 
-  " ui
-  set wildmenu " enhanced comman line completion
+command! ZoomToggle call s:ZoomToggle()
 
-  set t_Co=256
-  set laststatus=2
+" Zoom / Restore with ,,
+nnoremap <leader><leader> :ZoomToggle<CR>
 
-  let g:gitgutter_realtime=1
-  set updatetime=750
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
-  " tab completion
-  imap <Tab> <C-P>
-
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
-
-  " shortcut to save
-  nmap <leader>s :w<cr>
-
-  colorscheme cobalt2
-
-  " disable arrow keys
-  noremap <Up> <NOP>
-  noremap <Down> <NOP>
-  noremap <Left> <NOP>
-  noremap <Right> <NOP>
-
-  " prevent entering to ex mode
-  nnoremap Q <nop>
-
-  " shorten mapping delay so that esc reacts immediately
-  set timeoutlen=200 ttimeoutlen=0
-
-  " Zoom / Restore window.
-  function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-      execute t:zoom_winrestcmd
-      let t:zoomed = 0
-    else
-      let t:zoom_winrestcmd = winrestcmd()
-      resize
-      vertical resize
-      let t:zoomed = 1
-    endif
-  endfunction
-  command! ZoomToggle call s:ZoomToggle()
-  " Zoom / Restore with ,,
-  nnoremap <leader><leader> :ZoomToggle<CR>
-
-  " for calendar plugin
-  function! ToggleCalendar()
-    execute ":CalendarH"
-    if exists("g:calendar_open")
-      if g:calendar_open == 1
-        execute "q"
-        unlet g:calendar_open
-      else
-        g:calendar_open = 1
-      end
-    else
-      let g:calendar_open = 1
-    end
-  endfunction
-
-  :autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
-
-  autocmd Filetype gitcommit setlocal spell textwidth=72
-
-endif
