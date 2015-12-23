@@ -193,6 +193,7 @@ bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh && ~/.config/i3lock/lock-post
 bindsym $mod+z exec ~/.config/i3/keyboard-layout-switcher.sh
 
 #exec_always compton -f -I 0.018 -O 0.04
+exec_always compton --config ~/.argsdotfiles/compton.conf
 exec_always ~/.config/i3/xautolock.sh
 
 bar {
@@ -216,5 +217,6 @@ bar {
 exec_always feh --bg-scale /home/argshook/Pictures/wallpapers/wallpaper.jpg
 
 exec gtk-redshift
+exec unclutter -idle 3
 exec wicd
 exec wicd-gtk
