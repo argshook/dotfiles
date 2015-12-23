@@ -186,10 +186,6 @@ bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh && ~/.config/i3lock/lock-post
 # finds out, if available)
 
 # keyboard layouts
-#setxkbmap lt,en
-#setxkbmap -option 'grp:ctrl_alt_toggle'
-#bindsym Mod1+space setxkbmap
-#bindsym Mod4+z (setxkbmap -query | grep -q "layout:\l\+us") && setxkbmap lt || setxkbmap us
 bindsym $mod+z exec ~/.config/i3/keyboard-layout-switcher.sh
 
 #exec_always compton -f -I 0.018 -O 0.04
