@@ -7,13 +7,12 @@ nmap <leader>k :BuffergatorMruCycleNext<cr>
 " Go to the previous buffer open
 nmap <leader>j :BuffergatorMruCyclePrev<cr>
 
-" View the entire list of buffers open
-nmap <leader>bl :BuffergatorOpen<cr>
-
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
 
-
 " Use the right side of the screen
-let g:buffergator_viewport_split_policy = 'R'
+let g:buffergator_viewport_split_policy = 'B'
+let g:buffergator_hsplit_size = 8
+let g:buffergator_sort_regime = 'mru'
+let g:buffergator_show_full_directory_path = 0
 
