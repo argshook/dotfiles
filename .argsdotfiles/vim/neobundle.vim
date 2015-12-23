@@ -10,7 +10,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'Shougo/unite'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
 

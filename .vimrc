@@ -90,6 +90,9 @@ noremap <Right> <NOP>
 " prevent entering to ex mode
 nnoremap Q <nop>
 
+" open unite files interface
+nnoremap <Leader>f :Unite file buffer<CR>
+
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
 
