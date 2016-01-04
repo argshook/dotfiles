@@ -22,27 +22,9 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/syntastic'
 
 " language specific
-NeoBundle 'pangloss/vim-javascript', {
-      \ 'lazy' : 1,
-      \ 'autoload': {
-      \    'filetypes': ['js', 'jsx', 'es6']
-      \  }
-      \}
-
-NeoBundle 'jelera/vim-javascript-syntax', {
-      \ 'lazy' : 1,
-      \ 'autoload': {
-      \    'filetypes': ['js', 'jsx', 'es6']
-      \  }
-      \}
-
-NeoBundle 'cakebaker/scss-syntax.vim', {
-      \ 'lazy' : 1,
-      \ 'autoload': {
-      \    'filetypes': ['sass', 'scss']
-      \  }
-      \}
-
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'cakebaker/scss-syntax.vim'
 
 " misc
 NeoBundle 'vimwiki/vimwiki'
