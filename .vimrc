@@ -94,6 +94,9 @@ nnoremap Q <nop>
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
 
+" set paste/nopaste toggle key
+set pastetoggle=<leader>p
+
 set clipboard=unnamed
 
 " Zoom / Restore window.
