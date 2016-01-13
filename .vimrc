@@ -4,6 +4,7 @@ source ~/.argsdotfiles/vim/ctrlp.vim
 source ~/.argsdotfiles/vim/buffergator.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/syntastic.vim
+source ~/.argsdotfiles/vim/unite.vim
 
 filetype plugin indent on
 syntax enable
@@ -59,8 +60,8 @@ set nofoldenable
 set foldlevel=1
 
 " emmet config
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css,scss EmmetInstall
 
 " ui
 set wildmenu " enhanced comman line completion
@@ -90,11 +91,10 @@ noremap <Right> <NOP>
 " prevent entering to ex mode
 nnoremap Q <nop>
 
-" open unite files interface
-nnoremap <Leader>f :Unite file buffer<CR>
-
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
+
+set clipboard=unnamed
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
