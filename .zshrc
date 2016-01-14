@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 # lock screen after 3 minutes of inactivity
 
 # disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # disable colors in ls
 # DISABLE_LS_COLORS="true"
