@@ -28,3 +28,6 @@ nnoremap ^ g^
 " open unite files interface
 nnoremap <Leader>f :Unite file buffer<CR>
 
+" set paste/nopaste toggle key
+set pastetoggle=<leader>p
+

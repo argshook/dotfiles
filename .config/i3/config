@@ -45,6 +45,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
+# change wallpaper
+bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -214,8 +217,7 @@ bar {
 }
 
 # wallpaper
-exec_always feh --bg-scale /home/argshook/Pictures/wallpapers/wallpaper.jpg
-
+exec_always ~/.argsdotfiles/feh.py
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec gtk-redshift
 exec unclutter -idle 3
