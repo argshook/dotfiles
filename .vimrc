@@ -71,36 +71,11 @@ set laststatus=2
 let g:gitgutter_realtime=1
 set updatetime=750
 
-" tab completion
-imap <Tab> <C-P>
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
-
-" shortcut to save
-nmap <leader>s :w<cr>
 
 colorscheme cobalt2
 
-" disable arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-" prevent entering to ex mode
-nnoremap Q <nop>
-
-" remap j k to mo in wrapped lines easily
-nnoremap <buffer> k gk
-nnoremap <buffer> j gj
-
-" more goodies for wrapped line navigation
-nnoremap 0 g0
-nnoremap $ g$
-nnoremap ^ g^
-
-" open unite files interface
-nnoremap <Leader>f :Unite file buffer<CR>
+source ~/.argsdotfiles/vim/keybindings.vim
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
