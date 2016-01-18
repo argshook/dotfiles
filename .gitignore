@@ -1,15 +1,16 @@
 # ignore everything in this folder
-/*
+*
 
 # but allow certain things:
 !.gitignore
-!.argsdotfiles/
+!.argsdotfiles
 !.vimrc
 !.tmux.conf
 !.zshrc
 !.gitconfig
 !.config/i3status
 !.config/i3
+!.config/nvim
 !.ssh/config
 
 # enable few misc thingies
