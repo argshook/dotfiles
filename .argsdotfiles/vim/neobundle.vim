@@ -39,6 +39,7 @@ NeoBundle 'tpope/vim-markdown'
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tomtom/tinykeymap_vim'
 
 " eyecandy
 NeoBundle 'flazz/vim-colorschemes'
