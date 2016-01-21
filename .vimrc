@@ -58,10 +58,6 @@ set foldmethod=indent
 set nofoldenable
 set foldlevel=1
 
-" emmet config
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
-
 " ui
 set wildmenu " enhanced comman line completion
 
