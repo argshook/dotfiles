@@ -1,3 +1,4 @@
+let mapleader = ","
 source ~/.argsdotfiles/vim/neobundle.vim
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
@@ -7,7 +8,6 @@ source ~/.argsdotfiles/vim/syntastic.vim
 
 filetype plugin indent on
 syntax enable
-let mapleader = ","
 
 set nocompatible
 set autoread
