@@ -239,7 +239,7 @@ smart_gaps on
 # keyboard layouts
 bindsym $mod+z exec ~/.config/i3/keyboard-layout-switcher.sh
 
-exec_always compton --config ~/.argsdotfiles/compton.conf
+exec compton --config ~/.argsdotfiles/compton.conf
 exec_always ~/.config/i3/xautolock.sh
 
 bar {
