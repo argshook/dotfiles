@@ -14,6 +14,13 @@ DISABLE_AUTO_UPDATE="true"
 # disable red dots displayed while waiting for completion
 # DISABLE_COMPLETION_WAITING_DOTS="true"
 
+export NVM_DIR="$HOME/.nvm"
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
+export ZSH=$HOME/.oh-my-zsh
+export PHANTOMJS_BIN=/usr/local/bin/phantomjs
+
+source $ZSH/oh-my-zsh.sh
+
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
   source ~/.oh-my-zsh/workhorse
@@ -22,18 +29,17 @@ if [ $HOST = "workhorse" ]; then
 
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   . `brew --prefix`/etc/profile.d/z.sh
+
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  plugins=(git git-flow github npm autojump)
+ plugins=(git git-flow github npm autojump)
+
+ source /usr/share/nvm/nvm.sh
+ source /usr/share/nvm/bash_completion
 fi
-
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
-export ZSH=$HOME/.oh-my-zsh
-export PHANTOMJS_BIN=/usr/local/bin/phantomjs
-
-source $ZSH/oh-my-zsh.sh
 
 # theme
 source ~/.argsdotfiles/zsh/theme.zsh-theme
@@ -48,6 +54,7 @@ bindkey '^r' history-incremental-search-backward
 alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
+alias gco="git checkout"
 alias gpl="git pl"
 alias gra="git rm $(git ls-files --deleted)"
 alias gs="git status"
@@ -91,9 +98,6 @@ function __fileSize {
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # do not share command history between terminal instances
 unsetopt SHARE_HISTORY
