@@ -39,6 +39,7 @@ if [ $HOST = "slipper" ]; then
 
  source /usr/share/nvm/nvm.sh
  source /usr/share/nvm/bash_completion
+ source ~/.argsdotfiles/zsh/ssh-agent.sh
 fi
 
 # theme
