@@ -23,10 +23,12 @@ set number
 set linebreak
 set textwidth=120
 set showmatch
+set hlsearch
 set visualbell
 set t_vb=
 set mouse=a
 set title
+set undofile
 
 set smartcase
 set ignorecase
@@ -42,6 +44,7 @@ set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set ttyfast
 set lazyredraw
+set colorcolumn=100
 
 " split to right and below
 set splitbelow

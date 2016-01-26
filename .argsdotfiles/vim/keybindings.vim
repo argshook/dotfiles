@@ -31,3 +31,9 @@ nnoremap <Leader>f :Unite file buffer<CR>
 " set paste/nopaste toggle key
 set pastetoggle=<leader>p
 
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap <tab> %
+vnoremap <tab> %
+
