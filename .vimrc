@@ -5,6 +5,7 @@ source ~/.argsdotfiles/vim/ctrlp.vim
 source ~/.argsdotfiles/vim/buffergator.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/syntastic.vim
+source ~/.argsdotfiles/vim/tinykeymap.vim
 
 filetype plugin indent on
 syntax enable
