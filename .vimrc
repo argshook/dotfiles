@@ -6,6 +6,7 @@ source ~/.argsdotfiles/vim/buffergator.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/syntastic.vim
 source ~/.argsdotfiles/vim/tinykeymap.vim
+source ~/.argsdotfiles/vim/keybindings.vim
 
 filetype plugin indent on
 syntax enable
@@ -74,8 +75,6 @@ set updatetime=750
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
 colorscheme cobalt2
-
-source ~/.argsdotfiles/vim/keybindings.vim
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
