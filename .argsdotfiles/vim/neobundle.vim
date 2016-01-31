@@ -45,7 +45,8 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
