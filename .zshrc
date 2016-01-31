@@ -35,7 +35,18 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
- plugins=(git git-flow github npm autojump ssh-agent)
+ plugins=(git git-flow github npm autojump)
+
+ SSHPID=`ps ax|grep -c "[s]sh-agent"`
+ if (( $SSHPID == 0 ))
+ then
+   touch ~/.ssh-env
+   ssh-agent | head -2 > ~/.ssh-env
+   source ~/.ssh-env
+   ssh-add
+ else
+   source ~/.ssh-env
+fi
 
  source /usr/share/nvm/nvm.sh
  source /usr/share/nvm/bash_completion
