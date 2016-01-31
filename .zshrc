@@ -39,7 +39,6 @@ if [ $HOST = "slipper" ]; then
 
  source /usr/share/nvm/nvm.sh
  source /usr/share/nvm/bash_completion
- source ~/.argsdotfiles/zsh/ssh-agent.sh
 fi
 
 # theme
@@ -55,7 +54,6 @@ bindkey '^r' history-incremental-search-backward
 alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
-alias gco="git checkout"
 alias gpl="git pl"
 alias gra="git rm $(git ls-files --deleted)"
 alias gs="git status"
@@ -67,7 +65,7 @@ alias glweek="git shortlog -s --since="last week""
 alias gp="git push"
 alias gm="git merge"
 alias gpo="git push origin"
-alias gsh="git stash"
+alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gshl="git stash list"
 alias gshc="git stash clear"
 alias gsha="git stash apply"

@@ -13,6 +13,7 @@
 !.config/nvim
 !.ssh/config
 !screen-256color.ti
+!.bash_profile
 
 # enable few misc thingies
 !.eslintrc

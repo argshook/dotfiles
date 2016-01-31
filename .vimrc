@@ -1,16 +1,9 @@
+source ~/.argsdotfiles/vim/neobundle.vim
+
 let mapleader = ","
 
-source ~/.argsdotfiles/vim/neobundle.vim
-source ~/.argsdotfiles/vim/airline.vim
-source ~/.argsdotfiles/vim/ctrlp.vim
-source ~/.argsdotfiles/vim/buffergator.vim
-source ~/.argsdotfiles/vim/nerdtree.vim
-source ~/.argsdotfiles/vim/syntastic.vim
-source ~/.argsdotfiles/vim/tinykeymap.vim
-source ~/.argsdotfiles/vim/keybindings.vim
-
-filetype plugin indent on
 syntax enable
+filetype plugin indent on
 
 set nocompatible
 set autoread
@@ -31,11 +24,9 @@ set t_vb=
 set mouse=a
 set title
 set undofile
-
 set smartcase
 set ignorecase
 set incsearch
-
 set autoindent
 set cindent
 set expandtab
@@ -51,7 +42,7 @@ set lazyredraw
 set splitbelow
 set splitright
 
-set scrolloff=5
+set scrolloff=3
 set cursorline
 
 set ruler
@@ -73,10 +64,18 @@ set laststatus=2
 let g:gitgutter_realtime=1
 set updatetime=750
 
-"colorscheme cobalt2
+colorscheme cobalt2
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+source ~/.argsdotfiles/vim/airline.vim
+source ~/.argsdotfiles/vim/ctrlp.vim
+source ~/.argsdotfiles/vim/buffergator.vim
+source ~/.argsdotfiles/vim/nerdtree.vim
+source ~/.argsdotfiles/vim/syntastic.vim
+source ~/.argsdotfiles/vim/tinykeymap.vim
+source ~/.argsdotfiles/vim/keybindings.vim
 
