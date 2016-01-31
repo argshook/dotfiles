@@ -35,12 +35,7 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
- plugins=(git git-flow github npm autojump)
-
- if [ -z "$SSH_AUTH_SOCK" ] ; then
-   eval `ssh-agent -s`
-   ssh-add
- fi
+ plugins=(git git-flow github npm autojump ssh-agent)
 
  source /usr/share/nvm/nvm.sh
  source /usr/share/nvm/bash_completion
