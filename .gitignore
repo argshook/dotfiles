@@ -12,6 +12,7 @@
 !.config/i3
 !.config/nvim
 !.ssh/config
+!screen-256color.ti
 
 # enable few misc thingies
 !.eslintrc

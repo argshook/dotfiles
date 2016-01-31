@@ -20,7 +20,6 @@ NeoBundle 'tpope/vim-fugitive' "{{{
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
 
@@ -64,6 +63,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 "NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'vimwiki/vimwiki'
 "NeoBundle 'mfransen/vimwiki-todo-jabberbot'
+"NeoBundle 'Shougo/unite.vim'
 
 NeoBundle 'Shougo/vimshell'
 

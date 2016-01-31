@@ -1,4 +1,5 @@
 let mapleader = ","
+
 source ~/.argsdotfiles/vim/neobundle.vim
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
@@ -45,7 +46,6 @@ set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set ttyfast
 set lazyredraw
-set colorcolumn=100
 
 " split to right and below
 set splitbelow
@@ -65,6 +65,7 @@ set foldlevel=1
 
 " ui
 set wildmenu " enhanced comman line completion
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
 set t_Co=256
 set laststatus=2
@@ -72,30 +73,10 @@ set laststatus=2
 let g:gitgutter_realtime=1
 set updatetime=750
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
-
-colorscheme cobalt2
+"colorscheme cobalt2
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=200 ttimeoutlen=0
-
-" Zoom / Restore window.
-function! s:ZoomToggle() abort
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfunction
-
-command! ZoomToggle call s:ZoomToggle()
-
-" Zoom / Restore with ,,
-nnoremap <leader><leader> :ZoomToggle<CR>
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 

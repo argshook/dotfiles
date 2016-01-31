@@ -17,16 +17,13 @@ noremap <Esc> <Esc>:noh<cr>
 nnoremap Q <nop>
 
 " remap j k to mo in wrapped lines easily
-nnoremap <buffer> k gk
-nnoremap <buffer> j gj
+noremap <buffer> k gk
+noremap <buffer> j gj
 
 " more goodies for wrapped line navigation
 nnoremap 0 g0
 nnoremap $ g$
 nnoremap ^ g^
-
-" open unite files interface
-nnoremap <Leader>f :Unite file buffer<CR>
 
 " set paste/nopaste toggle key
 set pastetoggle=<leader>p
@@ -36,4 +33,22 @@ vnoremap / /\v
 
 nnoremap <tab> %
 vnoremap <tab> %
+
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+  if exists('t:zoomed') && t:zoomed
+    execute t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
+endfunction
+
+command! ZoomToggle call s:ZoomToggle()
+
+" Zoom / Restore with ,,
+nnoremap <leader><leader> :ZoomToggle<CR>
 
