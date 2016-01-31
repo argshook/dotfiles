@@ -37,6 +37,11 @@ fi
 if [ $HOST = "slipper" ]; then
  plugins=(git git-flow github npm autojump)
 
+ if [ -z "$SSH_AUTH_SOCK" ] ; then
+   eval `ssh-agent -s`
+   ssh-add
+ fi
+
  source /usr/share/nvm/nvm.sh
  source /usr/share/nvm/bash_completion
 fi
@@ -50,22 +55,26 @@ bindkey -v
 # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
-# git
+# git stagins
 alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
-alias gpl="git pl"
+alias gpl="git pull --rebase"
 alias gra="git rm $(git ls-files --deleted)"
 alias gs="git status"
-alias gss="gs -sb"
+alias gss="git status --short --branch"
 alias gd="git diff"
 alias gds="git diff --staged"
-alias gl="git lg"
+
+# git logging
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias glweek="git shortlog -s --since="last week""
+
 alias gp="git push"
-alias gm="git merge"
 alias gpo="git push origin"
-alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+
+# git stashing
 alias gshl="git stash list"
 alias gshc="git stash clear"
 alias gsha="git stash apply"
