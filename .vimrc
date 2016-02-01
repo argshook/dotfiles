@@ -36,9 +36,10 @@ set smartindent
 set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set ttyfast
-set lazyredraw
 set showtabline=0 " disable tabline
+set noshowmode
 set showcmd
+set clipboard+=unnamedplus
 
 " split to right and below
 set splitbelow

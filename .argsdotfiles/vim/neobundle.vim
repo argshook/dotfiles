@@ -22,6 +22,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
+NeoBundle 'rking/ag.vim'
 
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'jeetsukumaran/vim-buffergator'
