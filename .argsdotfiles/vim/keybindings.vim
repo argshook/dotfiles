@@ -11,10 +11,17 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " hitting escape will also clean highlighting
-noremap <Esc> <Esc>:noh<cr>
+noremap <silent> <Esc> <Esc>:noh<cr>
 
-" prevent entering to ex mode
+" prevent entering to ex mode by hitting Q
 nnoremap Q <nop>
+
+" easier access to command line mode
+nnoremap ` q:
+cnoremap <silent> ` :q<cr>
+
+" reload .vimrc
+noremap <leader>r :so $MYVIMRC<cr>
 
 " remap j k to mo in wrapped lines easily
 noremap <buffer> k gk
