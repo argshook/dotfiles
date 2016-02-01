@@ -81,6 +81,7 @@ alias gp="git push"
 alias gpo="git push origin"
 
 # git stashing
+alias gsh="git stash"
 alias gshl="git stash list"
 alias gshc="git stash clear"
 alias gsha="git stash apply"

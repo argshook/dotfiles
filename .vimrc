@@ -38,6 +38,7 @@ set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set ttyfast
 set lazyredraw
 set showtabline=0 " disable tabline
+set showcmd
 
 " split to right and below
 set splitbelow
