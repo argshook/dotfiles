@@ -23,6 +23,9 @@ cnoremap <silent> ` :q<cr>
 " reload .vimrc
 noremap <leader>r :so $MYVIMRC<cr>
 
+" toggle spell check
+noremap <F5> :setlocal spell! spelllang=en_us<CR>
+
 " remap j k to mo in wrapped lines easily
 noremap <buffer> k gk
 noremap <buffer> j gj

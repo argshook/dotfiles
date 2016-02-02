@@ -34,7 +34,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'gabrielelana/vim-markdown'
 
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
