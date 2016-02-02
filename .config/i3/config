@@ -25,12 +25,12 @@ set $base0D #268bd2
 set $base0E #2aa198
 set $base0F #859900
 
-set $workspace-www "www"
-set $workspace-terminal "terminal"
-set $workspace-work "work"
-set $workspace-chat "chat"
-set $workspace-music "music"
-set $workspace-games "games"
+set $workspace-www www
+set $workspace-terminal terminal
+set $workspace-work work
+set $workspace-chat chat
+set $workspace-music music
+set $workspace-games games
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -244,26 +244,26 @@ exec_always ~/.config/i3/xautolock.sh
 
 bar {
   font pango: DejaVu Sans Mono 10
+  height 25
   status_command i3status
   position top
   strip_workspace_numbers yes
   colors {
     separator $base04
-    background $base02
-    statusline $base01
+    background $base03
+    statusline $base08
     #                  border  background text
-    focused_workspace  $base02 $base02    $base08
-    active_workspace   $base01 $base02    $base03
-    inactive_workspace $base01 $base01    $base03
-    urgent_workspace   $base01 $base01    $base0A
+    focused_workspace  $base03 $base02    $base08
+    active_workspace   $base03 $base03    $base03
+    inactive_workspace $base03 $base03    $base00
+    urgent_workspace   $base03 $base03    $base0A
   }
 }
 
 # wallpaper
-exec_always ~/.argsdotfiles/feh.py
+exec ~/.argsdotfiles/feh.py
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
-exec unclutter -idle 3
 exec wicd
 exec wicd-gtk
 
