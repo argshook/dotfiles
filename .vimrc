@@ -73,6 +73,7 @@ colorscheme cobalt2
 set timeoutlen=200 ttimeoutlen=0
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd BufRead,BufNewFile   *.md,*.markdown set shiftwidth=4 softtabstop=4
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
