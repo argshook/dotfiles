@@ -34,13 +34,14 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'gabrielelana/vim-markdown'
 
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'gabrielelana/vim-markdown'
+NeoBundle 'godlygeek/tabular'
 
 " eyecandy
 NeoBundle 'flazz/vim-colorschemes'
