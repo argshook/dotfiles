@@ -70,10 +70,10 @@ set updatetime=750
 colorscheme cobalt2
 
 " shorten mapping delay so that esc reacts immediately
-set timeoutlen=200 ttimeoutlen=0
+set timeoutlen=400
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd BufRead,BufNewFile   *.md,*.markdown set shiftwidth=4 softtabstop=4
+autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
