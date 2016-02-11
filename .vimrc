@@ -40,6 +40,8 @@ set showtabline=0 " disable tabline
 set noshowmode
 set showcmd
 set clipboard+=unnamedplus
+set lazyredraw
+set autoread
 
 " split to right and below
 set splitbelow
