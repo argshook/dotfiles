@@ -1,6 +1,5 @@
 # Path to oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-# lock screen after 3 minutes of inactivity
 
 # disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
@@ -25,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 if [ $HOST = "workhorse" ]; then
   source ~/.oh-my-zsh/workhorse
   source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  plugins=(git brew git-flow github npm osx sublime autojump)
+  plugins=(git brew git-flow github npm osx autojump)
 
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   . `brew --prefix`/etc/profile.d/z.sh
@@ -35,21 +34,25 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
- plugins=(git git-flow github npm autojump)
+  plugins=(git git-flow github npm autojump)
 
- SSHPID=`ps ax|grep -c "[s]sh-agent"`
- if (( $SSHPID == 0 ))
- then
-   touch ~/.ssh-env
-   ssh-agent | head -2 > ~/.ssh-env
-   source ~/.ssh-env
-   ssh-add
- else
-   source ~/.ssh-env
-fi
+  SSHPID=`ps ax|grep -c "[s]sh-agent"`
+  if (( $SSHPID == 0 ))
+  then
+    touch ~/.ssh-env
+    ssh-agent | head -2 > ~/.ssh-env
+    source ~/.ssh-env
+    ssh-add
+  else
+    source ~/.ssh-env
+  fi
 
- source /usr/share/nvm/nvm.sh
- source /usr/share/nvm/bash_completion
+  source /usr/share/nvm/nvm.sh
+  source /usr/share/nvm/bash_completion
+  source ~/.zsh/zsh-autosuggestions/dist/autosuggestions.zsh
+  bindkey '^ ' autosuggest-accept
+
+  autosuggest_start
 fi
 
 # theme
@@ -59,12 +62,14 @@ source ~/.argsdotfiles/zsh/theme.zsh-theme
 bindkey -v
 
 # ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
+bindkey '^r' history-incremental-pattern-search-backward
+export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
-# git stagins
+# git stagings
 alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
+alias gco="git checkout"
 alias gpl="git pull --rebase"
 alias gra="git rm $(git ls-files --deleted)"
 alias gs="git status"
