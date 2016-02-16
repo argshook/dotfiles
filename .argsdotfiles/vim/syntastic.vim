@@ -9,4 +9,5 @@ let g:syntastic_check_on_wq = 0
 
 " checkers
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_scss_checkers = ['sassc']
 
