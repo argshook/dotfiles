@@ -34,13 +34,14 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'elmcast/elm-vim'
 
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
-NeoBundle 'gabrielelana/vim-markdown'
+"NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'godlygeek/tabular'
 
 " eyecandy
@@ -63,7 +64,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " leftovers
 "NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'elmcast/elm-vim'
 "NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'vimwiki/vimwiki'
 "NeoBundle 'mfransen/vimwiki-todo-jabberbot'
