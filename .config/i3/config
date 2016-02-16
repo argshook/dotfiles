@@ -223,9 +223,9 @@ bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh && ~/.config/i3lock/lock-post
 
 # Window Colors
 #                         border  background text    indicator
-  client.focused          $base0A $base03    $base07 $base07
-  client.focused_inactive $base01 $base02    $base03 $base0F
-  client.unfocused        $base02 $base02    $base03 $base0F
+  client.focused          $base02 $base01    $base07 $base07
+  client.focused_inactive $base02 $base02    $base04 $base0F
+  client.unfocused        $base02 $base02    $base01 $base0F
   client.urgent           $base02 $base08    $base00 $base0F
 
 # hide title bar
