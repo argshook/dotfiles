@@ -27,8 +27,8 @@ noremap <leader>r :so $MYVIMRC<cr>
 noremap <F5> :setlocal spell! spelllang=en_us<CR>
 
 " remap j k to mo in wrapped lines easily
-noremap <buffer> k gk
-noremap <buffer> j gj
+noremap k gk
+noremap j gj
 
 " more goodies for wrapped line navigation
 nnoremap 0 g0
