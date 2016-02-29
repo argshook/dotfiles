@@ -30,6 +30,11 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'scrooloose/syntastic'
 
+" snippets
+NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 " language specific
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'

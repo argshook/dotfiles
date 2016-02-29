@@ -80,8 +80,15 @@ autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
 source ~/.argsdotfiles/vim/buffergator.vim
+source ~/.argsdotfiles/vim/neosnippet.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/syntastic.vim
 source ~/.argsdotfiles/vim/tinykeymap.vim
 source ~/.argsdotfiles/vim/keybindings.vim
+
+
+
+
+
+
 
