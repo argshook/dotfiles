@@ -1,0 +1,18 @@
+snippet it
+options word
+  it('should ${1:do what}', function() {
+    ${2}
+  });
+
+
+snippet describe
+options word
+  describe('${1:what}', function() {
+    ${2}
+  });
+
+
+snippet expect
+options word
+  expect(${1:one thing}).${2:toBe}(${3:another thing});
+
