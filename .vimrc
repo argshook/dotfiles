@@ -86,9 +86,3 @@ source ~/.argsdotfiles/vim/syntastic.vim
 source ~/.argsdotfiles/vim/tinykeymap.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 
-
-
-
-
-
-

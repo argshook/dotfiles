@@ -1,5 +1,6 @@
 " tab completion
 imap <Tab> <C-P>
+imap <S-Tab> <C-N>
 
 " shortcut to save
 nmap <leader>s :w<cr>
