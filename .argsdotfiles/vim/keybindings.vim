@@ -1,6 +1,12 @@
 " tab completion
-imap <Tab> <C-P>
-imap <S-Tab> <C-N>
+imap <Tab> <C-N>
+imap <S-Tab> <C-P>
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>" 
+
+xmap <C-k>     <Plug>(neosnippet_target)
+smap <TAB> <Plug>(neosnippet_jump)
 
 " shortcut to save
 nmap <leader>s :w<cr>
@@ -42,8 +48,8 @@ set pastetoggle=<leader>p
 nnoremap / /\v
 vnoremap / /\v
 
-nnoremap <tab> %
-vnoremap <tab> %
+nmap <tab> %
+xmap <tab> %
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
