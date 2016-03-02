@@ -2,8 +2,8 @@
 imap <Tab> <C-N>
 imap <S-Tab> <C-P>
 
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>" 
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 xmap <C-k>     <Plug>(neosnippet_target)
 smap <TAB> <Plug>(neosnippet_jump)
@@ -69,3 +69,12 @@ command! ZoomToggle call s:ZoomToggle()
 " Zoom / Restore with ,,
 nnoremap <leader><leader> :ZoomToggle<CR>
 
+" toggle wrap
+map <leader>w :set wrap!<cr>
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
