@@ -47,7 +47,7 @@ set autoread
 set splitbelow
 set splitright
 
-set scrolloff=3
+set scrolloff=2
 set cursorline
 
 set ruler
@@ -73,6 +73,9 @@ colorscheme cobalt2
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=400
+
+" stop syntax highlighting after 400 chars. This makes scrolling files with super long lines way faster.
+set synmaxcol=400
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
