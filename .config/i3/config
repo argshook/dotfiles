@@ -263,6 +263,7 @@ bar {
 # wallpaper
 exec ~/.argsdotfiles/feh.py
 exec ~/.config/i3/keyboard-layout-switcher.sh
+exec unclutter -idle 3
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 exec wicd
 exec wicd-gtk
