@@ -44,7 +44,7 @@ assign [window_role="pop-up" class="google-chrome"] 4 $workspace-chat
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec terminology
 
 # change wallpaper
 bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
