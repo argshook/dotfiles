@@ -48,7 +48,7 @@ set splitbelow
 set splitright
 
 set scrolloff=2
-set cursorline
+"set cursorline
 
 set ruler
 set undolevels=1000
