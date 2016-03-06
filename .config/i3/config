@@ -243,13 +243,13 @@ exec_always compton --config ~/.argsdotfiles/compton.conf
 exec_always ~/.config/i3/xautolock.sh
 
 bar {
-  font pango: DejaVu Sans Mono 10
-  height 25
+  font pango: DejaVu Sans Mono 9
+  height 30
   status_command i3status
   position top
   strip_workspace_numbers yes
   colors {
-    separator $base04
+    separator $base00
     background $base03
     statusline $base08
     #                  border  background text
