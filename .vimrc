@@ -87,5 +87,6 @@ source ~/.argsdotfiles/vim/neosnippet.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/syntastic.vim
 source ~/.argsdotfiles/vim/tinykeymap.vim
+source ~/.argsdotfiles/vim/tern.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 

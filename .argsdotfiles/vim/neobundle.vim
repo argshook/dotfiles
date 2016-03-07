@@ -40,6 +40,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
+NeoBundle 'ternjs/tern_for_vim' " run `npm i` in `~/.vim/bundle/tern_for_vim/`
 
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
