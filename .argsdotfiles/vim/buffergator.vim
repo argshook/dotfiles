@@ -15,4 +15,5 @@ let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_hsplit_size = 8
 let g:buffergator_sort_regime = 'mru'
 let g:buffergator_show_full_directory_path = 0
+let g:buffergator_autoexpand_on_split = 0
 
