@@ -6,6 +6,3 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
-" enable only some extensions 'cause by default everything is enabled if plugin is found
-let g:airline_extensions = ['highlighter', 'branch', 'ctrlp']
-
