@@ -44,6 +44,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'benekastah/neomake'
 
 " eyecandy
 NeoBundle 'flazz/vim-colorschemes'
