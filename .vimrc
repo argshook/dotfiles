@@ -77,7 +77,7 @@ set timeoutlen=400
 " stop syntax highlighting after 400 chars. This makes scrolling files with super long lines way faster.
 set synmaxcol=400
 
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 
 source ~/.argsdotfiles/vim/airline.vim
