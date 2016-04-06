@@ -6,6 +6,6 @@ endif
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Easy bindings for various modes
-nmap <leader>bb :CtrlPBuffer<cr>
-nmap <leader>bm :CtrlPMixed<cr>
-nmap <leader>bs :CtrlPMRU<cr>
+"nmap <leader>bb :CtrlPBuffer<cr>
+"nmap <leader>bm :CtrlPMixed<cr>
+"nmap <leader>bs :CtrlPMRU<cr>
