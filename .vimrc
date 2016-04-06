@@ -36,7 +36,7 @@ set smartindent
 set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set ttyfast
-set showtabline=0 " disable tabline
+set showtabline=1
 set noshowmode
 set showcmd
 set clipboard+=unnamedplus
