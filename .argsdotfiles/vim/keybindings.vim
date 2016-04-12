@@ -78,3 +78,7 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+
+" display number of matches for search pattern
+map ,* *<C-O>:%s///gn<CR>
+
