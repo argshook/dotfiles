@@ -44,3 +44,41 @@ options word
     ${6:expect}
   });
 
+snippet component
+options head
+  ;(function() {
+    'use strict';
+
+    angular
+      .module(${1:module})
+      .component('${2:component}', {
+        ${3:bindings: {\},}
+        ${4:templateUrl: '',}
+        ${6:controller: function() {}}
+      });
+  })();
+
+snippet componentTest
+options head
+  'use strict';
+
+  describe('Component: ${1:component}', function() {
+    var compile;
+
+    var parentScopeMock = {};
+
+    var elementAttrsMock = {};
+
+    beforeEach(module('app'));
+
+    beforeEach(inject(function($compile, $rootScope) {
+      compile = createCompiler('<${2:component} />', $rootScope, $compile);
+    }));
+
+    it('should compile successfully', function() {
+      compile(parentScopeMock, elementAttrsMock, function(scope, element) {
+        expect(element.find('.${2:component}').length).toBe(1);
+      });
+    });
+  });
+
