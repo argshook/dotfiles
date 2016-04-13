@@ -69,7 +69,7 @@ options head
 
     var elementAttrsMock = {};
 
-    beforeEach(module('app'));
+    beforeEach(module('${1:component}'));
 
     beforeEach(inject(function($compile, $rootScope) {
       compile = createCompiler('<${2:component} />', $rootScope, $compile);
