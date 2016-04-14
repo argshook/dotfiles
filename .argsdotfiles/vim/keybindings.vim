@@ -82,3 +82,6 @@ endif
 " display number of matches for search pattern
 map ,* *<C-O>:%s///gn<CR>
 
+" edit previous file
+nnoremap <leader>e :e#<CR>
+
