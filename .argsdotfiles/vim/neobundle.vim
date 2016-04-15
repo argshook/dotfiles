@@ -38,6 +38,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+let g:used_javascript_libs = 'jquery,underscore,angular,react,jasmine,chai'
 
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
@@ -48,13 +50,10 @@ NeoBundle 'benekastah/neomake'
 
 " eyecandy
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-
-NeoBundle 'Shougo/vimshell'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
