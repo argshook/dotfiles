@@ -45,9 +45,6 @@ nnoremap ^ g^
 " set paste/nopaste toggle key
 set pastetoggle=<leader>p
 
-nnoremap / /\v
-vnoremap / /\v
-
 nmap <tab> %
 xmap <tab> %
 
