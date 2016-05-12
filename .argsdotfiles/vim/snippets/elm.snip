@@ -10,3 +10,12 @@ options head
   in
     ${1:here}
 
+snippet htmlprogram
+options head
+  Html.App.program
+    { init = ${1:initialModel}
+    , view = view
+    , update = update
+    , subscriptions = \_ -> Sub.none
+    }
+
