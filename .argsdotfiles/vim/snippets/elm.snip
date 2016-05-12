@@ -19,3 +19,57 @@ options head
     , subscriptions = \_ -> Sub.none
     }
 
+snippet skeleton
+options head
+	module ${1:Name} exposing (..)
+
+	import Html.App exposing (..)
+	import Html exposing (..)
+	import Html.Attributes exposing (..)
+	import Html.Events exposing (..)
+
+	import String
+
+
+	type alias Model =
+		{ ${2:input} : ${3:String} }
+
+
+	initialModel : Model
+	initialModel =
+		{ $2 = "$2" }
+
+
+	type Msg
+		= Input $3
+
+
+	update : Msg -> Model -> (Model, Cmd Msg)
+	update msg model =
+		case msg of
+			Input new$2 ->
+				({ model | $2 = new$2 }, Cmd.none)
+
+
+
+	view : Model -> Html Msg
+	view model =
+		div
+			[]
+			[ input
+					[ onInput Input
+					, value model.$2
+					]
+					[]
+				, div [] [ text (String.reverse model.$2) ]
+				]
+
+
+	main =
+		Html.App.program
+			{ init = (initialModel, Cmd.none)
+			, view = view
+			, update = update
+			, subscriptions = \_ -> Sub.none
+			}
+
