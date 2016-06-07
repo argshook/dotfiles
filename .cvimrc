@@ -5,23 +5,30 @@ set smoothscroll
 let scrollstep = 100
 let blacklists = ["http://devdocs.io/*","https://inbox.google.com/*","https://mail.google.com/*","http://vim-adventures.com/*"]
 let hintcharacters = 'asdfghjkl'
+
 getIP() -> {{
-httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
-            function(res) { Status.setMessage('IP: ' + res.ip); });
+  httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+              function(res) { Status.setMessage('IP: ' + res.ip); });
 }}
+
 site '*://*.reddit.com/*' {
-   unmap j
-   unmap k
-   unmap x
-   unmap [
-   unmap ]
-   unmap [[
-   unmap ]]
-   unmap g
-   unmap n
-   unmap a
-   unmap z
-   unmap 9
-   unmap 0
+  unmap j
+  unmap k
+  unmap x
+  unmap [
+  unmap ]
+  unmap [[
+  unmap ]]
+  unmap g
+  unmap n
+  unmap a
+  unmap z
+  unmap 9
+  unmap 0
+}
+
+site '*://*.github.com/*' {
+  unmap t
+  unmap w
 }
 
