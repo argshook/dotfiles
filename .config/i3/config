@@ -55,12 +55,8 @@ bindsym $mod+Shift+q kill
 # disable ctrl+q (still bug since '08 https://bugs.chromium.org/p/chromium/issues/detail?id=147)
 bindsym  Control+q exec /bin/true
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 5 -eh 3 -width 50 -padding 10 -opacity "85" -bw 0 -bc "$base01" -bg "$base02" -fg "$base04" -hlbg "$base01" -hlfg "$base08" -font "DejaVu Sans Mono 13"
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show run -lines 5 -eh 3 -width 50 -padding 20 -opacity "85" -bw 0 -bc "$base01" -bg "$base02" -fg "$base04" -hlbg "$base01" -hlfg "$base08" -font "DejaVu Sans Mono 15"
 
 # change focus
 bindsym $mod+h focus left
