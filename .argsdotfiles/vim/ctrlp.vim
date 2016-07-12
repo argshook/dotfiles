@@ -6,5 +6,7 @@ endif
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_extensions = ['line']
 
+let g:ctrlp_cmd = 'CtrlPLastMode --dir'
+
 nmap <leader>/ :CtrlPLine<cr>
 

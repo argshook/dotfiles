@@ -82,3 +82,10 @@ map ,* *<C-O>:%s///gn<CR>
 " edit previous file
 nnoremap <leader>e :e#<CR>
 
+" location window, mostly to navigate linter errors
+nmap <Leader><Space>o :lopen<CR>  " open location window
+nmap <Leader><Space>c :lclose<CR> " close location window
+nmap <Leader><Space>, :ll<CR>     " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>  " next error/warning
+nmap <Leader><Space>p :lprev<CR>  " previous error/warning
+
