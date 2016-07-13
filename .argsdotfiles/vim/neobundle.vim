@@ -38,6 +38,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
+let g:elm_setup_keybindings = 0
+
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,angular,react,jasmine,chai'
 

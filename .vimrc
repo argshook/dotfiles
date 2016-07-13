@@ -79,6 +79,7 @@ set synmaxcol=400
 
 autocmd Filetype gitcommit setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
+autocmd BufRead,BufNewFile *.css set filetype=scss
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
