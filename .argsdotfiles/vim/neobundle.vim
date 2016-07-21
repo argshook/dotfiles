@@ -51,8 +51,13 @@ NeoBundle 'ap/vim-css-color'
 NeoBundle 'benekastah/neomake'
 
 " eyecandy
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
+
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'

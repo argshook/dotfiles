@@ -48,7 +48,7 @@ set splitbelow
 set splitright
 
 set scrolloff=2
-"set cursorline
+set cursorline
 
 set ruler
 set undolevels=1000
@@ -71,6 +71,7 @@ set updatetime=750
 
 colorscheme cobalt2
 
+
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=400
 
@@ -80,6 +81,7 @@ set synmaxcol=400
 autocmd Filetype gitcommit setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
+autocmd BufRead,BufNewFile *.elm set shiftwidth=2
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
