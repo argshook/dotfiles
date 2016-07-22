@@ -8,5 +8,8 @@ let g:ctrlp_extensions = ['line']
 
 let g:ctrlp_cmd = 'CtrlPLastMode --dir'
 
+" this is for opening marked files as hidden buffers instead of as vertical splits
+let g:ctrlp_open_multiple_files = 'ij'
+
 nmap <leader>/ :CtrlPLine<cr>
 
