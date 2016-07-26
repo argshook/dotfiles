@@ -91,5 +91,6 @@ source ~/.argsdotfiles/vim/neosnippet.vim
 source ~/.argsdotfiles/vim/neomake.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/tinykeymap.vim
+source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 
