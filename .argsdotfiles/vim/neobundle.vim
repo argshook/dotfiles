@@ -25,7 +25,6 @@ NeoBundle 'scrooloose/nerdTree'
 NeoBundle 'rking/ag.vim'
 
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'christoomey/vim-tmux-navigator'
 

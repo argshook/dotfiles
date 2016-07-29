@@ -13,7 +13,6 @@ set hidden
 
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set relativenumber
 set number
 set linebreak
 set textwidth=120
@@ -86,7 +85,6 @@ autocmd BufRead,BufNewFile *.elm set shiftwidth=2
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
-source ~/.argsdotfiles/vim/buffergator.vim
 source ~/.argsdotfiles/vim/neosnippet.vim
 source ~/.argsdotfiles/vim/neomake.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
