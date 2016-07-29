@@ -28,7 +28,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
 
 function! CtrlPMappings()
-  nnoremap <buffer> <silent> <C-x> :call <sid>DeleteBuffer()<cr>
+  nnoremap <buffer> <silent> <C-q> :call <sid>DeleteBuffer()<cr>
 endfunction
 
 function! s:DeleteBuffer()
