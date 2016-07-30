@@ -214,8 +214,14 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
-bindsym XF86KbdBrightnessDown exec xbacklight -dec 5
-bindsym XF86KbdBrightnessUp exec xbacklight -inc 10
+# available when using xf86-video-intel
+#bindsym XF86KbdBrightnessDown exec xbacklight -dec 5
+#bindsym XF86KbdBrightnessUp exec xbacklight -inc 10
+
+
+# available when using light-git (install from AUR)
+bindsym XF86KbdBrightnessDown exec light -U 2
+bindsym XF86KbdBrightnessUp exec light -A 2
 
 # Touchpad control
 #XF86TouchpadToggle
