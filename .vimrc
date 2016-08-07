@@ -8,11 +8,9 @@ filetype plugin indent on
 set nocompatible
 set autoread
 
-" allow hidden buffers
-set hidden
-
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set hidden
 set number
 set linebreak
 set textwidth=120
@@ -43,14 +41,12 @@ set clipboard+=unnamedplus
 set lazyredraw
 set autoread
 
-" split to right and below
-set splitbelow
+set splitbelow " split to right and below
 set splitright
 
 set scrolloff=2
 set cursorline
 
-set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 
@@ -75,10 +71,13 @@ colorscheme cobalt2
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=400
 
-" stop syntax highlighting after 400 chars. This makes scrolling files with super long lines way faster.
-set synmaxcol=400
+" stop syntax highlighting after 400 chars.
+" This makes scrolling files with super long lines way faster.
+set synmaxcol=300
 
 autocmd Filetype gitcommit setlocal textwidth=72
+autocmd Filetype help setlocal scrolloff=999
+
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
