@@ -89,3 +89,13 @@ nmap <Leader><Space>, :ll<CR>     " go to current error/warning
 nmap <Leader><Space>n :lnext<CR>  " next error/warning
 nmap <Leader><Space>p :lprev<CR>  " previous error/warning
 
+function! RenameFile()
+let old_name = expand('%')
+let new_name = input('New file name: ', expand('%'), 'file')
+if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+endif
+endfunction
+map <leader>n :call RenameFile()<cr>
