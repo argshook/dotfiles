@@ -25,5 +25,3 @@ nmap <leader>k :bprevious<cr>
 " Close the current buffer and move to the previous one
 nmap <leader>q :bp <BAR> bd #<CR>
 
-let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
-
