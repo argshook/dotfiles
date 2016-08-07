@@ -27,15 +27,3 @@ nmap <leader>q :bp <BAR> bd #<CR>
 
 let g:ctrlp_buffer_func = { 'enter': 'CtrlPMappings' }
 
-function! CtrlPMappings()
-  nnoremap <buffer> <silent> <C-q> :call <sid>DeleteBuffer()<cr>
-endfunction
-
-function! s:DeleteBuffer()
-  let path = fnamemodify(getline('.')[2:], ':p')
-  let bufn = matchstr(path, '\v\d+\ze\*No Name')
-  exec "bd" bufn ==# "" ? path : bufn
-  exec "norm \<F5>"
-endfunction
-
-
