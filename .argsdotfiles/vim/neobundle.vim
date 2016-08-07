@@ -49,6 +49,7 @@ NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vimwiki/vimwiki'
 
 " eyecandy
 NeoBundle 'nathanaelkane/vim-indent-guides'
