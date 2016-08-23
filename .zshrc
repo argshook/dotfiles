@@ -65,6 +65,8 @@ bindkey -v
 bindkey '^r' history-incremental-pattern-search-backward
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
+alias kurwa="killall -9"
+
 # git stagings
 alias g="git"
 alias ga="git add"
