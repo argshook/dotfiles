@@ -12,7 +12,6 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set hidden
 set number
-set relativenumber
 set linebreak
 set textwidth=120
 set showmatch
