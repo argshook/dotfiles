@@ -89,6 +89,13 @@ nmap <Leader><Space>, :ll<CR>     " go to current error/warning
 nmap <Leader><Space>n :lnext<CR>  " next error/warning
 nmap <Leader><Space>p :lprev<CR>  " previous error/warning
 
+" quickfix window, mostly to navigate Ag or grep results
+nmap [q :cprevious<CR>
+nmap ]q :cnext<CR>
+nmap [Q :cfirst<CR>
+nmap ]Q :clast<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
+
 function! RenameFile()
 let old_name = expand('%')
 let new_name = input('New file name: ', expand('%'), 'file')
