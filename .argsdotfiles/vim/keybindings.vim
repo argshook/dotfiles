@@ -83,6 +83,7 @@ map ,* *<C-O>:%s///gn<CR>
 nnoremap <leader>e :e#<CR>
 
 " location window, mostly to navigate linter errors
+" TODO: maybe ]l and [l instead of leader?
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
 nmap <Leader><Space>, :ll<CR>     " go to current error/warning
