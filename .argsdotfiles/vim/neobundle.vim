@@ -26,6 +26,9 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 " language specific
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
 let g:elm_setup_keybindings = 0
