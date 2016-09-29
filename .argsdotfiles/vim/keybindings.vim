@@ -119,3 +119,6 @@ nnoremap <silent> <leader>gpl :Gpull --rebase<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gr :Gremove<CR>
 
+" change current working directory to current file and print it after changing
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
