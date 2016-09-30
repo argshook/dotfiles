@@ -139,7 +139,7 @@
       // http://eslint.org/docs/rules/no-whitespace-before-property
       'no-whitespace-before-property': 2,
       // require padding inside curly braces
-      'object-curly-spacing': [2, 'always'],
+      'object-curly-spacing': [0, 'never'],
       // allow just one var statement per function
       'one-var': [2, 'never'],
       // require a newline around variable declaration
