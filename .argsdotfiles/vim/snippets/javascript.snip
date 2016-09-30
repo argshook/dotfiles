@@ -1,12 +1,12 @@
 snippet it
 options word
-  it('should ${1:do what}', function() {
+  it('should ${1:do what}', () => {
     ${2}
   });
 
 snippet itt
 options word
-  it('should ${1:do what}', inject(function(${2}) {
+  it('should ${1:do what}', inject((${2}) => {
     ${3}
   }));
 
@@ -16,7 +16,7 @@ options word
 
 snippet beforeEach
 options word
-  beforeEach(inject(function(${1:$compile, $rootScope}) {
+  beforeEach(inject((${1:$compile, $rootScope}) => {
     ${2}
   }));
 
@@ -26,7 +26,7 @@ options word
 
 snippet describe
 options word
-  describe('${1:what}', function() {
+  describe('${1:what}', () => {
     ${2}
   });
 
@@ -36,7 +36,8 @@ options word
 
 snippet compile
 options word
-  compile(${1:parentScopeMock}${2:, elementAttrsMock, }function (${4:scope}${5:, element}${6:, driver}) {
+  compile(${1:parentScopeMock}${2:, elementAttrsMock, }(${4:scope}${5:,
+  element}${6:, driver}) => {
     ${7:expect}
   });
 
