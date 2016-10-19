@@ -10,6 +10,7 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_line_prefix = '  '
 let g:ctrlp_types = ['fil', 'buf', 'mru']
 let g:ctrlp_mruf_relative = 1
+let g:ctrlp_working_path_mode = 'a'
 
 " this is for opening marked files as hidden buffers instead of as vertical splits
 let g:ctrlp_open_multiple_files = 'ij'

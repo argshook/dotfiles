@@ -86,9 +86,9 @@ nnoremap <leader>e :e#<CR>
 " TODO: maybe ]l and [l instead of leader?
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
-nmap <Leader><Space>, :ll<CR>     " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>  " next error/warning
-nmap <Leader><Space>p :lprev<CR>  " previous error/warning
+nmap ]; :ll<CR>    " go to current error/warning
+nmap ]l :lnext<CR>  " next error/warning
+nmap [l :lprev<CR>  " previous error/warning
 
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
