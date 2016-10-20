@@ -69,13 +69,6 @@ nnoremap <leader><leader> :ZoomToggle<CR>
 " toggle wrap
 map <leader>w :set wrap!<cr>
 
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-
 " display number of matches for search pattern
 map ,* *<C-O>:%s///gn<CR>
 
@@ -83,7 +76,6 @@ map ,* *<C-O>:%s///gn<CR>
 nnoremap <leader>e :e#<CR>
 
 " location window, mostly to navigate linter errors
-" TODO: maybe ]l and [l instead of leader?
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
 nmap ]; :ll<CR>    " go to current error/warning

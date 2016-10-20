@@ -56,7 +56,7 @@ set nofoldenable
 set foldlevel=1
 
 " ui
-set wildmenu " enhanced comman line completion
+set wildmenu " enhanced command line completion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
 set t_Co=256
@@ -86,6 +86,8 @@ autocmd Filetype help setlocal scrolloff=999
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
+
+autocmd VimEnter * cd %:p:h
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/ctrlp.vim
