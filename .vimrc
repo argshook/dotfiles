@@ -79,8 +79,7 @@ set synmaxcol=300
 autocmd BufEnter * if &readonly | set so=999 | endif
 autocmd BufLeave * if &readonly | set so=2 | endif
 
-autocmd Filetype gitcommit setlocal textwidth=72
-autocmd Filetype vimwiki setlocal textwidth=72
+autocmd Filetype gitcommit,markdown,vimwiki setlocal textwidth=72
 autocmd Filetype help setlocal scrolloff=999
 
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
