@@ -46,6 +46,13 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'path_html': '~/Public/html/vimwiki/'}]
 
+NeoBundle 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " eyecandy
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_start_level = 2
