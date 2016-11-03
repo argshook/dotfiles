@@ -119,5 +119,5 @@ function! JumpToMiddleOfParagraph()
     execute "normal! " . aa . "G"
 endfunction
 
-nnoremap Y :call JumpToMiddleOfParagraph()<CR>
+nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
