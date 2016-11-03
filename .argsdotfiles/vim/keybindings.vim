@@ -20,12 +20,8 @@ noremap <Right> <NOP>
 " hitting escape will also clean highlighting
 noremap <silent> <Esc> <Esc>:noh<cr>
 
-" prevent entering to ex mode by hitting Q
-nnoremap Q <nop>
-
-" easier access to command line mode
-nnoremap ` q:
-cnoremap <silent> ` :q<cr>
+" go to previous mark line and col
+nnoremap ' `
 
 " reload .vimrc
 noremap <leader>r :so $MYVIMRC<cr>
