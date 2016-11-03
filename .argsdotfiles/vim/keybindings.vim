@@ -114,3 +114,10 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 " change current working directory to current file and print it after changing
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+function! JumpToMiddleOfParagraph()
+    let aa = float2nr(round((line("'}") + line("'{")) / 2))
+    execute "normal! " . aa . "G"
+endfunction
+
+nnoremap Y :call JumpToMiddleOfParagraph()<CR>
+
