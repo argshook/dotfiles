@@ -43,6 +43,7 @@ NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'path_html': '~/Public/html/vimwiki/'}]
 
