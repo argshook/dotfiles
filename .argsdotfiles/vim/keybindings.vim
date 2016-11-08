@@ -23,6 +23,9 @@ noremap <silent> <Esc> <Esc>:noh<cr>
 " go to previous mark line and col
 nnoremap ' `
 
+" i dont use ex mode (yet)
+nnoremap Q <nop>
+
 " reload .vimrc
 noremap <leader>r :so $MYVIMRC<cr>
 
