@@ -100,7 +100,8 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 
-nnoremap <silent> <leader>gs :Gstatus<CR>
+" fugitive
+nnoremap <silent> <leader>gs :Gstatus<CR><C-w>20+
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
