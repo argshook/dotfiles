@@ -121,3 +121,6 @@ endfunction
 
 nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
+" print date for fun
+inoremap <F5> <C-R>=strftime("%c")<CR>
+
