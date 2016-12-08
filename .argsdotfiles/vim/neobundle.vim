@@ -21,6 +21,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 
 " snippets
 NeoBundle 'Shougo/deoplete.nvim'
+let g:deoplete#file#enable_buffer_path = 1
+
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
