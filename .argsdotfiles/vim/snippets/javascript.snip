@@ -84,3 +84,11 @@ snippet =>
 options word
   () => { ${0} }
 
+
+snippet test
+options word
+  test('${1:thing}', t => {
+    t.equal(${2:true}, ${3:true}, '${4:should work}');
+    t.end();
+  });
+
