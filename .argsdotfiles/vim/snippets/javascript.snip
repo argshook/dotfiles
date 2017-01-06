@@ -92,3 +92,11 @@ options word
     t.end();
   });
 
+
+snippet testisdef
+options word
+  test('${1:thing}', t => {
+    t.equal(typeof ${2:true}, 'function', 'should be defined');
+    t.end();
+  });
+

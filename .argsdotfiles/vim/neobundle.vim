@@ -30,6 +30,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
+NeoBundle 'ternjs/tern_for_vim'
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
