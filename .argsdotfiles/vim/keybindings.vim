@@ -86,7 +86,10 @@ nmap [q :cprevious<CR>
 nmap ]q :cnext<CR>
 nmap [Q :cfirst<CR>
 nmap ]Q :clast<CR>
+
+" close location and quickfix window with q
 autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> q :lclose<CR>
 
 function! RenameFile()
 let old_name = expand('%')
@@ -123,4 +126,9 @@ nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
 " print date for fun
 inoremap <F5> <C-R>=strftime("%c")<CR>
+
+" Tern
+autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
+autocmd Filetype javascript nnoremap <silent> gp :TernDefPreview<CR>
+autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 
