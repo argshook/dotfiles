@@ -103,8 +103,9 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 
-" fugitive
-nnoremap <silent> <leader>gs :Gstatus<CR><C-w>20+
+" fugitive & Magit
+"nnoremap <silent> <leader>gs :Gstatus<CR><C-w>20+
+nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
