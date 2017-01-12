@@ -7,7 +7,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " essentials
 NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
-NeoBundle 'jreybert/vimagit'
+" using next branch because of this https://github.com/jreybert/vimagit/issues/96
+NeoBundle 'jreybert/vimagit', 'next'
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
