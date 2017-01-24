@@ -8,13 +8,6 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
-
 URxvt.depth:                32
 URxvt.geometry:             105x21
 URxvt.transparent:          false
@@ -51,44 +44,42 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-!!Source http://github.com/altercation/solarized
+! Colors
 
-*background: #111111
-*foreground: #839496
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
+! special
+*.foreground:   #a39a90
+*.background:   #16130f
+*.cursorColor:  #a39a90
 
-!! black dark/light
-*color0: #073642
-*color8: #002b36
+! black
+*.color0:       #16130f
+*.color8:       #5a5047
 
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
+! red
+*.color1:       #826d57
+*.color9:       #826d57
 
-!! green dark/light
-*color2: #859900
-*color10: #586e75
+! green
+*.color2:       #57826d
+*.color10:      #57826d
 
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
+! yellow
+*.color3:       #6d8257
+*.color11:      #6d8257
 
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
+! blue
+*.color4:       #6d5782
+*.color12:      #6d5782
 
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
+! magenta
+*.color5:       #82576d
+*.color13:      #82576d
 
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
+! cyan
+*.color6:       #576d82
+*.color14:      #576d82
 
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+! white
+*.color7:       #a39a90
+*.color15:      #dbd6d1
+
