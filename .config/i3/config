@@ -226,6 +226,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86KbdBrightnessDown exec light -U 2
 bindsym XF86KbdBrightnessUp exec light -A 2
 
+# toggle touchpad with F9
+bindsym XF86TouchpadToggle exec ~/.argsdotfiles/toggle-touchpad.sh
+
 # Touchpad control
 #XF86TouchpadToggle
 
