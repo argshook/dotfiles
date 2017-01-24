@@ -38,8 +38,8 @@ URxvt.urlLauncher:          chromium
 
 ! Cursor
 URxvt.cursorBlink:          false
-URxvt.cursorColor:          #333333
-URxvt.cursorUnderline:      false
+URxvt.cursorColor:          #57826d
+URxvt.cursorUnderline:      true
 
 ! Pointer
 URxvt.pointerBlank:         true
