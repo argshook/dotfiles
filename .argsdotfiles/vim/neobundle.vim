@@ -33,6 +33,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 NeoBundle 'ternjs/tern_for_vim'
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
