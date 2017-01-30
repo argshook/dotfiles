@@ -51,7 +51,7 @@
       'no-undefined': 0, // disallow use of undefined variable
       'no-unused-vars': [2, { 'vars': 'local', 'args': 'after-used' }], // disallow declaration of variables that are not used in the code
       'no-use-before-define': 0, // disallow use of variables before they are defined
-      'array-bracket-spacing': [2, 'never'], // enforce spacing inside array brackets
+      'array-bracket-spacing': [0, 'never'], // enforce spacing inside array brackets
       'brace-style': [2, '1tbs', { 'allowSingleLine': true }], // enforce one true brace style
       'camelcase': [2, { 'properties': 'never' }], // require camel case names
       'comma-spacing': [2, { 'before': false, 'after': true }], // enforce spacing before and after comma
