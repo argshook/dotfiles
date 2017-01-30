@@ -109,7 +109,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-bindsym $mod+m [instance="__focused__"] floating enable; resize shrink width 10000px; resize grow width 1000px; resize shrink height 10000px; resize grow height 900px; move position center;
+#bindsym $mod+m [instance="__focused__"] floating enable; resize shrink width 10000px; resize grow width 1000px; resize shrink height 10000px; resize grow height 900px; move position center;
 
 # switch to workspace
 bindsym $mod+1 workspace number 1 $workspace-www
@@ -228,6 +228,7 @@ bindsym XF86KbdBrightnessUp exec light -A 2
 
 # toggle touchpad with F9
 bindsym XF86TouchpadToggle exec ~/.argsdotfiles/toggle-touchpad.sh
+bindsym $mod+m exec ~/.argsdotfiles/toggle-touchpad.sh
 
 # Touchpad control
 #XF86TouchpadToggle
