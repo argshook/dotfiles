@@ -8,7 +8,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " using next branch because of this https://github.com/jreybert/vimagit/issues/96
-NeoBundle 'jreybert/vimagit', 'next'
+NeoBundle 'jreybert/vimagit'
+autocmd User VimagitEnterCommit startinsert
+let g:magit_show_help=0
+let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'info', 'global_help' ]
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
