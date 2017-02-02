@@ -23,6 +23,7 @@ NeoBundle 'rking/ag.vim'
 
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'airblade/vim-gitgutter'
+let g:gitgutter_diff_args = '-w'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 " snippets
@@ -65,6 +66,9 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+let g:easy_align_delimiters = {
+\ '/': { 'pattern': '//\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] }
+\ }
 
 " eyecandy
 NeoBundle 'nathanaelkane/vim-indent-guides'
