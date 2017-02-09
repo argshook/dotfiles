@@ -133,3 +133,6 @@ autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
 autocmd Filetype javascript nnoremap <silent> gp :TernDefPreview<CR>
 autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 
+" fold with leadet
+nnoremap <silent> <leader>z za
+
