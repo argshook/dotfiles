@@ -119,8 +119,8 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 function! JumpToMiddleOfParagraph()
-    let aa = float2nr(round((line("'}") + line("'{")) / 2))
-    execute "normal! " . aa . "G"
+    let line = float2nr(round((line("'}") + line("'{")) / 2))
+    execute "normal! " . line . "G"
 endfunction
 
 nnoremap T :call JumpToMiddleOfParagraph()<CR>
