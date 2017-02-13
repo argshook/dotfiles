@@ -136,3 +136,15 @@ autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 " fold with leadet
 nnoremap <silent> <leader>z za
 
+" numbers with alt (meta) key hahah
+inoremap <silent> <M-a> 1
+inoremap <silent> <M-s> 2
+inoremap <silent> <M-d> 3
+inoremap <silent> <M-f> 4
+inoremap <silent> <M-g> 5
+inoremap <silent> <M-h> 6
+inoremap <silent> <M-j> 7
+inoremap <silent> <M-k> 8
+inoremap <silent> <M-l> 9
+inoremap <silent> <M-;> 0
+
