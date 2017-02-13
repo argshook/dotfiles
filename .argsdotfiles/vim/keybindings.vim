@@ -133,8 +133,9 @@ autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
 autocmd Filetype javascript nnoremap <silent> gp :TernDefPreview<CR>
 autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 
-" fold with leadet
+" fold with leader
 nnoremap <silent> <leader>z za
+nnoremap <silent> z<leader> za
 
 " numbers with alt (meta) key hahah
 inoremap <silent> <M-a> 1
