@@ -1,3 +1,5 @@
+" hey, you need to split this up
+
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle'))
 
@@ -58,7 +60,10 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'path_html': '~/Public/html/vimwiki/'}]
+
 NeoBundle 'jamessan/vim-gnupg'
+NeoBundle 'geekjuice/vim-mocha'
+let g:mocha_js_command = "!mocha --recursive --reporter list --compilers js:./node_modules/babel-core/register {spec}"
 
 NeoBundle 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)

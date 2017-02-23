@@ -153,3 +153,8 @@ inoremap <silent> <M-;> 0
 nnoremap <silent> ]g :GitGutterNextHunk<CR>
 nnoremap <silent> [g :GitGutterPrevHunk<CR>
 
+map <Leader>T :call RunCurrentSpecFile()<CR>
+map <Leader>t :call RunNearestSpec()<CR>
+map <Leader>u :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+
