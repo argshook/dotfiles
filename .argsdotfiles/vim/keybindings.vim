@@ -150,6 +150,6 @@ inoremap <silent> <M-l> 9
 inoremap <silent> <M-;> 0
 
 " jump between git hunks
-nnoremap <silent> ]g :GitGutterNextHunk
-nnoremap <silent> [g :GitGutterPrevHunk
+nnoremap <silent> ]g :GitGutterNextHunk<CR>
+nnoremap <silent> [g :GitGutterPrevHunk<CR>
 
