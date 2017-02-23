@@ -1,4 +1,4 @@
-imap <expr> <A-j> emmet#expandAbbrIntelligent("\<A-j>")
+imap <expr> <A-e> emmet#expandAbbrIntelligent("\<A-e>")
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss,javascript.jsx EmmetInstall
 
