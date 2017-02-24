@@ -14,7 +14,7 @@ NeoBundle 'jreybert/vimagit'
 autocmd User VimagitEnterCommit startinsert
 autocmd User VimagitBufferInit set foldenable
 let g:magit_show_help=0
-let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'info', 'global_help' ]
+let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'global_help' ]
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
