@@ -158,3 +158,5 @@ map <Leader>t :call RunNearestSpec()<CR>
 map <Leader>u :call RunLastSpec()<CR>
 "map <Leader>a :call RunAllSpecs()<CR>
 
+nnoremap <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
