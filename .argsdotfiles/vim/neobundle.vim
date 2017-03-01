@@ -12,6 +12,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 NeoBundle 'jreybert/vimagit'
 autocmd User VimagitEnterCommit startinsert
 autocmd User VimagitBufferInit set foldenable
+autocmd User VimagitBufferInit nunmap <silent> <buffer> 0
 let g:magit_show_help=0
 let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'stash', 'info', 'global_help' ]
 
