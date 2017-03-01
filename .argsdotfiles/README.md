@@ -8,6 +8,8 @@ clone this repo in your home folder:
 
 ```zsh
 $ git clone https://github.com/argshook/dotfiles.git
+$ git submodule init
+$ git submodule update
 ```
 
 # How does it work
