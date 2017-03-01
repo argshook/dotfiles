@@ -4,6 +4,8 @@
 # but allow certain things:
 !.gitignore
 !.argsdotfiles
+!.argsdotmodules/.gitkeep
+!.gitmodules
 !.vimrc
 !.tmux.conf
 !.zshrc
