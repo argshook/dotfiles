@@ -87,6 +87,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'junegunn/limelight.vim'
+let g:limelight_conceal_ctermfg = 'gray'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
