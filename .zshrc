@@ -18,10 +18,9 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.b
 export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
-source $ZSH/oh-my-zsh.sh
-
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
+  source $ZSH/oh-my-zsh.sh
   source ~/.oh-my-zsh/workhorse
   source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   plugins=(git brew git-flow github npm osx autojump)
@@ -34,7 +33,20 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  plugins=(git git-flow github npm autojump)
+  source ~/.argsdotmodules/antigen/antigen.zsh
+
+  antigen use oh-my-zsh
+  antigen bundle git
+  antigen bundle zsh-users/zsh-syntax-highlighting
+
+  antigen bundle Valiev/almostontop
+  antigen bundle djui/alias-tips
+
+  antigen apply
+
+  almostontop on
+
+  #plugins=(git git-flow github npm autojump)
 
   SSHPID=`ps ax|grep -c "[s]sh-agent"`
   if (( $SSHPID == 0 ))
