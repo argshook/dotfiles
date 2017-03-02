@@ -1,30 +1,25 @@
-# Path to oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
-
-# disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# disable red dots displayed while waiting for completion
-# DISABLE_COMPLETION_WAITING_DOTS="true"
-
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
 export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
+source ~/.argsdotmodules/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+# Path to oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+# disable weekly auto-update checks
+DISABLE_AUTO_UPDATE="true"
+
+antigen bundle git
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle djui/alias-tips
+
+antigen apply
+
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
   source $ZSH/oh-my-zsh.sh
-  source ~/.oh-my-zsh/workhorse
-  source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  plugins=(git brew git-flow github npm osx autojump)
-
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   . `brew --prefix`/etc/profile.d/z.sh
 
@@ -33,21 +28,6 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  source ~/.argsdotmodules/antigen/antigen.zsh
-
-  antigen use oh-my-zsh
-  antigen bundle git
-  antigen bundle zsh-users/zsh-syntax-highlighting
-
-  antigen bundle Valiev/almostontop
-  antigen bundle djui/alias-tips
-
-  antigen apply
-
-  almostontop on
-
-  #plugins=(git git-flow github npm autojump)
-
   SSHPID=`ps ax|grep -c "[s]sh-agent"`
   if (( $SSHPID == 0 ))
   then
