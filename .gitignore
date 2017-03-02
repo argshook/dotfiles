@@ -1,15 +1,15 @@
 # ignore everything in this folder
-*
+/*
 
 # but allow certain things:
 !.gitignore
-!.argsdotfiles
-!.argsdotmodules/.gitkeep
 !.gitmodules
+!.gitconfig
+!.argsdotfiles
+!.argsdotmodules
 !.vimrc
 !.tmux.conf
 !.zshrc
-!.gitconfig
 !.config/i3status
 !.config/i3
 !.config/nvim
