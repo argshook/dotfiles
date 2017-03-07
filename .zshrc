@@ -1,15 +1,10 @@
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
-export ZSH=$HOME/.oh-my-zsh
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
 antigen use oh-my-zsh
-# Path to oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-# disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
 
 antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -19,7 +14,6 @@ antigen apply
 
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
-  source $ZSH/oh-my-zsh.sh
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   . `brew --prefix`/etc/profile.d/z.sh
 
