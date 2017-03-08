@@ -31,6 +31,9 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 " snippets
 NeoBundle 'Shougo/deoplete.nvim'
 let g:deoplete#file#enable_buffer_path = 1
+NeoBundle 'davidhalter/jedi'
+NeoBundle 'zchee/deoplete-jedi'
+let g:deoplete#sources#jedi#show_docstring = 1
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
