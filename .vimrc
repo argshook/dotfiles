@@ -1,7 +1,14 @@
 source ~/.argsdotfiles/vim/neobundle.vim
 
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+let os = system('uname | awk $1')
+if os == 'Linux'
+  let g:python_host_prog = '/usr/bin/python'
+  let g:python3_host_prog = '/usr/bin/python3'
+elseif os == 'Darwin'
+  let g:python_host_prog = '/usr/local/bin/python'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+endif
+
 let mapleader = ","
 
 syntax enable
