@@ -104,3 +104,26 @@ snippet /t
 options word
   // TODO: ${0:shit}
 
+
+snippet reactComponentTest
+options word
+  import React from 'react';
+  import { expect } from 'chai';
+  import { ${1:shallow} } from 'enzyme';
+
+  import ${2:Component} from './$2';
+  import styles from './styles.css';
+
+  class Driver {
+    component;
+    requiredProps = {}
+    when = {
+      created: props => this.component = $1(<$2 {...{ ...this.requiredProps, ...props }} />)
+    }
+    get = {
+      root: () => this.component.find(\`.${styles.root}\`)
+    }
+  }
+
+  const driver = new Driver():
+
