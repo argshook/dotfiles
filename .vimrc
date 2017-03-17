@@ -85,11 +85,10 @@ set timeoutlen=400
 set synmaxcol=300
 
 " set scrolloff if the buffer is readonly (so mostly help files)
-autocmd BufEnter * if &readonly | setlocal scrolloff=999 | endif
+autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
+autocmd WinLeave */doc/*.txt set scrolloff=0
 
 autocmd Filetype gitcommit,markdown,vimwiki setlocal textwidth=72
-autocmd Filetype help setlocal scrolloff=999
-
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
