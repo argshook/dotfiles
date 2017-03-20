@@ -139,15 +139,25 @@ nnoremap <silent> z<leader> za
 
 " numbers with alt (meta) key hahah
 inoremap <silent> <M-a> 1
+noremap <silent> <M-a> 1
 inoremap <silent> <M-s> 2
+noremap <silent> <M-s> 2
 inoremap <silent> <M-d> 3
+noremap <silent> <M-d> 3
 inoremap <silent> <M-f> 4
+noremap <silent> <M-f> 4
 inoremap <silent> <M-g> 5
+noremap <silent> <M-g> 5
 inoremap <silent> <M-h> 6
+noremap <silent> <M-h> 6
 inoremap <silent> <M-j> 7
+noremap <silent> <M-j> 7
 inoremap <silent> <M-k> 8
+noremap <silent> <M-k> 8
 inoremap <silent> <M-l> 9
+noremap <silent> <M-l> 9
 inoremap <silent> <M-;> 0
+noremap <silent> <M-;> 0
 
 " jump between git hunks
 nnoremap <silent> ]g :GitGutterNextHunk<CR>
