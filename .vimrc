@@ -49,6 +49,7 @@ set noshowmode
 set showcmd
 set lazyredraw
 set autoread
+set conceallevel=0
 
 set splitbelow " split to right and below
 set splitright
