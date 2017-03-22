@@ -1,0 +1,35 @@
+set linkanimations
+set sortlinkhints
+set noautofocus
+set smoothscroll
+
+let scrollstep = 100
+let blacklists = ["https://mail.google.com/*","https://inbox.google.com/*"]
+let hintcharacters = 'asdfghjkl'
+let searchengine youtube = "https://www.youtube.com/results?search_query=%s"
+
+getIP() -> {{
+  httpRequest({
+    url: 'http://api.ipify.org/?format=json',
+    json: true
+  }, function(res) {
+    Status.setMessage('IP: ' + res.ip);
+  });
+}}
+
+site '*://*.reddit.com/*' {
+  unmap j
+  unmap k
+  unmap x
+  unmap [
+  unmap ]
+  unmap [[
+  unmap ]]
+  unmap g
+  unmap n
+  unmap a
+  unmap z
+  unmap 9
+  unmap 0
+}
+
