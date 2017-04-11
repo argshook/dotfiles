@@ -77,7 +77,10 @@ alias gsh="git stash"
 alias gshl="git stash list"
 alias gshc="git stash clear"
 alias gsha="git stash apply"
+
+# git misc
 alias gisnew="git remote update && gs"
+alias gitlarge='~/.argsdotfiles/zsh/git-largest-files.py'
 
 # tmux
 alias tmuxa="tmux -2 a -t" # attach to session
