@@ -16,7 +16,6 @@ filetype plugin indent on
 
 set nocompatible
 set autoread
-
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupcopy=yes
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -48,7 +47,6 @@ set showtabline=1
 set noshowmode
 set showcmd
 set lazyredraw
-set autoread
 set conceallevel=0
 
 set splitbelow " split to right and below
@@ -83,8 +81,9 @@ set timeoutlen=400
 
 " stop syntax highlighting after 400 chars.
 " This makes scrolling files with super long lines way faster.
-set synmaxcol=300
+set synmaxcol=1000
 
+autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd WinLeave */doc/*.txt set scrolloff=0
