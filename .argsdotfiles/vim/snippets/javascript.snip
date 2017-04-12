@@ -118,7 +118,7 @@ options word
     component;
     requiredProps = {}
     when = {
-      created: props => this.component = $1(<$2 {...{ ...this.requiredProps, ...props }} />)
+      created: props => this.component = $1(<$2 {...{ ...this.requiredProps, ...props }}/>)
     }
     get = {
       root: () => this.component.find(\`.${styles.root}\`)
