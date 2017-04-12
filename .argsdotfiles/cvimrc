@@ -1,18 +1,19 @@
-" to make this work in cVim extension:
+" to make this work first time in cVim:
 " 1. :settings
-" 2. paste this into 'cVimrc' text field:
+" 2. paste this into `cVimrc` text field:
 "   let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
 "   set localconfig
 "
 " Note: configpath depends on machine, and you can't use ~ (tilde) because fuck you
 "
-" 3. click 'Save' on top right
+" 3. click `Save` on top right
 " 4. :source
 
 set linkanimations
 set sortlinkhints
 set noautofocus
 set smoothscroll
+set linkanimations
 let scrollstep = 100
 let blacklists = ["http://devdocs.io/*","https://inbox.google.com/*","https://mail.google.com/*","http://vim-adventures.com/*"]
 let hintcharacters = 'asdfghjkl'
@@ -42,4 +43,8 @@ site '*://*.github.com/*' {
   unmap t
   unmap w
 }
+
+" leave these be for consecutive `:source`ing
+let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
+set localconfig
 
