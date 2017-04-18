@@ -121,7 +121,7 @@ options word
       created: props => this.component = $1(<$2 {...{ ...this.requiredProps, ...props }}/>)
     }
     get = {
-      root: () => this.component.find(\`.${styles.root}\`)
+      root: () => this.component.find(`.${styles.root}`)
     }
   }
 

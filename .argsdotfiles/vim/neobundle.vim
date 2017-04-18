@@ -14,6 +14,7 @@ NeoBundle 'jreybert/vimagit', 'dev/issue_123'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'wellle/targets.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
 NeoBundle 'rking/ag.vim'
@@ -68,8 +69,6 @@ let g:mocha_js_command = "!mocha --recursive --reporter list --compilers js:./no
 NeoBundle 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-NeoBundle 'wellle/visual-split.vim'
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
