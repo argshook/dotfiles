@@ -127,3 +127,19 @@ options word
 
   const driver = new Driver();
 
+snippet reactComponent
+options word
+  import React from 'react';
+  import PropTypes from 'prop-types';
+
+  const ${1:Component} = ({ ${2:prop} }) =>
+    <div>
+      ${4:Hello, World!}
+    </div>;
+
+  $1.propTypes = {
+    $2: PropTypes.${3:string}.isRequired
+  };
+
+  export default $1;
+
