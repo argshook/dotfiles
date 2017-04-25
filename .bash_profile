@@ -1,11 +1,4 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  ssh-add
+if [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
 fi
 
