@@ -25,7 +25,8 @@ getIP() -> {{
 
 
 let searchengine github = "https://github.com/search?utf8=%E2%9C%93&q=%s"
-let completionengines = ["google", "imdb", "github", "youtube"]
+let searchengine devdocs = "http://devdocs.io/#q=%s"
+let completionengines = ["google", "imdb", "github", "youtube", "devdocs"]
 
 site '*://*.reddit.com/*' {
   unmap j
