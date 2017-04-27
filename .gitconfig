@@ -25,3 +25,7 @@
   tool = vimdiff
 [difftool]
   prompt = false
+[instaweb]
+  browser = chromium
+[web]
+  browser = chromium
