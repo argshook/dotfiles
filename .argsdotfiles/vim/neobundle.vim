@@ -13,6 +13,7 @@ NeoBundle 'jreybert/vimagit', 'dev/issue_123'
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
+let g:surround_indent = 0
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
