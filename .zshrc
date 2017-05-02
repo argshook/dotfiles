@@ -15,10 +15,8 @@ antigen apply
 
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
-  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  . `brew --prefix`/etc/profile.d/z.sh
-
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  # This loads nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
 # slipper specific
