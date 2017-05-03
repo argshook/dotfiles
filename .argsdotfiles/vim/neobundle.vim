@@ -15,6 +15,7 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
 let g:surround_indent = 0
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-abolish'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdTree'
