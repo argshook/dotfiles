@@ -1,7 +1,5 @@
-" open nerdree with ,l and
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>l :NERDTreeFind<cr>
-
+" open nerdree with ,l
+nmap <leader>l :NERDTreeToggle<cr>
 
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
@@ -14,6 +12,9 @@ let g:NERDTreeQuitOnOpen=1
 
 " open in new tab by default
 let NERDTreeMapOpenInTab='<ENTER>'
+
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
 
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
