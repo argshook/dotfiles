@@ -65,6 +65,7 @@ NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'path_html': '~/Public/html/vimwiki/'}]
 NeoBundle 'sbdchd/neoformat'
+let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_javascript = ['prettier', 'eslint']
 let g:neoformat_javascript_prettier = {
   \ 'exe': 'prettier',
