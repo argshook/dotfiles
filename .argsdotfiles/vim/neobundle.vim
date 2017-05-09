@@ -9,6 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " essentials
 NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
+NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'jreybert/vimagit', 'dev/issue_123'
 
 NeoBundle 'tpope/vim-obsession'
