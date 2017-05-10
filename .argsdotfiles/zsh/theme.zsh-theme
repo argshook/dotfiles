@@ -101,11 +101,22 @@ function steeef_precmd {
 }
 add-zsh-hook precmd steeef_precmd
 
+function check_last_exit_code() {
+  local LAST_EXIT_CODE=$?
+  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
+    local EXIT_CODE_PROMPT=' '
+    EXIT_CODE_PROMPT+="%{$fg[red]%}!!! Exit code %{$reset_color%}"
+    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
+    EXIT_CODE_PROMPT+="%{$fg[red]%} !!!%{$reset_color%}"
+    echo "$EXIT_CODE_PROMPT  "
+  fi
+}
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 PROMPT=$'%{$limegreen%}% %2/%{$reset_color%} $vcs_info_msg_0_
 $(virtualenv_info)$VIM_MODE '
 
-RPROMPT=$'%{$limegreen%}◷ %T%{$reset_color%}'
+RPROMPT=$'$(check_last_exit_code)%{$limegreen%}◷ %T%{$reset_color%}'
 
