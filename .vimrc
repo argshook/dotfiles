@@ -52,7 +52,6 @@ set conceallevel=0
 set splitbelow " split to right and below
 set splitright
 
-set scrolloff=2
 set cursorline
 set previewheight=20
 

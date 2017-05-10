@@ -170,5 +170,5 @@ map <Leader>u :call RunLastSpec()<CR>
 
 nnoremap <F9> :exec '!python3' @%<cr>
 
-nnoremap <leader>f :Neoformat<cr>
+noremap <silent> <leader>f :Neoformat<cr>
 
