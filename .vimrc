@@ -52,6 +52,7 @@ set conceallevel=0
 set splitbelow " split to right and below
 set splitright
 
+set scrolloff=2
 set cursorline
 set previewheight=20
 
@@ -85,7 +86,7 @@ set synmaxcol=1000
 autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
-autocmd WinLeave */doc/*.txt set scrolloff=0
+autocmd WinLeave */doc/*.txt set scrolloff=2
 
 autocmd Filetype gitcommit,markdown,vimwiki setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
