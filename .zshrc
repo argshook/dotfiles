@@ -21,6 +21,7 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
+  EDITOR="nvim"
   SSHPID=`ps ax|grep -c "[s]sh-agent"`
   if (( $SSHPID == 0 ))
   then

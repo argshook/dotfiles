@@ -63,10 +63,6 @@ NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
-let g:vimwiki_list = [
-  \{'path': '~/Dropbox/vimwiki/', 'path_html': '~/Public/html/vimwiki/'},
-  \{'path': '~/Dropbox/vimwiki-fed-guild', 'path_html': '~/Public/html/vimwiki-fed-guild'}
-  \]
 
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1

@@ -57,7 +57,7 @@ bindsym $mod+Shift+q kill
 bindsym  Control+q exec /bin/true
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 5 -eh 3 -width 50 -padding 20 -opacity "85" -bw 0 -bc "$base01" -bg "$base02" -fg "$base04" -hlbg "$base01" -hlfg "$base08" -font "DejaVu Sans Mono 15"
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left

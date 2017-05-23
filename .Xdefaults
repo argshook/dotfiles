@@ -10,17 +10,18 @@ Xft.hintstyle:              hintslight
 
 URxvt.depth:                32
 URxvt.geometry:             105x21
-URxvt.transparent:          false
-URxvt.fading:               0
+URxvt.transparent:          true
+URxvt.shading:              10
+URxvt.fading:               10
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
 URxvt.saveLines:            1000
-URxvt.internalBorder:       3
-URxvt.lineSpace:            4
+URxvt.internalBorder:       0
+URxvt.lineSpace:            3
 
 ! Fonts
-URxvt.allow_bold:           false
+URxvt.allow_bold:           true
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=13,style=regular
 URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=13
 
@@ -82,4 +83,3 @@ URxvt.pointerBlank:         true
 ! white
 *.color7:       #a39a90
 *.color15:      #dbd6d1
-
