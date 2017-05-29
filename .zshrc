@@ -1,6 +1,8 @@
 export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -13,6 +15,10 @@ antigen bundle djui/alias-tips
 
 antigen apply
 
+# press V in normal mode to edit command in nvim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
   # This loads nvm
@@ -21,10 +27,8 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  EDITOR="nvim"
   SSHPID=`ps ax|grep -c "[s]sh-agent"`
-  if (( $SSHPID == 0 ))
-  then
+  if (( $SSHPID == 0 )) then
     touch ~/.ssh-env
     ssh-agent | head -2 > ~/.ssh-env
     source ~/.ssh-env
