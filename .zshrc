@@ -118,3 +118,7 @@ unsetopt SHARE_HISTORY
 # 10ms for key sequences
 KEYTIMEOUT=1
 
+# required by gpg-agent
+GPG_TTY=$(tty)
+export GPG_TTY
+
