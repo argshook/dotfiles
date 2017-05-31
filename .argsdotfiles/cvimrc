@@ -23,6 +23,22 @@ getIP() -> {{
               function(res) { Status.setMessage('IP: ' + res.ip); });
 }}
 
+shade(amount) -> {{
+  const myShadez = document.createElement('div');
+  [
+    ['position', 'fixed'],
+    ['top', 0],
+    ['right', 0],
+    ['bottom', 0],
+    ['left', 0],
+    ['pointerEvents', 'none'],
+    ['zIndex', '999999'],
+    ['opacity', amount || '.2'],
+    ['background', '#000']
+  ].map(([rule, value]) => (myShadez.style[rule] = value));
+  document.body.appendChild(myShadez);
+}}
+
 
 let searchengine github = "https://github.com/search?utf8=%E2%9C%93&q=%s"
 let searchengine devdocs = "http://devdocs.io/#q=%s"
