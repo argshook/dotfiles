@@ -1,5 +1,6 @@
 " just verbose it to figure out why it doesn't work
 " cause it frequently stops working
+" NOTE: you need global or local eslint & babel-eslint node packages
 "let g:neomake_verbose = 3
 
 let g:neomake_javascript_enabled_makers = ['eslint']

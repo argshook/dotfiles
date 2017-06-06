@@ -61,7 +61,7 @@ set backspace=indent,eol,start
 
 " code folding
 set foldmethod=indent
-set foldlevelstart=1
+set foldlevelstart=2
 
 " ui
 set wildmenu " enhanced command line completion
