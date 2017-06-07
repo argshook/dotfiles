@@ -67,11 +67,18 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_javascript = ['prettier', 'eslint']
+let g:neoformat_enabled_elm = ['elmFormat']
 let g:neoformat_javascript_prettier = {
   \ 'exe': 'prettier',
   \ 'args': ['--stdin', '--single-quote'],
   \ 'stdin': 1,
   \ }
+let g:neoformat_elm_elmFormat = {
+  \ 'exe': 'elm-format',
+  \ 'args': ['--stdin'],
+  \ 'stdin': 1
+  \ }
+autocmd BufWritePre *.elm Neoformat
 
 NeoBundle 'jamessan/vim-gnupg'
 NeoBundle 'geekjuice/vim-mocha'
