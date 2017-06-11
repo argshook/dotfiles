@@ -46,6 +46,7 @@ let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
 NeoBundle 'nvie/vim-flake8'
 autocmd BufWritePost *.py call Flake8()
+NeoBundle 'leafgarland/typescript-vim'
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
@@ -63,6 +64,7 @@ NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'wellle/visual-split.vim'
 
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1
