@@ -58,6 +58,8 @@ let g:used_javascript_libs = 'jquery,underscore,angular,react,jasmine,chai'
 " misc
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
+let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'benekastah/neomake'

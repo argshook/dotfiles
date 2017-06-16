@@ -92,7 +92,7 @@ autocmd Filetype gitcommit,markdown,vimwiki setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
-autocmd BufLeave *.wiki set conceallevel=0
+autocmd BufLeave *.wiki,*.wiki.gpg set conceallevel=0
 
 autocmd VimEnter * cd %:p:h
 
