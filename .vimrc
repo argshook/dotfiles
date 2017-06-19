@@ -88,11 +88,10 @@ autocmd BufEnter *.js set shiftwidth=2
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd WinLeave */doc/*.txt set scrolloff=2
 
-autocmd Filetype gitcommit,markdown,vimwiki setlocal textwidth=72
+autocmd Filetype gitcommit,magit,markdown,vimwiki setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
 autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
-autocmd BufLeave *.wiki,*.wiki.gpg set conceallevel=0
 
 autocmd VimEnter * cd %:p:h
 
