@@ -46,6 +46,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec terminology
 bindsym $mod+Return exec urxvt
+bindsym $mod+c exec chromium
 
 # change wallpaper
 bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
