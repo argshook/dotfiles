@@ -61,12 +61,14 @@ NeoBundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 NeoBundle 'tomtom/tinykeymap_vim'
+
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'wellle/visual-split.vim'
+NeoBundle 'rbong/galvanize.vim'
 
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1

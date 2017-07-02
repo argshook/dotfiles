@@ -33,6 +33,9 @@ set undofile
 set smartcase
 set ignorecase
 set incsearch
+if has("nvim")
+  set inccommand=split
+endif
 set autoindent
 set cindent
 set expandtab
