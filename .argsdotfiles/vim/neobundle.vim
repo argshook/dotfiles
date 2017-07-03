@@ -26,6 +26,8 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'airblade/vim-gitgutter'
 let g:gitgutter_diff_args = '-w'
 NeoBundle 'christoomey/vim-tmux-navigator'
+" when tmux pane is zoomed, don't zoomout when navigating out of vim
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " snippets
 NeoBundle 'Shougo/deoplete.nvim'
