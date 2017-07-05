@@ -172,3 +172,5 @@ nnoremap <F9> :exec '!python3' @%<cr>
 
 noremap <silent> <leader>f :Neoformat<cr>
 
+" search for next under cursor but dont move cursor
+nnoremap <silent> * *N
