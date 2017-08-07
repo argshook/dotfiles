@@ -35,6 +35,7 @@ let g:deoplete#file#enable_buffer_path = 1
 NeoBundle 'davidhalter/jedi'
 NeoBundle 'zchee/deoplete-jedi'
 let g:deoplete#sources#jedi#show_docstring = 1
+NeoBundle 'pbogut/deoplete-elm'
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -52,7 +53,10 @@ NeoBundle 'leafgarland/typescript-vim'
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
+let g:elm_make_show_warnings = 1
 let g:elm_setup_keybindings = 0
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
 
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,angular,react,jasmine,chai'
@@ -75,18 +79,11 @@ NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_javascript = ['prettier', 'eslint']
-let g:neoformat_enabled_elm = ['elmFormat']
 let g:neoformat_javascript_prettier = {
   \ 'exe': 'prettier',
   \ 'args': ['--stdin', '--single-quote'],
   \ 'stdin': 1,
   \ }
-let g:neoformat_elm_elmFormat = {
-  \ 'exe': 'elm-format',
-  \ 'args': ['--stdin'],
-  \ 'stdin': 1
-  \ }
-autocmd BufWritePre *.elm Neoformat
 
 NeoBundle 'jamessan/vim-gnupg'
 NeoBundle 'geekjuice/vim-mocha'

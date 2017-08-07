@@ -64,7 +64,7 @@ set backspace=indent,eol,start
 
 " code folding
 set foldmethod=indent
-set foldlevelstart=2
+set foldlevelstart=3
 
 " ui
 set wildmenu " enhanced command line completion
@@ -89,7 +89,7 @@ set synmaxcol=1000
 autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
-autocmd WinLeave */doc/*.txt set scrolloff=2
+autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
 
 autocmd Filetype gitcommit,magit,markdown,vimwiki setlocal textwidth=72
 autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
