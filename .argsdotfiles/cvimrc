@@ -39,6 +39,12 @@ shade(amount) -> {{
   document.body.appendChild(myShadez);
 }}
 
+invert() -> {{
+  const style = document.createElement('style');
+  style.innerHTML = '* { filter: invert(1); }';
+  document.head.appendChild(style);
+}}
+
 
 let searchengine github = "https://github.com/search?utf8=%E2%9C%93&q=%s"
 let searchengine devdocs = "http://devdocs.io/#q=%s"
@@ -66,7 +72,6 @@ site '*://*.github.com/*' {
   unmap w
 }
 
-" leave these be for consecutive `:source`ing
-let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
+let configpath = "/Usersargshook/.argsdotfiles/cvimrc"
 set localconfig
 
