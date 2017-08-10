@@ -7,3 +7,5 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_section_b = ''
 let g:airline_section_y = ''
+
+let g:airline#extensions#ale#enabled = 1

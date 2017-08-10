@@ -45,7 +45,6 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 NeoBundle 'ternjs/tern_for_vim'
-let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
 NeoBundle 'nvie/vim-flake8'
 autocmd BufWritePost *.py call Flake8()
@@ -57,6 +56,10 @@ let g:elm_make_show_warnings = 1
 let g:elm_setup_keybindings = 0
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
+let g:elm_format_fail_silently = 0
+autocmd FileType elm nmap <leader>m <Plug>(elm-make)
+autocmd FileType elm nmap <leader>M <Plug>(elm-make-main)
+autocmd BufWritePost *.elm ElmMake
 
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,angular,react,jasmine,chai'
@@ -69,10 +72,11 @@ let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','r
 NeoBundle 'tomtom/tinykeymap_vim'
 
 NeoBundle 'ap/vim-css-color'
-NeoBundle 'benekastah/neomake'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never'
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 

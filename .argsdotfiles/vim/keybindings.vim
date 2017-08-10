@@ -77,9 +77,9 @@ nnoremap <leader>e :e#<CR>
 " location window, mostly to navigate linter errors
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
-nmap ]; :ll<CR>    " go to current error/warning
-nmap ]l :lnext<CR>  " next error/warning
-nmap [l :lprev<CR>  " previous error/warning
+nmap ]; :ALEFirst<CR>    " go to first error
+nmap [l :ALEPreviousWrap<CR>  " previous error
+nmap ]l :ALENextWrap<CR>  " next error
 
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
@@ -89,7 +89,7 @@ nmap ]Q :clast<CR>
 
 " close location and quickfix window with q
 autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> q :lclose<CR>
+" autocmd BufReadPost quickfix nnoremap <buffer> q :lclose<CR>
 
 function! RenameFile()
 let old_name = expand('%')
