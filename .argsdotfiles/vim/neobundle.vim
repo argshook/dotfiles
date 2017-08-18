@@ -44,7 +44,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
-NeoBundle 'ternjs/tern_for_vim'
+NeoBundle 'ternjs/tern_for_vim' " do `npm i` at `~/.vim/bundle/tern_for_vim`
 let g:tern_show_signature_in_pum = 1
 NeoBundle 'nvie/vim-flake8'
 autocmd BufWritePost *.py call Flake8()
@@ -77,6 +77,7 @@ NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_column_always = 1
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 

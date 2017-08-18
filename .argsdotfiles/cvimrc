@@ -59,8 +59,6 @@ site '*://*.reddit.com/*' {
   unmap ]
   unmap [[
   unmap ]]
-  unmap g
-  unmap n
   unmap a
   unmap z
   unmap 9
