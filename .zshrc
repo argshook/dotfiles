@@ -27,8 +27,8 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  SSHPID=`ps ax|grep -c "[s]sh-agent"`
-  if (( $SSHPID == 0 )) then
+  IS_SSH_AGENT_RUNNING =`ps ax|grep -c "[s]sh-agent"`
+  if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
     touch ~/.ssh-env
     ssh-agent | head -2 > ~/.ssh-env
     source ~/.ssh-env
