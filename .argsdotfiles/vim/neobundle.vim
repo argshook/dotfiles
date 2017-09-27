@@ -59,6 +59,7 @@ let g:elm_format_autosave = 1
 let g:elm_format_fail_silently = 0
 autocmd FileType elm nmap <leader>m <Plug>(elm-make)
 autocmd FileType elm nmap <leader>M <Plug>(elm-make-main)
+autocmd FileType elm nmap <leader>d <Plug>(elm-error-detail)
 autocmd BufWritePost *.elm ElmMake
 
 NeoBundle 'othree/javascript-libraries-syntax.vim'
