@@ -27,7 +27,7 @@ fi
 
 # slipper specific
 if [ $HOST = "slipper" ]; then
-  IS_SSH_AGENT_RUNNING =`ps ax|grep -c "[s]sh-agent"`
+  IS_SSH_AGENT_RUNNING=`ps ax|grep -c "[s]sh-agent"`
   if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
     touch ~/.ssh-env
     ssh-agent | head -2 > ~/.ssh-env
