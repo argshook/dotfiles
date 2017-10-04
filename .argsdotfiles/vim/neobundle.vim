@@ -81,6 +81,9 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
+NeoBundle 'terryma/vim-smooth-scroll'
+NeoBundle 'jceb/vim-editqf'
+let g:editqf_jump_to_error = 0
 
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1
