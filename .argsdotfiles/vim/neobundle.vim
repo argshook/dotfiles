@@ -84,6 +84,12 @@ NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
 NeoBundle 'jceb/vim-editqf'
 let g:editqf_jump_to_error = 0
+NeoBundle 'sjl/gundo.vim'
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_prefer_python3 = 1
+let g:gundo_auto_preview = 0
+let g:gundo_return_on_revert = 0
+
 
 NeoBundle 'sbdchd/neoformat'
 let g:neoformat_only_msg_on_error = 1
