@@ -71,10 +71,16 @@ NeoBundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 NeoBundle 'tomtom/tinykeymap_vim'
+NeoBundle 'junegunn/vim-peekaboo'
 
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
+NeoBundle 'junegunn/limelight.vim'
+let g:limelight_conceal_ctermfg = 'gray'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
@@ -125,8 +131,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'junegunn/limelight.vim'
-let g:limelight_conceal_ctermfg = 'gray'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
