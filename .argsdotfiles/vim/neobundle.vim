@@ -73,6 +73,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'junegunn/vim-peekaboo'
+NeoBundle 'kshenoy/vim-signature'
 
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'mattn/emmet-vim'
