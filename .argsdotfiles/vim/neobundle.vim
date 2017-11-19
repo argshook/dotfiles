@@ -18,7 +18,8 @@ let g:surround_indent = 0
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'scrooloose/nerdTree'
 NeoBundle 'rking/ag.vim'
 
