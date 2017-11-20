@@ -126,7 +126,7 @@ endfunction
 nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
 " print date for fun
-inoremap <F5> <C-R>=strftime("%c")<CR>
+inoremap <F5> <C-R>=strftime("%Y-%m-%dT%H:%M:%S.%L%z")<CR>
 
 " Tern
 autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>

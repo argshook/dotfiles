@@ -6,6 +6,6 @@ let g:fzf_action = {
 nmap <C-P> :History<cr>
 nmap <leader>/ :Lines<cr>
 nmap <leader>b :Buffers<cr>
-nmap <leader>h :GitFiles<cr>
+nmap <leader>h :GitFiles --cached --others --exclude-standard<cr>
 nmap <leader>H :Helptags<cr>
 nmap <leader>m :Marks<cr>
