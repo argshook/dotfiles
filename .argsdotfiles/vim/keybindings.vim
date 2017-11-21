@@ -130,7 +130,7 @@ inoremap <F5> <C-R>=strftime("%c")<CR>
 
 " Tern
 autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
-autocmd Filetype javascript nnoremap <silent> gp :TernDefPreview<CR>
+autocmd Filetype javascript nnoremap <silent> gP :TernDefPreview<CR>
 autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 
 " fold with leader
@@ -189,3 +189,6 @@ nmap <leader>k :bprevious<cr>
 
 " Close the current buffer and move to the previous one
 nmap <leader>q :bp <BAR> bd #<CR>
+
+" visual selection for last changed or pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
