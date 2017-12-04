@@ -89,6 +89,10 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
+let g:ale_fixers = {
+  \   'javascript': [ 'eslint' ],
+  \}
+autocmd! InsertLeave *.js :ALEFix
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
