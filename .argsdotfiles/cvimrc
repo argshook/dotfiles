@@ -70,6 +70,6 @@ site '*://*.github.com/*' {
   unmap w
 }
 
-let configpath = "/Usersargshook/.argsdotfiles/cvimrc"
+let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
 set localconfig
 
