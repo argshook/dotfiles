@@ -143,3 +143,9 @@ options word
 
   export default $1;
 
+snippet log
+options word
+  const log = (...msgs) => a => {
+    console.log(...msgs, a);
+    return a;
+  };

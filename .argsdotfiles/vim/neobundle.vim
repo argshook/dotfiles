@@ -49,7 +49,10 @@ let g:jsx_ext_required = 0
 NeoBundle 'ternjs/tern_for_vim' " do `npm i` at `~/.vim/bundle/tern_for_vim`
 let g:tern_show_signature_in_pum = 1
 NeoBundle 'nvie/vim-flake8'
+NeoBundle 'tell-k/vim-autopep8'
+autocmd BufWritePost  *.py call Autopep8()
 autocmd BufWritePost *.py call Flake8()
+let g:autopep8_disable_show_diff=1
 NeoBundle 'leafgarland/typescript-vim'
 
 NeoBundle 'cakebaker/scss-syntax.vim'
@@ -91,6 +94,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
   \   'javascript': [ 'eslint' ],
+  \   'python': [ 'autopep8' ],
   \}
 autocmd! InsertLeave *.js :ALEFix
 NeoBundle 'wellle/visual-split.vim'
