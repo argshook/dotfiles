@@ -53,6 +53,7 @@ bindkey '^r' history-incremental-pattern-search-backward
 export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
 alias kurwa="killall -9"
+alias npmnx="rm -rf node_modules package-lock.json"
 
 # git stagings
 alias g="git"
