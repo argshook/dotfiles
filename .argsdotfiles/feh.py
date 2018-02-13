@@ -25,7 +25,7 @@ DATA_DIR = os.path.join(os.path.expanduser("~"), 'Pictures/wallpapers')
 MAX_ATTEMPTS = 5
 SLEEP_SECONDS_AFTER_ATTEMPT = 2
 IMGUR_RE = re.compile(
-    r'http://(i\.|www\.)?imgur.com/(?P<filename>\w{2,})(\.jpg|/)?$')
+    r'https?://(i\.|www\.)?imgur.com/(?P<filename>\w{2,})(\.jpg|/)?$')
 RES_RE = re.compile('\d{3,5}x\d{3,5}')
 RES_DATA_RE = re.compile(
     r'.*([^\d]|^)+(?P<x>\d{3,5}) ?(x|_|×){1} ?(?P<y>\d{3,5}).*', re.UNICODE)

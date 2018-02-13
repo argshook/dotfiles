@@ -16,39 +16,39 @@ order += "tztime local"
 battery 0 {
   format = "%status %percentage %remaining "
   format_down = "No battery"
-  status_chr = "   CHR"
-  status_bat = "   BAT"
-  status_full = " ☻  FULL"
+  status_chr = "CHR"
+  status_bat = "BAT"
+  status_full = "FULL"
   path = "/sys/class/power_supply/BAT%d/uevent"
   low_threshold = 10
 }
 
 tztime local {
-  format = "   %Y-%m-%d   %H:%M:%S " # calendar and clock-o icons
+  format = "%Y/%m/%d %H:%M:%S" # 2018-02-10 21:24:17
 }
 
 cpu_usage {
-  format = "   %usage " # tachometer icon
+  format = " CPU %usage "
 }
 
 wireless wlp2s0 {
-  format_up = "   %essid (%quality) " # wifi icon
-  format_down = " W: down"
+  format_up = " W %essid %quality "
+  format_down = " W down"
 }
 
 disk "/" {
-  format = "   %free " # hdd icon
+  format = " DISK %free "
 }
 
 volume master {
-  format = "   %volume " # music icon
-  format_muted = "   %volume "
+  format = " Vol %volume "
+  format_muted = " Vol %volume "
   device = "default"
   mixer = "Master"
   mixer_idx = 0
 }
 
 cpu_temperature 0 {
-format = "   %degrees °C " # fire icon
+format = " TEMP %degrees °C "
   path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
 }
