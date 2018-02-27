@@ -8,4 +8,3 @@ let g:user_emmet_settings = {
 \}
 
 autocmd FileType html,css,scss,javascript.jsx EmmetInstall
-

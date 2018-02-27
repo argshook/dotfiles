@@ -57,6 +57,7 @@ set splitright
 
 set scrolloff=2
 set cursorline
+set cursorcolumn
 set previewheight=20
 
 set undolevels=1000
@@ -77,7 +78,6 @@ let g:gitgutter_realtime=1
 set updatetime=750
 
 colorscheme cobalt2
-
 
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=400
@@ -102,7 +102,6 @@ source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/neosnippet.vim
 source ~/.argsdotfiles/vim/nerdtree.vim
-source ~/.argsdotfiles/vim/tinykeymap.vim
 source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/vimagit.vim

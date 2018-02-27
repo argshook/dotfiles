@@ -77,11 +77,9 @@ let g:AutoPairsMultilineClose = 0
 NeoBundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
-NeoBundle 'tomtom/tinykeymap_vim'
 NeoBundle 'junegunn/vim-peekaboo'
 NeoBundle 'kshenoy/vim-signature' " display assigned mark in gutter
 NeoBundle 'AndrewRadev/linediff.vim' " :LineDiff()
-NeoBundle 'metakirby5/codi.vim' " :Codi
 
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'mattn/emmet-vim'
@@ -143,6 +141,8 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
 
+NeoBundle 'blueyed/vim-diminactive'
+NeoBundle 'mhinz/vim-startify'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'

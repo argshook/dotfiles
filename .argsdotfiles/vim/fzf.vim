@@ -22,9 +22,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nmap <C-P> :History<cr>
-nmap <leader>/ :Lines<cr>
+nmap <leader>h :History<cr>
+nmap <leader>/ :BLines<cr>
 nmap <leader>b :Buffers<cr>
-nmap <leader>h :GitFiles --cached --others --exclude-standard<cr>
+nmap <C-P> :GitFiles --cached --others --exclude-standard<cr>
 nmap <leader>H :Helptags<cr>
 nmap <leader>m :Marks<cr>
