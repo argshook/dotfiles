@@ -106,14 +106,8 @@ map <leader>n :call RenameFile()<cr>
 " fugitive & Magit
 "nnoremap <silent> <leader>gs :Gstatus<CR><C-w>20+
 nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gpl :Gpull --rebase<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
-nnoremap <silent> <leader>gr :Gremove<CR>
 
 " change current working directory to current file and print it after changing
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
