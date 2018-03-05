@@ -1,7 +1,3 @@
-" tab completion
-imap <Tab> <C-N>
-imap <S-Tab> <C-P>
-
 imap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -46,6 +42,8 @@ set pastetoggle=<leader>p
 
 nmap <tab> %
 xmap <tab> %
+
+nmap g. `[v`] " select inserted text
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
@@ -164,7 +162,8 @@ map <Leader>u :call RunLastSpec()<CR>
 
 nnoremap <F9> :exec '!python3' @%<cr>
 
-noremap <silent> <leader>f :Neoformat<cr>
+noremap <silent> <leader>f :ALEFix<cr>
+" noremap <silent> <leader>f :Neoformat<cr>
 
 " search for next under cursor but dont move cursor
 nnoremap <silent> * *N

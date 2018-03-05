@@ -11,6 +11,7 @@ NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
 NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'jreybert/vimagit'
+NeoBundle 'Shougo/vimproc.vim' " required by Quramy/tsuquyomi
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
@@ -42,8 +43,11 @@ NeoBundle 'pbogut/deoplete-elm'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
+NeoBundle 'Valloric/YouCompleteMe' " do `./install.py --js-completer` in ~/.vim/bundle/YouCompleteMe
+
 " language specific
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'Quramy/tsuquyomi' " for typescript
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 NeoBundle 'ternjs/tern_for_vim' " do `npm i` at `~/.vim/bundle/tern_for_vim`
@@ -78,7 +82,6 @@ NeoBundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 NeoBundle 'junegunn/vim-peekaboo'
-NeoBundle 'kshenoy/vim-signature' " display assigned mark in gutter
 NeoBundle 'AndrewRadev/linediff.vim' " :LineDiff()
 
 NeoBundle 'ap/vim-css-color'
@@ -96,8 +99,10 @@ let g:ale_sign_column_always = 1
 let g:ale_fixers = {
   \   'javascript': [ 'eslint' ],
   \   'python': [ 'autopep8' ],
+  \   'haskell': [ 'hfmt' ],
+  \   'typescript': [ 'tslint' ]
   \}
-autocmd! InsertLeave *.js :ALEFix
+autocmd! InsertLeave *.js,*.ts,*.hs :ALEFix
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
@@ -142,7 +147,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
 
 NeoBundle 'blueyed/vim-diminactive'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
