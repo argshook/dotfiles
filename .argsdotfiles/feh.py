@@ -32,7 +32,7 @@ RES_DATA_RE = re.compile(
 
 
 ARG_MAP = {
-    'feh': ['feh', ['--bg-center'], '%s'],
+    'feh': ['feh', ['--bg-fill', '--no-fehbg'], '%s'],
     'gnome': ['gsettings',
               ['set', 'org.gnome.desktop.background', 'picture-uri'],
               'file://%s']
@@ -176,7 +176,7 @@ if __name__ == '__main__':
         type=str,
         default=DATA_DIR,
         help='Destination directory (default: %s)' % DATA_DIR,
-        )
+    )
 
     parser.add_argument(
         '--overwrite-existing',
@@ -185,21 +185,21 @@ if __name__ == '__main__':
         help=(
             'Overwrite file if exists? (True / False), default is'
             ' False'),
-        )
+    )
 
     parser.add_argument(
         '--output-name',
         type=str,
         default=None,
         help='Output filename (defaults to imgur name)',
-        )
+    )
 
     parser.add_argument(
         '--reddit-json-url',
         type=str,
         default=REDDIT_URL,
         help='Specify a subreddit .json url. (default %s)' % REDDIT_URL,
-        )
+    )
 
     parser.add_argument(
         '--set-wallpaper',
