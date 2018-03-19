@@ -38,7 +38,6 @@ font pango:DejaVu Sans Mono, Icons 10
 
 
 assign [class="Steam"] 5 $workspace-games
-assign [window_role="pop-up" class="google-chrome"] 10 $workspace-chat
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -50,7 +49,7 @@ focus_follows_mouse no
 #bindsym $mod+Return exec terminology
 # bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec alacritty
-bindsym $mod+c exec chromium
+bindsym $mod+c exec chromium --force-device-scale-factor=1.2
 
 # change wallpaper
 bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
@@ -62,7 +61,7 @@ bindsym $mod+Shift+q kill
 bindsym  Control+q exec /bin/true
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec ulauncher
 
 # change focus
 bindsym $mod+h focus left
@@ -220,16 +219,16 @@ bindsym $mod+z exec ~/.config/i3/keyboard-layout-switcher.sh
 
 exec_always compton --config ~/.argsdotfiles/compton.conf -b
 exec_always ~/.config/i3/xautolock.sh
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id mate-panel
 
 bar {
-  font pango: Droid Sans Mono 9
-  # font pango: DejaVu Sans Mono 9
-  status_command ~/.config/i3status/i3status-custom.sh
-  position top
-  strip_workspace_numbers yes
+  font pango: Droid Sans Mono 2
+  tray_output None
+  mode invisible
   colors {
     separator $base03
-    background $base03
+    background $base02
     statusline $base08
     #                  border  background text
     focused_workspace  $base03 $base02    $base08
@@ -239,14 +238,12 @@ bar {
   }
 }
 
-# wallpaper
-exec ~/.argsdotfiles/feh.py
+
+exec ~/.argsdotfiles/feh.py # wallpaper
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
 exec conky -c ~/.config/conky/conky.config
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
-exec wicd
-exec wicd-gtk
 
 # set display turn off timeout (in seconds)
 exec xset s 1800

@@ -9,7 +9,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " essentials
 NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
-NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'jreybert/vimagit'
 NeoBundle 'Shougo/vimproc.vim' " required by Quramy/tsuquyomi
 
@@ -146,7 +145,6 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
 
-NeoBundle 'blueyed/vim-diminactive'
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'

@@ -57,7 +57,6 @@ set splitright
 
 set scrolloff=2
 set cursorline
-set cursorcolumn
 set previewheight=20
 
 set undolevels=1000
@@ -106,4 +105,3 @@ source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/vimagit.vim
 source ~/.argsdotfiles/vim/vimwiki.vim
-

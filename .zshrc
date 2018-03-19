@@ -21,12 +21,10 @@ bindkey -M vicmd v edit-command-line
 
 # workhorse specific
 if [ $HOST = "workhorse" ]; then
-  # This loads nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
 # slipper specific
-if [ $HOST = "slipper" ]; then
+if [ $HOST = "slipper" ] || [ $HOST = "monster" ]; then
   IS_SSH_AGENT_RUNNING=`ps ax|grep -c "[s]sh-agent"`
   if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
     touch ~/.ssh-env
@@ -37,8 +35,7 @@ if [ $HOST = "slipper" ]; then
     source ~/.ssh-env
   fi
 
-  source /usr/share/nvm/nvm.sh
-  source /usr/share/nvm/bash_completion
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
 # theme
@@ -54,6 +51,7 @@ export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 
 alias kurwa="killall -9"
 alias npmnx="rm -rf node_modules package-lock.json"
+alias q="exit"
 
 # git stagings
 alias g="git"
@@ -122,4 +120,3 @@ KEYTIMEOUT=1
 # required by gpg-agent
 GPG_TTY=$(tty)
 export GPG_TTY
-
