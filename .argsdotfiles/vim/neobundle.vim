@@ -9,6 +9,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " essentials
 NeoBundle 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
+NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'jreybert/vimagit'
 NeoBundle 'Shougo/vimproc.vim' " required by Quramy/tsuquyomi
 
@@ -47,6 +48,7 @@ NeoBundle 'Valloric/YouCompleteMe' " do `./install.py --js-completer` in ~/.vim/
 " language specific
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'Quramy/tsuquyomi' " for typescript
+let g:tsuquyomi_disable_quickfix = 0
 NeoBundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 NeoBundle 'ternjs/tern_for_vim' " do `npm i` at `~/.vim/bundle/tern_for_vim`
@@ -101,7 +103,7 @@ let g:ale_fixers = {
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'tslint' ]
   \}
-autocmd! InsertLeave *.js,*.ts,*.hs :ALEFix
+autocmd! InsertLeave *.js,*.ts,*.tsx,*.hs :ALEFix
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'

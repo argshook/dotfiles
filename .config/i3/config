@@ -34,7 +34,7 @@ set $workspace-chat chat
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono, Icons 10
+font pango:DejaVu Sans Mono 8
 
 
 assign [class="Steam"] 5 $workspace-games
@@ -49,18 +49,20 @@ focus_follows_mouse no
 #bindsym $mod+Return exec terminology
 # bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec alacritty
-bindsym $mod+c exec chromium --force-device-scale-factor=1.2
+bindsym $mod+c exec chromium
 
 # change wallpaper
-bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
+# bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
+bindsym $mod+shift+w exec wallpaper-reddit --lottery wallpapers WQHD_Wallpaper
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # disable ctrl+q (still bug since '08 https://bugs.chromium.org/p/chromium/issues/detail?id=147)
-bindsym  Control+q exec /bin/true
+bindsym Control+q exec /bin/true
 
-# start rofi (a program launcher)
+# start program launcher
 bindsym $mod+d exec ulauncher
 
 # change focus
@@ -69,28 +71,15 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
+# horizontal split
 bindsym $mod+b split h
-
-# split in vertical orientation
+# vertical split
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -105,15 +94,10 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+z focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-#bindsym $mod+m [instance="__focused__"] floating enable; resize shrink width 10000px; resize grow width 1000px; resize shrink height 10000px; resize grow height 900px; move position center;
 
 # switch to workspace
 bindsym $mod+1 workspace number 1 $workspace-www
@@ -126,9 +110,6 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10 $workspace-chat
-
-bindkey $mod+] workspace next
-bindkey $mod+[ workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1 $workspace-www
@@ -174,6 +155,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+gaps inner 10
+
+
 # Audio controls
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
@@ -199,31 +183,35 @@ bindsym $mod+m exec ~/.argsdotfiles/toggle-touchpad.sh
 #XF86TouchpadToggle
 
 # Screen lock key
-bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh && ~/.config/i3lock/lock-posthook.sh
+bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh
+
+default_border none
 
 # Window Colors
 #                         border  background text    indicator
-  client.focused          $base02 $base01    $base07 $base07
-  client.focused_inactive $base02 $base02    $base04 $base0F
-  client.unfocused        $base02 $base02    $base01 $base0F
-  client.urgent           $base02 $base08    $base00 $base0F
+client.focused          $base02 $base01    $base07 $base07
+client.focused_inactive $base02 $base02    $base04 $base0F
+client.unfocused        $base02 $base02    $base01 $base0F
+client.urgent           $base02 $base08    $base00 $base0F
 
 # hide title bar
-new_window pixel
+new_window none
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 # keyboard layouts
-bindsym $mod+z exec ~/.config/i3/keyboard-layout-switcher.sh
+bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
 exec_always compton --config ~/.argsdotfiles/compton.conf -b
 exec_always ~/.config/i3/xautolock.sh
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id mate-panel
+exec_always --no-startup-id setup-display
+exec_always --no-startup-id setup-display
 
 bar {
-  font pango: Droid Sans Mono 2
+  font pango: Droid Sans Mono 12
   tray_output None
   mode invisible
   colors {
@@ -231,7 +219,7 @@ bar {
     background $base02
     statusline $base08
     #                  border  background text
-    focused_workspace  $base03 $base02    $base08
+    focused_workspace  $base03 $base04    $base03
     active_workspace   $base03 $base03    $base03
     inactive_workspace $base03 $base03    $base00
     urgent_workspace   $base03 $base03    $base0A
