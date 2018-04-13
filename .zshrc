@@ -1,5 +1,5 @@
 export NVM_DIR="$HOME/.nvm"
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin:$HOME/.rvm/bin:$HOME/.argsdotfiles/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin:$HOME/.rvm/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -19,24 +19,17 @@ antigen apply
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# workhorse specific
-if [ $HOST = "workhorse" ]; then
+IS_SSH_AGENT_RUNNING=`ps ax|grep -c "[s]sh-agent"`
+if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
+  touch ~/.ssh-env
+  ssh-agent | head -2 > ~/.ssh-env
+  source ~/.ssh-env
+  ssh-add
+else
+  source ~/.ssh-env
 fi
 
-# slipper specific
-if [ $HOST = "slipper" ] || [ $HOST = "monster" ]; then
-  IS_SSH_AGENT_RUNNING=`ps ax|grep -c "[s]sh-agent"`
-  if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
-    touch ~/.ssh-env
-    ssh-agent | head -2 > ~/.ssh-env
-    source ~/.ssh-env
-    ssh-add
-  else
-    source ~/.ssh-env
-  fi
-
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # theme
 source ~/.argsdotfiles/zsh/theme.zsh-theme
@@ -59,9 +52,7 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gco="git checkout"
 alias gpl="git pull --rebase"
-alias gra="git rm $(git ls-files --deleted)"
 alias gs="git status"
-alias gss="git status --short --branch"
 alias gd="git diff"
 alias gds="git diff --staged"
 
@@ -92,21 +83,8 @@ alias tmuxl="tmux ls" # list all sessions
 
 # misc
 alias servedir="python -m SimpleHTTPServer 4523 && chrome localhost:4523"
-alias filesize=__fileSize
 alias grep="grep --color=auto"
 alias cl="clear"
-
-function __bowerGetMain {
-  if [ "$1x" != 'x' ]; then
-    bower info $1 | grep main
-  fi
-}
-
-function __fileSize {
-  if [ "$1x" != 'x' ]; then
-    ls -lah $1 | awk '{ print $5 }'
-  fi
-}
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8

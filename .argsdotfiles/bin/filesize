@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ls -lah $1 | awk '{ print $5 }'

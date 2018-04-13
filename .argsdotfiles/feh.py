@@ -32,7 +32,7 @@ RES_DATA_RE = re.compile(
 
 
 ARG_MAP = {
-    'feh': ['feh', ['--bg-fill', '--no-fehbg'], '%s'],
+    'feh': ['feh', ['--bg-center'], '%s'],
     'gnome': ['gsettings',
               ['set', 'org.gnome.desktop.background', 'picture-uri'],
               'file://%s']

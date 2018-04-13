@@ -1,11 +1,8 @@
 " to make this work first time in cVim:
 " 1. :settings
 " 2. paste this into `cVimrc` text field:
-"   let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
+"   let configpath = "/home/arijus/.argsdotfiles/cvimrc"
 "   set localconfig
-"
-" Note: configpath depends on machine, and you can't use ~ (tilde) because fuck you
-"
 " 3. click `Save` on top right
 " 4. :source
 
@@ -47,9 +44,25 @@ invert() -> {{
 
 
 let searchengine github = "https://github.com/search?utf8=%E2%9C%93&q=%s"
-let searchengine devdocs = "http://devdocs.io/#q=%s"
+let searchengine gwix = "https://github.com/search?q=org%3Awix+%s"
+let searchengine gwixp = "https://github.com/search?q=org%3Awix-private+%s"
+let searchengine docs = "http://devdocs.io/#q=%s"
+let searchengine mdn = "https://developer.mozilla.org/en-US/search?q=%s"
 let searchengine twitter = "https://twitter.com/search?f=tweets&q=%s"
-let completionengines = ["google", "imdb", "github", "youtube", "devdocs", "twitter"]
+let searchengine reddit = "https://reddit.com/r/%s"
+let completionengines = ["google", "github", "docs"]
+
+command wsri tabnew https://github.com/wix/wix-style-react/issues
+command wsrp tabnew https://github.com/wix/wix-style-react/pulls
+command wsrc tabnew https://github.com/wix/wix-style-react/commits/master
+
+command wuii tabnew https://github.com/wix/wix-ui/issues
+command wuip tabnew https://github.com/wix/wix-ui/pulls
+command wuic tabnew https://github.com/wix/wix-ui/commits/master
+
+command wuibi tabnew https://github.com/wix/wix-ui-backoffice/issues
+command wuibp tabnew https://github.com/wix/wix-ui-backoffice/pulls
+command wuibc tabnew https://github.com/wix/wix-ui-backoffice/commits/master
 
 site '*://*.reddit.com/*' {
   unmap j
@@ -70,6 +83,5 @@ site '*://*.github.com/*' {
   unmap w
 }
 
-let configpath = "/Users/argshook/.argsdotfiles/cvimrc"
+let configpath = "/home/arijus/.argsdotfiles/cvimrc"
 set localconfig
-

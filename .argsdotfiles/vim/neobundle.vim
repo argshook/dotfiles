@@ -44,6 +44,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 NeoBundle 'Valloric/YouCompleteMe' " do `./install.py --js-completer` in ~/.vim/bundle/YouCompleteMe
+let g:ycm_key_detailed_diagnostics = ''
 
 " language specific
 NeoBundle 'pangloss/vim-javascript'
@@ -85,7 +86,7 @@ let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','r
 NeoBundle 'junegunn/vim-peekaboo'
 NeoBundle 'AndrewRadev/linediff.vim' " :LineDiff()
 
-NeoBundle 'ap/vim-css-color'
+NeoBundle 'gko/vim-coloresque'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'junegunn/limelight.vim'
@@ -103,6 +104,7 @@ let g:ale_fixers = {
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'tslint' ]
   \}
+nnoremap <leader>d :ALEDetail<cr>
 autocmd! InsertLeave *.js,*.ts,*.tsx,*.hs :ALEFix
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'

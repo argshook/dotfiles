@@ -50,6 +50,25 @@ focus_follows_mouse no
 # bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec chromium
+bindsym $mod+o exec qutebrowser
+
+# node scratchpad
+for_window [instance="alacritty-node"] move to scratchpad
+exec alacritty -t "alacritty-node" -e "node"
+bindsym $mod+n [instance="alacritty-node"] scratchpad show resize set 500 400, move position center
+
+# haskell scratchpad
+for_window [instance="alacritty-haskell"] move to scratchpad
+exec alacritty -t "alacritty-haskell" -e "ghci"
+bindsym $mod+g [instance="alacritty-haskell"] scratchpad show resize set 500 400, move position center
+
+
+# notes scratchpad
+for_window [instance="alacritty-notes"] move to scratchpad
+exec alacritty -t "alacritty-notes" -e "nvim"
+bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, move position center
+
+
 
 # change wallpaper
 # bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
@@ -211,23 +230,20 @@ exec_always --no-startup-id setup-display
 exec_always --no-startup-id setup-display
 
 bar {
-  font pango: Droid Sans Mono 12
+  font pango: Roboto Regular 12
   tray_output None
   mode invisible
   colors {
-    separator $base03
-    background $base02
-    statusline $base08
     #                  border  background text
-    focused_workspace  $base03 $base04    $base03
+    focused_workspace  $base03 $base00    $base03
     active_workspace   $base03 $base03    $base03
     inactive_workspace $base03 $base03    $base00
-    urgent_workspace   $base03 $base03    $base0A
+    urgent_workspace   $base03 $base0F    $base03
   }
 }
 
 
-exec ~/.argsdotfiles/feh.py # wallpaper
+# exec ~/.argsdotfiles/feh.py # wallpaper
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
 exec conky -c ~/.config/conky/conky.config
