@@ -1,4 +1,5 @@
 " hey, you need to split this up
+" yeah i know
 
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle'))
@@ -22,6 +23,7 @@ NeoBundle 'wellle/targets.vim'
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'scrooloose/nerdTree'
+NeoBundle 'EvanDotPro/nerdtree-chmod'
 NeoBundle 'rking/ag.vim'
 
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
@@ -60,6 +62,8 @@ autocmd BufWritePost  *.py call Autopep8()
 autocmd BufWritePost *.py call Flake8()
 let g:autopep8_disable_show_diff=1
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'suan/vim-instant-markdown'
+let g:instant_markdown_autostart = 0
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'

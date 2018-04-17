@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+WORKSTATION=$1
+
+case "$WORKSTATION" in
+  laptop|l)
+    xrandr --output eDP1 --mode 1920x1080
+    ;;
+  station|s)
+    xrandr --output eDP1 --off
+    xrandr --output DP3-2 --auto
+    ;;
+  *)
+    echo "Usage: $0 {laptop|l|station|s}"
+esac
