@@ -68,7 +68,7 @@ function zle-line-init zle-keymap-select {
 }
 
 function steeef_preexec {
-    case "$(history $HISTCMD)" in
+    case "$(history $2)" in
         *git*)
             PR_GIT_UPDATE=1
             ;;

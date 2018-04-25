@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+LAYOUT=`setxkbmap -query | grep layout | awk '{print $2}' | awk -F, '{print $1}'`
+
+case $LAYOUT in
+  lt)
+    echo "LT"
+    ;;
+  us)
+    echo "EN"
+    ;;
+  *)
+    echo ""
+esac

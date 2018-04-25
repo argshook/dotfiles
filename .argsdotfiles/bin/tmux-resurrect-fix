@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rm ~/.tmux/resurrect/last
+ln -s `ls -t ~/.tmux/resurrect | head -2 | tail -1` ~/.tmux/resurrect/last

@@ -19,7 +19,8 @@ noremap <silent> <Esc> <Esc>:noh<cr>
 " go to previous mark line and col
 nnoremap ' `
 
-" i dont use ex mode (yet)
+" i hit Q by mistake.
+" access ex mode with <c-f>
 nnoremap Q <nop>
 
 " reload .vimrc
@@ -119,7 +120,7 @@ nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
 " print date for fun
 inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
-inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
 
 " Tern
 autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
@@ -186,3 +187,9 @@ nmap <leader>q :bp <BAR> bd #<CR>
 
 " visual selection for last changed or pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" drag visually selected blocks, for fun
+vmap  <expr>  H DVB_Drag('left')
+vmap  <expr>  L DVB_Drag('right')
+vmap  <expr>  J DVB_Drag('down')
+vmap  <expr>  K DVB_Drag('up')

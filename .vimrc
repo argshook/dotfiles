@@ -105,3 +105,5 @@ source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/vimagit.vim
 source ~/.argsdotfiles/vim/vimwiki.vim
+source ~/.argsdotfiles/vim/hlnext.vim
+source ~/.argsdotfiles/vim/dragvisual.vim

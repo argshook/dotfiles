@@ -13,6 +13,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'jreybert/vimagit'
 NeoBundle 'Shougo/vimproc.vim' " required by Quramy/tsuquyomi
+autocmd Filetype typescript nnoremap <leader>a :echo tsuquyomi#hint()<cr>
+
 
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-surround'
@@ -109,7 +111,7 @@ let g:ale_fixers = {
   \   'typescript': [ 'tslint' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
-autocmd! InsertLeave *.js,*.ts,*.tsx,*.hs :ALEFix
+autocmd! BufWritePre *.js,*.ts,*.tsx,*.hs :ALEFix
 NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
