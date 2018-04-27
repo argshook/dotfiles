@@ -96,6 +96,9 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+bindsym $mod+Ctrl+greater move container to output right
+bindsym $mod+Ctrl+less move container to output left
+
 # horizontal split
 bindsym $mod+b split h
 # vertical split
@@ -251,3 +254,6 @@ exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 
 # set display turn off timeout (in seconds)
 exec xset s 1800
+
+exec --no-startup-id i3-focus-last
+bindsym $mod+bracketright [con_mark=_last] focus

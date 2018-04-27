@@ -8,7 +8,8 @@ case "$WORKSTATION" in
     ;;
   station|s)
     xrandr --output eDP1 --off
-    xrandr --output DP3-2 --auto
+    xrandr --output DP3-2 --primary --pos 0x720 --mode 1920x1200
+    xrandr --output DP3-3 --mode 1920x1200 --pos 1920x0 --rotate left
     ;;
   *)
     echo "Usage: $0 {laptop|l|station|s}"
