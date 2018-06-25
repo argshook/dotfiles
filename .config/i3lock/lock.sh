@@ -2,7 +2,7 @@
 
 OUTPUT_IMAGE=/tmp/lock-screen.png
 # LOCK_ICON=$HOME/.config/i3lock/lock.png
-LOCK_ICON=$HOME/.config/i3lock/lock2.jpg
+# LOCK_ICON=$HOME/.config/i3lock/lock2.jpg
 
 
 scrot $OUTPUT_IMAGE

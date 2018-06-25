@@ -52,27 +52,25 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+c exec chromium
 bindsym $mod+o exec qutebrowser
 
-# node scratchpad
-for_window [instance="alacritty-node"] move to scratchpad
-exec alacritty -t "alacritty-node" -e "node"
-bindsym $mod+n [instance="alacritty-node"] scratchpad show resize set 500 400, move position center
-
 # haskell scratchpad
 for_window [instance="alacritty-haskell"] move to scratchpad
 exec alacritty -t "alacritty-haskell" -e "ghci"
 bindsym $mod+g [instance="alacritty-haskell"] scratchpad show resize set 500 400, move position center
-
 
 # notes scratchpad
 for_window [instance="alacritty-notes"] move to scratchpad
 exec alacritty -t "alacritty-notes" -e "nvim"
 bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, move position center
 
+# quick edit scratchpad
+for_window [instance="alacritty-vim-anywhere"] move to scratchpad
+exec alacritty -t "alacritty-vim-anywhere" -e "vim-everywhere" move to scratchpad
+bindsym $mod+n [instance="alacritty-vim-anywhere"] scratchpad show resize set 800 600, move position center
 
 
 # change wallpaper
-# bindsym $mod+shift+w exec ~/.argsdotfiles/feh.py
-bindsym $mod+shift+w exec wallpaper-reddit --lottery wallpapers WQHD_Wallpaper
+bindsym $mod+shift+w exec random-wallpaper
+# bindsym $mod+shift+w exec wallpaper-reddit --lottery wallpapers WQHD_Wallpaper
 
 
 # kill focused window
@@ -153,8 +151,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Surely sre?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Screenshot
-bindcode 107 exec shutter -s -p main -e
-bindcode Shift+107 exec shutter -f -p main -e
+# bindcode 107 exec shutter -s -p main -e
+# bindcode Shift+107 exec shutter -f -p main -e
+bindsym $mod+shift+p exec escrotum --select "~/Dropbox/Screenshots/%Y-%m-%d-%H%M%S_screenshot.png"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

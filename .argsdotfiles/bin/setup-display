@@ -4,13 +4,36 @@ WORKSTATION=$1
 
 case "$WORKSTATION" in
   laptop|l)
-    xrandr --output eDP1 --mode 1920x1080
+    xrandr \
+      --output VIRTUAL1 --off \
+      --output DP3 --off \
+      --output eDP1 --off \
+      --output DP1 --off \
+      --output DP2 --off \
+      --output HDMI3 --off \
+      --output HDMI2 --off \
+      --output HDMI1 --off \
+      --output DP3-1 --off \
+      --output DP3-3 --off \
+      --output DP3-2 --off \
+      --output eDP1 --mode 1920x1080
     ;;
+
   station|s)
-    xrandr --output eDP1 --off
-    xrandr --output DP3-2 --primary --pos 0x720 --mode 1920x1200
-    xrandr --output DP3-3 --mode 1920x1200 --pos 1920x0 --rotate left
+    xrandr \
+      --output VIRTUAL1 --off \
+      --output DP3 --off \
+      --output eDP1 --off \
+      --output DP1 --off \
+      --output DP2 --off \
+      --output HDMI3 --off \
+      --output HDMI2 --off \
+      --output HDMI1 --off \
+      --output DP3-1 --off \
+      --output DP3-3 --primary --mode 1920x1200 --pos 0x720 --rotate normal
+    xrandr \
+      --output DP3-2 --mode 1920x1200 --pos 1920x0 --rotate left
     ;;
   *)
-    echo "Usage: $0 {laptop|l|station|s}"
+    echo "Usage: $(basename $0) {laptop|l|station|s}"
 esac

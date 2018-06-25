@@ -39,10 +39,10 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " snippets
 NeoBundle 'Shougo/deoplete.nvim'
 let g:deoplete#file#enable_buffer_path = 1
-NeoBundle 'davidhalter/jedi'
-NeoBundle 'zchee/deoplete-jedi'
-let g:deoplete#sources#jedi#show_docstring = 1
-NeoBundle 'pbogut/deoplete-elm'
+" NeoBundle 'davidhalter/jedi'
+" NeoBundle 'zchee/deoplete-jedi'
+" let g:deoplete#sources#jedi#show_docstring = 1
+" NeoBundle 'pbogut/deoplete-elm'
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -113,7 +113,6 @@ let g:ale_fixers = {
 nnoremap <leader>d :ALEDetail<cr>
 autocmd! BufWritePre *.js,*.ts,*.tsx,*.hs :ALEFix
 NeoBundle 'wellle/visual-split.vim'
-NeoBundle 'rbong/galvanize.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
 NeoBundle 'jceb/vim-editqf'
 let g:editqf_jump_to_error = 0
