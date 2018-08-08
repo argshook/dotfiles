@@ -154,8 +154,8 @@ inoremap <silent> <M-;> 0
 noremap <silent> <M-;> 0
 
 " jump between git hunks
-nnoremap <silent> ]g :GitGutterNextHunk<CR>
-nnoremap <silent> [g :GitGutterPrevHunk<CR>
+nmap ]g <plug>(signify-next-hunk)
+nmap [g <plug>(signify-prev-hunk)
 
 map <Leader>T :call RunCurrentSpecFile()<CR>
 map <Leader>t :call RunNearestSpec()<CR>

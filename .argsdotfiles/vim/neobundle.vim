@@ -65,7 +65,7 @@ autocmd BufWritePost *.py call Flake8()
 let g:autopep8_disable_show_diff=1
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'suan/vim-instant-markdown'
-let g:instant_markdown_autostart = 0
+let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'elmcast/elm-vim'
@@ -116,11 +116,11 @@ NeoBundle 'wellle/visual-split.vim'
 NeoBundle 'terryma/vim-smooth-scroll'
 NeoBundle 'jceb/vim-editqf'
 let g:editqf_jump_to_error = 0
-NeoBundle 'sjl/gundo.vim'
-nnoremap <F6> :GundoToggle<CR>
-let g:gundo_prefer_python3 = 1
-let g:gundo_auto_preview = 0
-let g:gundo_return_on_revert = 0
+NeoBundle 'simnalamburt/vim-mundo'
+nnoremap <F6> :MundoToggle<CR>
+let g:mundo_prefer_python3 = 1
+let g:mundo_auto_preview = 0
+let g:mundo_return_on_revert = 0
 
 
 NeoBundle 'sbdchd/neoformat'
@@ -153,6 +153,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
+NeoBundle 'RRethy/vim-illuminate'
 
 NeoBundle 'gertjanreynaert/cobalt2-vim-theme'
 NeoBundle 'vim-airline/vim-airline'

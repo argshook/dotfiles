@@ -73,7 +73,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  
 set t_Co=256
 set laststatus=2
 
-let g:gitgutter_realtime=1
+let g:signify_realtime = 1
 set updatetime=750
 
 colorscheme cobalt2
@@ -105,5 +105,3 @@ source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/vimagit.vim
 source ~/.argsdotfiles/vim/vimwiki.vim
-source ~/.argsdotfiles/vim/hlnext.vim
-source ~/.argsdotfiles/vim/dragvisual.vim
