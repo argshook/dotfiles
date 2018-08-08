@@ -3,6 +3,7 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.b
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -50,6 +51,8 @@ alias npmnx="rm -rf node_modules package-lock.json"
 alias q="exit"
 alias dl="curl -O"
 alias r="ranger"
+alias rn="ranger node_modules"
+alias b="buku -S"
 
 # git stagings
 alias g="git"
