@@ -38,6 +38,9 @@ source ~/.argsdotfiles/zsh/theme.zsh-theme
 # fzf
 source /usr/share/fzf/key-bindings.zsh
 
+# fasd
+eval "$(fasd --init auto)"
+
 # vi keys bindings
 bindkey -v
 bindkey '^ ' autosuggest-accept

@@ -50,7 +50,11 @@ focus_follows_mouse no
 # bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec alacritty
 bindsym $mod+c exec chromium
-bindsym $mod+o exec qutebrowser
+
+# bookmarks scratchpad
+for_window [instance="alacritty-bookmarks"] move to scratchpad
+exec alacritty -t "alacritty-bookmarks" -e "fuzzy-bookmarks"
+bindsym $mod+o [instance="alacritty-bookmarks"] scratchpad show resize set 900 200, move position center
 
 # haskell scratchpad
 for_window [instance="alacritty-haskell"] move to scratchpad
@@ -63,10 +67,14 @@ exec alacritty -t "alacritty-notes" -e "nvim"
 bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
-for_window [instance="alacritty-vim-anywhere"] move to scratchpad
-exec alacritty -t "alacritty-vim-anywhere" -e "vim-everywhere" move to scratchpad
-bindsym $mod+n [instance="alacritty-vim-anywhere"] scratchpad show resize set 800 600, move position center
+for_window [instance="alacritty-vim-everywhere"] move to scratchpad
+exec alacritty -t "alacritty-vim-everywhere" -e "vim-everywhere"
+bindsym $mod+n [instance="alacritty-vim-everywhere"] scratchpad show resize set 800 600, move position center
 
+# quick edit scratchpad
+for_window [instance="alacritty-dropterminal"] move to scratchpad
+exec alacritty -t "alacritty-dropterminal"
+bindsym $mod+t [instance="alacritty-dropterminal"] scratchpad show resize set 800 400, move position center
 
 # change wallpaper
 bindsym $mod+shift+w exec random-wallpaper
@@ -245,7 +253,6 @@ bar {
 }
 
 
-# exec ~/.argsdotfiles/feh.py # wallpaper
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
 exec conky -c ~/.config/conky/conky.config
