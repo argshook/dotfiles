@@ -28,6 +28,7 @@ noremap <leader>r :so $MYVIMRC<cr>
 
 " toggle spell check
 noremap <F5> :setlocal spell! spelllang=en_us<CR>
+imap  <Esc>[s1z=`]a
 
 " remap j k to mo in wrapped lines easily
 noremap k gk
@@ -189,7 +190,15 @@ nmap <leader>q :bp <BAR> bd #<CR>
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " drag visually selected blocks, for fun
-vmap  <expr>  H DVB_Drag('left')
-vmap  <expr>  L DVB_Drag('right')
-vmap  <expr>  J DVB_Drag('down')
-vmap  <expr>  K DVB_Drag('up')
+" vmap  <expr>  H DVB_Drag('left')
+" vmap  <expr>  L DVB_Drag('right')
+" vmap  <expr>  J DVB_Drag('down')
+" vmap  <expr>  K DVB_Drag('up')
+
+map <leader>rr :RangerEdit<cr>
+map <leader>l :RangerVSplit<cr>
+map <leader>rs :RangerSplit<cr>
+map <leader>rt :RangerTab<cr>
+map <leader>ri :RangerInsert<cr>
+map <leader>ra :RangerAppend<cr>
+map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@

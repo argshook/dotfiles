@@ -29,10 +29,10 @@ case "$WORKSTATION" in
       --output HDMI3 --off \
       --output HDMI2 --off \
       --output HDMI1 --off \
-      --output DP3-1 --off \
+      --output DP3-2 --off \
       --output DP3-3 --primary --mode 1920x1200 --pos 0x720 --rotate normal
     xrandr \
-      --output DP3-2 --mode 1920x1200 --pos 1920x0 --rotate left
+      --output DP3-1 --mode 1920x1200 --pos 1920x0 --rotate left
     ;;
   *)
     echo "Usage: $(basename $0) {laptop|l|station|s}"

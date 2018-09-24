@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+INPUT=$1
+START=$2
+END=$3
+OUTPUT=$4
+
+
+if [ -z "$INPUT" ] || [ -z $START ] || [ -z $END ] || [ -z $OUTPUT ];
+then
+  echo "USAGE:"
+  echo "video-cut input.mp4 00:00:10 00:00:20 output.mp4"
+  exit 1
+fi
+
+ffmpeg -i "$INPUT" -ss "$START" -to "$END" -c copy "$OUTPUT"

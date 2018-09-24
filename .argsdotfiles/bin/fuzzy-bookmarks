@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-buku -p --nc --np -f 40 \
+buku --print --nc --np --format 40 \
   | fzf \
     --bind "enter:execute-silent(chromium {1};i3-msg '[instance=\"alacritty-bookmarks\"] move scratchpad')+unix-line-discard" \
     --bind "esc:ignore"

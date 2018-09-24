@@ -1,6 +1,5 @@
 import os
 from ranger.api.commands import Command
-from subprocess import PIPE
 
 
 # fzf_fasd - Fasd + Fzf + Ranger (Interactive Style)
@@ -16,10 +15,10 @@ class fzf_fasd(Command):
 
     def execute(self):
         import subprocess
-        if self.quantifier:
-            command = "fasd | fzf -e -i --tac --no-sort | awk '{print $2}'"
-        else:
-            command = "fasd | fzf -e -i --tac --no-sort | awk '{print $2}'"
+        cwd = self.fm.thisfile.dirname
+        command = "fasd | fzf -i --tac --no-sort --bind \"ctrl-w:backward-kill-word\" -q %s | awk '{print $2}'" % (
+            cwd)
+
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:

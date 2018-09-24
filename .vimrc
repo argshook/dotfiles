@@ -1,10 +1,10 @@
 source ~/.argsdotfiles/vim/neobundle.vim
 
-let os = system('uname | awk $1')
-if os == 'Linux'
+let os = system("uname | awk '$1'")
+if os =~ 'Linux'
   let g:python_host_prog = '/usr/bin/python'
   let g:python3_host_prog = '/usr/bin/python3'
-elseif os == 'Darwin'
+elseif os =~ 'Darwin'
   let g:python_host_prog = '/usr/local/bin/python'
   let g:python3_host_prog = '/usr/local/bin/python3'
 endif
@@ -96,12 +96,13 @@ autocmd BufRead,BufNewFile *.css set filetype=scss
 autocmd BufRead,BufNewFile *.elm set shiftwidth=2
 
 autocmd VimEnter * cd %:p:h
+autocmd TermOpen * startinsert
 
 source ~/.argsdotfiles/vim/airline.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/neosnippet.vim
-source ~/.argsdotfiles/vim/nerdtree.vim
 source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/vimagit.vim
 source ~/.argsdotfiles/vim/vimwiki.vim
+source ~/.argsdotfiles/vim/abbreviations.vim

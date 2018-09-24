@@ -24,14 +24,11 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'scrooloose/nerdTree'
-NeoBundle 'EvanDotPro/nerdtree-chmod'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'rafaqz/ranger.vim'
 
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'airblade/vim-gitgutter'
-let g:gitgutter_diff_args = '-w'
-let g:gitgutter_map_keys = 0
+NeoBundle 'mhinz/vim-signify', {'build': {'unix': 'npm install'}}
+let g:signify_realtime = 0 " this doesnt work something somewhere sets it to 1 wtf
 NeoBundle 'christoomey/vim-tmux-navigator'
 " when tmux pane is zoomed, don't zoomout when navigating out of vim
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -52,6 +49,7 @@ let g:ycm_key_detailed_diagnostics = ''
 
 " language specific
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'moll/vim-node'
 NeoBundle 'Quramy/tsuquyomi' " for typescript
 let g:tsuquyomi_disable_quickfix = 0
 NeoBundle 'mxw/vim-jsx'
@@ -105,10 +103,10 @@ NeoBundle 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
-  \   'javascript': [ 'eslint' ],
+  \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'tslint' ]
+  \   'typescript': [ 'tslint', 'prettier' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
 autocmd! BufWritePre *.js,*.ts,*.tsx,*.hs :ALEFix

@@ -55,6 +55,7 @@ alias q="exit"
 alias dl="curl -O"
 alias r="ranger"
 alias rn="ranger node_modules"
+alias n="nvim"
 alias b="buku -S"
 
 # git stagings
@@ -93,7 +94,6 @@ alias tmuxk="tmux kill-session -t" # kill session
 alias tmuxl="tmux ls" # list all sessions
 
 # misc
-alias servedir="python -m SimpleHTTPServer 4523 && chrome localhost:4523"
 alias grep="grep --color=auto"
 alias cl="clear"
 
@@ -109,3 +109,6 @@ KEYTIMEOUT=1
 # required by gpg-agent
 GPG_TTY=$(tty)
 export GPG_TTY
+unset zle_bracketed_paste
+
+unsetopt BEEP

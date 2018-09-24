@@ -53,7 +53,7 @@ bindsym $mod+c exec chromium
 
 # bookmarks scratchpad
 for_window [instance="alacritty-bookmarks"] move to scratchpad
-exec alacritty -t "alacritty-bookmarks" -e "fuzzy-bookmarks"
+exec alacritty -t "alacritty-bookmarks"
 bindsym $mod+o [instance="alacritty-bookmarks"] scratchpad show resize set 900 200, move position center
 
 # haskell scratchpad
