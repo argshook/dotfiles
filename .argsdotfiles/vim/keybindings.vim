@@ -65,9 +65,6 @@ command! ZoomToggle call s:ZoomToggle()
 " Zoom / Restore with ,,
 nnoremap <leader><leader> :ZoomToggle<CR>
 
-" toggle wrap
-map <leader>w :set wrap!<cr>
-
 " display number of matches for search pattern
 map ,* *<C-O>:%s///gn<CR>
 
@@ -167,9 +164,6 @@ nnoremap <F9> :exec '!python3' @%<cr>
 
 noremap <silent> <leader>f :ALEFix<cr>
 " noremap <silent> <leader>f :Neoformat<cr>
-
-" search for next under cursor but dont move cursor
-nnoremap <silent> * *N
 
 " smooth scrolling
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>

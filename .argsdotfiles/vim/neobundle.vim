@@ -106,7 +106,8 @@ let g:ale_fixers = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'tslint', 'prettier' ]
+  \   'typescript': [ 'tslint', 'prettier' ],
+  \   'elm': [ 'elm-format', 'elm-make' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
 autocmd! BufWritePre *.js,*.ts,*.tsx,*.hs :ALEFix
