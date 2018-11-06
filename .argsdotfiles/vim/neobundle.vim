@@ -106,7 +106,14 @@ let g:ale_fixers = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'tslint', 'prettier' ],
+  \   'typescript': [ 'prettier', 'tslint' ],
+  \   'elm': [ 'elm-format', 'elm-make' ]
+  \}
+let g:ale_linters = {
+  \   'javascript': [ 'prettier', 'eslint' ],
+  \   'python': [ 'autopep8' ],
+  \   'haskell': [ 'hfmt' ],
+  \   'typescript': [ 'prettier', 'tslint' ],
   \   'elm': [ 'elm-format', 'elm-make' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
@@ -121,15 +128,6 @@ let g:mundo_prefer_python3 = 1
 let g:mundo_auto_preview = 0
 let g:mundo_return_on_revert = 0
 
-
-NeoBundle 'sbdchd/neoformat'
-let g:neoformat_only_msg_on_error = 1
-let g:neoformat_enabled_javascript = ['prettier', 'eslint']
-let g:neoformat_javascript_prettier = {
-  \ 'exe': 'prettier',
-  \ 'args': ['--stdin', '--single-quote'],
-  \ 'stdin': 1,
-  \ }
 
 NeoBundle 'jamessan/vim-gnupg'
 NeoBundle 'geekjuice/vim-mocha'

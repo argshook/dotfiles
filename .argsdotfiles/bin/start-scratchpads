@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-alacritty -t "alacritty-vim-everywhere" -e "vim-everywhere" &
-alacritty -t "alacritty-bookmarks" -e "fuzzy-bookmarks" &
-alacritty -t "alacritty-haskell" -e "ghci" &
-alacritty -t "alacritty-notes" -e "nvim" &
-alacritty -t "alacritty-dropterminal" &
+alacritty --class "alacritty-vim-everywhere" &
+alacritty --class "alacritty-bookmarks" &
+alacritty --class "alacritty-haskell" &
+alacritty --class "alacritty-notes" &
+alacritty --class "alacritty-dropterminal" &

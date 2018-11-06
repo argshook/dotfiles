@@ -53,27 +53,27 @@ bindsym $mod+c exec chromium
 
 # bookmarks scratchpad
 for_window [instance="alacritty-bookmarks"] move to scratchpad
-exec alacritty -t "alacritty-bookmarks"
+exec alacritty --class "alacritty-bookmarks"
 bindsym $mod+o [instance="alacritty-bookmarks"] scratchpad show resize set 900 200, move position center
 
 # haskell scratchpad
 for_window [instance="alacritty-haskell"] move to scratchpad
-exec alacritty -t "alacritty-haskell" -e "ghci"
+exec alacritty --class "alacritty-haskell" -e "ghci"
 bindsym $mod+g [instance="alacritty-haskell"] scratchpad show resize set 500 400, move position center
 
 # notes scratchpad
 for_window [instance="alacritty-notes"] move to scratchpad
-exec alacritty -t "alacritty-notes" -e "nvim"
+exec alacritty --class "alacritty-notes" -e "nvim"
 bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
 for_window [instance="alacritty-vim-everywhere"] move to scratchpad
-exec alacritty -t "alacritty-vim-everywhere" -e "vim-everywhere"
+exec alacritty --class "alacritty-vim-everywhere" -e "vim-everywhere"
 bindsym $mod+n [instance="alacritty-vim-everywhere"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
 for_window [instance="alacritty-dropterminal"] move to scratchpad
-exec alacritty -t "alacritty-dropterminal"
+exec alacritty --class "alacritty-dropterminal"
 bindsym $mod+t [instance="alacritty-dropterminal"] scratchpad show resize set 800 400, move position center
 
 # change wallpaper

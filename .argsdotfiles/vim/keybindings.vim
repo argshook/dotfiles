@@ -190,7 +190,7 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " vmap  <expr>  K DVB_Drag('up')
 
 map <leader>rr :RangerEdit<cr>
-map <leader>l :RangerVSplit<cr>
+map <leader>l :RangerSplit<cr>
 map <leader>rs :RangerSplit<cr>
 map <leader>rt :RangerTab<cr>
 map <leader>ri :RangerInsert<cr>
