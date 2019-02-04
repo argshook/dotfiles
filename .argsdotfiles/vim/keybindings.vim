@@ -2,7 +2,7 @@ imap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 smap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 xmap <C-k> <Plug>(neosnippet_target)
-smap <TAB> <Plug>(neosnippet_jump)
+imap <Tab> <C-n>
 
 " shortcut to save
 nmap <leader>s :w<cr>
@@ -74,9 +74,20 @@ nnoremap <leader>e :e#<CR>
 " location window, mostly to navigate linter errors
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
-nmap ]; :ALEFirst<CR>    " go to first error
-nmap [l :ALEPreviousWrap<CR>  " previous error
-nmap ]l :ALENextWrap<CR>  " next error
+
+nmap ]l <Plug>(coc-diagnostic-next)
+nmap [l <Plug>(coc-diagnostic-prev)
+call coc#config('coc.preferences', {
+  \ 'diagnostic.displayByAle': 'true',
+  \})
+
+nmap <silent> \d <Plug>(coc-diagnostic-info)
+nmap <silent> \f <Plug>(coc-fix-current)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
@@ -158,12 +169,10 @@ nmap [g <plug>(signify-prev-hunk)
 map <Leader>T :call RunCurrentSpecFile()<CR>
 map <Leader>t :call RunNearestSpec()<CR>
 map <Leader>u :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
 
 nnoremap <F9> :exec '!python3' @%<cr>
 
 noremap <silent> <leader>f :ALEFix<cr>
-" noremap <silent> <leader>f :Neoformat<cr>
 
 " smooth scrolling
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>

@@ -96,6 +96,7 @@ alias tmuxl="tmux ls" # list all sessions
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
+alias cat="bat"
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8

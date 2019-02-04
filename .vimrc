@@ -92,9 +92,8 @@ autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
 
 autocmd Filetype gitcommit,magit,markdown,vimwiki setlocal textwidth=72
 " autocmd BufRead,BufNewFile *.js,*.jsx setlocal filetype=typescript.tsx
-autocmd BufRead,BufNewFile *.md,*.markdown set shiftwidth=4 softtabstop=4
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
 autocmd BufRead,BufNewFile *.css set filetype=scss
-autocmd BufRead,BufNewFile *.elm set shiftwidth=2
 
 autocmd VimEnter * cd %:p:h
 autocmd TermOpen * startinsert

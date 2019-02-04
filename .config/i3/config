@@ -68,7 +68,7 @@ bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, 
 
 # quick edit scratchpad
 for_window [instance="alacritty-vim-everywhere"] move to scratchpad
-exec alacritty --class "alacritty-vim-everywhere" -e "vim-everywhere"
+exec alacritty --class "alacritty-vim-everywhere"
 bindsym $mod+n [instance="alacritty-vim-everywhere"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad

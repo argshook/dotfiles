@@ -15,3 +15,6 @@ function! FocusLost()
   let s:cursor_pos = getpos(".")
   normal ggvGg_"+y
 endfunction
+
+nnoremap <silent> <leader>fj :set ft=javascript.jsx<CR>
+nnoremap <silent> <leader>fm :set ft=markdown<CR>
