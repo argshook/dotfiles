@@ -1,8 +1,10 @@
 imap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
+
 xmap <C-k> <Plug>(neosnippet_target)
 imap <Tab> <C-n>
+imap <S-Tab> <C-p>
 
 " shortcut to save
 nmap <leader>s :w<cr>
@@ -79,15 +81,18 @@ nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 call coc#config('coc.preferences', {
   \ 'diagnostic.displayByAle': 'true',
+  \ 'triggerSignatureHelp': 'false',
   \})
 
-nmap <silent> \d <Plug>(coc-diagnostic-info)
+nmap <silent> \d :ALEDetail<CR>
 nmap <silent> \f <Plug>(coc-fix-current)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+inoremap <silent><expr> <c-space> coc#refresh()
+
 
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
@@ -130,11 +135,6 @@ nnoremap T :call JumpToMiddleOfParagraph()<CR>
 " print date for fun
 inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
-
-" Tern
-autocmd Filetype javascript nnoremap <silent> gd :TernDef<CR>
-autocmd Filetype javascript nnoremap <silent> gP :TernDefPreview<CR>
-autocmd Filetype javascript nnoremap <silent> gr :TernRefs<CR>
 
 " fold with leader
 nnoremap <silent> <leader>z za
@@ -198,8 +198,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " vmap  <expr>  J DVB_Drag('down')
 " vmap  <expr>  K DVB_Drag('up')
 
-map <leader>rr :RangerEdit<cr>
-map <leader>l :RangerSplit<cr>
+map <leader>l :RangerEdit<cr>
+map <leader>rr :RangerSplit<cr>
 map <leader>rs :RangerSplit<cr>
 map <leader>rt :RangerTab<cr>
 map <leader>ri :RangerInsert<cr>

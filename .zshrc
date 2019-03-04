@@ -1,4 +1,3 @@
-export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin:$HOME/.rvm/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
@@ -29,8 +28,6 @@ if (( $IS_SSH_AGENT_RUNNING  == 0 )) then
 else
   source ~/.ssh-env
 fi
-
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # theme
 source ~/.argsdotfiles/zsh/theme.zsh-theme
@@ -113,3 +110,7 @@ export GPG_TTY
 unset zle_bracketed_paste
 
 unsetopt BEEP
+
+# fnm
+export PATH=$HOME/.fnm:$PATH
+eval `fnm env`

@@ -30,15 +30,10 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+set completeopt-=preview
 
-let g:tsuquyomi_disable_quickfix = 1
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
-Plug 'nvie/vim-flake8'
-Plug 'tell-k/vim-autopep8'
-autocmd BufWritePost  *.py call Autopep8()
-autocmd BufWritePost *.py call Flake8()
-let g:autopep8_disable_show_diff=1
 Plug 'leafgarland/typescript-vim'
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
@@ -81,23 +76,24 @@ Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
+let g:ale_list_window_size = 5
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
   \   'json': [ 'jq' ],
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
-  \   'elm': [ 'elm-format', 'elm-make' ]
+  \   'elm': [ 'elm-format' ]
   \}
 let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
-  \   'elm': [ 'elm-format', 'elm-make' ]
+  \   'elm': [ 'elm-format' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
-" autocmd! BufWritePre *.json,*.js,*.ts,*.tsx,*.hs :ALEFix
 Plug 'wellle/visual-split.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'jceb/vim-editqf'
