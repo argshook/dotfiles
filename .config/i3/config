@@ -48,36 +48,37 @@ focus_follows_mouse no
 # start a terminal
 #bindsym $mod+Return exec terminology
 # bindsym $mod+Return exec urxvt
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+c exec chromium
 
 # bookmarks scratchpad
-for_window [instance="alacritty-bookmarks"] move to scratchpad
-exec alacritty --class "alacritty-bookmarks"
-bindsym $mod+o [instance="alacritty-bookmarks"] scratchpad show resize set 900 200, move position center
+for_window [instance="kitty-bookmarks"] move to scratchpad
+exec kitty --class "kitty-bookmarks"
+bindsym $mod+o [instance="kitty-bookmarks"] scratchpad show resize set 900 200, move position center
 
-# haskell scratchpad
-for_window [instance="alacritty-haskell"] move to scratchpad
-exec alacritty --class "alacritty-haskell" -e "ghci"
-bindsym $mod+g [instance="alacritty-haskell"] scratchpad show resize set 500 400, move position center
+# search scratchpad
+for_window [instance="kitty-search"] move to scratchpad
+exec kitty --class "kitty-search"
+bindsym $mod+g [instance="kitty-search"] scratchpad show resize set 900 700, move position center
 
 # notes scratchpad
-for_window [instance="alacritty-notes"] move to scratchpad
-exec alacritty --class "alacritty-notes" -e "nvim"
-bindsym $mod+p [instance="alacritty-notes"] scratchpad show resize set 800 600, move position center
+for_window [instance="kitty-notes"] move to scratchpad
+exec kitty --class "kitty-notes" -e "nvim"
+bindsym $mod+p [instance="kitty-notes"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
-for_window [instance="alacritty-vim-everywhere"] move to scratchpad
-exec alacritty --class "alacritty-vim-everywhere"
-bindsym $mod+n [instance="alacritty-vim-everywhere"] scratchpad show resize set 800 600, move position center
+for_window [instance="kitty-vim-everywhere"] move to scratchpad
+exec kitty --class "kitty-vim-everywhere"
+bindsym $mod+n [instance="kitty-vim-everywhere"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
-for_window [instance="alacritty-dropterminal"] move to scratchpad
-exec alacritty --class "alacritty-dropterminal"
-bindsym $mod+t [instance="alacritty-dropterminal"] scratchpad show resize set 800 400, move position center
+for_window [instance="kitty-dropterminal"] move to scratchpad
+exec kitty --class "kitty-dropterminal"
+bindsym $mod+t [instance="kitty-dropterminal"] scratchpad show resize set 800 400, move position center
 
 # change wallpaper
-bindsym $mod+shift+w exec random-wallpaper
+bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`
+
 # bindsym $mod+shift+w exec wallpaper-reddit --lottery wallpapers WQHD_Wallpaper
 
 
@@ -184,7 +185,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 10
+gaps inner 5
 
 
 # Audio controls

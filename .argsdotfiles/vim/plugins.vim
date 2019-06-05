@@ -79,7 +79,8 @@ let g:ale_sign_column_always = 1
 let g:ale_list_window_size = 5
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-  \   'json': [ 'jq' ],
+  \   'css': [ 'stylelint' ],
+  \   'json': [ 'jq', 'fixjson' ],
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
@@ -96,14 +97,13 @@ let g:ale_linters = {
 nnoremap <leader>d :ALEDetail<cr>
 Plug 'wellle/visual-split.vim'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'jceb/vim-editqf'
+Plug 'itchyny/vim-qfedit'
 let g:editqf_jump_to_error = 0
 Plug 'simnalamburt/vim-mundo'
 nnoremap <F6> :MundoToggle<CR>
 let g:mundo_prefer_python3 = 1
 let g:mundo_auto_preview = 0
 let g:mundo_return_on_revert = 0
-
 
 Plug 'jamessan/vim-gnupg'
 Plug 'geekjuice/vim-mocha'
@@ -126,7 +126,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
-Plug 'RRethy/vim-illuminate'
 
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'vim-airline/vim-airline'

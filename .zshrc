@@ -1,8 +1,9 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin:$HOME/.rvm/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+export PAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -93,7 +94,6 @@ alias tmuxl="tmux ls" # list all sessions
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
-alias cat="bat"
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8

@@ -22,7 +22,6 @@ noremap <silent> <Esc> <Esc>:noh<cr>
 nnoremap ' `
 
 " i hit Q by mistake.
-" access ex mode with <c-f>
 nnoremap Q <nop>
 
 " reload .vimrc
@@ -80,18 +79,21 @@ nmap <Leader><Space>c :lclose<CR> " close location window
 nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 call coc#config('coc.preferences', {
-  \ 'diagnostic.displayByAle': 'true',
   \ 'triggerSignatureHelp': 'false',
   \})
 
 nmap <silent> \d :ALEDetail<CR>
 nmap <silent> \f <Plug>(coc-fix-current)
 
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ge <Plug>(coc-diagnostic-info)
 inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 
 " quickfix window, mostly to navigate Ag or grep results
@@ -199,9 +201,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " vmap  <expr>  K DVB_Drag('up')
 
 map <leader>l :RangerEdit<cr>
-map <leader>rr :RangerSplit<cr>
-map <leader>rs :RangerSplit<cr>
-map <leader>rt :RangerTab<cr>
-map <leader>ri :RangerInsert<cr>
-map <leader>ra :RangerAppend<cr>
-map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+map <leader>ls :RangerSplit<cr>
+map <leader>lv :RangerVSplit<cr>
+map <leader>lt :RangerTab<cr>
+
+map <leader>rn <Plug>(coc-rename)

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-alacritty --class "alacritty-vim-everywhere" &
-alacritty --class "alacritty-bookmarks" &
-alacritty --class "alacritty-haskell" &
-alacritty --class "alacritty-notes" &
-alacritty --class "alacritty-dropterminal" &
+kitty --class "kitty-vim-everywhere" &
+kitty --class "kitty-bookmarks" &
+kitty --class "kitty-search" &
+kitty --class "kitty-notes" &
+kitty --class "kitty-dropterminal" &

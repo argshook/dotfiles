@@ -1,4 +1,4 @@
-source ~/.argsdotfiles/vim/neobundle.vim
+source ~/.argsdotfiles/vim/plugins.vim
 
 let os = system("uname | awk '$1'")
 if os =~ 'Linux'
@@ -21,6 +21,7 @@ set backupcopy=yes
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set hidden
 set number
+set nomodeline
 set linebreak
 set textwidth=120
 set showmatch
@@ -95,7 +96,6 @@ autocmd Filetype gitcommit,magit,markdown,vimwiki setlocal textwidth=72
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
 autocmd BufRead,BufNewFile *.css set filetype=scss
 
-autocmd VimEnter * cd %:p:h
 autocmd TermOpen * startinsert
 
 source ~/.argsdotfiles/vim/airline.vim

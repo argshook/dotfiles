@@ -2,5 +2,5 @@
 
 buku --print --nc --np --format 40 \
   | fzf \
-    --bind "enter:execute-silent(chromium {1};i3-msg '[instance=\"alacritty-bookmarks\"] move scratchpad')+unix-line-discard" \
+    --bind "enter:execute-silent(chromium {1};i3-msg '[instance=\"kitty-bookmarks\"] move scratchpad')+unix-line-discard" \
     --bind "esc:ignore"
