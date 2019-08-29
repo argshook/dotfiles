@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " essentials
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
 autocmd BufReadPost fugitive://* set bufhidden=delete
 Plug 'tpope/vim-rhubarb'
 Plug 'jreybert/vimagit'
@@ -10,7 +11,6 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 let g:surround_indent = 0
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -37,10 +37,10 @@ let g:jsx_ext_required = 0
 Plug 'leafgarland/typescript-vim'
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
-Plug 'reasonml-editor/vim-reason-plus'
+" Plug 'reasonml-editor/vim-reason-plus', { 'for': 're' }
 
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'elmcast/elm-vim'
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
+Plug 'elmcast/elm-vim', { 'for': 'elm'  }
 let g:elm_make_show_warnings = 1
 let g:elm_setup_keybindings = 0
 let g:elm_detailed_complete = 1
@@ -106,40 +106,19 @@ let g:mundo_auto_preview = 0
 let g:mundo_return_on_revert = 0
 
 Plug 'jamessan/vim-gnupg'
-Plug 'geekjuice/vim-mocha'
-let g:mocha_js_command = "!mocha --recursive --reporter list --compilers js:./node_modules/babel-core/register {spec}"
 
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 let g:easy_align_delimiters = {
 \ '/': { 'pattern': '//\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] }
 \ }
 
-" eyecandy
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_start_level = 2
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=233
-
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'thiagoalessio/rainbow_levels.vim'
-let g:rainbow_levels = [
-    \{'ctermfg': 2, 'guifg': '#859900'},
-    \{'ctermfg': 6, 'guifg': '#2aa198'},
-    \{'ctermfg': 4, 'guifg': '#268bd2'},
-    \{'ctermfg': 5, 'guifg': '#6c71c4'},
-    \{'ctermfg': 1, 'guifg': '#dc322f'},
-    \{'ctermfg': 3, 'guifg': '#b58900'},
-    \{'ctermfg': 8, 'guifg': '#839496'},
-    \{'ctermfg': 7, 'guifg': '#586e75'}]
 
 " Initialize plugin system
 call plug#end()

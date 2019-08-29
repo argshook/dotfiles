@@ -14,7 +14,6 @@ let mapleader = ","
 syntax enable
 filetype plugin indent on
 
-set nocompatible
 set autoread
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupcopy=yes
@@ -71,7 +70,6 @@ set foldlevelstart=3
 set wildmenu " enhanced command line completion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
 
-set t_Co=256
 set laststatus=2
 
 let g:signify_realtime = 1
