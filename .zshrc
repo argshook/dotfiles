@@ -13,6 +13,7 @@ antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle djui/alias-tips
+antigen bundle taskwarrior
 
 antigen apply
 

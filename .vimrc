@@ -15,9 +15,9 @@ syntax enable
 filetype plugin indent on
 
 set autoread
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.tmp/vim
 set backupcopy=yes
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.tmp/vim
 set hidden
 set number
 set nomodeline
@@ -51,25 +51,15 @@ set noshowmode
 set showcmd
 set lazyredraw
 set conceallevel=0
-
-set splitbelow " split to right and below
+set splitbelow
 set splitright
-
 set scrolloff=2
 set cursorline
 set previewheight=20
-
 set undolevels=1000
 set backspace=indent,eol,start
-
-" code folding
 set foldmethod=indent
 set foldlevelstart=3
-
-" ui
-set wildmenu " enhanced command line completion
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*  " MacOSX/Linux
-
 set laststatus=2
 
 let g:signify_realtime = 1

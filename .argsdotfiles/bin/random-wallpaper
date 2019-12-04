@@ -87,7 +87,7 @@ def get_image(url, desired_res=None):
             break
         except HTTPError as e:
             # Too many requests, give reddit a break, try again.
-            print("JSON api throttled, attempt %s of %s" % (i+1, MAX_ATTEMPTS))
+            print("attempt %s of %s" % (i+1, MAX_ATTEMPTS))
             if getattr(e, 'code', None) == 429:
                 time.sleep(SLEEP_SECONDS_AFTER_ATTEMPT)
             i += 1

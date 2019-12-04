@@ -4,5 +4,6 @@ iabbrev wub wix-ui-backoffice
 iabbrev wuc wix-ui-core
 iabbrev wua wix-ui-adi
 iabbrev wut wix-ui-tpa
+iabbrev wbu wix-base-ui
 
 iabbrev shrug ¯\_(ツ)_/¯

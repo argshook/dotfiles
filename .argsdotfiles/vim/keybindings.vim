@@ -31,14 +31,14 @@ noremap <leader>r :so $MYVIMRC<cr>
 noremap <F5> :setlocal spell! spelllang=en_us<CR>
 imap  <Esc>[s1z=`]a
 
-" remap j k to mo in wrapped lines easily
-noremap k gk
-noremap j gj
+" remap j k to move in wrapped lines easily
+" noremap k gk
+" noremap j gj
 
 " more goodies for wrapped line navigation
-nnoremap 0 g0
-nnoremap $ g$
-nnoremap ^ g^
+" nnoremap 0 g0
+" nnoremap $ g$
+" nnoremap ^ g^
 
 " set paste/nopaste toggle key
 set pastetoggle=<leader>p
