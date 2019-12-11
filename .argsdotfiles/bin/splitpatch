@@ -1,0 +1,14 @@
+#!/bin/perl
+
+while (<>) {
+    if(/^diff --git a\/(\S+)/) {
+        close $f if $f;
+        $s=$1;
+        $s =~ s:(/|\.):_:g;
+        $n=sprintf("%03d_%s.patch", ++$i, $s);
+        open $f, ">", $n;
+        print $f $_;
+        next;
+    }
+    print $f $_ if $f;
+}
