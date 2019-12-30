@@ -4,7 +4,7 @@ autocmd FocusGained *.md call FocusGained()
 autocmd FocusLost *.md call FocusLost()
 
 function! FocusGained()
-  normal ggVG"+P
+  normal gg0vGg_"+P
 
   if exists('s:cursor_pos')
     call cursor(s:cursor_pos[1], s:cursor_pos[2])
@@ -13,7 +13,7 @@ endfunction
 
 function! FocusLost()
   let s:cursor_pos = getpos(".")
-  normal ggvGg_"+y
+  normal gg0vGg_"+y
 endfunction
 
 nnoremap <silent> <leader>fj :set ft=javascript.jsx<CR>

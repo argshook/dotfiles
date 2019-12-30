@@ -1,4 +1,4 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
