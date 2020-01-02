@@ -14,6 +14,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle djui/alias-tips
 antigen bundle taskwarrior
+antigen bundle tmuxinator
 
 antigen apply
 
@@ -51,7 +52,6 @@ export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
 alias kurwa="killall -9"
 alias npmnx="rm -rf node_modules package-lock.json"
 alias q="exit"
-alias dl="curl -O"
 alias r="ranger"
 alias rn="ranger node_modules"
 alias n="nvim"
@@ -92,6 +92,9 @@ alias tmuxn="tmux -2 new -s" # create new session
 alias tmuxk="tmux kill-session -t" # kill session
 alias tmuxl="tmux ls" # list all sessions
 
+# tmuxinator
+alias mux="tmuxinator"
+
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
@@ -115,3 +118,6 @@ unsetopt BEEP
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval `fnm env`
+
+# ruby
+source $HOME/.rvm/scripts/rvm
