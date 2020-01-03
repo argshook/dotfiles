@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# this script is for grep'ing encrypted *.md.gpg files
+
+QUERY=$1
+SEARCH_PATH=$2
+
+if [[ -n $SEARCH_PATH ]] && [[ -n $QUERY ]]; then
+  for file in `find $SEARCH_PATH -iname '*.md.gpg'`; do
+    gpg --decrypt $file 2>/dev/null | ag --nocolor --numbers --column "$QUERY" | awk -v f="$file" '{print f ":" $0}'
+  done;
+else
+  echo "Usage:"
+  echo "vimwiki-search PATTERN PATH"
+fi
