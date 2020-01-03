@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# this script clones git repository and scaffolds a tmux session for it
+
+# for example:
+# clone git@github.com:argshook/dotfiles.git
+
+# also possible with custom name, for when multiples of same repo are needed
+# clone git@github.com:argshook/dotfiles.git dotfiles-2
+# will get cloned to ~/repos/cloned/argshook/dotfiles-2
+
+GITHUB_URL=$1
+CUSTOM_NAME=$2
+
+regex="github\.com\/([a-zA-Z0-9_-]*)\/([a-zA-Z0-9_-]*)"
+if [[ $GITHUB_URL =~ $regex ]]
+then
+    AUTHOR="${BASH_REMATCH[1]}"
+    NAME="${BASH_REMATCH[2]}"
+    ROOT="$HOME/repos/cloned/$AUTHOR/$NAME"
+
+    if [[ -n $CUSTOM_NAME ]]
+    then
+      ROOT="$HOME/repos/cloned/$AUTHOR/$CUSTOM_NAME"
+      NAME="$CUSTOM_NAME"
+    fi
+
+
+    if [ -d "$ROOT" ]
+    then
+      echo "Repo already cloned at $ROOT"
+    else
+      mkdir -p $ROOT
+      GITHUB_SSH_LINK="git@github.com:$AUTHOR/$NAME.git"
+      git clone --single-branch --depth 1 --shallow-submodules $GITHUB_SSH_LINK $ROOT
+    fi
+
+    tmuxinator start hub root=$ROOT name=$NAME
+else
+    echo "Unable to extract author and repo from $GITHUB_URL"
+fi

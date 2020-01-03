@@ -1,0 +1,11 @@
+# /home/arijus/.config/tmuxinator/hub.yml
+
+name: <%= @settings["name"] %>
+root: <%= @settings["root"] %>
+
+windows:
+  - main:
+      layout: 03ec,320x89,0,0{78x89,0,0,370,241x89,79,0,371}
+      panes:
+        - ls
+        - nvim
