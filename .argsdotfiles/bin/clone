@@ -35,6 +35,7 @@ then
       git clone --single-branch --depth 1 --shallow-submodules $GITHUB_SSH_LINK $ROOT
     fi
 
+    # this requires ~/.config/tmuxinator/hub.yml
     tmuxinator start hub root=$ROOT name=$NAME
 else
     echo "Unable to extract author and repo from $GITHUB_URL"

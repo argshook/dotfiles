@@ -5,7 +5,8 @@ root: <%= @settings["root"] %>
 
 windows:
   - main:
-      layout: 03ec,320x89,0,0{78x89,0,0,370,241x89,79,0,371}
+      layout: e76b,320x89,0,0{70x89,0,0,411,249x89,71,0[249x44,71,0,413,249x44,71,45,414]}
       panes:
         - ls
         - nvim
+        - ranger
