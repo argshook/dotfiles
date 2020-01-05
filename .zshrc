@@ -32,11 +32,21 @@ else
   source ~/.ssh-env
 fi
 
+# utility function to avoid errors
+source_if_exists () {
+  if [[ -f $1 ]]; then
+    source $1
+  fi
+}
+
 # theme
-source ~/.argsdotfiles/zsh/theme.zsh-theme
+source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
+source_if_exists /usr/share/fzf/key-bindings.zsh
+
+# ruby
+source_if_exists $HOME/.rvm/scripts/rvm
 
 # fasd
 eval "$(fasd --init auto)"
@@ -118,6 +128,3 @@ unsetopt BEEP
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval `fnm env`
-
-# ruby
-source $HOME/.rvm/scripts/rvm
