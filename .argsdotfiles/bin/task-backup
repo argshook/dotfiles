@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+TASK_DATA=$HOME/Dropbox/taskwarrior
+BACKUP_DATA=$HOME/backups
+BACKUP_FILENAME=$BACKUP_DATA/task-backup-$(date +'%Y%m%d%H%M%S').tar.gz
+BACKUP_FILENAME_ENCRYPTED=$BACKUP_FILENAME.gpg
+
+# create backup
+tar -czf $BACKUP_FILENAME $TASK_DATA/*
+
+# encrypt
+gpg --encrypt --batch --yes --recipient arijus $BACKUP_FILENAME
+rm $BACKUP_FILENAME
+
+# copy to remote
+scp $BACKUP_FILENAME_ENCRYPTED theman@theserver:/home/theman/backups/task
