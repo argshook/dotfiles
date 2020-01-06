@@ -20,4 +20,10 @@ then
     $OUTPUT_IMAGE
 fi
 
-i3lock --ignore-empty-password --no-unlock-indicator --nofork --image $OUTPUT_IMAGE
+# create SCREENLOCK task. It's also timetracked with timewarrior
+task add +SCREENLOCK break
+task $(task +LATEST +SCREENLOCK uuids) start
+
+# invoke i3lock, mark SCREENLOCK task as done
+i3lock --ignore-empty-password --no-unlock-indicator --nofork --image $OUTPUT_IMAGE && \
+  task $(task +LATEST +SCREENLOCK uuids) done

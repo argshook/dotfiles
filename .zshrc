@@ -67,7 +67,7 @@ alias rn="ranger node_modules"
 alias n="nvim"
 alias b="buku -S"
 
-# git stagings
+# git
 alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
@@ -77,22 +77,13 @@ alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 
-# git logging
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gl5="gl -5"
 alias glweek="git shortlog -s --since="last week""
-
 alias gp="git push"
 alias gpo="git push origin"
 
-# git stashing
-alias gsh="git stash"
-alias gshl="git stash list"
-alias gshc="git stash clear"
-alias gsha="git stash apply"
-
-# git misc
 alias gisnew="git remote update && gs"
 alias gitlarge='~/.argsdotfiles/zsh/git-largest-files.py'
 
@@ -104,6 +95,22 @@ alias tmuxl="tmux ls" # list all sessions
 
 # tmuxinator
 alias mux="tmuxinator"
+
+# task
+alias ta="task add"
+
+_taskwarrior_rest_start () {
+  task add +WORK_BREAK_TASK break
+  task $(task +LATEST uuids) start
+}
+
+_taskwarrior_rest_stop () {
+  task $(task +LATEST +WORK_BREAK_TASK uuids) done
+}
+
+
+alias rest="_taskwarrior_rest_start"
+alias work="_taskwarrior_rest_stop"
 
 # misc
 alias grep="grep --color=auto"
