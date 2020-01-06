@@ -108,9 +108,16 @@ _taskwarrior_rest_stop () {
   task $(task +LATEST +WORK_BREAK_TASK uuids) done
 }
 
-
 alias rest="_taskwarrior_rest_start"
 alias work="_taskwarrior_rest_stop"
+_taskwarrior_extract () {
+  if [[ -n $1 ]] && [[ -n $2 ]]; then
+    task $2 export | jq --raw-output ".[0].$1"
+  else
+    echo "Usage: tget FIELD ID"
+  fi
+}
+alias tget="_taskwarrior_extract"
 
 # misc
 alias grep="grep --color=auto"
