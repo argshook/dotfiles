@@ -86,11 +86,5 @@ autocmd BufRead,BufNewFile *.css set filetype=scss
 
 autocmd TermOpen * startinsert
 
-source ~/.argsdotfiles/vim/airline.vim
-source ~/.argsdotfiles/vim/fzf.vim
-source ~/.argsdotfiles/vim/neosnippet.vim
-source ~/.argsdotfiles/vim/emmet.vim
 source ~/.argsdotfiles/vim/keybindings.vim
-source ~/.argsdotfiles/vim/vimagit.vim
-source ~/.argsdotfiles/vim/vimwiki.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
