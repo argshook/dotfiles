@@ -29,7 +29,6 @@ include /usr/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
-default.command=ready
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
@@ -38,3 +37,6 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 urgency.blocking.coefficient=5.0
 search.case.sensitive=no
+context.bucket=+idea -PRIORITY
+context.learn=+learn -PRIORITY
+context.main=-idea -learn

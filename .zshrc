@@ -98,6 +98,8 @@ alias mux="tmuxinator"
 
 # task
 alias ta="task add"
+alias treview="task add +review"
+alias tfix="task add +fix"
 
 _taskwarrior_rest_start () {
   task add +WORK_BREAK_TASK break

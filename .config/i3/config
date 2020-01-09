@@ -53,27 +53,22 @@ bindsym $mod+c exec chromium
 
 # bookmarks scratchpad
 for_window [instance="kitty-bookmarks"] move to scratchpad
-exec kitty --class "kitty-bookmarks"
 bindsym $mod+o [instance="kitty-bookmarks"] scratchpad show resize set 900 200, move position center
 
 # search scratchpad
 for_window [instance="kitty-search"] move to scratchpad
-exec kitty --class "kitty-search"
 bindsym $mod+g [instance="kitty-search"] scratchpad show resize set 900 700, move position center
 
 # notes scratchpad
 for_window [instance="kitty-notes"] move to scratchpad
-exec kitty --class "kitty-notes" -e "nvim"
 bindsym $mod+p [instance="kitty-notes"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
 for_window [instance="kitty-vim-everywhere"] move to scratchpad
-exec kitty --class "kitty-vim-everywhere"
 bindsym $mod+n [instance="kitty-vim-everywhere"] scratchpad show resize set 800 600, move position center
 
 # quick edit scratchpad
 for_window [instance="kitty-dropterminal"] move to scratchpad
-exec kitty --class "kitty-dropterminal"
 bindsym $mod+t [instance="kitty-dropterminal"] scratchpad show resize set 1100 450, move position center
 
 # change wallpaper

@@ -28,7 +28,6 @@ set hlsearch
 set visualbell
 set t_vb=
 set mouse=a
-set title
 set undofile
 set smartcase
 set ignorecase
@@ -88,3 +87,4 @@ autocmd TermOpen * startinsert
 
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
+source ~/.argsdotfiles/vim/fzf.vim

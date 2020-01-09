@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-kitty --class "kitty-vim-everywhere" &
-kitty --class "kitty-bookmarks" &
-kitty --class "kitty-search" &
-kitty --class "kitty-notes" &
-kitty --class "kitty-dropterminal" &
+nohup kitty --class "kitty-vim-everywhere" &
+nohup kitty --class "kitty-bookmarks" &
+nohup kitty --class "kitty-search" &
+nohup kitty --class "kitty-notes" &
+nohup kitty --class "kitty-dropterminal" &
