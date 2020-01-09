@@ -1,0 +1,20 @@
+#/usr/bin/env bash
+
+_pomodoro () {
+  local TIMEOUT_MINUTES=${1:-25} # 25 minutes by default
+  local TIMEOUT_SECONDS=$(expr $TIMEOUT_MINUTES \* 60)
+  local PICTURE=$(find ~/Pictures/wallpapers | shuf -n 1)
+
+  notify-send --icon $PICTURE 'Focus!' "For $TIMEOUT_MINUTES minutes"
+  echo "Focus for $TIMEOUT_MINUTES minutes"
+
+  for i in $(seq 1 $TIMEOUT_SECONDS); do
+    sleep 1
+    echo -ne "\r\e[K$(($TIMEOUT_SECONDS-$i)) seconds left"
+  done
+
+  notify-send --icon $PICTURE 'Timeout!' "Go rest"
+  printf "\nGo rest!\n"
+}
+
+_pomodoro $1
