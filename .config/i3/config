@@ -71,6 +71,10 @@ bindsym $mod+n [instance="kitty-vim-everywhere"] scratchpad show resize set 800 
 for_window [instance="kitty-dropterminal"] move to scratchpad
 bindsym $mod+t [instance="kitty-dropterminal"] scratchpad show resize set 1100 450, move position center
 
+# telegram scratchpad
+for_window [instance="telegram-desktop"] move to scratchpad
+bindsym $mod+u [instance="telegram-desktop"] scratchpad show resize set 800 600, move position center
+
 # change wallpaper
 bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`
 

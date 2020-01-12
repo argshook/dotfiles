@@ -4,9 +4,10 @@ _pomodoro () {
   local TIMEOUT_MINUTES=${1:-25} # 25 minutes by default
   local TIMEOUT_SECONDS=$(expr $TIMEOUT_MINUTES \* 60)
   local PICTURE=$(find ~/Pictures/wallpapers | shuf -n 1)
+  local MESSAGE=${2:-'Focus!'}
 
-  notify-send --icon $PICTURE 'Focus!' "For $TIMEOUT_MINUTES minutes"
-  echo "Focus for $TIMEOUT_MINUTES minutes"
+  notify-send --icon $PICTURE $MESSAGE "For $TIMEOUT_MINUTES minutes"
+  echo "$MESSAGE for $TIMEOUT_MINUTES minutes"
 
   for i in $(seq 1 $TIMEOUT_SECONDS); do
     sleep 1
@@ -17,4 +18,4 @@ _pomodoro () {
   printf "\nGo rest!\n"
 }
 
-_pomodoro $1
+_pomodoro $@

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+_task-conky-counters() {
+  PENDING=$(task status:pending count)
+
+  echo "$PENDING pending tasks"
+}
+
+_task-conky-counters

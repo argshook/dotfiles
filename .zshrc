@@ -100,6 +100,7 @@ alias mux="tmuxinator"
 alias ta="task add"
 alias treview="task add +review"
 alias tfix="task add +fix"
+alias trecent="task limit:10 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
 
 _taskwarrior_rest_start () {
   task add +WORK_BREAK_TASK break

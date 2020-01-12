@@ -40,3 +40,5 @@ search.case.sensitive=no
 context.bucket=+idea -PRIORITY
 context.learn=+learn -PRIORITY
 context.main=-idea -learn
+color.blocking=color3
+color.blocked=color3 on color0

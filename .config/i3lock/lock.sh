@@ -1,8 +1,6 @@
 #!/bin/bash
 
 OUTPUT_IMAGE=/tmp/lock-screen.png
-# LOCK_ICON=$HOME/.config/i3lock/lock.png
-# LOCK_ICON=$HOME/.config/i3lock/lock2.jpg
 
 if [[ -f $OUTPUT_IMAGE ]]
 then
