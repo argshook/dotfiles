@@ -59,6 +59,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
+Plug 'plasticboy/vim-markdown'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 set completeopt-=preview

@@ -18,7 +18,7 @@ import argparse
 import socket
 
 
-REDDIT_URL = 'http://www.reddit.com/r/wallpapers/hot.json?limit=25'
+REDDIT_URL = 'http://www.reddit.com/r/WQHD_Wallpaper/hot.json?limit=25'
 TIMEOUT = 3
 DATA_DIR = os.path.join(os.path.expanduser("~"), 'Pictures/wallpapers')
 
