@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+RADIO=$1
+
+case "$RADIO" in
+  groovesalad)
+    mpv https://somafm.com/groovesalad256.pls
+    ;;
+
+  groovesaladclassic)
+    mpv http://ice4.somafm.com/gsclassic-128-mp3
+    ;;
+
+  defcon)
+    mpv https://somafm.com/defcon256.pls
+    ;;
+
+  *)
+    echo "Usage: $(basename $0) {groovesalad|groovesaladclassic|defcon}"
+esac
