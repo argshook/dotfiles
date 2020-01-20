@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# this script goes through every line in ./_scratchpads
+# every line there is a name for a i3 scratchpad session
+
+# TODO: run this only if tmux server is running!
+
+scratchpads_dir=$HOME/.argsdotfiles/bin/scratchpads
+scratchpads=$scratchpads_dir/_scratchpads
+start_scratchpads=$scratchpads_dir/_start_scratchpads
+
+array=()
+while read line; do
+  if [[ $line == \#* ]]; then
+    continue
+  fi
+  array+=( "$line" )
+done < "$scratchpads"
+
+# init start_scratchpads file
+echo "#!/usr/bin/env bash" > $start_scratchpads
+chmod u+x $start_scratchpads
+
+for command in "${array[@]}"; do
+  name=$(echo $command | awk '{ print $1 }')
+  init_command=$(echo $command | awk '{ $1 = ""; print $0 }')
+  attach_script=$scratchpads_dir/$name.attach
+
+  echo "nohup kitty --class \"scratchpad-$name\" $attach_script &" >> $start_scratchpads
+
+  # or create new tmux session if one doesn't exist
+  if tmux ls | grep -q "$name"; then
+    echo "$name tmux session exists"
+  else
+    echo "creating tmux session $name"
+
+    if [ ${#init_command} -gt 0 ]; then
+      tmux -2 new -d -s "$name" "$init_command"
+    else
+      tmux -2 new -d -s "$name"
+    fi
+  fi
+
+  printf "#!/usr/bin/env bash\ntmux -2 a -t $name" > $attach_script
+  chmod u+x $attach_script
+done
