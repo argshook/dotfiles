@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-nohup kitty --class "kitty-vim-everywhere" &
-nohup kitty --class "kitty-bookmarks" &
-nohup kitty --class "kitty-search" &
-nohup kitty --class "kitty-notes" &
-nohup kitty --class "kitty-dropterminal" &
+~/.argsdotfiles/bin/scratchpads/_make_scratchpads
+~/.argsdotfiles/bin/scratchpads/_start_scratchpads

@@ -97,10 +97,15 @@ alias tmuxl="tmux ls" # list all sessions
 alias mux="tmuxinator"
 
 # task
-alias ta="task add"
+alias in="task add +in"
+alias tin="task in"
+alias ta="task active"
 alias treview="task add +review"
 alias tfix="task add +fix"
+alias tmerge="task add +merge"
 alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
+alias tnext="task add +next"
+alias tl="tasklite"
 
 _taskwarrior_rest_start () {
   task add +WORK_BREAK_TASK break
@@ -110,17 +115,36 @@ _taskwarrior_rest_start () {
 _taskwarrior_rest_stop () {
   task $(task +LATEST +WORK_BREAK_TASK uuids) done
 }
+alias rest=_taskwarrior_rest_start
+alias work=_taskwarrior_rest_stop
 
-alias rest="_taskwarrior_rest_start"
-alias work="_taskwarrior_rest_stop"
-_taskwarrior_extract () {
-  if [[ -n $1 ]] && [[ -n $2 ]]; then
-    task $2 export | jq --raw-output ".[0].$1"
-  else
-    echo "Usage: tget FIELD ID"
+_taskwarrior_later () {
+  local id=$1
+  local wait=${2:-"tomorrow"}
+
+  if [ "$#" -eq 1 ]; then
+    shift
+  fi
+
+  if [ "$#" -eq 2 ]; then
+    shift
+    shift
+  fi
+
+  task $id modify -in wait:$wait $@
+}
+alias later=_taskwarrior_later
+
+_taskwarrior_next () {
+  local id=$1
+
+  if [[ -n $id ]]; then
+    shift
+    task $id modify -in wait: $@
   fi
 }
-alias tget="_taskwarrior_extract"
+alias next=_taskwarrior_next
+
 
 # misc
 alias grep="grep --color=auto"
@@ -145,3 +169,5 @@ unsetopt BEEP
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval `fnm env`
+
+source_if_exists ~/.private.zshrc
