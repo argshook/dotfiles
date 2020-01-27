@@ -107,17 +107,6 @@ alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.
 alias tnext="task add +next"
 alias tl="tasklite"
 
-_taskwarrior_rest_start () {
-  task add +WORK_BREAK_TASK break
-  task $(task +LATEST uuids) start
-}
-
-_taskwarrior_rest_stop () {
-  task $(task +LATEST +WORK_BREAK_TASK uuids) done
-}
-alias rest=_taskwarrior_rest_start
-alias work=_taskwarrior_rest_stop
-
 _taskwarrior_later () {
   local id=$1
   local wait=${2:-"tomorrow"}
