@@ -44,7 +44,6 @@ set softtabstop=2
 set smartindent
 set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
-set ttyfast
 set showtabline=1
 set noshowmode
 set showcmd

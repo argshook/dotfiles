@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/Dropbox/taskwarrior
+data.location=~/Nextcloud/taskwarrior
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -43,7 +43,7 @@ color.label.sort=gray20
 color.active=red
 color.tagged=
 color.tag.none=gray12
-color.uda.priority.H=blue
+color.uda.priority.H=color210
 color.uda.priority.M=yellow
 color.uda.priority.L=blue
 
@@ -56,12 +56,16 @@ report.next.sort=start-,urgency-
 report.next.filter=(status:pending) limit:page -in -learn
 
 urgency.blocking.coefficient=5.0
+urgency.age.coefficient=1.2
 
-report.in.columns=id,description
+report.in.columns=id,description,tags
+report.in.labels=ID,Description,Tags
 report.in.description=Inbox
 report.in.filter=status:pending limit:page (+in)
-report.in.labels=ID,Description
 
-context.home=-wub -wuf -wsu -wix -wsr -wbu -wix_ui
 report.next.columns=id,start.age,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age
 report.next.labels=ID,Active,Urg,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age
+
+context.work=-home -learn -productivity -money -idea
+context.home=-wub -wuf -wsu -wix -wsr -wbu -wix_ui
+context=work

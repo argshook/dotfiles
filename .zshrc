@@ -105,7 +105,16 @@ alias tfix="task add +fix"
 alias tmerge="task add +merge"
 alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
 alias tnext="task add +next"
-alias tl="tasklite"
+alias thome="task context home && task ls"
+alias tall="task context none && task ls"
+
+_taskwarrior_browse () {
+  local id=$1
+  if [ "$#" -eq 1 ]; then
+    task $id | get-url | xargs chromium
+  fi
+}
+alias tbrowse="_taskwarrior_browse"
 
 _taskwarrior_later () {
   local id=$1
@@ -134,6 +143,16 @@ _taskwarrior_next () {
 }
 alias next=_taskwarrior_next
 
+_taskwarrior_now () {
+  local id=$1
+
+  if [[ -n $id ]]; then
+    shift
+    task $id modify -in wait: $@
+    task $id start
+  fi
+}
+alias tnow=_taskwarrior_now
 
 # misc
 alias grep="grep --color=auto"

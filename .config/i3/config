@@ -204,7 +204,6 @@ exec_always --no-startup-id mate-panel
 
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
-exec conky -c ~/.config/conky/conky.config
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 
 # set display turn off timeout (in seconds)

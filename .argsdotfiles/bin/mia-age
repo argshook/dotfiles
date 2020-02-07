@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
 MIA_BIRTHDAY="2019-10-17"
-DAYS=$((($(date +%s)-$(date +%s --date $MIA_BIRTHDAY))/(3600*24)))
-WEEKS=$((($(date +%s)-$(date +%s --date $MIA_BIRTHDAY))/(3600*24)/7))
-
-echo "Mia is $WEEKS weeks ($DAYS days) old"
+datediff $MIA_BIRTHDAY now -f 'Mia is %m months %w weeks %d days old'
