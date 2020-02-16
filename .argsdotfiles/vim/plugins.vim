@@ -34,8 +34,8 @@ let g:surround_indent = 0
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_conceallevel = 3
 let g:vimwiki_list = [
-  \{'path': '~/Dropbox/vimwiki/', 'ext': '.md.gpg', 'syntax': 'markdown'},
-  \{'path': '~/Dropbox/vimwiki-work', 'ext': '.md.gpg', 'syntax': 'markdown'}
+  \{'path': '~/Nextcloud/vimwiki/', 'ext': '.md.gpg', 'syntax': 'markdown'},
+  \{'path': '~/Nextcloud/vimwiki-work', 'ext': '.md.gpg', 'syntax': 'markdown'}
   \]
 
 Plug 'mhinz/vim-signify', {'build': {'unix': 'npm install'}}
@@ -127,6 +127,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
   \   'css': [ 'stylelint' ],
   \   'json': [ 'jq', 'fixjson' ],
+  \   'html': [ 'prettier' ],
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],

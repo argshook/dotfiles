@@ -116,6 +116,14 @@ _taskwarrior_browse () {
 }
 alias tbrowse="_taskwarrior_browse"
 
+_taskwarrior_find () {
+  local query=$1
+  if [ "$#" -eq 1 ]; then
+    task /$query/ all -COMPLETED -DELETED
+  fi
+}
+alias tfind="_taskwarrior_find"
+
 _taskwarrior_later () {
   local id=$1
   local wait=${2:-"tomorrow"}
