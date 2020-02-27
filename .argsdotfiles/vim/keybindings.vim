@@ -75,7 +75,6 @@ call coc#config('coc.preferences', {
 nmap <silent> \d :ALEDetail<CR>
 nmap <silent> \f <Plug>(coc-fix-current)
 
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -150,7 +149,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 nmap <leader>j :bnext<cr>
 nmap <leader>k :bprevious<cr>
 
-" Close the current buffer and move to the previous one
+" Close current buffer and move to previous one
 nmap <leader>q :bp <BAR> bd #<CR>
 
 " visual selection for last changed or pasted text
@@ -162,3 +161,4 @@ map <leader>lv :RangerVSplit<cr>
 map <leader>lt :RangerTab<cr>
 
 map <leader>rn <Plug>(coc-rename)
+noremap <Space> :

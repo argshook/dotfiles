@@ -132,7 +132,7 @@ _taskwarrior_later () {
     shift
   fi
 
-  if [ "$#" -eq 2 ]; then
+  if [ "$#" -ge 2 ]; then
     shift
     shift
   fi

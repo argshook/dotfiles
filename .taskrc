@@ -56,7 +56,7 @@ report.next.sort=start-,urgency-
 report.next.filter=(status:pending) limit:page -in -learn
 
 urgency.blocking.coefficient=5.0
-urgency.age.coefficient=1.2
+urgency.age.coefficient=1.1
 
 report.in.columns=id,description,tags
 report.in.labels=ID,Description,Tags

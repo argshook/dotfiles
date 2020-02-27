@@ -1,3 +1,7 @@
 [submodule ".argsdotmodules/antigen"]
-	path = .argsdotmodules/antigen
-	url = https://github.com/zsh-users/antigen.git
+  path = .argsdotmodules/antigen
+  url = https://github.com/zsh-users/antigen.git
+
+[submodule ".argsdotmodules/tspreed"]
+	path = .argsdotmodules/tspreed
+	url = git@github.com:n-ivkovic/tspreed.git

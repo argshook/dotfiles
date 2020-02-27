@@ -11,9 +11,13 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
-Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'rafaqz/ranger.vim'
 Plug 'jamessan/vim-gnupg'
+let g:rg_command = 'rg --vimgrep'
+let g:rg_highlight = 1 "true if you want matches highlighted
+let g:rg_derive_root = 1 "true if you want to find project root from cwd
+let g:rg_format = '%f:%l:%m'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -166,17 +170,24 @@ let g:easy_align_delimiters = {
 \ '/': { 'pattern': '//\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] }
 \ }
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts=0
-let g:airline_theme='bubblegum'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_section_b = ''
-let g:airline_section_y = ''
-let g:airline#extensions#ale#enabled = 1
+
+Plug 'itchyny/lightline.vim'
+
+let g:lightline = {
+  \ 'colorscheme': 'seoul256',
+  \ }
+
+autocmd VimEnter * call SetupLightlineColors()
+function SetupLightlineColors() abort
+  " transparent background in statusbar
+  let l:palette = lightline#palette()
+
+  let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+  let l:palette.inactive.middle = l:palette.normal.middle
+  let l:palette.tabline.middle = l:palette.normal.middle
+
+  call lightline#colorscheme()
+endfunction
 
 " initialize vimplug
 call plug#end()

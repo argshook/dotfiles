@@ -16,10 +16,10 @@ case "$WORKSTATION" in
       --output DP3-1 --off \
       --output DP3-3 --off \
       --output DP3-2 --off \
-      --output eDP1 --mode 1920x1080
+      --output eDP1 --primary --mode 1920x1080
     ;;
 
-  station|s)
+  work|w)
     xrandr \
       --output VIRTUAL1 --off \
       --output DP3 --off \
@@ -30,13 +30,11 @@ case "$WORKSTATION" in
       --output HDMI2 --off \
       --output HDMI1 --off \
       --output DP3-2 --off \
-      --output DP3-3 --primary --mode 1920x1200 --pos 0x720 --rotate normal \
+      --output DP3-1 --primary --mode 2560x1440 \
       --output DP3-1 --off
-      # --output DP3-1 --mode 1920x1200 --pos 1920x0 --rotate left
     ;;
 
   home|h)
-      # --output eDP1 --mode 1920x1080 --pos 320x1440 --rotate normal \
     xrandr \
       --output eDP1 --off \
       --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI2 --off \

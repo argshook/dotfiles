@@ -52,7 +52,6 @@ set conceallevel=0
 set splitbelow
 set splitright
 set scrolloff=2
-set cursorline
 set previewheight=20
 set undolevels=1000
 set backspace=indent,eol,start
