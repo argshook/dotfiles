@@ -177,17 +177,5 @@ let g:lightline = {
   \ 'colorscheme': 'seoul256',
   \ }
 
-autocmd VimEnter * call SetupLightlineColors()
-function SetupLightlineColors() abort
-  " transparent background in statusbar
-  let l:palette = lightline#palette()
-
-  let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-  let l:palette.inactive.middle = l:palette.normal.middle
-  let l:palette.tabline.middle = l:palette.normal.middle
-
-  call lightline#colorscheme()
-endfunction
-
 " initialize vimplug
 call plug#end()

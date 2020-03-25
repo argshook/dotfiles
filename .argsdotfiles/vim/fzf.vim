@@ -3,7 +3,7 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-v': 'vsplit' }
 
-let g:fzf_layout = { 'down': '15%' }
+let g:fzf_layout = { 'down': '17%' }
 
 
 " Customize fzf colors to match your color scheme
