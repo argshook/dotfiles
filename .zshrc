@@ -162,6 +162,12 @@ _taskwarrior_now () {
 }
 alias tnow=_taskwarrior_now
 
+_npm_clone () {
+  # depends on ~/.argsdotfiles/bin/clone
+  clone `npm view $1 repository.url`
+}
+alias clone-npm="_npm_clone"
+
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"

@@ -13,34 +13,19 @@
 # Files
 data.location=~/Nextcloud/taskwarrior
 
-# Color theme (uncomment one to use)
-#include /usr/share/doc/task/rc/light-16.theme
-#include /usr/share/doc/task/rc/light-256.theme
-#include /usr/share/doc/task/rc/dark-16.theme
-#include /usr/share/doc/task/rc/dark-256.theme
-#include /usr/share/doc/task/rc/dark-red-256.theme
-#include /usr/share/doc/task/rc/dark-green-256.theme
-#include /usr/share/doc/task/rc/dark-blue-256.theme
-#include /usr/share/doc/task/rc/dark-violets-256.theme
-#include /usr/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/share/doc/task/rc/dark-gray-256.theme
-#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
 include /usr/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/share/doc/task/rc/solarized-light-256.theme
-#include /usr/share/doc/task/rc/no-color.theme
 
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
 search.case.sensitive=no
 weekstart=monday
-fontunderline=no
 
 color.blocking=color3
 color.blocked=color3 on color0
 color.alternate=on gray1
 color.label=gray17
 color.label.sort=gray20
-color.active=red
+color.active=bold red
 color.tagged=
 color.tag.none=gray12
 color.uda.priority.H=color210
@@ -68,4 +53,3 @@ report.next.labels=ID,Active,Urg,Deps,P,Project,Tag,Recur,S,Due,Until,Descriptio
 
 context.work=-home -learn -productivity -money -idea
 context.home=-wub -wuf -wsu -wix -wsr -wbu -wix_ui
-context=work

@@ -15,8 +15,9 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'rafaqz/ranger.vim'
 Plug 'jamessan/vim-gnupg'
 let g:rg_command = 'rg --vimgrep'
-let g:rg_highlight = 1 "true if you want matches highlighted
-let g:rg_derive_root = 1 "true if you want to find project root from cwd
+let g:rg_highlight = 1
+let g:rg_derive_root = 1
+let g:rg_root_types = ['.git', 'package.json']
 let g:rg_format = '%f:%l:%m'
 
 Plug 'junegunn/fzf'
@@ -142,7 +143,7 @@ let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'prettier', 'tslint' ],
+  \   'typescript': [ 'prettier', 'eslint' ],
   \   'elm': [ 'elm-format' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>

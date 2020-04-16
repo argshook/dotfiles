@@ -118,5 +118,5 @@ zle -N zle-keymap-select
 PROMPT=$'%{$limegreen%}% %2/%{$reset_color%} $vcs_info_msg_0_
 $(virtualenv_info)$VIM_MODE '
 
-RPROMPT=$'$(check_last_exit_code)%{$limegreen%}◷ %T%{$reset_color%}'
+RPROMPT=$'$(check_last_exit_code)'
 
