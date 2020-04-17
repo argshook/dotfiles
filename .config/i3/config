@@ -140,8 +140,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 2
-
 # Audio controls
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
@@ -175,12 +173,11 @@ new_window none
 # keyboard layouts
 bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
-exec_always picom --config ~/.argsdotfiles/picom.conf -b
+exec_always picom
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id polybar top
 
-exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 
