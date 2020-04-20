@@ -116,9 +116,6 @@ Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
 
-" Plug 'junegunn/vim-peekaboo' " there's a bug with register name being insterted in active buffer
-Plug 'deathlyfrantic/vim-peekaboo', { 'branch': 'patch-1' }
-
 Plug 'junegunn/limelight.vim'
 let g:limelight_conceal_ctermfg = 'gray'
 autocmd! User GoyoEnter Limelight

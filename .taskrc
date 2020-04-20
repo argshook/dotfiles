@@ -27,7 +27,6 @@ color.label=gray17
 color.label.sort=gray20
 color.active=bold red
 color.tagged=
-color.tag.none=gray12
 color.uda.priority.H=color210
 color.uda.priority.M=yellow
 color.uda.priority.L=blue

@@ -1,5 +1,5 @@
 [global]
-font = iosevka term 11
+font = Source Code Pro 9
 
 # allow a small subset of html markup:
 #   <b>bold</b>
@@ -148,7 +148,7 @@ dmenu = /usr/bin/dmenu -p dunst:
 browser = /usr/bin/firefox -new-tab
 
 # align icons left/right/off
-icon_position = off
+icon_position = left
 max_icon_size = 80
 
 # paths to default icons.

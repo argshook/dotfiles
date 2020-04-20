@@ -174,17 +174,16 @@ new_window none
 bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
 exec_always picom
-exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id polybar top
 
+exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 
 # set display turn off timeout (in seconds)
 exec xset s 1800
 
-exec --no-startup-id i3-focus-last
 bindsym $mod+bracketright [con_mark=_last] focus
 
 # scratchpads
