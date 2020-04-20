@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+status=0
+
+while [ 1 ]; do
+    nc -zw 2 google.com 80
+    ret="$?"
+
+    if [ "$ret" = 0 -a "$status" = 0 ]; then
+        notify-send --urgency=low "Network Connected"
+        status=1
+
+    elif [ "$ret" -ne 0 -a "$status" = 1 ]; then
+        notify-send --urgency=critical "Network Disconnected"
+        status=0 ;fi
+
+    sleep 2
+done
