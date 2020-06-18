@@ -33,9 +33,6 @@ imap  <Esc>[s1z=`]a
 " set paste/nopaste toggle key
 set pastetoggle=<leader>p
 
-nmap <tab> %
-xmap <tab> %
-
 nmap g. `[v`] " select inserted text
 
 " Zoom / Restore window.
@@ -55,9 +52,6 @@ command! ZoomToggle call s:ZoomToggle()
 
 " Zoom / Restore with ,,
 nnoremap <leader><leader> :ZoomToggle<CR>
-
-" display number of matches for search pattern
-map ,* *<C-O>:%s///gn<CR>
 
 " edit previous file
 nnoremap <leader>e :e#<CR>
@@ -88,8 +82,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
 nmap ]q :cnext<CR>
-nmap [Q :cfirst<CR>
-nmap ]Q :clast<CR>
 
 " close location and quickfix window with q
 autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
@@ -106,12 +98,6 @@ endif
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-
-" fugitive & Magit
-"nnoremap <silent> <leader>gs :Gstatus<CR><C-w>20+
-nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gpl :Gpull --rebase<CR>
 
 " change current working directory to current file and print it after changing
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -131,19 +117,17 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
 nnoremap <silent> <leader>z za
 nnoremap <silent> z<leader> za
 
+nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
+
 " jump between git hunks
 nmap ]g <plug>(signify-next-hunk)
 nmap [g <plug>(signify-prev-hunk)
 
-nnoremap <F9> :exec '!python3' @%<cr>
-
 noremap <silent> <leader>f :ALEFix<cr>
 
 " smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " navigate buffers
 nmap <leader>j :bnext<cr>

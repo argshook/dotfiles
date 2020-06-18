@@ -59,7 +59,6 @@ set foldmethod=indent
 set foldlevelstart=3
 set laststatus=2
 
-let g:signify_realtime = 1
 set updatetime=750
 
 colorscheme cobalt2
@@ -68,7 +67,7 @@ colorscheme cobalt2
 set timeoutlen=400
 
 " stop syntax highlighting after 400 chars.
-" This makes scrolling files with super long lines way faster.
+" This makes scrolling files with long lines way faster.
 set synmaxcol=1000
 
 autocmd BufEnter *.js set shiftwidth=2

@@ -43,8 +43,7 @@ let g:vimwiki_list = [
   \{'path': '~/Nextcloud/vimwiki-work', 'ext': '.md.gpg', 'syntax': 'markdown'}
   \]
 
-Plug 'mhinz/vim-signify', {'build': {'unix': 'npm install'}}
-let g:signify_realtime = 0 " this doesnt work something somewhere sets it to 1 wtf
+Plug 'mhinz/vim-signify'
 
 Plug 'christoomey/vim-tmux-navigator'
 " when tmux pane is zoomed, don't zoomout when navigating out of vim
@@ -52,7 +51,6 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-let g:deoplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.argsdotfiles/vim/snippets/'
 let g:neosnippet#expand_word_boundary = 1
 
@@ -65,6 +63,7 @@ Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
 Plug 'plasticboy/vim-markdown'
+Plug 'rust-lang/rust.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 set completeopt-=preview
@@ -92,25 +91,17 @@ autocmd BufWritePost *.elm ElmMake
 " ============
 
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsCenterLine = 0
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsFlyMode = 1
+
 Plug 'AndrewRadev/linediff.vim' " :LineDiff()
-Plug 'gko/vim-coloresque'
+Plug 'lilydjwg/colorizer'
 Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
-
-Plug 'mattn/emmet-vim'
-imap <expr> <A-w> emmet#expandAbbrIntelligent("\<A-w>")
-let g:user_emmet_install_global = 0
-let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  }
-\}
-autocmd FileType html,css,scss,javascript.jsx,typescript EmmetInstall
-
-Plug 'rr-/vim-hexdec'
-let g:AutoPairsCenterLine = 0
-let g:AutoPairsMultilineClose = 0
+Plug 'AlphaMycelium/pathfinder.vim'
+Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
@@ -134,7 +125,8 @@ let g:ale_fixers = {
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
-  \   'elm': [ 'elm-format' ]
+  \   'elm': [ 'elm-format' ],
+  \   'rust': [ 'rustfmt' ]
   \}
 let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],

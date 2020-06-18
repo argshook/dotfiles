@@ -13,16 +13,9 @@ set $base01 #586e75
 set $base02 #073642
 set $base03 #002b36
 set $base04 #839496
-set $base05 #93a1a1
-set $base06 #eee8d5
 set $base07 #fdf6e3
 set $base08 #b58900
 set $base09 #cb4b16
-set $base0A #dc322f
-set $base0B #d33682
-set $base0C #6c71c4
-set $base0D #268bd2
-set $base0E #2aa198
 set $base0F #859900
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -74,7 +67,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -83,9 +75,6 @@ bindsym $mod+shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+z focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -111,11 +100,9 @@ bindsym $mod+shift+8 move container to workspace number 8
 bindsym $mod+shift+9 move container to workspace number 9
 bindsym $mod+shift+0 move container to workspace number 10
 
-# reload the configuration file
-bindsym $mod+shift+c reload
-
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'Surely sre?' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -159,13 +146,6 @@ bindsym XF86TouchpadToggle exec ~/.argsdotfiles/toggle-touchpad.sh
 bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh
 
 default_border none
-
-# Window Colors
-#                         border  background text    indicator
-client.focused          $base03 $base03    $base07 $base07
-client.focused_inactive $base02 $base02    $base04 $base0F
-client.unfocused        $base02 $base02    $base01 $base0F
-client.urgent           $base08 $base09    $base00 $base0F
 
 # hide title bar
 new_window none
@@ -211,8 +191,11 @@ bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 800 600,
 
 # tasks scratchpad
 for_window [instance="scratchpad-tasks"] move to scratchpad
-bindsym $mod+t [instance="scratchpad-tasks"] scratchpad show resize set 1100 450, move position center
+bindsym $mod+t [instance="scratchpad-tasks"] scratchpad show resize set 1100 530, move position center
 
 # music scratchpad
 for_window [instance="scratchpad-music"] move to scratchpad
 bindsym $mod+m [instance="scratchpad-music"] scratchpad show resize set 800 600, move position center
+
+for_window [instance="stalonetray"] move to scratchpad
+bindsym $mod+s [instance="stalonetray"] scratchpad show, move position center

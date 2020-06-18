@@ -3,7 +3,7 @@ export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='rg --files'
-export PAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+export MANPAGER="nvim +Man!"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -65,7 +65,9 @@ alias q="exit"
 alias r="ranger"
 alias rn="ranger node_modules"
 alias n="nvim"
+alias h="nvim -u ~/.argsdotfiles/vim/from-scratch.vim"
 alias b="buku -S"
+alias gn="BROWSER=w3m googler --first nethack "
 
 # git
 alias g="git"
@@ -167,6 +169,11 @@ _npm_clone () {
   clone `npm view $1 repository.url`
 }
 alias clone-npm="_npm_clone"
+
+_kill_port () {
+  kill -9 $(lsof -ti :$1)
+}
+alias killport="_kill_port"
 
 # misc
 alias grep="grep --color=auto"
