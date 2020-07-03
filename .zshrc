@@ -1,4 +1,4 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -196,7 +196,7 @@ unset zle_bracketed_paste
 unsetopt BEEP
 
 # fnm
-export PATH=$HOME/.fnm:$PATH
+export PATH=$PATH:$HOME/.fnm
 eval `fnm env`
 
 source_if_exists ~/.private.zshrc
