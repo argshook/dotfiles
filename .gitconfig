@@ -5,6 +5,7 @@
 [user]
   name = argshook
   email = argshook@gmail.com
+  signingkey = arijus
 [color]
   ui = true
   diff = auto
@@ -14,7 +15,6 @@
   pretty = "Commit: %C(yellow)%H%nAuthor:  %C(green)%aN <%aE>%nDate:    (%C(red)%ar%Creset) %ai%nSubject: %s%n%n%b"
 
 [core]
-  excludesfile = /Users/argshook/.gitignore_global
   editor = nvim
   pager = less -F -X
 
@@ -30,3 +30,5 @@
   browser = chromium
 [web]
   browser = chromium
+[commit]
+  gpgsign = true

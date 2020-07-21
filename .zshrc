@@ -2,6 +2,7 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./no
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
+export BROWSER="/usr/bin/google-chrome-stable"
 export FZF_DEFAULT_COMMAND='rg --files'
 export MANPAGER="nvim +Man!"
 
@@ -65,6 +66,7 @@ alias q="exit"
 alias r="ranger"
 alias rn="ranger node_modules"
 alias n="nvim"
+alias nu="nvim -u NONE"
 alias h="nvim -u ~/.argsdotfiles/vim/from-scratch.vim"
 alias b="buku -S"
 alias gn="BROWSER=w3m googler --first nethack "
@@ -113,7 +115,7 @@ alias tall="task context none && task ls"
 _taskwarrior_browse () {
   local id=$1
   if [ "$#" -eq 1 ]; then
-    task $id | get-url | xargs chromium
+    task $id | get-url | xargs $BROWSER
   fi
 }
 alias tbrowse="_taskwarrior_browse"

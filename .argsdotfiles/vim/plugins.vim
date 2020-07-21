@@ -39,8 +39,8 @@ let g:surround_indent = 0
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_conceallevel = 3
 let g:vimwiki_list = [
-  \{'path': '~/Nextcloud/vimwiki/', 'ext': '.md.gpg', 'syntax': 'markdown'},
-  \{'path': '~/Nextcloud/vimwiki-work', 'ext': '.md.gpg', 'syntax': 'markdown'}
+  \{'path': '~/zettel/', 'ext': '.md', 'syntax': 'markdown'},
+  \{'path': '~/zettel/work', 'ext': '.md', 'syntax': 'markdown'}
   \]
 
 Plug 'mhinz/vim-signify'
@@ -100,7 +100,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
-Plug 'AlphaMycelium/pathfinder.vim'
 Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'scrooloose/nerdcommenter'

@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/Nextcloud/taskwarrior
+data.location=~/zettel/taskwarrior
 
 include /usr/share/doc/task/rc/solarized-dark-256.theme
 
