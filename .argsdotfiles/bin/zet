@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ~/zettel
+nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc ~/zettel/index.md
