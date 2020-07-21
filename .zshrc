@@ -109,8 +109,6 @@ alias tfix="task add +fix"
 alias tmerge="task add +merge"
 alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
 alias tnext="task add +next"
-alias thome="task context home && task ls"
-alias tall="task context none && task ls"
 
 _taskwarrior_browse () {
   local id=$1

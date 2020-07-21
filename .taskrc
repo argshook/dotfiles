@@ -49,6 +49,3 @@ report.in.filter=status:pending limit:page (+in)
 
 report.next.columns=id,start.age,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age
 report.next.labels=ID,Active,Urg,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age
-
-context.work=-home -learn -productivity -money -idea
-context.home=-wub -wuf -wsu -wix -wsr -wbu -wix_ui

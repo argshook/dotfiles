@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 
 cd ~/zettel
-nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc ~/zettel/index.md
+
+if [ $# -eq 0 ]; then
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc ~/zettel/index.md
+else
+  filename=~/zettel/diary/`date +%Y-%m-%d.md`
+  touch $filename
+  echo $@ >> $filename
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $filename -c "norm G"
+fi
