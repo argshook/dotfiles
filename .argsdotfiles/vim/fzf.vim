@@ -28,3 +28,4 @@ nmap <leader>b :Buffers<cr>
 " nmap <C-P> :GitFiles --cached --others --exclude-standard<cr>
 nmap <C-P> :Files<cr>
 nmap <leader>H :Helptags<cr>
+nmap <leader>: :Commands<cr>

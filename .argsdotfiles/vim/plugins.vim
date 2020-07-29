@@ -65,7 +65,7 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
 
 Plug 'mxw/vim-jsx'

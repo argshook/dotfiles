@@ -2,11 +2,18 @@
 
 cd ~/zettel
 
+file=~/zettel/diary/`date "+%Y-%m-%d"`.md
+
 if [ $# -eq 0 ]; then
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc ~/zettel/index.md
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G"
 else
-  filename=~/zettel/diary/`date +%Y-%m-%d.md`
-  touch $filename
-  echo $@ >> $filename
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $filename -c "norm G"
+  if [[ ! -f "$file" ]]; then
+    printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file
+
+    curl -s  'https://quotes.rest/qod?category=inspire' | \
+      jq '.contents.quotes[0].quote','.contents.quotes[0].author' >> $file
+  fi
+
+  printf -- "\n- `date +%H:%M:%S` $*" >> $file
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G"
 fi
