@@ -4,16 +4,16 @@ cd ~/zettel
 
 file=~/zettel/diary/`date "+%Y-%m-%d"`.md
 
+if [[ ! -f "$file" ]]; then
+  printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file
+
+  curl -s  'https://quotes.rest/qod?category=inspire' | \
+    jq '.contents.quotes[0].quote','.contents.quotes[0].author' >> $file
+fi
+
 if [ $# -eq 0 ]; then
   nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G"
 else
-  if [[ ! -f "$file" ]]; then
-    printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file
-
-    curl -s  'https://quotes.rest/qod?category=inspire' | \
-      jq '.contents.quotes[0].quote','.contents.quotes[0].author' >> $file
-  fi
-
-  printf -- "\n- `date +%H:%M:%S` $*" >> $file
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G"
+  printf -- "- `date +%H:%M:%S` $*" >> $file
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
 fi

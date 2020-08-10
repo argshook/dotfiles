@@ -39,8 +39,8 @@ let g:surround_indent = 0
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_conceallevel = 3
 let g:vimwiki_list = [
-  \{'path': '~/zettel/', 'ext': '.md', 'syntax': 'markdown'},
-  \{'path': '~/zettel/work', 'ext': '.md', 'syntax': 'markdown'}
+  \{'path': '~/zettel/', 'ext': '.md', 'syntax': 'markdown', 'auto_tags': 1},
+  \{'path': '~/zettel/work', 'ext': '.md', 'syntax': 'markdown', 'auto_tags': 1}
   \]
 
 Plug 'mhinz/vim-signify'
@@ -101,6 +101,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'rhysd/git-messenger.vim'
 
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1

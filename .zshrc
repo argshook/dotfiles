@@ -2,7 +2,7 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./no
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER="/usr/bin/google-chrome-stable"
+export BROWSER="/usr/bin/chromium"
 export FZF_DEFAULT_COMMAND='rg --files'
 export MANPAGER="nvim +Man!"
 
@@ -102,6 +102,7 @@ alias mux="tmuxinator"
 
 # task
 alias in="task add +in"
+alias out="_taskwarrior_out"
 alias tin="task in"
 alias ta="task active"
 alias treview="task add +review"
@@ -117,6 +118,14 @@ _taskwarrior_browse () {
   fi
 }
 alias tbrowse="_taskwarrior_browse"
+
+_taskwarrior_out () {
+  local id=$1
+  if [ "$#" -ge 1 ]; then
+    shift
+    task $id mod -in $@
+  fi
+}
 
 _taskwarrior_find () {
   local query=$1
