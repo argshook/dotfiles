@@ -5,8 +5,6 @@ let g:fzf_action = {
 
 let g:fzf_layout = { 'down': '17%' }
 
-
-" Customize fzf colors to match your color scheme
 let g:fzf_colors =
   \ { 'fg':    ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -25,7 +23,6 @@ let g:fzf_colors =
 nmap <leader>h :History<cr>
 nmap <leader>/ :BLines<cr>
 nmap <leader>b :Buffers<cr>
-" nmap <C-P> :GitFiles --cached --others --exclude-standard<cr>
 nmap <C-P> :Files<cr>
 nmap <leader>H :Helptags<cr>
 nmap <leader>: :Commands<cr>

@@ -2,18 +2,45 @@
 
 cd ~/zettel
 
-file=~/zettel/diary/`date "+%Y-%m-%d"`.md
-
-if [[ ! -f "$file" ]]; then
-  printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file
-
-  curl -s  'https://quotes.rest/qod?category=inspire' | \
-    jq '.contents.quotes[0].quote','.contents.quotes[0].author' >> $file
-fi
-
+# no arguments, open zettel index
 if [ $# -eq 0 ]; then
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G"
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c VimwikiIndex
 else
-  printf -- "- `date +%H:%M:%S` $*" >> $file
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
+  case "$1" in
+    # `zet new *` for new wiki page
+    new)
+      shift
+      title=${@}
+      file=~/zettel/${title// /-}.md
+      if [[ ! -f $file ]]; then
+        printf "# $title" >> $file
+        printf "\n\n" >> $file
+      fi
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
+      ;;
+
+    # `zet open *` to open existing one
+    open)
+      shift
+      title=${@}
+      file=~/zettel/${title// /-}.md
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file
+      ;;
+
+    *)
+      # `zet anything else` will create diary page with entry of `anything else`
+      file=~/zettel/diary/`date "+%Y-%m-%d"`.md
+
+      if [[ ! -f "$file" ]]; then
+        printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file
+
+        curl -s  'https://quotes.rest/qod?category=inspire' | \
+          jq '.contents.quotes[0].quote','.contents.quotes[0].author' >> $file
+
+        printf "\n" >> $file
+      fi
+
+      printf -- "- `date +%H:%M:%S` $*" >> $file
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
+  esac
 fi

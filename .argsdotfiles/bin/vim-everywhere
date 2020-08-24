@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nvim -u ~/.argsdotfiles/vim/vim-everywhere.vimrc /tmp/vim-everywhere-`date +%Y-%m-%d-%H-%M-%S`.md
+nvim -u ~/.argsdotfiles/vim/vim-everywhere.vimrc ~/zettel/scratchpad/`date +%Y-%m-%d-%H-%M-%S`.md

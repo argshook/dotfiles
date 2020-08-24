@@ -157,7 +157,7 @@ exec_always picom
 # exec notify-connection
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray
-exec --no-startup-id polybar top
+# exec --no-startup-id polybar top
 
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3
@@ -188,7 +188,7 @@ bindsym $mod+g [instance="scratchpad-search"] scratchpad show resize set 900 700
 
 # notes scratchpad
 for_window [instance="scratchpad-notes"] move to scratchpad
-bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 800 600, move position center
+bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 900 700, move position center
 
 # tasks scratchpad
 for_window [instance="scratchpad-tasks"] move to scratchpad
