@@ -49,3 +49,4 @@ report.in.filter=status:pending limit:page (+in)
 
 report.next.columns=id,start.age,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age
 report.next.labels=ID,Active,Urg,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age
+verbose=footnote,label,new-id,new-uuid,affected,special,project,sync,unwait,recur

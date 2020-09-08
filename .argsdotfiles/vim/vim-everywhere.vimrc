@@ -5,7 +5,7 @@ autocmd FocusLost *.md call FocusLost()
 autocmd Filetype *.js,*.jsx,*.ts,*.tsx,*.md setlocal textwidth=120
 
 function! FocusGained()
-  normal gg0vGg_"+P
+  normal ggVG"+P
 
   if exists('s:cursor_pos')
     call cursor(s:cursor_pos[1], s:cursor_pos[2])
@@ -14,7 +14,7 @@ endfunction
 
 function! FocusLost()
   let s:cursor_pos = getpos(".")
-  normal gg0vGg_"+y
+  normal ggVG"+y
 endfunction
 
 nnoremap <silent> <leader>fj :set ft=javascript.jsx<CR>

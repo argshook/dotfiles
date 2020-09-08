@@ -14,9 +14,9 @@ else
       file=~/zettel/${title// /-}.md
       if [[ ! -f $file ]]; then
         printf "# $title" >> $file
-        printf "\n\n" >> $file
+        printf "\n\n\n" >> $file
       fi
-      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G" -c "startinsert!"
       ;;
 
     # `zet open *` to open existing one

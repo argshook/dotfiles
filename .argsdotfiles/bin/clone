@@ -32,7 +32,7 @@ then
     else
       mkdir -p $ROOT
       GITHUB_SSH_LINK="git@github.com:$AUTHOR/$NAME.git"
-      git clone --single-branch --depth 1 --shallow-submodules $GITHUB_SSH_LINK $ROOT
+      git clone --single-branch --depth 1 --no-single-branch --shallow-submodules $GITHUB_SSH_LINK $ROOT
     fi
 
     # this requires ~/.config/tmuxinator/hub.yml
