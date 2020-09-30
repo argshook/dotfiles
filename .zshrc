@@ -1,10 +1,14 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="/usr/bin/chromium"
-export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_ALT_C_COMMAND='rg'
+export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
+export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
+export DOTREMINDERS="~/zettel/reminders"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -43,9 +47,6 @@ source_if_exists () {
 # theme
 source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 
-# fzf
-source_if_exists /usr/share/fzf/key-bindings.zsh
-
 # ruby
 source_if_exists $HOME/.rvm/scripts/rvm
 
@@ -56,12 +57,26 @@ eval "$(fasd --init auto)"
 bindkey -v
 bindkey '^ ' autosuggest-accept
 
-# ctrl-r starts searching history backward
-bindkey '^r' history-incremental-pattern-search-backward
-export HISTSIZE=100000 SAVEHIST=100000 HISTFILE=~/.zhistory
+# fzf
+source_if_exists ~/.argsdotfiles/zsh/fzf
+
+# history
+setopt INC_APPEND_HISTORY # add commands immediatelly, not only after leaving shell
+setopt EXTENDED_HISTORY # add timestamps to history file entries
+setopt HIST_IGNORE_ALL_DUPS # do not write duplicates to history
+setopt HIST_IGNORE_SPACE
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+export HISTFILE=~/.zhistory
+export HISTTIMEFORMAT="[%F %T] "
+export HISTIGNORE="in:zet:t"
 
 alias kurwa="killall -9"
-alias npmnx="rm -rf node_modules package-lock.json"
+_npmnx () {
+  rm -f package-lock.json yarn.lock
+  find . -name node_modules -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
+}
+alias npmnx="_npmnx"
 alias q="exit"
 alias r="ranger"
 alias rn="ranger node_modules"
@@ -92,8 +107,8 @@ alias gisnew="git remote update && gs"
 alias gitlarge='~/.argsdotfiles/zsh/git-largest-files.py'
 
 # tmux
-alias tmuxa="tmux -2 a -t" # attach to session
-alias tmuxn="tmux -2 new -s" # create new session
+alias tmuxa="tmux attach-session -t" # attach to session
+alias tmuxn="tmux new-session -s" # create new session
 alias tmuxk="tmux kill-session -t" # kill session
 alias tmuxl="tmux ls" # list all sessions
 
@@ -110,6 +125,7 @@ alias tfix="task add +fix"
 alias tmerge="task add +merge"
 alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
 alias tnext="task add +next"
+alias tyesterday="task end.after:today-1d completed -in"
 
 _taskwarrior_browse () {
   local id=$1
@@ -187,6 +203,7 @@ alias killport="_kill_port"
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
+alias browse="xargs chromium" # usage: echo google.com | browse
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8

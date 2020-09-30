@@ -4,7 +4,7 @@ import sys
 import re
 
 for line in sys.stdin:
-    m = re.search('(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]', line)
+    m = re.search('(((https?|ftp)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]', line)
 
     if m:
         sys.stdout.write(m.group())

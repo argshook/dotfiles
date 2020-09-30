@@ -1,20 +1,12 @@
 #!/usr/bin/env zsh
 
-RADIO=$1
+RADIO=${1:-"defcon"}
 
-case "$RADIO" in
-  groovesalad)
-    mpv https://somafm.com/groovesalad256.pls
-    ;;
+declare -A stations
+stations[groovesalad]="https://somafm.com/groovesalad256.pls"
+stations[groovesaladclassic]="http://ice4.somafm.com/gsclassic-128-mp3"
+stations[defcon]="https://somafm.com/defcon256.pls"
+stations[vaporwave]="https://somafm.com/vaporwaves.pls"
+stations[n5md]="https://somafm.com/n5md.plshttps://somafm.com/n5md.pls"
 
-  groovesaladclassic)
-    mpv http://ice4.somafm.com/gsclassic-128-mp3
-    ;;
-
-  defcon)
-    mpv https://somafm.com/defcon256.pls
-    ;;
-
-  *)
-    echo "Usage: $(basename $0) {groovesalad|groovesaladclassic|defcon}"
-esac
+mpv $stations[$RADIO] --input-ipc-server=/tmp/mpvsocket

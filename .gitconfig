@@ -16,7 +16,7 @@
 
 [core]
   editor = nvim
-  pager = less -F -X
+  pager = delta
 
 [credential]
   helper = cache --timeout=3600
@@ -32,3 +32,19 @@
   browser = chromium
 [commit]
   gpgsign = true
+
+[color "diff-highlight"]
+  oldnormal    = red bold
+  oldHighlight = red bold 52
+  newNormal    = green bold
+  newHighlight = green bold 22
+
+[color "diff"]
+  meta       = 11
+  frag       = magenta bold
+  commit     = yellow bold
+  old        = red bold
+  new        = green bold
+  whitespace = red reverse
+[pull]
+  rebase = true

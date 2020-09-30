@@ -21,7 +21,9 @@ let g:rg_root_types = ['.git', 'package.json']
 let g:rg_format = '%f:%l:%m'
 
 Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
+Plug 'chmanie/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'jreybert/vimagit'
 autocmd User VimagitEnterCommit startinsert
@@ -62,20 +64,26 @@ let g:neosnippet#expand_word_boundary = 1
 " language specific plugins
 " =========================
 
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'mattn/emmet-vim'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 
@@ -106,6 +114,10 @@ Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'rhysd/git-messenger.vim'
+Plug 'blindFS/vim-reveal'
+let g:reveal_config = {
+      \ 'path': '~/repos/cloned/hakimel/reveal/dist'
+      \}
 
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
@@ -136,7 +148,7 @@ let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'prettier', 'eslint' ],
+  \   'typescript': [ 'prettier', 'tslint' ],
   \   'elm': [ 'elm-format' ]
   \}
 nnoremap <leader>d :ALEDetail<cr>
@@ -155,6 +167,9 @@ let g:mundo_prefer_python3 = 1
 let g:mundo_auto_preview = 0
 let g:mundo_return_on_revert = 0
 
+
+" Plug 'wellle/context.vim'
+
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -169,7 +184,52 @@ Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
   \ 'colorscheme': 'seoul256',
-  \ }
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste', 'readonly' ],
+  \             [ 'folder', 'filename', 'modified' ]
+  \           ],
+  \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ]
+  \ },
+  \ 'component_function': {
+  \   'folder': 'GetCurrentFolder'
+  \ },
+\ }
+
+let g:lightline.inactive = {
+      \ 'left': [ [ 'folder', 'filename', 'modified' ] ],
+      \ 'right': [ [ 'lineinfo' ],
+      \            [ 'percent' ] ] }
+
+
+function! GetCurrentFolder()
+  return expand('%:p:h:t')
+endfunction
 
 " initialize vimplug
 call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "c",
+    "css",
+    "elm",
+    "haskell",
+    "html",
+    "java",
+    "jsdoc",
+    "json",
+    "python",
+    "regex",
+    "rust",
+    "toml",
+    "tsx",
+    "typescript",
+    "yaml",
+ },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+

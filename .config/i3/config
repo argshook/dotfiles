@@ -72,6 +72,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+shift+space floating toggle
+bindsym $mod+shift+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+z focus mode_toggle
@@ -153,18 +154,21 @@ new_window none
 # keyboard layouts
 bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
+# applications to run on startup
+
 exec_always picom
 # exec notify-connection
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray
 # exec --no-startup-id polybar top
-
 exec ~/.config/i3/keyboard-layout-switcher.sh
-exec unclutter -idle 3
+exec unclutter -idle 3 # hide mouse cursor after 3 seconds
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
+exec nextcloud
+exec cryptomator
 
 # set display turn off timeout (in seconds)
-exec xset s 1800
+# exec xset s 1800
 
 bindsym $mod+bracketright [con_mark=_last] focus
 
@@ -192,7 +196,7 @@ bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 900 700,
 
 # tasks scratchpad
 for_window [instance="scratchpad-tasks"] move to scratchpad
-bindsym $mod+t [instance="scratchpad-tasks"] scratchpad show resize set 1100 530, move position center
+bindsym $mod+t [instance="scratchpad-tasks"] scratchpad show resize set 1200 530, move position center
 
 # music scratchpad
 for_window [instance="scratchpad-music"] move to scratchpad

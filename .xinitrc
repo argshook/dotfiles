@@ -7,4 +7,5 @@ fi
 
 setxkbmap -option caps:escape
 setxkbmap -option ctrl:ralt_rctrl
-dbus-launch --exit-with-session i3
+# dbus-launch --exit-with-session i3
+i3

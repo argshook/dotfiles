@@ -1,8 +1,10 @@
-source ~/.vimrc
+source ~/.config/nvim/init.vim
 
 autocmd FocusGained *.md call FocusGained()
 autocmd FocusLost *.md call FocusLost()
 autocmd Filetype *.js,*.jsx,*.ts,*.tsx,*.md setlocal textwidth=120
+
+iunmap <c-k>
 
 function! FocusGained()
   normal ggVG"+P
@@ -23,8 +25,8 @@ nnoremap <silent> <leader>fm :set ft=markdown<CR>
 function! MegaSave()
   let date = trim(system("date +%Y-%m-%d-%H-%M-%S"))
   execute 'saveas ~/zettel/scratchpad/' . date . '.md'
-  let gitAdd = system("git add ~/zettel/scratchpad/*")
-  let gitCommit = system("git commit -a -m `date '+%s'`")
+  let gitAdd = system("cd ~/zettel && git add ~/zettel/scratchpad/*")
+  let gitCommit = system("cd ~/zettel && git commit -a -m `date '+%s'`")
 endfunction
 
 nmap <leader>s :call MegaSave()<cr>

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # `norm` command allows to execute vim normal mode whilst piping with other commands.
+#
 # for example
+#
 # echo hello | norm A world
 # $ hello world
 
@@ -13,7 +15,7 @@ if [ $1 == "all" ]; then
   shift
   command="%norm $@"
 else
-  command="norm gg $@"
+  command="norm gg$@"
 fi
 
 (vim - -u ~/.argsdotfiles/vim/vim-pipe.vimrc -esbnN -c "$command" -c 'w!/dev/fd/3|q!' >/dev/null) 3>&1

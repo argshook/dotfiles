@@ -53,6 +53,7 @@ let searchengine twitter = "https://twitter.com/search?f=tweets&q=%s"
 let searchengine reddit = "https://reddit.com/r/%s"
 let completionengines = ["google", "github", "docs"]
 
+
 command wsri tabnew https://github.com/wix/wix-style-react/issues
 command wsrp tabnew https://github.com/wix/wix-style-react/pulls
 command wsrc tabnew https://github.com/wix/wix-style-react/commits/master

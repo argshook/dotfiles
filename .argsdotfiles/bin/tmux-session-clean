@@ -1,0 +1,6 @@
+#/usr/bin/env bash
+
+tmux list-sessions -F '#{session_name}' | \
+  fzf --multi --bind='ctrl-u:top,esc:abort' | \
+  xargs -n1 tmux kill-session -t
+

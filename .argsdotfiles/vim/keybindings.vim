@@ -72,10 +72,23 @@ nmap <silent> \f <Plug>(coc-fix-current)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> ge <Plug>(coc-diagnostic-info)
+nmap <silent> gi <Plug>(coc-diagnostic-info)
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+vmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -97,13 +110,13 @@ autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
 " autocmd BufReadPost quickfix nnoremap <buffer> q :lclose<CR>
 
 function! RenameFile()
-let old_name = expand('%')
-let new_name = input('New file name: ', expand('%'), 'file')
-if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-endif
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+      exec ':saveas ' . new_name
+      exec ':silent !rm ' . old_name
+      redraw!
+  endif
 endfunction
 map <leader>n :call RenameFile()<cr>
 

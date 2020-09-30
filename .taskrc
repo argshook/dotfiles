@@ -17,6 +17,7 @@ include /usr/share/doc/task/rc/solarized-dark-256.theme
 
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
+uda.priority.values=h,m,l
 search.case.sensitive=no
 weekstart=monday
 
@@ -27,9 +28,9 @@ color.label=gray17
 color.label.sort=gray20
 color.active=bold red
 color.tagged=
-color.uda.priority.H=color210
-color.uda.priority.M=yellow
-color.uda.priority.L=blue
+color.uda.priority.h=color210
+color.uda.priority.m=yellow
+color.uda.priority.l=blue
 
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
@@ -39,14 +40,22 @@ report.waiting.sort=wait+,due+,entry+
 report.next.sort=start-,urgency-
 report.next.filter=(status:pending) limit:page -in -learn
 
+urgency.uda.priority.h.coefficient=6.0
+urgency.uda.priority.l.coefficient=1.8
+urgency.uda.priority.m.coefficient=3.9
 urgency.blocking.coefficient=5.0
 urgency.age.coefficient=1.1
+urgency.annotations.coefficient=0
 
 report.in.columns=id,description,tags
 report.in.labels=ID,Description,Tags
 report.in.description=Inbox
 report.in.filter=status:pending limit:page (+in)
 
-report.next.columns=id,start.age,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age
-report.next.labels=ID,Active,Urg,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age
-verbose=footnote,label,new-id,new-uuid,affected,special,project,sync,unwait,recur
+report.next.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,entry.age,urgency
+report.next.labels=ID,Active,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age,Urg
+verbose=footnote,label,new-id,new-uuid,special,project,sync,unwait,recur
+
+report.more.description=More info about one task
+report.more.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age,urgency
+report.more.labels=ID,Active,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age,Urg

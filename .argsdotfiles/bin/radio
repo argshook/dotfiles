@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+COMMAND=$1
+
+case "$COMMAND" in
+  play)
+    shift
+    play-soma $@
+    ;;
+
+  save)
+    TITLE=$(echo '{ "command": ["get_property", "metadata"] }' | socat - /tmp/mpvsocket | jq '.data."icy-title"' --raw-output)
+    echo $TITLE >> ~/zettel/radio-favorites.md
+    ;;
+
+  youtube)
+    shift
+    TITLE=${@}
+    FILE=~/Music/${TITLE// /-}.md
+    youtube-dl ytsearch:"$TITLE" --max-downloads 0 | \
+      sed -n 's/^\[youtube\] \(.*\): Downloading webpage$/\1/p' | \
+      xargs -I {} mpv --stream-record=$FILE --no-video https://youtube.com/watch\?v\={} 
+    ;;
+
+  *)
+    echo "Usage: $(basename $0) {play|save}"
+esac
