@@ -52,3 +52,19 @@ function! g:FzfSearch()
 endfunction
 
 noremap <C-p> :call g:FzfSearch()<CR>
+
+function! s:AppendDigraph(digraphLine)
+  execute ':normal! a' . substitute(a:digraphLine, '\(\S\+\).*', '\1', '')
+  call feedkeys('a')
+endfunction
+
+function! g:FzfSearchDigraphs()
+  let l:fzf_options = join([], ' ')
+
+  call fzf#run(fzf#wrap({
+    \ 'source': 'cat ~/.argsdotfiles/vim/digraphs.txt',
+    \ 'options': l:fzf_options,
+    \ 'sink': function('s:AppendDigraph'),
+    \ }))
+endfunction
+command! Digraphs cal g:FzfSearchDigraphs()

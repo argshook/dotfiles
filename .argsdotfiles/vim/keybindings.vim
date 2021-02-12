@@ -71,7 +71,6 @@ nmap <silent> \f <Plug>(coc-fix-current)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-diagnostic-info)
@@ -119,6 +118,7 @@ function! RenameFile()
   endif
 endfunction
 map <leader>n :call RenameFile()<cr>
+map <leader><space> :Commands<cr>
 
 
 " change current working directory to current file and print it after changing

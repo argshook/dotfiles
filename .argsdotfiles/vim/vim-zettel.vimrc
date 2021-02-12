@@ -4,10 +4,11 @@ function! MegaSave()
   write
   let gitAdd = system("cd ~/zettel && git add .")
   let gitCommit = system("cd ~/zettel && git commit -a -m `date '+%s'`")
+  :VimwikiRebuildTags
 endfunction
 
 nmap <leader>s :call MegaSave()<cr>
-iunmap <c-k>
+imap <c-k> <Esc>:call g:FzfSearchDigraphs()<cr>
 
 function! PlayYoutube()
   let line=getline('.')

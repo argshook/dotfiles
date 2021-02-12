@@ -222,7 +222,6 @@ unset zle_bracketed_paste
 unsetopt BEEP
 
 # fnm
-export PATH=$PATH:$HOME/.fnm
 eval `fnm env`
 
 source_if_exists ~/.private.zshrc

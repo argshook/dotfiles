@@ -4,7 +4,7 @@ autocmd FocusGained *.md call FocusGained()
 autocmd FocusLost *.md call FocusLost()
 autocmd Filetype *.js,*.jsx,*.ts,*.tsx,*.md setlocal textwidth=120
 
-iunmap <c-k>
+imap <c-k> <Esc>:call g:FzfSearchDigraphs()<cr>
 
 function! FocusGained()
   normal ggVG"+P
