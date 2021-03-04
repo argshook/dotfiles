@@ -3,12 +3,13 @@ export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="/usr/bin/chromium"
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
 export DOTREMINDERS="~/zettel/reminders"
+export PASSWORD_STORE_DIR="~/zettel/pass"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
