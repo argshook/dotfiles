@@ -1,4 +1,5 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:./node_modules/.bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin
+PATH=$(getconf PATH)
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.fnm/current/bin:./node_modules/.bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -74,9 +75,9 @@ export HISTIGNORE="in:zet:t"
 
 alias kurwa="killall -9"
 _npmnx () {
-  rm -f package-lock.json yarn.lock
-  find . -name node_modules -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
+  find . \( -name node_modules -o -name package-lock.json -o -name yarn.lock \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
 }
+
 alias npmnx="_npmnx"
 alias q="exit"
 alias r="ranger"
@@ -221,8 +222,5 @@ export GPG_TTY
 unset zle_bracketed_paste
 
 unsetopt BEEP
-
-# fnm
-eval `fnm env`
 
 source_if_exists ~/.private.zshrc

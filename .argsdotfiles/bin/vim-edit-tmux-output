@@ -2,4 +2,4 @@
 
 file=`mktemp`
 tmux capture-pane -epS -32768 > $file
-tmux new-window -n tmux-output "nvim -R -u NONE '+ term cat $file'"
+tmux new-window -n tmux-output "nvim -u NONE '+ term cat $file'"
