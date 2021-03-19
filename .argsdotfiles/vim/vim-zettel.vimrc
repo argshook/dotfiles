@@ -17,3 +17,15 @@ function! PlayYoutube()
 endfunction
 nmap <leader>m :call PlayYoutube()<cr>
 " tnoremap <Esc> <C-\><C-n>
+
+function! DirifyNote()
+  " use this when a note grows into a topic.
+  " move some-note.md to some-note/index.md
+  let filename = expand('%:p')
+  let dirname = expand('%:p:r')
+  let movedFilename = dirname."/index.md"
+  let mkdir = system("mkdir ".dirname)
+  let mv = system("mv ".filename." ".movedFilename )
+  execute "edit " . movedFilename
+endfunction
+command! DirifyNote call DirifyNote()

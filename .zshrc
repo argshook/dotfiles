@@ -10,7 +10,7 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
 export DOTREMINDERS="~/zettel/reminders"
-export PASSWORD_STORE_DIR="~/zettel/pass"
+export PASSWORD_STORE_DIR="$HOME/zettel/pass"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -71,7 +71,7 @@ export HISTSIZE=10000000
 export SAVEHIST=10000000
 export HISTFILE=~/.zhistory
 export HISTTIMEFORMAT="[%F %T] "
-export HISTIGNORE="in:zet:t"
+export HISTIGNORE="in:zet:t:pass"
 
 alias kurwa="killall -9"
 _npmnx () {
