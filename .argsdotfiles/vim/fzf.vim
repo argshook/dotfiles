@@ -33,9 +33,9 @@ function! g:FzfFilesSource()
   let l:proximity_sort_path = $HOME . '/.cargo/bin/proximity-sort'
 
   if base == '.'
-    return "rg --files --hidden --glob '!.git'"
+    return "rg --files --hidden --glob '!.git' --glob '!*.gpg'"
   else
-    return printf("rg --files --hidden --glob '!.git' | %s %s", l:proximity_sort_path, expand('%'))
+    return printf("rg --files --hidden --glob '!.git' --glob '!*.gpg' | %s %s", l:proximity_sort_path, expand('%'))
   endif
 endfunction
 
