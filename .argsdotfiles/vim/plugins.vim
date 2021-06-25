@@ -21,8 +21,7 @@ let g:rg_root_types = ['.git', 'package.json']
 let g:rg_format = '%f:%l:%m'
 
 Plug 'junegunn/fzf'
-" Plug 'junegunn/fzf.vim'
-Plug 'chmanie/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'jreybert/vimagit'
@@ -37,17 +36,6 @@ Plug 'tpope/vim-obsession'
 
 Plug 'tpope/vim-surround'
 let g:surround_indent = 0
-
-Plug 'vimwiki/vimwiki'
-  let g:vimwiki_key_mappings =
-    \ {
-    \ 'headers': 0,
-    \ }
-let g:vimwiki_conceallevel = 3
-let g:vimwiki_list = [
-  \{'path': '~/zettel/', 'ext': '.md', 'syntax': 'markdown', 'auto_tags': 1},
-  \{'path': '~/zettel/work', 'ext': '.md', 'syntax': 'markdown', 'auto_tags': 1}
-  \]
 
 Plug 'mhinz/vim-signify'
 
@@ -64,7 +52,6 @@ let g:neosnippet#expand_word_boundary = 1
 " language specific plugins
 " =========================
 
-" Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
@@ -74,16 +61,10 @@ Plug 'mattn/emmet-vim'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
 
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
-" Plug 'leafgarland/typescript-vim'
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 
@@ -102,13 +83,8 @@ autocmd BufWritePost *.elm ElmMake
 " misc plugins
 " ============
 
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsCenterLine = 0
-let g:AutoPairsMultilineClose = 0
-let g:AutoPairsFlyMode = 1
-
+Plug 'tmsvg/pear-tree'
 Plug 'AndrewRadev/linediff.vim' " :LineDiff()
-Plug 'lilydjwg/colorizer'
 Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
@@ -146,7 +122,7 @@ let g:ale_fixers = {
   \}
 let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
-  \   'python': [ 'autopep8' ],
+  \   'python': [ 'pyright' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
   \   'elm': [ 'elm-format' ]
@@ -154,9 +130,7 @@ let g:ale_linters = {
 nnoremap <leader>d :ALEDetail<cr>
 
 Plug 'yuttie/comfortable-motion.vim'
-let g:comfortable_motion_interval = 1000.0 / 60.0
-let g:comfortable_motion_friction = 80.0
-let g:comfortable_motion_air_drag = 8.0
+source ~/.argsdotfiles/vim/comfortable-motion.vim
 
 Plug 'itchyny/vim-qfedit'
 let g:editqf_jump_to_error = 0
@@ -167,8 +141,6 @@ let g:mundo_prefer_python3 = 1
 let g:mundo_auto_preview = 0
 let g:mundo_return_on_revert = 0
 
-
-" Plug 'wellle/context.vim'
 
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -182,31 +154,10 @@ let g:easy_align_delimiters = {
 
 Plug 'itchyny/lightline.vim'
 
-let g:lightline = {
-  \ 'colorscheme': 'seoul256',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste', 'readonly' ],
-  \             [ 'folder', 'filename', 'modified' ]
-  \           ],
-  \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ]
-  \ },
-  \ 'component_function': {
-  \   'folder': 'GetCurrentFolder'
-  \ },
-\ }
-
-let g:lightline.inactive = {
-      \ 'left': [ [ 'folder', 'filename', 'modified' ] ],
-      \ 'right': [ [ 'lineinfo' ],
-      \            [ 'percent' ] ] }
-
-
-function! GetCurrentFolder()
-  return expand('%:p:h:t')
-endfunction
-
 " initialize vimplug
 call plug#end()
+
+source ~/.argsdotfiles/vim/lightline.vim
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -231,5 +182,3 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
-EOF
-

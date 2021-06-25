@@ -1,9 +1,8 @@
 PATH=$(getconf PATH)
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.fnm/current/bin:./node_modules/.bin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:./node_modules/.bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER="/usr/bin/chromium"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
@@ -53,7 +52,7 @@ source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 source_if_exists $HOME/.rvm/scripts/rvm
 
 # fasd
-eval "$(fasd --init auto)"
+# eval "$(fasd --init auto)"
 
 # vi keys bindings
 bindkey -v
@@ -84,7 +83,6 @@ alias r="ranger"
 alias rn="ranger node_modules"
 alias n="nvim"
 alias nu="nvim -u NONE"
-alias h="nvim -u ~/.argsdotfiles/vim/from-scratch.vim"
 alias b="buku -S"
 alias gn="BROWSER=w3m googler --first nethack "
 
@@ -205,7 +203,7 @@ alias killport="_kill_port"
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
-alias browse="xargs chromium" # usage: echo google.com | browse
+alias browse="xargs qutebrowser" # usage: echo google.com | browse
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8
@@ -224,3 +222,9 @@ unset zle_bracketed_paste
 unsetopt BEEP
 
 source_if_exists ~/.private.zshrc
+
+eval "$(fnm env)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"

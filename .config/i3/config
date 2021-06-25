@@ -29,7 +29,8 @@ floating_modifier $mod
 focus_follows_mouse no
 
 bindsym $mod+Return exec kitty
-bindsym $mod+c exec chromium --high-dpi-support=1 --force-device-scale-factor=1
+bindsym $mod+shift+c exec google-chrome-stable --high-dpi-support=1 --force-device-scale-factor=1
+bindsym $mod+c exec qutebrowser
 
 bindsym $mod+d exec rofi -show run
 # Screenshot
@@ -192,7 +193,7 @@ bindsym $mod+g [instance="scratchpad-search"] scratchpad show resize set 900 700
 
 # notes scratchpad
 for_window [instance="scratchpad-notes"] move to scratchpad
-bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 900 700, move position center
+bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 1000 1000, move position center
 
 # tasks scratchpad
 for_window [instance="scratchpad-tasks"] move to scratchpad

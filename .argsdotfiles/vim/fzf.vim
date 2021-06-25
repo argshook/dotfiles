@@ -26,7 +26,7 @@ nmap <leader>b :Buffers<cr>
 nmap <leader>H :Helptags<cr>
 nmap <leader>: :Commands<cr>
 
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path_relative('fd')
+imap <c-x><c-f> <plug>(fzf-complete-path)
 
 function! g:FzfFilesSource()
   let l:base = fnamemodify(expand('%'), ':h:.:S')
@@ -51,7 +51,7 @@ function! g:FzfSearch()
     \})
 endfunction
 
-noremap <C-p> :call g:FzfSearch()<CR>
+noremap <silent> <C-p> :call g:FzfSearch()<CR>
 
 function! s:AppendDigraph(digraphLine)
   execute ':normal! a' . substitute(a:digraphLine, '\(\S\+\).*', '\1', '')

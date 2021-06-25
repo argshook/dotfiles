@@ -60,46 +60,7 @@ nnoremap <leader>e :e#<CR>
 nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
 
-nmap ]l <Plug>(coc-diagnostic-next)
-nmap [l <Plug>(coc-diagnostic-prev)
-call coc#config('coc.preferences', {
-  \ 'triggerSignatureHelp': 'false',
-  \})
-
 nmap <silent> \d :ALEDetail<CR>
-nmap <silent> \f <Plug>(coc-fix-current)
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD <Plug>(coc-declaration)
-" nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-diagnostic-info)
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-" nmap <silent> <TAB> <Plug>(coc-range-select)
-vmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-
 " quickfix window, mostly to navigate Ag or grep results
 nmap [q :cprevious<CR>
 nmap ]q :cnext<CR>
@@ -118,7 +79,6 @@ function! RenameFile()
   endif
 endfunction
 map <leader>n :call RenameFile()<cr>
-map <leader><space> :Commands<cr>
 
 
 " change current working directory to current file and print it after changing
@@ -145,8 +105,6 @@ nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
 nmap ]g <plug>(signify-next-hunk)
 nmap [g <plug>(signify-prev-hunk)
 
-noremap <silent> <leader>f :ALEFix<cr>
-
 " smooth scrolling
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
@@ -165,6 +123,4 @@ map <leader>l :RangerEdit<cr>
 map <leader>ls :RangerSplit<cr>
 map <leader>lv :RangerVSplit<cr>
 map <leader>lt :RangerTab<cr>
-
-map <leader>rn <Plug>(coc-rename)
 noremap <Space> :

@@ -4,7 +4,7 @@ cd ~/zettel
 
 # no arguments, open zettel index
 if [ $# -eq 0 ]; then
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c VimwikiIndex
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c ZettelIndex
 else
   case "$1" in
     # `zet new *` for new wiki page
