@@ -24,9 +24,6 @@ c.url.searchengines = {
   'qute': 'https://www.google.com/search?q=qutebrowser+{}'
 }
 
-c.backend = 'webengine'
-c.auto_save.session = False
-
 #  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.set("colors.webpage.darkmode.enabled", True)
 config.bind('<Space>', 'set-cmd-text :')
@@ -37,6 +34,7 @@ config.bind('X', 'undo 1')
 config.bind('?', 'open -t ~/.config/qutebrowser/cheatsheet-big.png')
 config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
+config.bind(',in', 'set-cmd-text -s :spawn --userscript taskadd')
 config.unbind('d', mode="normal")
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
@@ -50,6 +48,10 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 
+c.backend = 'webengine'
+c.auto_save.session = False
+c.session.lazy_restore = True
+c.colors.webpage.bg = '#333'
 c.completion.height = '20%'
 c.completion.quick = True
 c.completion.shrink = True
@@ -58,14 +60,19 @@ c.content.javascript.can_open_tabs_automatically = False
 c.content.pdfjs = True
 c.content.xss_auditing = True
 c.downloads.location.directory = '~/Downloads'
+c.downloads.position = 'bottom'
 c.editor.command = ['kitty', 'nvim', '-f', '{file}']
+c.fonts.hints = "12pt default_family"
+c.fonts.default_size = '11pt'
+c.fonts.completion.category = 'bold 12pt default_family'
+c.fonts.completion.entry = '11pt default_family'
+c.fonts.statusbar = '11pt default_family'
 c.hints.auto_follow = 'unique-match'
 c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.statusbar.show = 'always'
 c.tabs.title.format = "{audio} {current_title} - {current_url}"
 c.tabs.wrap = False
-c.fonts.hints = "default_size default_family"
 
 with config.pattern('coolors.co') as p:
     p.hints.selectors['all'].append('[data-tooltip]')
@@ -73,11 +80,5 @@ with config.pattern('coolors.co') as p:
 with config.pattern('lichess.org') as p:
     p.hints.selectors['all'].append('cg-board piece')
 
-config.set(
-    'hints.selectors',
-    {'scrollable': ['.md-sidebar__scrollwrap']},
-    #  pattern='*://*.anichart.net/*',
-)
-config.bind(';c', 'hint scrollable')
-
 config.bind("sp", "spawn --userscript qutepocket")
+config.bind(',ym', 'yank inline [{title}]({url:pretty})')

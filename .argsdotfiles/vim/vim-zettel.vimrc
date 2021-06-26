@@ -7,6 +7,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 call plug#end()
@@ -36,12 +37,11 @@ autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
 
 noremap <silent> <Esc> <Esc>:noh<cr>
-map <space> :Commands<cr>
 
 function! MegaSave()
   write
-  let gitAdd = system("cd ~/zettel && git add .")
-  let gitCommit = system("cd ~/zettel && git commit -a -m `date '+%s'`")
+  let cwd = getenv("HOME") . "/zettel"
+  call jobstart("git add . && git commit -a -m `date '+%s'`", { "cwd": cwd })
 endfunction
 
 nmap <leader>s :call MegaSave()<cr>
