@@ -55,9 +55,8 @@ let g:neosnippet#expand_word_boundary = 1
 Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
-Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview

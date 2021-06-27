@@ -18,10 +18,10 @@ theme.blood(c, {
 config.bind("gi", "hint inputs")
 #  config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 c.url.searchengines = {
-  'DEFAULT': 'https://duckduckgo.com/?q={}',
-  'y': 'https://www.youtube.com/results?search_query={}',
-  'g': 'https://www.google.com/search?q={}',
-  'qute': 'https://www.google.com/search?q=qutebrowser+{}'
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'y': 'https://www.youtube.com/results?search_query={}',
+    'g': 'https://www.google.com/search?q={}',
+    'qute': 'https://www.google.com/search?q=qutebrowser+{}'
 }
 
 #  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
@@ -39,7 +39,8 @@ config.unbind('d', mode="normal")
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'all', 'devtools://*')
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
 config.set('content.images', True, 'chrome-devtools://*')
 config.set('content.images', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome-devtools://*')
@@ -71,7 +72,7 @@ c.hints.auto_follow = 'unique-match'
 c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.statusbar.show = 'always'
-c.tabs.title.format = "{audio} {current_title} - {current_url}"
+c.tabs.title.format = "{audio} {current_title}"
 c.tabs.wrap = False
 
 with config.pattern('coolors.co') as p:
