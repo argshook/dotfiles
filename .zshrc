@@ -130,7 +130,7 @@ alias tyesterday="task end.after:today-1d completed -in"
 _taskwarrior_browse () {
   local id=$1
   if [ "$#" -eq 1 ]; then
-    task $id | get-url | xargs $BROWSER
+    task $id | get-url | xargs qutebrowser
   fi
 }
 alias tbrowse="_taskwarrior_browse"

@@ -121,7 +121,7 @@ let g:ale_fixers = {
   \}
 let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
-  \   'python': [ 'pyright' ],
+  \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
   \   'elm': [ 'elm-format' ]

@@ -11,7 +11,8 @@
 #   :spawn --userscript readability
 #
 from __future__ import absolute_import
-import codecs, os
+import codecs
+import os
 
 tmpfile = os.path.join(
     os.environ.get('QUTE_DATA_DIR',

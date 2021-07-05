@@ -69,3 +69,8 @@ command! DirifyNote call DirifyNote()
 
 command! ZettelIndex edit ~/zettel/index.md
 nnoremap <silent> <leader>ww :ZettelIndex<cr>
+
+map <leader>l :RangerEdit<cr>
+map <leader>ls :RangerSplit<cr>
+map <leader>lv :RangerVSplit<cr>
+map <leader>lt :RangerTab<cr>
