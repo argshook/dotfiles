@@ -10,15 +10,15 @@ config.load_autoconfig(False)
 
 theme.blood(c, {'spacing': {'vertical': 0, 'horizontal': 0}})
 
-config.bind("gi", "hint inputs")
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'y': 'https://www.youtube.com/results?search_query={}',
     'g': 'https://www.google.com/search?q={}',
+    'r': 'https://reddit.com/r/{}',
     'qute': 'https://www.google.com/search?q=qutebrowser+{}',
     'http': 'https://httpstatuses.com/{}',
     'mdn': 'https://developer.mozilla.org/en-US/search?q={}',
-    'github': 'https://github.com/search?q={}'
+    'github': 'https://github.com/search?q={}',
 }
 
 #  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
@@ -65,17 +65,23 @@ c.content.prefers_reduced_motion = True
 c.downloads.location.directory = '~/Downloads'
 c.downloads.position = 'bottom'
 c.editor.command = ['kitty', 'nvim', '-f', '{file}']
+c.fonts.default_family = 'Roboto'
+c.fonts.completion.entry = 'monospace'
 c.fonts.hints = "12pt default_family"
 c.fonts.default_size = '11pt'
 c.fonts.completion.category = 'bold 12pt default_family'
 c.fonts.completion.entry = '11pt default_family'
+c.fonts.tabs.selected = '10pt default_family'
+c.fonts.tabs.unselected = '10pt default_family'
 c.fonts.statusbar = '11pt default_family'
 c.hints.auto_follow = 'unique-match'
 c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.statusbar.show = 'always'
 c.tabs.title.format = "{audio} {current_title}"
+c.tabs.title.format_pinned = "{audio}"
 c.tabs.wrap = True
+c.tabs.new_position.related = "last"
 
 with config.pattern('coolors.co') as p:
     p.hints.selectors['all'].append('[data-tooltip]')
@@ -87,6 +93,12 @@ with config.pattern('github.com') as p:
 with config.pattern('lichess.org') as p:
     p.hints.selectors['all'].append('cg-board piece')
 
+with config.pattern('reddit.com') as p:
+    p.hints.selectors['all'].append('.expando-button')
+
 config.bind("sp", "spawn --userscript qutepocket")
 config.bind(',ym', 'yank inline [{title}]({url:pretty})')
 config.bind('zl', 'spawn --userscript localhost list')
+config.bind("gi", "hint inputs")
+config.bind(">", "tab-move +")
+config.bind("<", "tab-move -")
