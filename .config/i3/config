@@ -157,7 +157,7 @@ bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
 # applications to run on startup
 
-exec_always picom
+# exec_always picom
 # exec notify-connection
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+i3-msg '[instance="scratchpad-tasks"] scratchpad show resize set 1200 530, move position center'
+tmux send-keys -t tasks "clear" ENTER
+tmux send-keys -t tasks "cowsay -f `find /usr/share/cows | shuf -n 1` 'WHAT ARE YOU DOING NOW?'" ENTER
+tmux send-keys -t tasks "t log "

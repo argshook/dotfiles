@@ -62,7 +62,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
 
 Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
 
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
@@ -113,7 +113,7 @@ let g:ale_fixers = {
   \   'json': [ 'jq', 'fixjson' ],
   \   'html': [ 'prettier' ],
   \   'javascript': [ 'prettier', 'eslint' ],
-  \   'python': [ 'autopep8' ],
+  \   'python': [ 'yapf' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'tslint' ],
   \   'elm': [ 'elm-format' ],
