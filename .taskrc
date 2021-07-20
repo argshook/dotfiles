@@ -108,7 +108,7 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 report.waiting.sort=wait+,due+,entry+
 report.next.sort=start-,urgency-
-report.next.filter=(status:pending) limit:page -in -learn
+report.next.filter=(status:pending) limit:page -in -learn -hide
 
 urgency.uda.priority.h.coefficient=6.0
 urgency.uda.priority.l.coefficient=1.8

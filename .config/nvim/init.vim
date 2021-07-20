@@ -61,8 +61,9 @@ set backspace=indent,eol,start
 set foldmethod=indent
 set foldlevelstart=3
 set laststatus=2
+set signcolumn=number
 
-set updatetime=750
+set updatetime=300
 
 colorscheme cobalt2
 

@@ -23,15 +23,7 @@ let g:rg_format = '%f:%l:%m'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
-
 Plug 'jreybert/vimagit'
-autocmd User VimagitEnterCommit startinsert
-autocmd User VimagitBufferInit setlocal foldenable
-autocmd User VimagitBufferInit setlocal nocindent
-autocmd User VimagitBufferInit nunmap <silent> <buffer> 0
-let g:magit_show_help=0
-let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'stash', 'info', 'global_help' ]
-
 Plug 'tpope/vim-obsession'
 
 Plug 'tpope/vim-surround'
@@ -156,8 +148,6 @@ Plug 'itchyny/lightline.vim'
 " initialize vimplug
 call plug#end()
 
-source ~/.argsdotfiles/vim/lightline.vim
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
@@ -181,3 +171,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+EOF
+
+source ~/.argsdotfiles/vim/vimagit.vim
+source ~/.argsdotfiles/vim/lightline.vim
+source ~/.argsdotfiles/vim/comfortable-motion.vim

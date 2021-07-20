@@ -91,10 +91,6 @@ endfunction
 
 nnoremap T :call JumpToMiddleOfParagraph()<CR>
 
-" print date for fun
-inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
-inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
-
 " fold with leader
 nnoremap <silent> <leader>z za
 nnoremap <silent> z<leader> za

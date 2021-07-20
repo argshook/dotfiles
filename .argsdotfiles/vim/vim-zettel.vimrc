@@ -74,3 +74,6 @@ map <leader>l :RangerEdit<cr>
 map <leader>ls :RangerSplit<cr>
 map <leader>lv :RangerVSplit<cr>
 map <leader>lt :RangerTab<cr>
+
+inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
+inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>

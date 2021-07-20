@@ -29,12 +29,14 @@ config.bind('k', 'scroll-px 0 -150')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo 1')
 config.bind('?', 'open -t ~/.config/qutebrowser/cheatsheet-big.png')
-config.bind(',m', 'spawn mpv {url}')
-config.bind(',M', 'hint links spawn mpv {hint-url}')
+config.bind(',M', 'spawn mpv {url}')
+config.bind(',m', 'hint links spawn mpv {hint-url}')
 config.bind(',in', 'set-cmd-text -s :spawn --userscript taskadd')
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="command")
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="prompt")
+config.bind('F', 'hint links tab')
 config.unbind('d', mode="normal")
+config.unbind('co', mode="normal")
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'all', 'devtools://*')
@@ -48,10 +50,13 @@ config.set('content.javascript.enabled', True, 'chrome-devtools://*')
 config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set('content.javascript.can_access_clipboard', True,
+           'https://github.com/*')
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 
+c.aliases['tab-detach'] = 'tab-give'
 c.backend = 'webengine'
-c.auto_save.session = False
+c.auto_save.session = True
 c.session.lazy_restore = True
 c.colors.webpage.bg = '#333'
 c.completion.height = '20%'
