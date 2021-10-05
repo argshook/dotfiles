@@ -27,9 +27,9 @@
 [difftool]
   prompt = false
 [instaweb]
-  browser = chromium
+  browser = qutebrowser
 [web]
-  browser = chromium
+  browser = qutebrowser
 [commit]
   gpgsign = true
 

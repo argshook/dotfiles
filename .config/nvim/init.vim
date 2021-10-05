@@ -1,8 +1,6 @@
 set runtimepath^=~/.vim
 let &packpath = &runtimepath
 
-source ~/.argsdotfiles/vim/plugins.vim
-
 let os = system("uname | awk '$1'")
 if os =~ 'Linux'
   let g:python_host_prog = '/usr/bin/python'
@@ -65,14 +63,16 @@ set signcolumn=number
 
 set updatetime=300
 
-colorscheme cobalt2
-
 " shorten mapping delay so that esc reacts immediately
 set timeoutlen=400
 
 " stop syntax highlighting after 400 chars.
 " This makes scrolling files with long lines way faster.
 set synmaxcol=1000
+
+source ~/.argsdotfiles/vim/plugins.vim
+
+colorscheme cobalt2
 
 autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
@@ -82,6 +82,7 @@ autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
 autocmd Filetype gitcommit,magit,markdown setlocal textwidth=72
 " autocmd BufRead,BufNewFile *.js,*.jsx setlocal filetype=typescript.tsx
 " autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
+autocmd Filetype ejs setlocal filetype=javascript.ejs
 autocmd BufRead,BufNewFile *.css set filetype=scss
 
 autocmd TermOpen * startinsert
@@ -94,5 +95,6 @@ source ~/.argsdotfiles/vim/coc.vim
 set runtimepath^=~/repos/cloned/wix-a/coc-stylable
 autocmd BufRead *.st.css set filetype=stylable
 
+set iskeyword+=-
 
 let $PATH.='node_modules'

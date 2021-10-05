@@ -10,6 +10,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
+Plug 'sedm0784/vim-you-autocorrect'
+Plug 'reedes/vim-pencil'
+Plug 'suan/vim-instant-markdown'
+Plug 'dkarter/bullets.vim'
+Plug 'junegunn/vim-easy-align'
+let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
+
 call plug#end()
 
 let mapleader = ","
@@ -23,12 +31,15 @@ let g:surround_indent = 0
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim
+source ~/.argsdotfiles/vim/to-jira.vim
+source ~/.argsdotfiles/vim/abbreviations.vim
 
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_toc_autofit = 1
 
@@ -77,3 +88,18 @@ map <leader>lt :RangerTab<cr>
 
 inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
+
+function! WordProcessorMode()
+  " Auto-capitalize script
+  augroup SENTENCES
+    au!
+    autocmd InsertCharPre * if search('\v(%^|[.!?]\_s+|\_^\-\s|\_^title\:\s|\n\n)%#', 'bcnw') != 0 | let v:char = toupper(v:char) | endif
+  augroup END
+endfu
+
+command! WP call WordProcessorMode()
+au BufNewFile,BufRead *.md call WordProcessorMode()
+
+" wrap visually selected block with backticks
+vnoremap <leader>x c```<cr>```<esc>P
+noremap <Space> :

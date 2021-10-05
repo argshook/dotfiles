@@ -6,24 +6,35 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'
 autocmd BufReadPost fugitive://* set bufhidden=delete
+function! s:ftplugin_fugitive() abort
+  nnoremap <buffer> <silent> cc :Git commit --quiet<CR>
+  nnoremap <buffer> <silent> ca :Git commit --quiet --amend<CR>
+  nnoremap <buffer> <silent> ce :Git commit --quiet --amend --no-edit<CR>
+endfunction
+augroup nhooyr_fugitive
+  autocmd!
+  autocmd FileType fugitive call s:ftplugin_fugitive()
+augroup END
+nnoremap <silent> <leader>gs :G<cr>
+autocmd User FugitiveEditor startinsert
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'rafaqz/ranger.vim'
 Plug 'jamessan/vim-gnupg'
-let g:rg_command = 'rg --vimgrep'
+let g:rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'
 let g:rg_highlight = 1
 let g:rg_derive_root = 1
 let g:rg_root_types = ['.git', 'package.json']
-let g:rg_format = '%f:%l:%m'
+let g:rg_format = '%f:%l:%c:%m'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'jreybert/vimagit'
 Plug 'tpope/vim-obsession'
 
 Plug 'tpope/vim-surround'
@@ -99,7 +110,8 @@ Plug 'w0rp/ale'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_list_window_size = 5
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+nnoremap <leader>f :ALEFix<CR>
 let g:ale_fixers = {
   \   'css': [ 'stylelint' ],
   \   'json': [ 'jq', 'fixjson' ],
@@ -107,7 +119,7 @@ let g:ale_fixers = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'yapf' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'prettier', 'tslint' ],
+  \   'typescript': [ 'eslint' ],
   \   'elm': [ 'elm-format' ],
   \   'rust': [ 'rustfmt' ]
   \}
@@ -115,13 +127,11 @@ let g:ale_linters = {
   \   'javascript': [ 'prettier', 'eslint' ],
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'prettier', 'tslint' ],
+  \   'typescript': [ 'prettier', 'eslint' ],
   \   'elm': [ 'elm-format' ]
   \}
-nnoremap <leader>d :ALEDetail<cr>
 
 Plug 'yuttie/comfortable-motion.vim'
-source ~/.argsdotfiles/vim/comfortable-motion.vim
 
 Plug 'itchyny/vim-qfedit'
 let g:editqf_jump_to_error = 0
@@ -173,6 +183,5 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-source ~/.argsdotfiles/vim/vimagit.vim
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim

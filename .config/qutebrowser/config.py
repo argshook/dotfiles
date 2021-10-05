@@ -35,8 +35,12 @@ config.bind(',in', 'set-cmd-text -s :spawn --userscript taskadd')
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="command")
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="prompt")
 config.bind('F', 'hint links tab')
+config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
+config.bind('gj', 'download-clear', mode='normal')
+config.bind(',x', 'config-cycle tabs.show always never;; config-cycle statusbar.show always never')
 config.unbind('d', mode="normal")
 config.unbind('co', mode="normal")
+config.unbind('<ctrl-a>', mode="normal")
 
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'all', 'devtools://*')
@@ -84,9 +88,10 @@ c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.statusbar.show = 'always'
 c.tabs.title.format = "{audio} {current_title}"
-c.tabs.title.format_pinned = "{audio}"
+c.tabs.title.format_pinned = ""
 c.tabs.wrap = True
-c.tabs.new_position.related = "last"
+c.tabs.new_position.related = "next"
+c.tabs.pinned.frozen = False
 
 with config.pattern('coolors.co') as p:
     p.hints.selectors['all'].append('[data-tooltip]')

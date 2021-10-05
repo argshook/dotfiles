@@ -61,9 +61,6 @@ nmap <Leader><Space>o :lopen<CR>  " open location window
 nmap <Leader><Space>c :lclose<CR> " close location window
 
 nmap <silent> \d :ALEDetail<CR>
-" quickfix window, mostly to navigate Ag or grep results
-nmap [q :cprevious<CR>
-nmap ]q :cnext<CR>
 
 " close location and quickfix window with q
 autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
@@ -94,12 +91,6 @@ nnoremap T :call JumpToMiddleOfParagraph()<CR>
 " fold with leader
 nnoremap <silent> <leader>z za
 nnoremap <silent> z<leader> za
-
-nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>
-
-" jump between git hunks
-nmap ]g <plug>(signify-next-hunk)
-nmap [g <plug>(signify-prev-hunk)
 
 " smooth scrolling
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>

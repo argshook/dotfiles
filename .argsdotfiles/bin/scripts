@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+runner=${1:-"npm"}
+
+if [ -f package.json ]; then
+  jq '.scripts | keys[]' -r package.json \
+    | fzf --preview 'jq .scripts.\"{}\" package.json | cowsay' \
+        --height 40% \
+        --preview-window noborder \
+        --preview-window wrap \
+        --bind "enter:accept-non-empty,esc:abort" \
+    | xargs --no-run-if-empty $runner run
+else
+  echo "Error: There's no package.json"
+fi

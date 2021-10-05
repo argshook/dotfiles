@@ -25,8 +25,6 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 nmap <leader>qf <Plug>(coc-fix-current)
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>ac <Plug>(coc-codeaction)
 
 " Use <TAB> for selections ranges.

@@ -111,10 +111,10 @@ bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'Surely sre?' -b 'Yes, exit i
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
-  bindsym $mod+h resize shrink width 10 px or 10 ppt
-  bindsym $mod+j resize grow height 10 px or 10 ppt
-  bindsym $mod+k resize shrink height 10 px or 10 ppt
-  bindsym $mod+l resize grow width 11 px or 10 ppt
+  bindsym $mod+h resize shrink width 50 px
+  bindsym $mod+j resize grow height 50 px
+  bindsym $mod+k resize shrink height 50 px
+  bindsym $mod+l resize grow width 50 px
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
@@ -138,8 +138,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
 # available when using light-git (install from AUR)
-bindsym XF86KbdBrightnessDown exec light -U 2
-bindsym XF86KbdBrightnessUp exec light -A 2
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
 
 # toggle touchpad
 bindsym XF86TouchpadToggle exec ~/.argsdotfiles/toggle-touchpad.sh
@@ -158,20 +158,17 @@ bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 # applications to run on startup
 
 # exec_always picom
-# exec notify-connection
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray
-# exec --no-startup-id polybar top
 exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3 # hide mouse cursor after 3 seconds
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 exec nextcloud
 exec cryptomator
 
-# set display turn off timeout (in seconds)
-# exec xset s 1800
-
 bindsym $mod+bracketright [con_mark=_last] focus
+
+for_window[title="tuir-feh"] floating enable
 
 # scratchpads
 
@@ -181,7 +178,7 @@ bindsym $mod+u [instance="telegram-desktop"] scratchpad show resize set 800 600,
 
 # vim-everywhere scratchpad
 for_window [instance="scratchpad-vim-everywhere"] move to scratchpad
-bindsym $mod+n [instance="scratchpad-vim-everywhere"] scratchpad show resize set 800 600, move position center
+bindsym $mod+n [instance="scratchpad-vim-everywhere"] scratchpad show resize set 900 600, move position center
 
 # fuzzy-bookmarks scratchpad
 for_window [instance="scratchpad-fuzzy-bookmarks"] move to scratchpad
@@ -201,7 +198,7 @@ bindsym $mod+t [instance="scratchpad-tasks"] scratchpad show resize set 1200 530
 
 # music scratchpad
 for_window [instance="scratchpad-music"] move to scratchpad
-bindsym $mod+m [instance="scratchpad-music"] scratchpad show resize set 800 600, move position center
+bindsym $mod+m [instance="scratchpad-music"] scratchpad show resize set 1100 800, move position center
 
 for_window [instance="stalonetray"] move to scratchpad
 bindsym $mod+s [instance="stalonetray"] scratchpad show, move position center

@@ -5,3 +5,5 @@ autocmd User VimagitBufferInit nunmap <silent> <buffer> 0
 let g:magit_show_help=0
 let g:magit_default_sections = [ 'commit', 'staged', 'unstaged', 'stash', 'info', 'global_help' ]
 let g:magit_discard_untracked_do_delete=1
+
+nnoremap <silent> <leader>gs :execute magit#show_magit('h', 1, 1)<CR>

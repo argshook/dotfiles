@@ -1,8 +1,10 @@
 source ~/.config/nvim/init.vim
+source ~/.argsdotfiles/vim/to-jira.vim
+source ~/.argsdotfiles/vim/abbreviations.vim
 
 autocmd FocusGained *.md call FocusGained()
 autocmd FocusLost *.md call FocusLost()
-autocmd Filetype *.js,*.jsx,*.ts,*.tsx,*.md setlocal textwidth=120
+autocmd Filetype *.md setlocal textwidth=80
 
 imap <c-k> <Esc>:call g:FzfSearchDigraphs()<cr>
 

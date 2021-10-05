@@ -3,6 +3,11 @@
 COMMAND=$1
 
 case "$COMMAND" in
+  spotify)
+    nohup spotifyd --no-daemon --config-path ~/.config/spotifyd &
+    spt
+    ;;
+
   play)
     shift
     play-soma $@
