@@ -106,6 +106,9 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " visual selection for last changed or pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+nnoremap - :RangerEdit<cr>
+nnoremap _ :RangerSplit<cr>
+nnoremap \| :RangerVSplit<cr>
 map <leader>l :RangerEdit<cr>
 map <leader>ls :RangerSplit<cr>
 map <leader>lv :RangerVSplit<cr>

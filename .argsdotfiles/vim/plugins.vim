@@ -59,7 +59,7 @@ Plug 'moll/vim-node'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
 Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
@@ -120,6 +120,7 @@ let g:ale_fixers = {
   \   'python': [ 'yapf' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'eslint' ],
+  \   'typescriptreact': [ 'prettier',  'eslint' ],
   \   'elm': [ 'elm-format' ],
   \   'rust': [ 'rustfmt' ]
   \}
@@ -128,6 +129,7 @@ let g:ale_linters = {
   \   'python': [ 'autopep8' ],
   \   'haskell': [ 'hfmt' ],
   \   'typescript': [ 'prettier', 'eslint' ],
+  \   'typescriptreact': [ 'prettier', 'eslint' ],
   \   'elm': [ 'elm-format' ]
   \}
 
@@ -160,23 +162,7 @@ call plug#end()
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "c",
-    "css",
-    "elm",
-    "haskell",
-    "html",
-    "java",
-    "jsdoc",
-    "json",
-    "python",
-    "regex",
-    "rust",
-    "toml",
-    "tsx",
-    "typescript",
-    "yaml",
- },
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },

@@ -24,8 +24,8 @@ c.url.searchengines = {
 #  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.set("colors.webpage.darkmode.enabled", True)
 config.bind('<Space>', 'set-cmd-text :')
-config.bind('j', 'scroll-px 0 150')
-config.bind('k', 'scroll-px 0 -150')
+config.bind('j', 'scroll-px 0 200')
+config.bind('k', 'scroll-px 0 -200')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo 1')
 config.bind('?', 'open -t ~/.config/qutebrowser/cheatsheet-big.png')
@@ -108,6 +108,7 @@ with config.pattern('reddit.com') as p:
 
 config.bind("sp", "spawn --userscript qutepocket")
 config.bind(',ym', 'yank inline [{title}]({url:pretty})')
+config.bind(';Y', 'hint --rapid links yank')
 config.bind('zl', 'spawn --userscript localhost list')
 config.bind("gi", "hint inputs")
 config.bind(">", "tab-move +")

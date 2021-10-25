@@ -108,7 +108,7 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 report.waiting.sort=wait+,due+,entry+
 report.next.sort=start-,urgency-
-report.next.filter=(status:pending) limit:page -in -learn -hide
+report.next.filter=(status:pending -WAITING) limit:page -in -learn -hide
 
 urgency.uda.priority.h.coefficient=6.0
 urgency.uda.priority.l.coefficient=1.8
@@ -120,7 +120,7 @@ urgency.annotations.coefficient=0
 report.in.columns=id,description,tags
 report.in.labels=ID,Description,Tags
 report.in.description=Inbox
-report.in.filter=status:pending limit:page (+in)
+report.in.filter=status:pending limit:page (+in) -WAITING
 
 report.next.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,entry.age,urgency
 report.next.labels=ID,Active,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age,Urg
@@ -129,3 +129,4 @@ verbose=footnote,label,new-id,special,project,sync,unwait,recur
 report.more.description=More info about one task
 report.more.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,entry.age,urgency
 report.more.labels=ID,Active,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Age,Urg
+news.version=2.6.0

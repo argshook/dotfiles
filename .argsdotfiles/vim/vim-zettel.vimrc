@@ -16,6 +16,7 @@ Plug 'reedes/vim-pencil'
 Plug 'suan/vim-instant-markdown'
 Plug 'dkarter/bullets.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/neosnippet'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 
 call plug#end()
@@ -25,6 +26,8 @@ set number
 set ignorecase
 set smartcase
 set conceallevel=2
+set splitbelow
+set splitright
 colorscheme cobalt2
 let g:surround_indent = 0
 
@@ -81,6 +84,9 @@ command! DirifyNote call DirifyNote()
 command! ZettelIndex edit ~/zettel/index.md
 nnoremap <silent> <leader>ww :ZettelIndex<cr>
 
+nnoremap - :RangerEdit<cr>
+nnoremap _ :RangerSplit<cr>
+nnoremap \| :RangerVSplit<cr>
 map <leader>l :RangerEdit<cr>
 map <leader>ls :RangerSplit<cr>
 map <leader>lv :RangerVSplit<cr>
