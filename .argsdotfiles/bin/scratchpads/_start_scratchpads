@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 nohup kitty --class "scratchpad-vim-everywhere" /home/arijus/.argsdotfiles/bin/scratchpads/vim-everywhere.attach &
-nohup kitty --class "scratchpad-fuzzy-bookmarks" /home/arijus/.argsdotfiles/bin/scratchpads/fuzzy-bookmarks.attach &
 nohup kitty --class "scratchpad-search" /home/arijus/.argsdotfiles/bin/scratchpads/search.attach &
 nohup kitty --class "scratchpad-notes" /home/arijus/.argsdotfiles/bin/scratchpads/notes.attach &
 nohup kitty --class "scratchpad-tasks" /home/arijus/.argsdotfiles/bin/scratchpads/tasks.attach &

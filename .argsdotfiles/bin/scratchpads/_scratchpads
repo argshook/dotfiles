@@ -1,8 +1,7 @@
 # syntax
 # scratchpad-name init-command
 vim-everywhere vim-everywhere
-fuzzy-bookmarks fuzzy-bookmarks
-search googler -n 7
-notes nvim
-tasks tasks
+search
+notes
+tasks
 music

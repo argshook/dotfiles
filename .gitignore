@@ -10,9 +10,11 @@
 !.vimrc
 !.tmux.conf
 !.zshrc
-!.config/i3status
+!.config/
+.config/*
+!.config/i3status/
 !.config/i3
-!.config/nvim
+!.config/nvim/
 !.ssh/config
 !screen-256color.ti
 !.bash_profile
