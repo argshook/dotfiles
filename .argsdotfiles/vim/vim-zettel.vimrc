@@ -17,6 +17,8 @@ Plug 'suan/vim-instant-markdown'
 Plug 'dkarter/bullets.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'lervag/vimtex'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 
 call plug#end()
@@ -54,7 +56,15 @@ noremap <silent> <Esc> <Esc>:noh<cr>
 
 function! MegaSave()
   write
-  let cwd = getenv("HOME") . "/zettel"
+
+  let home = getenv("HOME")
+  let is_public = stridx(expand('%'), home . "/zettel-public") != -1
+  if is_public
+    let cwd = home . "/zettel-public"
+  else
+    let cwd = home . "/zettel"
+  endif
+
   call jobstart("git add . && git commit -a -m `date '+%s'`", { "cwd": cwd })
 endfunction
 
@@ -82,15 +92,13 @@ endfunction
 command! DirifyNote call DirifyNote()
 
 command! ZettelIndex edit ~/zettel/index.md
+command! ZettelPublicIndex edit ~/zettel-public/index.md
 nnoremap <silent> <leader>ww :ZettelIndex<cr>
+nnoremap <silent> <leader>wp :ZettelPublicIndex<cr>
 
 nnoremap - :RangerEdit<cr>
 nnoremap _ :RangerSplit<cr>
 nnoremap \| :RangerVSplit<cr>
-map <leader>l :RangerEdit<cr>
-map <leader>ls :RangerSplit<cr>
-map <leader>lv :RangerVSplit<cr>
-map <leader>lt :RangerTab<cr>
 
 inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>

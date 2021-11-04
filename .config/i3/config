@@ -35,8 +35,6 @@ bindsym $mod+c exec qutebrowser
 bindsym $mod+d exec rofi -show run
 # Screenshot
 bindsym $mod+shift+p exec escrotum --select "~/Dropbox/Screenshots/%Y-%m-%d-%H%M%S_screenshot.png"
-# screenshot | OCR | save to clipboard
-bindsym $mod+shift+o exec screenshot-ocr
 
 # change wallpaper
 bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`
@@ -157,7 +155,7 @@ bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 
 # applications to run on startup
 
-exec_always picom
+exec picom
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray --window-type utility
 exec ~/.config/i3/keyboard-layout-switcher.sh
@@ -202,3 +200,6 @@ bindsym $mod+m [instance="scratchpad-music"] scratchpad show resize set 1100 800
 
 for_window [instance="stalonetray"] move to scratchpad
 bindsym $mod+s [instance="stalonetray"] scratchpad show, move position center
+
+for_window [instance="onboard"] move to scratchpad, floating enable
+bindsym $mod+shift+o [instance="onboard"] scratchpad show
