@@ -1,0 +1,23 @@
+{
+  "tsserver.log": "verbose",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.virtualText": true,
+  "suggest.minTriggerInputLength": 2,
+  "list.previewSplitRight": true,
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css"
+  ],
+  "coc.preferences.semanticTokensHighlights": true
+}

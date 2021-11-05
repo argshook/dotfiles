@@ -1,5 +1,5 @@
 PATH=$(getconf PATH)
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:./node_modules/.bin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin
 export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -52,7 +52,7 @@ source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 source_if_exists $HOME/.rvm/scripts/rvm
 
 # fasd
-# eval "$(fasd --init auto)"
+eval "$(fasd --init auto)"
 
 # vi keys bindings
 bindkey -v
@@ -71,10 +71,11 @@ export SAVEHIST=10000000
 export HISTFILE=~/.zhistory
 export HISTTIMEFORMAT="[%F %T] "
 export HISTIGNORE="in:zet:t:pass"
+export GH_PAGER=cat
 
 alias kurwa="killall -9"
 _npmnx () {
-  find . \( -name node_modules -o -name package-lock.json -o -name yarn.lock \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
+  find . \( -name node_modules -o -name yarn.lock \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
 }
 
 alias npmnx="_npmnx"

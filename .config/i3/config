@@ -167,6 +167,7 @@ exec cryptomator
 bindsym $mod+bracketright [con_mark=_last] focus
 
 for_window[title="tuir-feh"] floating enable
+for_window [instance="zoom"] floating enable
 
 # scratchpads
 
