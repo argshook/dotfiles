@@ -18,7 +18,7 @@ c.url.searchengines = {
     'qute': 'https://www.google.com/search?q=qutebrowser+{}',
     'http': 'https://httpstatuses.com/{}',
     'mdn': 'https://developer.mozilla.org/en-US/search?q={}',
-    'github': 'https://github.com/search?q={}',
+    'gh': 'https://github.com/search?q={}',
 }
 
 #  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
@@ -59,6 +59,7 @@ config.set('content.javascript.can_access_clipboard', True,
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 
 c.aliases['tab-detach'] = 'tab-give'
+c.aliases['cl'] = 'clear-messages'
 c.backend = 'webengine'
 c.auto_save.session = True
 c.session.lazy_restore = True
