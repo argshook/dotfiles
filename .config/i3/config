@@ -179,14 +179,6 @@ bindsym $mod+u [instance="telegram-desktop"] scratchpad show resize set 800 600,
 for_window [instance="scratchpad-vim-everywhere"] move to scratchpad
 bindsym $mod+n [instance="scratchpad-vim-everywhere"] scratchpad show resize set 900 600, move position center
 
-# fuzzy-bookmarks scratchpad
-for_window [instance="scratchpad-fuzzy-bookmarks"] move to scratchpad
-bindsym $mod+o [instance="scratchpad-fuzzy-bookmarks"] scratchpad show resize set 900 200, move position center
-
-# search scratchpad
-for_window [instance="scratchpad-search"] move to scratchpad
-bindsym $mod+g [instance="scratchpad-search"] scratchpad show resize set 900 700, move position center
-
 # notes scratchpad
 for_window [instance="scratchpad-notes"] move to scratchpad
 bindsym $mod+p [instance="scratchpad-notes"] scratchpad show resize set 1000 1000, move position center
@@ -204,3 +196,7 @@ bindsym $mod+s [instance="stalonetray"] scratchpad show, move position center
 
 for_window [instance="onboard"] move to scratchpad, floating enable
 bindsym $mod+shift+o [instance="onboard"] scratchpad show
+
+# fuzzy-bookmarks scratchpad
+for_window [title="Zoom Meeting"] move to scratchpad
+bindsym $mod+g [title="Zoom Meeting"] scratchpad show resize set 1800 900; [title="Chat"] scratchpad show resize set 300 900
