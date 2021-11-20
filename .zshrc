@@ -10,6 +10,7 @@ export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
 export DOTREMINDERS="~/zettel/reminders"
 export PASSWORD_STORE_DIR="$HOME/zettel/pass"
+export JAVA_HOME=`which java`
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -230,3 +231,4 @@ eval "$(fnm env)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+

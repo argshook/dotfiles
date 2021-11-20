@@ -17,7 +17,11 @@
     }
   },
   "coc.preferences.formatOnSaveFiletypes": [
-    "css"
+    "css",
+    "typescript",
+    "typescriptreact",
+    "python"
   ],
-  "coc.preferences.semanticTokensHighlights": true
+  "coc.preferences.semanticTokensHighlights": true,
+  "eslint.format.enable": true
 }
