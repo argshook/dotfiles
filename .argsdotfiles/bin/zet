@@ -4,6 +4,7 @@ cd ~/zettel
 
 # no arguments, open zettel index
 if [ $# -eq 0 ]; then
+  cd ~/zettel
   nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c ZettelIndex
 else
   case "$1" in
@@ -25,6 +26,11 @@ else
       title=${@}
       file=~/zettel/${title// /-}.md
       nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file
+      ;;
+
+    public)
+      cd ~/zettel-public
+      nvim -u ~/.argsdotfiles/vim/vim-zettel-public.vimrc -c ZettelPublicIndex
       ;;
 
     *)

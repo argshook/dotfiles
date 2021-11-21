@@ -43,7 +43,6 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_toc_autofit = 1
@@ -92,9 +91,7 @@ endfunction
 command! DirifyNote call DirifyNote()
 
 command! ZettelIndex edit ~/zettel/index.md
-command! ZettelPublicIndex edit ~/zettel-public/index.md
 nnoremap <silent> <leader>ww :ZettelIndex<cr>
-nnoremap <silent> <leader>wp :ZettelPublicIndex<cr>
 
 nnoremap - :RangerEdit<cr>
 nnoremap _ :RangerSplit<cr>
