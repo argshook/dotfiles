@@ -57,7 +57,7 @@ function! MegaSave()
   write
 
   let home = getenv("HOME")
-  let is_public = stridx(expand('%'), home . "/zettel-public") != -1
+  let is_public = stridx(expand('%:p'), home . "/zettel-public") != -1
   if is_public
     let cwd = home . "/zettel-public"
   else
