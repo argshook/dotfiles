@@ -12,6 +12,7 @@ function! Publish()
     :edit
   endfor
 
+  call MegaSave()
   call jobstart("git push origin main")
 endfunction
 
