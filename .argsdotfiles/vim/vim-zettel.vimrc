@@ -112,5 +112,6 @@ command! WP call WordProcessorMode()
 au BufNewFile,BufRead *.md call WordProcessorMode()
 
 " wrap visually selected block with backticks
-vnoremap <leader>x c```<cr>```<esc>P
+vnoremap <leader>X c```<cr>```<esc>P
+vnoremap <leader>x c``<esc>P
 noremap <Space> :

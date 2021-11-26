@@ -92,9 +92,6 @@ source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/coc.vim
 
-set runtimepath^=~/repos/cloned/wix-a/coc-stylable
-autocmd BufRead *.st.css set filetype=stylable
-
 set iskeyword+=-
 
 let $PATH.='node_modules'
