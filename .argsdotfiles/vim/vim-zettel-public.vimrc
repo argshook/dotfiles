@@ -13,7 +13,7 @@ function! Publish()
   endfor
 
   call MegaSave()
-  call jobstart("git push origin main")
+  :Git push origin main
 endfunction
 
 command! Publish call Publish()
