@@ -156,6 +156,9 @@ bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 # applications to run on startup
 
 exec picom
+exec touchegg
+exec onboard
+exec auto-screen-rotate
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray --window-type utility
 exec ~/.config/i3/keyboard-layout-switcher.sh
