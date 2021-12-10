@@ -19,7 +19,6 @@ set autoread
 set backupdir=~/.tmp/vim
 set backupcopy=yes
 set directory=~/.tmp/vim
-set hidden
 set number
 set modeline
 set linebreak
@@ -56,11 +55,13 @@ set scrolloff=2
 set previewheight=20
 set undolevels=1000
 set backspace=indent,eol,start
-set foldmethod=indent
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=3
 set laststatus=2
-set signcolumn=number
-
+set signcolumn=yes
+set iskeyword+=-
+set fillchars+=eob:\ " theres a whitespace at the end
 set updatetime=300
 
 " shorten mapping delay so that esc reacts immediately
@@ -73,6 +74,7 @@ set synmaxcol=1000
 source ~/.argsdotfiles/vim/plugins.vim
 
 colorscheme cobalt2
+highlight SignColumn ctermbg=NONE
 
 autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
@@ -91,7 +93,5 @@ source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/coc.vim
-
-set iskeyword+=-
 
 let $PATH.='node_modules'

@@ -42,6 +42,7 @@ source ~/.argsdotfiles/vim/abbreviations.vim
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_level = 6
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
@@ -112,6 +113,7 @@ command! WP call WordProcessorMode()
 au BufNewFile,BufRead *.md call WordProcessorMode()
 
 " wrap visually selected block with backticks
-vnoremap <leader>X c```<cr>```<esc>P
-vnoremap <leader>x c``<esc>P
+vnoremap <leader>~ c```<cr>```<esc>P
+vnoremap <leader>` c``<esc>P
+nnoremap <leader>` cE``<esc>PB
 noremap <Space> :

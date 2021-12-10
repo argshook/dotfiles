@@ -11,6 +11,7 @@ export MANPAGER="nvim +Man!"
 export DOTREMINDERS="~/zettel/reminders"
 export PASSWORD_STORE_DIR="$HOME/zettel/pass"
 export JAVA_HOME=`which java`
+export BROWSER=`which qutebrowser`
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
