@@ -161,22 +161,6 @@ Plug 'itchyny/lightline.vim'
 " initialize vimplug
 call plug#end()
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
-  highlight = {
-    enable = true,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<CR>',
-      node_incremental = '<TAB>',
-      node_decremental = '<S-TAB>',
-    },
-  },
-}
-EOF
-
+source ~/.argsdotfiles/vim/treesitter.lua
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim

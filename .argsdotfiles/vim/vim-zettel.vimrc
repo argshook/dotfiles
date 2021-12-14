@@ -14,12 +14,13 @@ Plug 'junegunn/goyo.vim'
 Plug 'sedm0784/vim-you-autocorrect'
 Plug 'reedes/vim-pencil'
 Plug 'suan/vim-instant-markdown'
+let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
 Plug 'dkarter/bullets.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'lervag/vimtex'
-let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -33,6 +34,7 @@ set splitright
 colorscheme cobalt2
 let g:surround_indent = 0
 
+source ~/.argsdotfiles/vim/treesitter.lua
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim
