@@ -34,7 +34,7 @@ bindsym $mod+c exec qutebrowser
 
 bindsym $mod+d exec rofi -show run
 # Screenshot
-bindsym $mod+shift+p exec escrotum --select "~/Dropbox/Screenshots/%Y-%m-%d-%H%M%S_screenshot.png"
+bindsym $mod+shift+p exec escrotum --select "~/Pictures/screenshots/%Y-%m-%d-%H%M%S.png"
 
 # change wallpaper
 bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`
