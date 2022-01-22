@@ -34,7 +34,7 @@ bindsym $mod+c exec qutebrowser
 
 bindsym $mod+d exec rofi -show run
 # Screenshot
-bindsym $mod+shift+p exec escrotum --select "~/Pictures/screenshots/%Y-%m-%d-%H%M%S.png"
+bindsym --release $mod+shift+p exec --no-startup-id maim --format png --select | tee ~/Pictures/screenshots/$(date +%Y-%m-%d-%H%M%S).png | xclip -selection clipboard -t image/png
 
 # change wallpaper
 bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`
@@ -161,7 +161,6 @@ exec onboard
 exec auto-screen-rotate
 exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray --window-type utility
-exec ~/.config/i3/keyboard-layout-switcher.sh
 exec unclutter -idle 3 # hide mouse cursor after 3 seconds
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
 exec nextcloud

@@ -68,3 +68,5 @@ function! g:FzfSearchDigraphs()
     \ }))
 endfunction
 command! Digraphs cal g:FzfSearchDigraphs()
+
+inoremap <expr> <c-x><c-f> fzf#vim#complete("fd <Bar> xargs realpath --relative-to " . expand("%:h"))
