@@ -201,4 +201,4 @@ bindsym $mod+shift+o [instance="onboard"] scratchpad show
 
 # fuzzy-bookmarks scratchpad
 for_window [title="Zoom Meeting"] move to scratchpad
-bindsym $mod+g [title="Zoom Meeting"] scratchpad show resize set 1800 900; [title="Chat"] scratchpad show resize set 300 900
+bindsym $mod+g [title="Zoom Meeting"] scratchpad show resize set 1800 900, move position center; [title="Chat"] scratchpad show resize set 300 900

@@ -7,7 +7,7 @@
 
 # also possible with custom name, for when multiples of same repo are needed
 # clone git@github.com:argshook/dotfiles.git dotfiles-2
-# will get cloned to ~/repos/cloned/argshook/dotfiles-2
+# will get cloned to ~/repos/argshook/dotfiles-2
 
 GITHUB_URL=$1
 CUSTOM_NAME=$2
@@ -17,11 +17,11 @@ if [[ $GITHUB_URL =~ $regex ]]
 then
     AUTHOR="${BASH_REMATCH[1]}"
     NAME="${BASH_REMATCH[2]}"
-    ROOT="$HOME/repos/cloned/$AUTHOR/$NAME"
+    ROOT="$HOME/repos/$AUTHOR/$NAME"
 
     if [[ -n $CUSTOM_NAME ]]
     then
-      ROOT="$HOME/repos/cloned/$AUTHOR/$CUSTOM_NAME"
+      ROOT="$HOME/repos/$AUTHOR/$CUSTOM_NAME"
       NAME="$CUSTOM_NAME"
     fi
 

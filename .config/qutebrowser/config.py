@@ -21,7 +21,6 @@ c.url.searchengines = {
     'gh': 'https://github.com/search?q={}',
 }
 
-#  config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets solarized/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.set("colors.webpage.darkmode.enabled", True)
 config.bind('<Space>', 'set-cmd-text :')
 config.bind('j', 'scroll-px 0 200')
@@ -109,6 +108,7 @@ with config.pattern('reddit.com') as p:
 
 config.bind(',ym', 'yank inline [{title}]({url:pretty})')
 config.bind(';Y', 'hint --rapid links yank')
+config.bind(';2', 'hint all right-click')
 config.bind("gi", "hint inputs")
 config.bind(">", "tab-move +")
 config.bind("<", "tab-move -")
