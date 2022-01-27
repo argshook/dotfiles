@@ -13,7 +13,6 @@ endif
 let mapleader = ","
 
 syntax enable
-filetype plugin indent on
 
 set autoread
 set backupdir=~/.tmp/vim

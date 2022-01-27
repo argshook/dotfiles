@@ -53,9 +53,9 @@ def main():
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
-    <div style='width: 500px; margin: 4rem auto;'>
+    <div style='width: 700px; margin: 10rem auto 0;'>
     {% for port in ports %}
-    <a style='text-decoration: none;' href="http://localhost:{{ port.number }}">
+    <a style='display: block; text-decoration: none; color: #000; font-size: 1.2em; margin-bottom: 1em;' href="http://localhost:{{ port.number }}">
         <div style='display: flex; align-items: center; width: 100%;'>
             <div style='margin-right: 1rem;'>
                 {{ port.number }}

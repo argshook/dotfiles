@@ -5,19 +5,14 @@ WORKSTATION=$1
 case "$WORKSTATION" in
   laptop|l)
     xrandr \
-      --output eDP1 --primary --mode 1920x1080 \
-      --output DP1 --off \
-      --output DP2 --off \
-      --output HDMI1 --off \
-      --output HDMI2 --off
+      --output eDP-1-1 --primary --mode 1920x1080 \
+      --output HDMI-1-1 --off
     ;;
 
   home|h)
     xrandr \
-      --output eDP1 --off \
-      --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal \
-      --output DP1 --off \
-      --output DP2 --off
+      --output eDP-1-1 --off \
+      --output HDMI-1-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
     ;;
   *)
     echo "Usage: $(basename $0) {laptop|l|station|s|home|h}"

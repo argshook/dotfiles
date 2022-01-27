@@ -56,10 +56,6 @@ nnoremap <leader><leader> :ZoomToggle<CR>
 " edit previous file
 nnoremap <leader>e :e#<CR>
 
-" location window, mostly to navigate linter errors
-nmap <Leader><Space>o :lopen<CR>  " open location window
-nmap <Leader><Space>c :lclose<CR> " close location window
-
 nmap <silent> \d :ALEDetail<CR>
 
 " close location and quickfix window with q
