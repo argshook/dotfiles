@@ -27,9 +27,10 @@
 !.config/ranger/rc.conf
 !.config/ranger/rifle.conf
 !.config/ranger/commands.py
-.config/qutebrowser/*
 !.config/qutebrowser/
+.config/qutebrowser/*
 !.config/qutebrowser/config.py
+!.config/qutebrowser/userscripts/
 !.config/rofi/
 !.config/tmuxinator/
 !.ssh/config
@@ -43,3 +44,4 @@
 # come up in allowed folders
 *.swp
 
+__pycache__
