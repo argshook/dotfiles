@@ -80,8 +80,6 @@ autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
 
 autocmd Filetype gitcommit,magit,markdown setlocal textwidth=72
-" autocmd BufRead,BufNewFile *.js,*.jsx setlocal filetype=typescript.tsx
-" autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
 autocmd Filetype ejs setlocal filetype=javascript.ejs
 autocmd BufRead,BufNewFile *.css set filetype=scss
 
@@ -91,5 +89,6 @@ source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/coc.vim
+source ~/.argsdotfiles/vim/grep.vim
 
 let $PATH.='node_modules'
