@@ -3,7 +3,7 @@
 VERSION=`python --version | awk '{print $2}' | awk -F '.' '{print $1}'`
 
 if [ $VERSION -eq "3" ]; then
-  python -m http.server
+  python -m http.server $@
 else
   python -m SimpleHTTPServer
 fi

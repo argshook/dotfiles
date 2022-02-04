@@ -1,9 +1,9 @@
 * {
     font: "Roboto 12";
-    foreground: #f8f8f2;
-    background: #282a36;
-    active-background: #6272a4;
-    urgent-background: #ff5555;
+    foreground: #f8f8f2CC;
+    background: #282a36CC;
+    active-background: #6272a4CC;
+    urgent-background: #ff5555CC;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
@@ -16,7 +16,7 @@
     border: 1;
     border-radius: 3;
     border-color: @bordercolor;
-    padding: 15 10;
+    padding: 10 10;
 }
 #mainbox {
     border: 0;
@@ -24,7 +24,6 @@
     margin-bottom: 10;
 }
 #message {
-    border:       1px dash 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
@@ -33,15 +32,15 @@
 }
 #listview {
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
-    border-color: @bordercolor;
+    border: 0;
     spacing:      2px ;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      10px 0px 0px ;
 }
 #element {
     border:  0;
-    padding: 1px ;
+    padding: 3px 10px;
+    background: @background;
 }
 #element.normal.normal {
     background-color: @background;
@@ -86,7 +85,6 @@
     padding:      0;
 }
 #sidebar {
-    border:       2px dash 0px 0px ;
     border-color: @separatorcolor;
 }
 #button.selected {
@@ -96,7 +94,7 @@
 #inputbar {
     spacing:    0;
     text-color: @foreground;
-    padding:    1px ;
+    padding:    5px 0;
 }
 #case-indicator {
     spacing:    0;

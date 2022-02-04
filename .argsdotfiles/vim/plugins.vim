@@ -136,8 +136,7 @@ let g:ale_linters = {
 
 Plug 'yuttie/comfortable-motion.vim'
 
-Plug 'itchyny/vim-qfedit'
-let g:editqf_jump_to_error = 0
+Plug 'romainl/vim-qf'
 
 Plug 'simnalamburt/vim-mundo'
 nnoremap <F6> :MundoToggle<CR>

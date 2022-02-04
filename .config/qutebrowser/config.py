@@ -20,6 +20,10 @@ c.url.searchengines = {
     'mdn': 'https://developer.mozilla.org/en-US/search?q={}',
     'gh': 'https://github.com/search?q={}',
 }
+c.qt.args = [
+    "enable-gpu-rasterization",
+    "ignore-gpu-blocklist"
+]
 
 config.set("colors.webpage.darkmode.enabled", True)
 config.bind('<Space>', 'set-cmd-text :')
@@ -76,13 +80,13 @@ c.downloads.position = 'bottom'
 c.editor.command = ['kitty', 'nvim', '-f', '{file}']
 c.fonts.default_family = 'Roboto'
 c.fonts.completion.entry = 'monospace'
-c.fonts.hints = "12pt monospace"
-c.fonts.default_size = '11pt'
-c.fonts.completion.category = 'bold 12pt default_family'
-c.fonts.completion.entry = '11pt default_family'
-c.fonts.tabs.selected = '10pt default_family'
-c.fonts.tabs.unselected = '10pt default_family'
-c.fonts.statusbar = '11pt default_family'
+c.fonts.hints = "10pt monospace"
+c.fonts.default_size = '10pt'
+c.fonts.completion.category = 'bold 10pt default_family'
+c.fonts.completion.entry = '10pt default_family'
+c.fonts.tabs.selected = '9pt default_family'
+c.fonts.tabs.unselected = '9pt default_family'
+c.fonts.statusbar = '10pt default_family'
 c.hints.auto_follow = 'unique-match'
 c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
