@@ -90,5 +90,6 @@ source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/coc.vim
 source ~/.argsdotfiles/vim/grep.vim
+source ~/.argsdotfiles/vim/curl.vim
 
 let $PATH.='node_modules'
