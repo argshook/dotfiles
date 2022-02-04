@@ -67,7 +67,7 @@ function! g:FzfSearchDigraphs()
     \ 'sink': function('s:AppendDigraph'),
     \ }))
 endfunction
-command! Digraphs cal g:FzfSearchDigraphs()
+command! Digraphs call g:FzfSearchDigraphs()
 
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
