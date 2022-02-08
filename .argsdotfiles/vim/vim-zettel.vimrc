@@ -38,8 +38,9 @@ source ~/.argsdotfiles/vim/treesitter.lua
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim
-source ~/.argsdotfiles/vim/to-jira.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
+source ~/.argsdotfiles/vim/grep.vim
+source ~/.argsdotfiles/vim/prettify.vim
 
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_follow_anchor = 1

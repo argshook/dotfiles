@@ -92,11 +92,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'rhysd/git-messenger.vim'
-Plug 'blindFS/vim-reveal'
-let g:reveal_config = {
-      \ 'path': '~/repos/cloned/hakimel/reveal/dist'
-      \}
 
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1

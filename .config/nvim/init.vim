@@ -10,38 +10,31 @@ elseif os =~ 'Darwin'
   let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
-let mapleader = ","
+lua <<EOF
+vim.g.mapleader = ','
+EOF
 
-syntax enable
-
-set autoread
-set backupdir=~/.tmp/vim
 set backupcopy=yes
-set directory=~/.tmp/vim
 set number
 set modeline
 set linebreak
 set textwidth=120
 set showmatch
-set hlsearch
 set visualbell
 set t_vb=
 set mouse=a
 set undofile
 set smartcase
 set ignorecase
-set incsearch
 if has("nvim")
   set inccommand=split
 endif
-set autoindent
 set cindent
 set expandtab
 set shiftwidth=2
 set shiftround
 set softtabstop=2
 set smartindent
-set smarttab
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
 set showtabline=1
 set noshowmode
@@ -53,10 +46,8 @@ set splitright
 set scrolloff=2
 set previewheight=20
 set undolevels=1000
-set backspace=indent,eol,start
 set foldmethod=indent
 set foldlevelstart=3
-set laststatus=2
 set signcolumn=yes
 set iskeyword+=-
 set fillchars+=eob:\ " theres a whitespace at the end

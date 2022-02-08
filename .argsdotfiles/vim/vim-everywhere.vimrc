@@ -1,6 +1,7 @@
 source ~/.config/nvim/init.vim
 source ~/.argsdotfiles/vim/to-jira.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
+source ~/.argsdotfiles/vim/prettify.vim
 
 autocmd FocusGained *.md call FocusGained()
 autocmd FocusLost *.md call FocusLost()

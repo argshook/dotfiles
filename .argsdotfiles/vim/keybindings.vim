@@ -88,10 +88,6 @@ nnoremap T :call JumpToMiddleOfParagraph()<CR>
 nnoremap <silent> <leader>z za
 nnoremap <silent> z<leader> za
 
-" smooth scrolling
-nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
-
 " navigate buffers
 nmap <leader>j :bnext<cr>
 nmap <leader>k :bprevious<cr>
