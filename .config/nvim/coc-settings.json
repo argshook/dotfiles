@@ -9,8 +9,12 @@
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
+      "filetypes": [
+        "elm"
+      ],
+      "rootPatterns": [
+        "elm.json"
+      ],
       "initializationOptions": {
         "elmAnalyseTrigger": "change"
       }
@@ -24,6 +28,5 @@
     "typescriptreact",
     "python"
   ],
-  "coc.preferences.semanticTokensHighlights": true,
   "eslint.format.enable": true
 }

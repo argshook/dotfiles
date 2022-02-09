@@ -26,7 +26,6 @@ Plug 'wellle/targets.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'github/copilot.vim'
 Plug 'rafaqz/ranger.vim'
-Plug 'jamessan/vim-gnupg'
 let g:rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'
 let g:rg_highlight = 1
 let g:rg_derive_root = 1

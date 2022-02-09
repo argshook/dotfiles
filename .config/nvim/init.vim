@@ -11,54 +11,55 @@ elseif os =~ 'Darwin'
 endif
 
 lua <<EOF
-vim.g.mapleader = ','
+local HOME = vim.fn.expand("~")
+local set = vim.opt
+
+vim.g.mapleader = ","
+set.backupdir = HOME .. "/.tmp/vim"
+set.directory = HOME .. "/.tmp/vim"
+set.backup = true
+set.number = true
+set.modeline = true
+set.textwidth = 120
+-- set.showmatch = true
+-- set.visualbell = true
+-- set.t_vb = ''
+set.mouse = "a"
+set.undofile = true
+set.smartcase = true
+set.ignorecase = true
+set.inccommand = "split"
+-- set.cindent = true
+set.expandtab = true
+set.shiftwidth = 2
+set.shiftround = true
+set.softtabstop = 2
+set.smartindent = true
+set.showtabline = 1
+set.foldmethod = "indent"
+set.foldlevelstart = 3
+set.signcolumn = "yes"
+set.showcmd = true
+set.showmode = false
+set.lazyredraw = true
+set.conceallevel = 0
+set.splitbelow = true
+set.splitright = true
+set.scrolloff = 2
+set.previewheight = 20
+set.undolevels = 1000
+set.iskeyword:append("-")
+set.listchars = {
+  trail = '·',
+  extends = '>',
+  precedes = '<',
+  nbsp = '%'
+}
+set.fillchars.eob = ' '
+set.updatetime = 300
+set.timeoutlen = 400
+set.synmaxcol = 1000
 EOF
-
-set backupcopy=yes
-set number
-set modeline
-set linebreak
-set textwidth=120
-set showmatch
-set visualbell
-set t_vb=
-set mouse=a
-set undofile
-set smartcase
-set ignorecase
-if has("nvim")
-  set inccommand=split
-endif
-set cindent
-set expandtab
-set shiftwidth=2
-set shiftround
-set softtabstop=2
-set smartindent
-set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
-set showtabline=1
-set noshowmode
-set showcmd
-set lazyredraw
-set conceallevel=0
-set splitbelow
-set splitright
-set scrolloff=2
-set previewheight=20
-set undolevels=1000
-set foldmethod=indent
-set foldlevelstart=3
-set signcolumn=yes
-set iskeyword+=-
-set fillchars+=eob:\ " theres a whitespace at the end
-set updatetime=300
-
-" shorten mapping delay so that esc reacts immediately
-set timeoutlen=400
-
-" stop syntax highlighting after 400 chars.
-" This makes scrolling files with long lines way faster.
-set synmaxcol=1000
 
 source ~/.argsdotfiles/vim/plugins.vim
 
