@@ -28,5 +28,8 @@
     "typescriptreact",
     "python"
   ],
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "Lua.diagnostics.globals": [
+    "vim"
+  ]
 }

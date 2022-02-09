@@ -1,7 +1,9 @@
-" set runtimepath^=~/.vim
-" let &packpath = &runtimepath
+-- set runtimepath^=~/.vim
+-- let &packpath = &runtimepath
 
-lua <<EOF
+local HOME = vim.fn.expand("~")
+local set = vim.opt
+
 local os = vim.fn.system("uname | awk '$1'")
 if string.match(os, "Linux") then
   vim.g.python_host_prog = '/usr/bin/python'
@@ -10,9 +12,6 @@ elseif string.match(os, "Darwin") then
   vim.g.python_host_prog = '/usr/local/bin/python'
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
-
-local HOME = vim.fn.expand("~")
-local set = vim.opt
 
 vim.g.mapleader = ","
 set.backupdir = HOME .. "/.tmp/vim"
@@ -59,22 +58,19 @@ set.fillchars.eob = ' '
 set.updatetime = 300
 set.timeoutlen = 400
 set.synmaxcol = 1000
-EOF
 
-source ~/.argsdotfiles/vim/plugins.vim
+vim.cmd("source ~/.argsdotfiles/vim/plugins.vim")
+vim.cmd("colorscheme cobalt2")
+vim.cmd("highlight SignColumn ctermbg=NONE")
 
-colorscheme cobalt2
-highlight SignColumn ctermbg=NONE
-
+vim.cmd([[
 autocmd BufEnter *.js set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
-
 autocmd Filetype gitcommit,magit,markdown setlocal textwidth=72
 autocmd Filetype ejs setlocal filetype=javascript.ejs
 autocmd BufRead,BufNewFile *.css set filetype=scss
-
 autocmd TermOpen * startinsert
 
 source ~/.argsdotfiles/vim/keybindings.vim
@@ -86,3 +82,4 @@ source ~/.argsdotfiles/vim/curl.vim
 source ~/.argsdotfiles/vim/prettify.vim
 
 let $PATH.='node_modules'
+]])

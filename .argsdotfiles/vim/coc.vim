@@ -1,3 +1,13 @@
+lua <<EOF
+vim.g.coc_global_extensions = {
+  'coc-eslint',
+  'coc-tsserver',
+  'coc-pyright',
+  'coc-lua',
+  'coc-json'
+  }
+EOF
+
 nmap ]l <Plug>(coc-diagnostic-next)
 nmap [l <Plug>(coc-diagnostic-prev)
 call coc#config('coc.preferences', {
