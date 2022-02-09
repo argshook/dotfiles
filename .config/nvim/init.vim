@@ -1,16 +1,16 @@
-set runtimepath^=~/.vim
-let &packpath = &runtimepath
-
-let os = system("uname | awk '$1'")
-if os =~ 'Linux'
-  let g:python_host_prog = '/usr/bin/python'
-  let g:python3_host_prog = '/usr/bin/python3'
-elseif os =~ 'Darwin'
-  let g:python_host_prog = '/usr/local/bin/python'
-  let g:python3_host_prog = '/usr/local/bin/python3'
-endif
+" set runtimepath^=~/.vim
+" let &packpath = &runtimepath
 
 lua <<EOF
+local os = vim.fn.system("uname | awk '$1'")
+if string.match(os, "Linux") then
+  vim.g.python_host_prog = '/usr/bin/python'
+  vim.g.python3_host_prog = '/usr/bin/python3'
+elseif string.match(os, "Darwin") then
+  vim.g.python_host_prog = '/usr/local/bin/python'
+  vim.g.python3_host_prog = '/usr/local/bin/python3'
+end
+
 local HOME = vim.fn.expand("~")
 local set = vim.opt
 
