@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+url=$1
+save_path=$(yt-dlp --get-filename $url)
+mpv --profile=1080p --stream-record=$HOME/youtube/"$save_path" $url

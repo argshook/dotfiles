@@ -22,7 +22,7 @@ case "$COMMAND" in
     shift
     TITLE=${@}
     FILE=~/Music/${TITLE// /-}.md
-    youtube-dl ytsearch:"$TITLE" --max-downloads 0 | \
+    yt-dlp ytsearch:"$TITLE" --max-downloads 0 | \
       sed -n 's/^\[youtube\] \(.*\): Downloading webpage$/\1/p' | \
       xargs -I {} mpv --stream-record=$FILE --no-video https://youtube.com/watch\?v\={} 
     ;;
