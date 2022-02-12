@@ -1,4 +1,4 @@
-source ~/.config/nvim/init.vim
+source ~/.config/nvim/init.lua
 source ~/.argsdotfiles/vim/to-jira.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/prettify.vim
