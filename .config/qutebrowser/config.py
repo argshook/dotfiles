@@ -32,7 +32,7 @@ config.bind('k', 'scroll-px 0 -200')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo 1')
 config.bind('?', 'open -t ~/.config/qutebrowser/cheatsheet-big.png')
-config.bind(',M', 'spawn mpv --profile=1080p {url}')
+config.bind(',M', 'spawn ,video-download-and-play {url}')
 config.bind(
     ',m', 'hint links spawn ,video-download-and-play "{hint-url}"')
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="command")
@@ -81,7 +81,7 @@ c.downloads.position = 'bottom'
 c.editor.command = ['kitty', 'nvim', '-f', '{file}']
 c.fonts.default_family = 'Roboto'
 c.fonts.completion.entry = 'monospace'
-c.fonts.hints = "10pt monospace"
+c.fonts.hints = "9pt monospace"
 c.fonts.default_size = '10pt'
 c.fonts.completion.category = 'bold 10pt default_family'
 c.fonts.completion.entry = '10pt default_family'

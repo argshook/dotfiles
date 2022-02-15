@@ -23,6 +23,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle djui/alias-tips
 antigen bundle taskwarrior
 antigen bundle tmuxinator
+antigen bundle docker
+antigen bundle docker-compose
 
 antigen apply
 
