@@ -23,6 +23,8 @@
 !.config/nvim/
 !.config/picom/
 !.config/polybar/
+!.config/ranger/
+.config/ranger/*
 !.config/ranger/scope.sh
 !.config/ranger/rc.conf
 !.config/ranger/rifle.conf
