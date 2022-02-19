@@ -20,15 +20,11 @@ set.backup = true
 set.number = true
 set.modeline = true
 set.textwidth = 120
--- set.showmatch = true
--- set.visualbell = true
--- set.t_vb = ''
 set.mouse = "a"
 set.undofile = true
 set.smartcase = true
 set.ignorecase = true
 set.inccommand = "split"
--- set.cindent = true
 set.expandtab = true
 set.shiftwidth = 2
 set.shiftround = true
@@ -62,9 +58,12 @@ set.synmaxcol = 1000
 vim.cmd("source ~/.argsdotfiles/vim/plugins.vim")
 vim.cmd("colorscheme cobalt2")
 vim.cmd("highlight SignColumn ctermbg=NONE")
+vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=darkblue")
+
+require('coc')
 
 vim.cmd([[
-autocmd BufEnter *.js set shiftwidth=2
+autocmd BufEnter *.md set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
 autocmd BufLeave,WinLeave */doc/*.txt set scrolloff=2
@@ -76,7 +75,6 @@ autocmd TermOpen * startinsert
 source ~/.argsdotfiles/vim/keybindings.vim
 source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
-source ~/.argsdotfiles/vim/coc.vim
 source ~/.argsdotfiles/vim/grep.vim
 source ~/.argsdotfiles/vim/curl.vim
 source ~/.argsdotfiles/vim/prettify.vim
