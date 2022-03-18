@@ -35,6 +35,7 @@ bindsym $mod+c exec qutebrowser
 bindsym $mod+d exec rofi -show run
 # Screenshot
 bindsym --release $mod+shift+p exec --no-startup-id maim --format png --select | tee ~/Pictures/screenshots/$(date +%Y-%m-%d-%H%M%S).png | xclip -selection clipboard -t image/png
+bindsym --release $mod+shift+i exec --no-startup-id maim --nokeyboard --delay 3 --format png --select | tee ~/Pictures/screenshots/$(date +%Y-%m-%d-%H%M%S).png | xclip -selection clipboard -t image/png && notify-send "Screenshot saved"
 
 # change wallpaper
 bindsym $mod+shift+w exec feh --bg-fill `find Pictures/wallpapers | shuf -n 1`

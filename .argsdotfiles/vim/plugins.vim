@@ -56,16 +56,12 @@ let g:neosnippet#expand_word_boundary = 1
 " =========================
 
 Plug 'moll/vim-node'
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'css' }
 Plug 'nikvdp/ejs-syntax'
 Plug 'mattn/emmet-vim'
-" Plug 'sheerun/vim-polyglot'
 
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 set completeopt-=preview
-
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 1
+Plug 'lbrayner/vim-rzip'
 
 Plug 'suan/vim-instant-markdown'
 let g:instant_markdown_autostart = 0 " do npm i -g instant-markdown-d
@@ -91,42 +87,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'ggandor/lightspeed.nvim'
 
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDCustomDelimiters = { 'javascript': { 'left': '//', 'leftAlt': '/**','rightAlt': '*/' } }
-
-Plug 'junegunn/limelight.vim'
-let g:limelight_conceal_ctermfg = 'gray'
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-Plug 'w0rp/ale'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_sign_column_always = 1
-let g:ale_list_window_size = 5
-let g:ale_fix_on_save = 0
-nnoremap <leader>f :ALEFix<CR>
-let g:ale_fixers = {
-  \   'css': [ 'stylelint' ],
-  \   'json': [ 'jq', 'fixjson' ],
-  \   'html': [ 'prettier' ],
-  \   'javascript': [ 'prettier', 'eslint' ],
-  \   'python': [ 'yapf' ],
-  \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'eslint' ],
-  \   'typescriptreact': [ 'prettier',  'eslint' ],
-  \   'elm': [ 'elm-format' ],
-  \   'rust': [ 'rustfmt' ]
-  \}
-let g:ale_linters = {
-  \   'javascript': [ 'prettier', 'eslint' ],
-  \   'python': [ 'autopep8' ],
-  \   'haskell': [ 'hfmt' ],
-  \   'typescript': [ 'prettier', 'eslint' ],
-  \   'typescriptreact': [ 'prettier', 'eslint' ],
-  \   'elm': [ 'elm-format' ]
-  \}
 
 Plug 'yuttie/comfortable-motion.vim'
 

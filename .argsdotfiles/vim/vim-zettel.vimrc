@@ -21,6 +21,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'romainl/vim-qf'
 
 call plug#end()
 
