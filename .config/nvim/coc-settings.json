@@ -9,12 +9,8 @@
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
-      "filetypes": [
-        "elm"
-      ],
-      "rootPatterns": [
-        "elm.json"
-      ],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
       "initializationOptions": {
         "elmAnalyseTrigger": "change"
       }
@@ -29,7 +25,5 @@
     "python"
   ],
   "eslint.format.enable": true,
-  "Lua.diagnostics.globals": [
-    "vim"
-  ]
+  "Lua.diagnostics.globals": ["vim"]
 }
