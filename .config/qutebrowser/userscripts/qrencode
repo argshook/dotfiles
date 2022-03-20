@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+TMP_OUTPUT_FILE="$(mktemp --suffix .png)"
+
+case $1 in
+  --url)
+    echo $QUTE_URL | qrencode --size=10 --type=png --output $TMP_OUTPUT_FILE
+    ;;
+  --text)
+    echo $QUTE_SELECTED_TEXT | qrencode --size=10 --type=png --output $TMP_OUTPUT_FILE
+    ;;
+esac
+
+sxiv -N floating-sxiv -s f $TMP_OUTPUT_FILE

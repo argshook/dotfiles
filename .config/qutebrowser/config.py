@@ -17,6 +17,7 @@ c.url.searchengines = {
     'g': 'https://www.google.com/search?q={}',
     'gimg': 'https://www.google.com/search?q={}&tbm=isch',
     'r': 'https://reddit.com/r/{}',
+    'w': 'https://en.wikipedia.org/w/index.php?search={}',
     'qute': 'https://www.google.com/search?q=qutebrowser+{}',
     'http': 'https://httpstatuses.com/{}',
     'mdn': 'https://developer.mozilla.org/en-US/search?q={}',
@@ -122,6 +123,8 @@ config.bind(';2', 'hint all right-click')
 config.bind("gi", "hint inputs")
 config.bind('<Ctrl+Shift+T>', 'spawn --userscript translate')
 config.bind('<Ctrl+T>', 'spawn --userscript translate --text')
+config.bind(';qr', 'spawn --userscript qrencode --url')
+config.bind(';qr', 'spawn --userscript qrencode --text', mode="caret")
 config.bind(">", "tab-move +")
 config.bind("<", "tab-move -")
 config.bind("zi", "zoom-in")

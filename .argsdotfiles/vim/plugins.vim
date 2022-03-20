@@ -23,7 +23,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
-Plug 'jremmen/vim-ripgrep'
 Plug 'github/copilot.vim'
 Plug 'rafaqz/ranger.vim'
 let g:rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'
@@ -82,7 +81,8 @@ autocmd BufWritePost *.elm ElmMake
 " ============
 
 Plug 'tmsvg/pear-tree'
-Plug 'AndrewRadev/linediff.vim' " :LineDiff()
+Plug 'chrisbra/Colorizer'
+let g:colorizer_use_virtual_text = 1
 Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'

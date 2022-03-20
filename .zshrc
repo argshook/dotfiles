@@ -77,6 +77,7 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTIGNORE="in:zet:t:pass"
 export GH_PAGER=cat
 
+alias qr="qrencode --type utf8"
 alias kurwa="killall -9"
 _npmnx () {
   find . \( -name node_modules \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
