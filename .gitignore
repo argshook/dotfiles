@@ -21,6 +21,7 @@
 !.config/mpv/mpv.conf
 .config/nvim/spell
 !.config/nvim/
+!.config/nvim/lua/*
 !.config/picom/
 !.config/polybar/
 !.config/ranger/
