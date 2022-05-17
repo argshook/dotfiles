@@ -3,3 +3,8 @@ options word
   const ${1:ComponentName} = styled.${2:div}\`
     ${3}
   \`
+
+snippet theme
+options word
+  ${({ theme }) => theme.${1:color}.${2:background}};
+

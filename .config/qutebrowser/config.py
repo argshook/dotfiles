@@ -16,7 +16,7 @@ c.url.searchengines = {
     'img': 'https://duckduckgo.com/?q={}&iar=images&iax=images&ia=images',
     'g': 'https://www.google.com/search?q={}',
     'gimg': 'https://www.google.com/search?q={}&tbm=isch',
-    'r': 'https://reddit.com/r/{}',
+    'r': 'https://old.reddit.com/r/{}',
     'w': 'https://en.wikipedia.org/w/index.php?search={}',
     'qute': 'https://www.google.com/search?q=qutebrowser+{}',
     'http': 'https://httpstatuses.com/{}',
@@ -63,9 +63,11 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 config.set('content.javascript.can_access_clipboard', True,
            'https://github.com/*')
-
 config.set('content.javascript.can_access_clipboard', True,
            'https://web.telegram.org')
+config.set('content.javascript.can_access_clipboard', True,
+           'https://*.slab.com/*')
+
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 
 c.aliases['tab-detach'] = 'tab-give'

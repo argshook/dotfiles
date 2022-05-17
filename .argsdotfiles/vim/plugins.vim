@@ -35,6 +35,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'tpope/vim-obsession'
+Plug 'ziontee113/syntax-tree-surfer'
 
 Plug 'tpope/vim-surround'
 let g:surround_indent = 0

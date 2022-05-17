@@ -56,8 +56,6 @@ nnoremap <leader><leader> :ZoomToggle<CR>
 " edit previous file
 nnoremap <leader>e :e#<CR>
 
-nmap <silent> \d :ALEDetail<CR>
-
 " close location and quickfix window with q
 autocmd BufReadPost quickfix nnoremap <buffer> q :cclose<CR>
 " autocmd BufReadPost quickfix nnoremap <buffer> q :lclose<CR>

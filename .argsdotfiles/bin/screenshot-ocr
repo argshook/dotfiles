@@ -3,8 +3,8 @@
 _screenshot_ocr () {
   local LANGUAGES=${1:-eng}
   local FILENAME=/tmp/$(date +%Y%m%d-%H%M%S).png
-  escrotum --select $FILENAME
-  tesseract $FILENAME stdout --dpi 100 --psm 1 -l $LANGUAGES | copy
+  maim --select $FILENAME
+  tesseract $FILENAME stdout --dpi 100 --psm 1 -l $LANGUAGES | ,copy
 }
 
 _screenshot_ocr $@

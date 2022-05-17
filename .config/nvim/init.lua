@@ -58,9 +58,11 @@ set.synmaxcol = 1000
 vim.cmd("source ~/.argsdotfiles/vim/plugins.vim")
 vim.cmd("colorscheme cobalt2")
 vim.cmd("highlight SignColumn ctermbg=NONE")
-vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=darkblue")
+vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=19")
+vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
 
 require('coc')
+require('syntax-tree-surfer-config')
 
 vim.cmd([[
 autocmd BufEnter *.md set shiftwidth=2
