@@ -22,6 +22,7 @@ c.url.searchengines = {
     'http': 'https://httpstatuses.com/{}',
     'mdn': 'https://developer.mozilla.org/en-US/search?q={}',
     'gh': 'https://github.com/search?q={}',
+    'map': 'https://www.google.com/maps/place/{}'
 }
 c.qt.args = [
     "enable-gpu-rasterization",
