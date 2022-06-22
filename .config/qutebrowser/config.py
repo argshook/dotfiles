@@ -35,10 +35,8 @@ config.bind('j', 'scroll-px 0 200')
 config.bind('k', 'scroll-px 0 -200')
 config.bind('x', 'tab-close')
 config.bind('X', 'undo 1')
-config.bind('?', 'open -t ~/.config/qutebrowser/cheatsheet-big.png')
 config.bind(',M', 'spawn ,video-download-and-play {url}')
-config.bind(
-    ',m', 'hint links spawn ,video-download-and-play "{hint-url}"')
+config.bind(',m', 'hint links spawn ,video-download-and-play "{hint-url}"')
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="command")
 config.bind('<ctrl-w>', 'rl-backward-kill-word', mode="prompt")
 config.bind('F', 'hint links tab')
@@ -120,7 +118,8 @@ with config.pattern('lichess.org') as p:
 with config.pattern('reddit.com') as p:
     p.hints.selectors['all'].append('.expando-button')
 
-config.bind(',ym', 'yank inline [{title}]({url:pretty})')
+config.bind('ym', 'hint links userscript yank-markdown-link')
+config.bind('yM', 'yank inline [{title}]({url:pretty})')
 config.bind(';Y', 'hint --rapid links yank')
 config.bind(';2', 'hint all right-click')
 config.bind("gi", "hint inputs")
@@ -137,4 +136,3 @@ config.bind("}", "jseval document.querySelector('video').playbackRate += 0.2")
 
 config.bind(',in', 'spawn --userscript taskadd')
 config.bind('zl', 'spawn --userscript localhost')
-config.bind("sp", "spawn --userscript qutepocket")

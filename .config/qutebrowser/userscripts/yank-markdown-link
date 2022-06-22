@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# usage
+# :hint links userscript yank-markdown-link
+
+# in hints mode, the text of the selected hint
+# in command mode, the selected text if any, the page title otherwise
+
+printf "[%s](%s)" "${QUTE_SELECTED_TEXT:-$QUTE_TITLE}" "$QUTE_URL" | ,copy
