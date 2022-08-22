@@ -9,11 +9,10 @@ function! Grep(...)
     let l:query = expandcmd(join(a:000, ' '))
   endif
 
-  return system(join([&grepprg] + [l:query], ' '))
+  return system(join([&grepprg] + [shellescape(l:query)], ' '))
 endfunction
 
-command! -nargs=* -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
-command! -nargs=* -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+command! -nargs=* -complete=file_in_path Grep cgetexpr Grep(<f-args>)
 
 augroup quickfix
   autocmd!
