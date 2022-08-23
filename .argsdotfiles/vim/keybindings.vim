@@ -2,8 +2,6 @@ imap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 smap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 xmap <C-k> <Plug>(neosnippet_target)
-imap <Tab> <C-n>
-imap <S-Tab> <C-p>
 
 " shortcut to save
 nmap <leader>s :w<cr>

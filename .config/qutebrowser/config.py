@@ -66,6 +66,8 @@ config.set('content.javascript.can_access_clipboard', True,
            'https://web.telegram.org')
 config.set('content.javascript.can_access_clipboard', True,
            'https://*.slab.com/*')
+config.set('content.javascript.can_access_clipboard', True,
+           'http://localhost/*')
 
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 

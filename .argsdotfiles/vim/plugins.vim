@@ -24,6 +24,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'github/copilot.vim'
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 Plug 'rafaqz/ranger.vim'
 let g:rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'
 let g:rg_highlight = 1

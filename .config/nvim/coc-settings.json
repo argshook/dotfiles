@@ -25,5 +25,6 @@
     "python"
   ],
   "eslint.format.enable": true,
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+  "suggest.noselect": true
 }

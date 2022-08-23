@@ -55,6 +55,16 @@ source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 # ruby
 source_if_exists $HOME/.rvm/scripts/rvm
 
+kubectl () {
+    command kubectl $*
+    if [[ -z $KUBECTL_COMPLETE ]]
+    then
+        source <(command kubectl completion zsh)
+        KUBECTL_COMPLETE=1 
+    fi
+}
+
+
 # fasd
 eval "$(fasd --init auto)"
 
