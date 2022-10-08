@@ -152,8 +152,11 @@ bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh
 
 default_border none
 
-# hide title bar
-new_window none
+# Hide window title bar
+# from https://gist.github.com/lirenlin/9892945?permalink_comment_id=4312849#gistcomment-4312849
+default_border pixel 0
+default_floating_border pixel 0
+for_window [class="^.*"] border pixel 0
 
 # keyboard layouts
 bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh

@@ -101,6 +101,7 @@ c.hints.auto_follow = 'unique-match'
 c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.statusbar.show = 'always'
+c.statusbar.widgets = ['keypress', 'progress', 'url', 'scroll']
 c.tabs.title.format = "{audio} {current_title}"
 c.tabs.title.format_pinned = ""
 c.tabs.wrap = True

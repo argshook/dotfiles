@@ -135,9 +135,9 @@ alias tmuxl="tmux ls" # list all sessions
 alias mux="tmuxinator"
 
 # task
-alias in="task add +in"
-alias out="_taskwarrior_out"
-alias tin="task in"
+alias tin="task add +in"
+alias tinlist="task in"
+alias tout="_taskwarrior_out"
 alias ta="task active"
 alias thidden="task list +hide"
 alias treview="task add +review"
