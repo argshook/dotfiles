@@ -86,7 +86,6 @@ autocmd BufWritePost *.elm ElmMake
 
 Plug 'tmsvg/pear-tree'
 Plug 'chrisbra/Colorizer'
-let g:colorizer_use_virtual_text = 1
 Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'

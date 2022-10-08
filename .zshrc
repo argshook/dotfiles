@@ -25,6 +25,7 @@ antigen bundle taskwarrior
 antigen bundle tmuxinator
 antigen bundle docker
 antigen bundle docker-compose
+antigen bundle poetry
 
 antigen apply
 

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-MIA_BIRTHDAY="2019-10-17"
-datediff $MIA_BIRTHDAY now -f 'Mia is %m months %w weeks %d days old'

@@ -102,8 +102,8 @@ bindsym $mod+shift+9 move container to workspace number 9
 bindsym $mod+shift+0 move container to workspace number 10
 
 # Moving workspaces between screens 
-bindsym $mod+Right move workspace to output right
-bindsym $mod+Left move workspace to output left
+bindsym $mod+shift+Right move workspace to output right
+bindsym $mod+shift+Left move workspace to output left
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+shift+r restart
