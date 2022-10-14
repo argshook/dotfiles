@@ -1,6 +1,5 @@
 PATH=$(getconf PATH)
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/go/bin:$HOME/.argsdotfiles/bin:$HOME/.local/bin:$HOME/.rvm/bin:$HOME/.cargo/bin:$HOME/.yarn/bin
-export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 export VISUAL="nvim"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
@@ -8,7 +7,7 @@ export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
-export DOTREMINDERS="~/zettel/reminders"
+export DOTREMINDERS="$HOME/zettel/reminders"
 export PASSWORD_STORE_DIR="$HOME/zettel/pass"
 export JAVA_HOME=`which java`
 export BROWSER=`which qutebrowser`
@@ -16,7 +15,6 @@ export BROWSER=`which qutebrowser`
 source ~/.argsdotmodules/antigen/antigen.zsh
 
 antigen use oh-my-zsh
-
 antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -26,7 +24,6 @@ antigen bundle tmuxinator
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle poetry
-
 antigen apply
 
 # press V in normal mode to edit command in nvim
@@ -50,21 +47,9 @@ source_if_exists () {
   fi
 }
 
-# theme
 source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
-
-# ruby
-source_if_exists $HOME/.rvm/scripts/rvm
-
-kubectl () {
-    command kubectl $*
-    if [[ -z $KUBECTL_COMPLETE ]]
-    then
-        source <(command kubectl completion zsh)
-        KUBECTL_COMPLETE=1 
-    fi
-}
-
+source_if_exists ~/.argsdotfiles/zsh/taskwarrior.zsh
+source_if_exists ~/.rvm/scripts/rvm
 
 # fasd
 eval "$(fasd --init auto)"
@@ -90,10 +75,6 @@ export GH_PAGER=cat
 
 alias qr="qrencode --type utf8"
 alias kurwa="killall -9"
-_npmnx () {
-  find . \( -name node_modules \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
-}
-
 alias npmnx="_npmnx"
 alias q="exit"
 alias r="ranger"
@@ -131,83 +112,9 @@ alias tmuxn="tmux new-session -s" # create new session
 alias tmuxk="tmux kill-session -t" # kill session
 alias tmuxl="tmux ls" # list all sessions
 
-# tmuxinator
-alias mux="tmuxinator"
-
-# task
-alias tin="task add +in"
-alias tinlist="task in"
-alias tout="_taskwarrior_out"
-alias ta="task active"
-alias thidden="task list +hide"
-alias treview="task add +review"
-alias tfix="task add +fix"
-alias tmerge="task add +merge"
-alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
-alias tnext="task add +next"
-alias tyesterday="task end.after:today-1d completed -in"
-
-_taskwarrior_browse () {
-  local id=$1
-  if [ "$#" -eq 1 ]; then
-    task $id | get-url | xargs qutebrowser
-  fi
+_npmnx () {
+  find . \( -name node_modules \) -exec echo "Removing {}" \; -exec rm -rf {} \; 2>/dev/null
 }
-alias tbrowse="_taskwarrior_browse"
-
-_taskwarrior_out () {
-  local id=$1
-  if [ "$#" -ge 1 ]; then
-    shift
-    task $id mod -in $@
-  fi
-}
-
-_taskwarrior_find () {
-  local query=$1
-  if [ "$#" -eq 1 ]; then
-    task /$query/ all -COMPLETED -DELETED
-  fi
-}
-alias tfind="_taskwarrior_find"
-
-_taskwarrior_later () {
-  local id=$1
-  local wait=${2:-"tomorrow"}
-
-  if [ "$#" -eq 1 ]; then
-    shift
-  fi
-
-  if [ "$#" -ge 2 ]; then
-    shift
-    shift
-  fi
-
-  task $id modify -in wait:$wait $@
-}
-alias later=_taskwarrior_later
-
-_taskwarrior_next () {
-  local id=$1
-
-  if [[ -n $id ]]; then
-    shift
-    task $id modify -in wait: $@
-  fi
-}
-alias next=_taskwarrior_next
-
-_taskwarrior_now () {
-  local id=$1
-
-  if [[ -n $id ]]; then
-    shift
-    task $id modify -in wait: $@
-    task $id start
-  fi
-}
-alias tnow=_taskwarrior_now
 
 _npm_clone () {
   # depends on ~/.argsdotfiles/bin/clone
@@ -224,6 +131,15 @@ alias killport="_kill_port"
 alias grep="grep --color=auto"
 alias cl="clear"
 alias browse="xargs qutebrowser" # usage: echo google.com | browse
+
+kubectl () {
+  command kubectl $*
+  if [[ -z $KUBECTL_COMPLETE ]]
+  then
+    source <(command kubectl completion zsh)
+    KUBECTL_COMPLETE=1 
+  fi
+}
 
 # fix for git log not displaying special characters correctly
 export LC_ALL=en_US.UTF-8
