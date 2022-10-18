@@ -81,9 +81,6 @@ alias r="ranger"
 alias rn="ranger node_modules"
 alias n="nvim"
 alias nu="nvim -u NONE"
-alias b="buku -S"
-alias gn="BROWSER=w3m googler --first nethack "
-alias lazydocker="TERM=screen-256color lazydocker"
 
 # git
 alias g="git"
