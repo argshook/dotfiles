@@ -10,6 +10,7 @@
 !.vimrc
 !.tmux.conf
 !.zshrc
+!.taskrc
 !.config/
 .config/*
 !.config/conky/

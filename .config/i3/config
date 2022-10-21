@@ -164,10 +164,6 @@ bindsym $mod+space exec ~/.config/i3/keyboard-layout-switcher.sh
 # applications to run on startup
 
 exec picom
-exec touchegg
-exec onboard
-exec auto-screen-rotate
-exec --no-startup-id nm-applet
 exec --no-startup-id stalonetray --window-type utility
 exec unclutter -idle 3 # hide mouse cursor after 3 seconds
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
@@ -176,8 +172,9 @@ exec cryptomator
 
 bindsym $mod+bracketright [con_mark=_last] focus
 
-for_window[instance="floating-sxiv"] floating enable
+for_window [instance="floating-sxiv"] floating enable
 for_window [instance="zoom"] floating enable
+for_window [instance="VirtualBoxVM"] floating enable
 
 # scratchpads
 

@@ -23,7 +23,6 @@ antigen bundle taskwarrior
 antigen bundle tmuxinator
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle poetry
 antigen apply
 
 # press V in normal mode to edit command in nvim
@@ -161,7 +160,7 @@ export PATH=/home/arijus/.fnm:$PATH
 eval "`fnm env`"
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 export PATH="$HOME/.poetry/bin:$PATH"
 

@@ -4,7 +4,6 @@ _taskwarrior_browse () {
     task $id | get-url | xargs qutebrowser
   fi
 }
-alias tbrowse="_taskwarrior_browse"
 
 _taskwarrior_out () {
   local id=$1
@@ -20,7 +19,6 @@ _taskwarrior_find () {
     task /$query/ all -COMPLETED -DELETED
   fi
 }
-alias tfind="_taskwarrior_find"
 
 _taskwarrior_later () {
   local id=$1
@@ -37,7 +35,6 @@ _taskwarrior_later () {
 
   task $id modify -in wait:$wait $@
 }
-alias later=_taskwarrior_later
 
 _taskwarrior_next () {
   local id=$1
@@ -47,7 +44,6 @@ _taskwarrior_next () {
     task $id modify -in wait: $@
   fi
 }
-alias next=_taskwarrior_next
 
 _taskwarrior_now () {
   local id=$1
@@ -58,8 +54,12 @@ _taskwarrior_now () {
     task $id start
   fi
 }
-alias tnow=_taskwarrior_now
 
+alias tbrowse="_taskwarrior_browse"
+alias tfind="_taskwarrior_find"
+alias later=_taskwarrior_later
+alias next=_taskwarrior_next
+alias tnow=_taskwarrior_now
 alias tin="task add +in"
 alias tinlist="task in"
 alias tout="_taskwarrior_out"
@@ -71,4 +71,3 @@ alias tmerge="task add +merge"
 alias trecent="task limit:20 \( status:completed or status:deleted \) rc.report.all.sort:end- all"
 alias tnext="task add +next"
 alias tyesterday="task end.after:today-1d completed -in"
-
