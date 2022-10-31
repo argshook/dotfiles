@@ -7,7 +7,7 @@ then
   rm $OUTPUT_IMAGE
 fi
 
-scrot $OUTPUT_IMAGE
+maim $OUTPUT_IMAGE
 convert $OUTPUT_IMAGE -scale 2.5% -scale 4000% $OUTPUT_IMAGE
 
 if [[ -f $LOCK_ICON ]]

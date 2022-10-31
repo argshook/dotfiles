@@ -1,8 +1,3 @@
-imap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><C-k> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-xmap <C-k> <Plug>(neosnippet_target)
-
 " shortcut to save
 nmap <leader>s :w<cr>
 

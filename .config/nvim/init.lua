@@ -80,6 +80,7 @@ source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/grep.vim
 source ~/.argsdotfiles/vim/curl.vim
 source ~/.argsdotfiles/vim/prettify.vim
+source ~/.argsdotfiles/vim/neosnippet.vim
 
 let $PATH.='node_modules'
 ]])

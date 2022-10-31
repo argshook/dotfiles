@@ -51,8 +51,6 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-let g:neosnippet#snippets_directory='~/.argsdotfiles/vim/snippets/'
-let g:neosnippet#expand_word_boundary = 1
 
 " =========================
 " language specific plugins
