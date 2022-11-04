@@ -55,6 +55,8 @@ _taskwarrior_now () {
   fi
 }
 
+alias tbrowse=_taskwarrior_browse
+alias tfind=_taskwarrior_find
 alias tbrowse="_taskwarrior_browse"
 alias tfind="_taskwarrior_find"
 alias later=_taskwarrior_later
@@ -62,7 +64,7 @@ alias next=_taskwarrior_next
 alias tnow=_taskwarrior_now
 alias tin="task add +in"
 alias tinlist="task in"
-alias tout="_taskwarrior_out"
+alias tout=_taskwarrior_out
 alias ta="task active"
 alias thidden="task list +hide"
 alias treview="task add +review"
