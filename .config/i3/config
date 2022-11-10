@@ -53,10 +53,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+shift+h move left
-bindsym $mod+shift+j move down
-bindsym $mod+shift+k move up
-bindsym $mod+shift+l move right
+bindsym $mod+shift+h move left 200px
+bindsym $mod+shift+j move down 200px
+bindsym $mod+shift+k move up 200px
+bindsym $mod+shift+l move right 200px
 
 # horizontal split
 bindsym $mod+b split h

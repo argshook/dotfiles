@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+shutter --no_session --disable_systray ~/Pictures/screenshots/`ls -t ~/Pictures/screenshots | head -1`
