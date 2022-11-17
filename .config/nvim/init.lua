@@ -60,6 +60,7 @@ vim.cmd("colorscheme cobalt2")
 vim.cmd("highlight SignColumn ctermbg=NONE")
 vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=19")
 vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
+vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
 
 require('coc')
 require('syntax-tree-surfer-config')
