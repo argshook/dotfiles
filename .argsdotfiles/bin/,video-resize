@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+INPUT=$1
+WIDTH=$2
+HEIGHT=$3
+OUTPUT=$4
+
+
+if [ -z "$INPUT" ] || [ -z $WIDTH ] || [ -z $HEIGHT ] || [ -z $OUTPUT ];
+then
+  echo "USAGE:"
+  echo "video-resize input.mp4 1280 720 output.mp4"
+  exit 1
+fi
+
+ffmpeg -i "$INPUT" -vf scale="$WIDTH":"$HEIGHT" -preset fast -crf 30 "$OUTPUT"

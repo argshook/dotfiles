@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+setxkbmap -option caps:escape
+setxkbmap -option ctrl:ralt_rctrl
