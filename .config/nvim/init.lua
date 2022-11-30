@@ -64,6 +64,7 @@ vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=black ctermbg=black
 
 require('coc')
 require('syntax-tree-surfer-config')
+require('leap').add_default_mappings()
 
 vim.cmd([[
 autocmd BufEnter *.md set shiftwidth=2

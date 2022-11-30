@@ -88,7 +88,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'wellle/visual-split.vim'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ggandor/lightspeed.nvim'
+Plug 'ggandor/leap.nvim'
 Plug 'nvim-colortils/colortils.nvim'
 
 Plug 'scrooloose/nerdcommenter'
