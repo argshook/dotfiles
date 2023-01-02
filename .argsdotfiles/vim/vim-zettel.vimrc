@@ -62,11 +62,12 @@ function! MegaSave()
   write
 
   let home = getenv("HOME")
+  let zettel = getenv("ZETTEL")
   let is_public = stridx(expand('%:p'), home . "/zettel-public") != -1
   if is_public
     let cwd = home . "/zettel-public"
   else
-    let cwd = home . "/zettel"
+    let cwd = zettel
   endif
 
   call jobstart("git add . && git commit -a -m `date '+%s'`", { "cwd": cwd })
@@ -95,7 +96,12 @@ function! DirifyNote()
 endfunction
 command! DirifyNote call DirifyNote()
 
-command! ZettelIndex edit ~/zettel/index.md
+function! EditZettelIndex()
+  let zettel = getenv("ZETTEL")
+  execute "edit " . zettel . "/index.md"
+endfunction
+
+command! ZettelIndex call EditZettelIndex()
 nnoremap <silent> <leader>ww :ZettelIndex<cr>
 
 nnoremap - :RangerEdit<cr>
@@ -111,7 +117,7 @@ function! WordProcessorMode()
     au!
     autocmd InsertCharPre * if search('\v(%^|[.!?]\_s+|\_^\-\s|\_^title\:\s|\n\n)%#', 'bcnw') != 0 | let v:char = toupper(v:char) | endif
   augroup END
-endfu
+endfunction
 
 command! WP call WordProcessorMode()
 au BufNewFile,BufRead *.md call WordProcessorMode()

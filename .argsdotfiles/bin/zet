@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-cd ~/zettel
+cd $ZETTEL
 
 # no arguments, open zettel index
 if [ $# -eq 0 ]; then
-  cd ~/zettel
   nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c ZettelIndex
 else
   case "$1" in
@@ -12,7 +11,7 @@ else
     new)
       shift
       title=${@}
-      file=~/zettel/${title// /-}.md
+      file=$ZETTEL/${title// /-}.md
       if [[ ! -f $file ]]; then
         printf "# $title" >> $file
         printf "\n\n\n" >> $file
@@ -24,7 +23,7 @@ else
     open)
       shift
       title=${@}
-      file=~/zettel/${title// /-}.md
+      file=$ZETTEL/${title// /-}.md
       nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file
       ;;
 
@@ -35,7 +34,7 @@ else
 
     *)
       # `zet anything else` will create diary page with entry of `anything else`
-      file=~/zettel/diary/`date "+%Y-%m-%d"`.md
+      file=$ZETTEL/diary/`date "+%Y-%m-%d"`.md
 
       if [[ ! -f "$file" ]]; then
         printf "# `date "+%Y-%m-%d %A"`\n\n" >> $file

@@ -7,8 +7,15 @@ export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
-export DOTREMINDERS="$HOME/zettel/reminders"
-export PASSWORD_STORE_DIR="$HOME/zettel/pass"
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  export ZETTEL="/Volumes/stuff"
+else
+  export ZETTEL=$HOME/zettel
+fi
+
+
+export PASSWORD_STORE_DIR="$HOME/$ZETTEL/pass"
 export JAVA_HOME=`which java`
 export BROWSER=`which qutebrowser`
 
@@ -49,6 +56,10 @@ source_if_exists () {
 source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 source_if_exists ~/.argsdotfiles/zsh/taskwarrior.zsh
 source_if_exists ~/.rvm/scripts/rvm
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # fasd
 eval "$(fasd --init auto)"
@@ -156,7 +167,6 @@ unsetopt BEEP
 source_if_exists ~/.private.zshrc
 
 # fnm
-export PATH=/home/arijus/.fnm:$PATH
 eval "`fnm env`"
 
 export PYENV_ROOT="$HOME/.pyenv"
