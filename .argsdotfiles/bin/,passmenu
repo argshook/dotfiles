@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+PASSFILE=$(find $PASSWORD_STORE_DIR -type f -iname '*.gpg' | sed 's/.gpg$//' | sed "s,$PASSWORD_STORE_DIR/,," | fzf)
+
+if [ $# -eq 0 ]; then
+    pass show $PASSFILE --clip
+elif [ $1 = "show" ]; then
+    pass show $PASSFILE
+fi
