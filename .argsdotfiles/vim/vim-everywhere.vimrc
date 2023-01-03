@@ -26,10 +26,11 @@ nnoremap <silent> <leader>fj :set ft=javascript.jsx<CR>
 nnoremap <silent> <leader>fm :set ft=markdown<CR>
 
 function! MegaSave()
+  let zettel = getenv("ZETTEL")
   let date = trim(system("date +%Y-%m-%d-%H-%M-%S"))
-  execute 'saveas ~/zettel/scratchpad/' . date . '.md'
-  let gitAdd = system("cd ~/zettel && git add ~/zettel/scratchpad/*")
-  let gitCommit = system("cd ~/zettel && git commit -a -m `date '+%s'`")
+  execute 'saveas ' . zettel . '/scratchpad/' . date . '.md'
+  let gitAdd = system("cd " . zettel . " && git add " . zettel . "/scratchpad/*")
+  let gitCommit = system("cd " . zettel . " && git commit -a -m `date '+%s'`")
 endfunction
 
 nmap <leader>s :call MegaSave()<cr>

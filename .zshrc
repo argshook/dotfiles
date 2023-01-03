@@ -15,7 +15,7 @@ else
 fi
 
 
-export PASSWORD_STORE_DIR="$HOME/$ZETTEL/pass"
+export PASSWORD_STORE_DIR="$ZETTEL/pass"
 export JAVA_HOME=`which java`
 export BROWSER=`which qutebrowser`
 
