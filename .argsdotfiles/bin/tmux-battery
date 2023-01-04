@@ -1,9 +1,22 @@
 #!/usr/bin/env zsh
 
-battery_status=$(cat /sys/class/power_supply/BAT0/status)
+# if linux
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  battery_status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [ $battery_status = "Discharging" ];
-then
-  local capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-  echo "$capacity%"
+  if [ $battery_status = "Discharging" ];
+  then
+    local capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    echo "$capacity%"
+  fi
+fi
+
+# if mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  battery_status=$(pmset -g batt | grep -oE "[0-9]+%")
+
+  if [ $battery_status != "100%" ];
+  then
+    echo "$battery_status"
+  fi
 fi
