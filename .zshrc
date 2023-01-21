@@ -101,7 +101,6 @@ alias gpl="git pull --rebase"
 alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
-alias arch="uname -m"
 
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
@@ -174,3 +173,8 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PATH="$HOME/.poetry/bin:$PATH"
 
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  export C_INCLUDE_PATH=/opt/homebrew/Cellar/librdkafka/1.9.2/include
+  export LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/1.9.2/lib
+fi
