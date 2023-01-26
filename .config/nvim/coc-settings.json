@@ -19,10 +19,12 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "css",
+    "scss",
     "javascript",
     "typescript",
     "typescriptreact",
-    "python"
+    "python",
+    "markdown"
   ],
   "eslint.format.enable": true,
   "Lua.diagnostics.globals": ["vim"],

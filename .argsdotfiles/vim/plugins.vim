@@ -26,6 +26,9 @@ Plug 'wellle/targets.vim'
 Plug 'github/copilot.vim'
 imap <silent><script><expr> <C-F> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+let g:copilot_filetypes = {
+      \ 'markdown': v:true,
+      \ }
 
 Plug 'rafaqz/ranger.vim'
 let g:rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'

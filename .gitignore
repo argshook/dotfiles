@@ -31,6 +31,8 @@
 !.config/ranger/rc.conf
 !.config/ranger/rifle.conf
 !.config/ranger/commands.py
+!.config/tridactyl/
+!.config/tridactyl/*
 !.config/qutebrowser/
 .config/qutebrowser/*
 !.config/qutebrowser/config.py
