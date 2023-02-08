@@ -1,4 +1,4 @@
-set findcase smart
+set findcas insensitive 
 set hintchars asdfghjkl
 
 " set editorcmd terminal -e tmux -u new vim -S /home/andrew/.vim/tridactyl.vim
