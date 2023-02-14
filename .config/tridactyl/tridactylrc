@@ -10,7 +10,7 @@ bind N findnext --reverse 1
 
 " Remove search highlighting.
 " bind ,<Space> nohlsearch
-"
+
 " Use sensitive case. Smart case would be nice here, but it doesn't work.
 set findcase sensitive
 

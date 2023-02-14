@@ -1,14 +1,81 @@
-#!/bin/perl
+#!/usr/bin/env python
 
-while (<>) {
-    if(/^diff --git a\/(\S+)/) {
-        close $f if $f;
-        $s=$1;
-        $s =~ s:(/|\.):_:g;
-        $n=sprintf("%03d_%s.patch", ++$i, $s);
-        open $f, ">", $n;
-        print $f $_;
-        next;
-    }
-    print $f $_ if $f;
-}
+import os
+import errno
+import re
+import argparse
+
+"""
+Split a patch file into individual files.
+
+This script is useful for splitting a git patch file into individual files.
+
+usage:
+    splitpatch input_file output_dir regexp
+"""
+
+
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc:
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+
+
+def match_regex(regex, line):
+    """ function to match and return regex match """
+    match = re.match(regex, line)
+    if match:
+        try:
+            return match.group(1)
+        except IndexError:
+            return None
+    return None
+
+
+def split_file(input_file, output_dir, regexp):
+    """ function to split patch file into individual files """
+
+    with open(input_file) as f:
+        current_output_file = None
+        matches = 0
+
+        for line in f:
+            output_file = match_regex(regexp, line)
+
+            if output_file:
+                matches += 1
+                # Start a new output file
+                if current_output_file:
+                    current_output_file.close()
+
+                mkdir_p(output_dir)
+                safe_output_file = output_file.replace('/', '_')
+                output_path = f"{output_dir}/{safe_output_file}.txt"
+                print("Writing to file: " + output_path)
+                current_output_file = open(output_path, "w")
+
+            if current_output_file:
+                current_output_file.write(line)
+
+        if current_output_file:
+            current_output_file.close()
+
+        if matches == 0:
+            print("No path group found for regex: " + regexp)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file")
+    parser.add_argument("output_dir")
+    parser.add_argument("regexp")
+    args = parser.parse_args()
+    split_file(args.input_file, args.output_dir, args.regexp)
+
+
+if __name__ == "__main__":
+    main()
