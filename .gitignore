@@ -6,6 +6,7 @@
 !.gitmodules
 !.gitconfig
 !.argsdotfiles
+.argsdotfiles/env
 !.argsdotmodules
 !.vimrc
 !.tmux.conf

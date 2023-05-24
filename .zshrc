@@ -56,6 +56,7 @@ source_if_exists () {
 source_if_exists ~/.argsdotfiles/zsh/theme.zsh-theme
 source_if_exists ~/.argsdotfiles/zsh/taskwarrior.zsh
 source_if_exists ~/.rvm/scripts/rvm
+source_if_exists ~/.argsdotfiles/env
 
 if [[ $OSTYPE == 'darwin'* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"

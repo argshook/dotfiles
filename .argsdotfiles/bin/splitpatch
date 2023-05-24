@@ -54,7 +54,7 @@ def split_file(input_file, output_dir, regexp):
 
                 mkdir_p(output_dir)
                 safe_output_file = output_file.replace('/', '_')
-                output_path = f"{output_dir}/{safe_output_file}.txt"
+                output_path = f"{output_dir}/{safe_output_file}.patch"
                 print("Writing to file: " + output_path)
                 current_output_file = open(output_path, "w")
 

@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup ({
   ensure_installed = "all",
   indent = {
     enable = true,
@@ -17,4 +17,4 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = '<S-TAB>',
     },
   },
-}
+})

@@ -24,7 +24,8 @@
     "typescript",
     "typescriptreact",
     "python",
-    "markdown"
+    "markdown",
+    "yaml"
   ],
   "eslint.format.enable": true,
   "Lua.diagnostics.globals": ["vim"],
