@@ -12,25 +12,85 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.cmd([[
+        autocmd BufReadPost fugitive://* set bufhidden=delete
+        function! s:ftplugin_fugitive() abort
+          nnoremap <buffer> <silent> cc :Git commit --quiet<CR>
+          nnoremap <buffer> <silent> ca :Git commit --quiet --amend<CR>
+          nnoremap <buffer> <silent> ce :Git commit --quiet --amend --no-edit<CR>
+        endfunction
+
+        augroup nhooyr_fugitive
+          autocmd!
+          autocmd FileType fugitive call s:ftplugin_fugitive()
+        augroup END
+        nnoremap <silent> <leader>gs :G<cr>
+        autocmd User FugitiveEditor startinsert
+
+        imap <silent><script><expr> <C-F> copilot#Accept("\<CR>")
+      ]])
+    end
+  },
+
   'MunifTanjim/nui.nvim',
   'nvim-lua/plenary.nvim',
-  'dpayne/CodeGPT.nvim',
+  {
+    'dpayne/CodeGPT.nvim',
+    config = function()
+      require('codegpt.config')
+      vim.g['codegpt_commands'] = {
+        ["refactor"] = {
+          user_message_template = "I have {{language}} code: ```{{filetype}}\n{{text_selection}}```\nRefactor to reduce complexity, improve maintainability and reuse. Return only code snippet. {{language_instructions}}",
+          max_tokens = 4000,
+          temperature = 0,
+        },
+
+        ["polish"] = {
+          system_message_template = "Revise the following sentences to make them more clear, concise, and coherent.",
+          user_message_template = "polish this text in English:\n {{text_selection}}",
+          callback_type = "text_popup",
+        },
+      }
+    end
+  },
+
   'tpope/vim-abolish',
   'tpope/vim-rhubarb',
   'tpope/vim-repeat',
   'tpope/vim-unimpaired',
   'wellle/targets.vim',
-  'github/copilot.vim',
+  {
+    'github/copilot.vim',
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_filetypes = {
+        markdown = true,
+      }
+    end
+  },
   'rafaqz/ranger.vim',
   'junegunn/fzf',
   'junegunn/fzf.vim',
   'nvim-treesitter/nvim-treesitter',
   'tpope/vim-obsession',
   'ziontee113/syntax-tree-surfer',
+  {
   'tpope/vim-surround',
+    config = function()
+      vim.g.surround_indent = 0
+    end
+  },
+
   'mhinz/vim-signify',
-  'christoomey/vim-tmux-navigator',
+  {
+    'christoomey/vim-tmux-navigator',
+    config = function()
+      vim.g.tmux_navigator_disable_when_zoomed = 1 -- when tmux pane is zoomed, don't zoomout when navigating out of vim
+    end
+  },
   'Shougo/neosnippet',
   'Shougo/neosnippet-snippets',
   'moll/vim-node',
@@ -38,8 +98,30 @@ require("lazy").setup({
   'mattn/emmet-vim',
   {'neoclide/coc.nvim', run = 'coc#util#install()'},
   'lbrayner/vim-rzip',
-  'suan/vim-instant-markdown',
-  {'elmcast/elm-vim', ft = 'elm'},
+  {
+    'suan/vim-instant-markdown',
+    config = function()
+      vim.g.instant_markdown_autostart = 0 -- do npm i -g instant-markdown-d
+    end
+  },
+  {
+    'elmcast/elm-vim',
+    ft = 'elm',
+    config = function()
+      vim.g.elm_make_show_warnings = 1
+      vim.g.elm_setup_keybindings = 0
+      vim.g.elm_detailed_complete = 1
+      vim.g.elm_format_autosave = 1
+      vim.g.elm_format_fail_silently = 0
+
+      vim.cmd([[
+          autocmd FileType elm nmap <leader>m <Plug>(elm-make)
+          autocmd FileType elm nmap <leader>M <Plug>(elm-make-main)
+          autocmd FileType elm nmap <leader>d <Plug>(elm-error-detail)
+          autocmd BufWritePost *.elm ElmMake
+      ]])
+    end
+  },
   'tmsvg/pear-tree',
   'chrisbra/Colorizer',
   'junegunn/goyo.vim',
@@ -48,76 +130,52 @@ require("lazy").setup({
   'dhruvasagar/vim-table-mode',
   'ggandor/leap.nvim',
   'nvim-colortils/colortils.nvim',
-  'scrooloose/nerdcommenter',
+  {
+    'scrooloose/nerdcommenter',
+    config = function()
+      vim.g.NERDSpaceDelims = 1
+      vim.g.NERDCustomDelimiters = {
+        javascript = {
+          left = "//",
+          leftAlt = "/**",
+        }
+      }
+    end
+  },
   'yuttie/comfortable-motion.vim',
   'romainl/vim-qf',
-  'simnalamburt/vim-mundo',
+  {
+    'simnalamburt/vim-mundo',
+    config = function()
+      vim.g.mundo_prefer_python3 = 1
+      vim.g.mundo_auto_preview = 0
+      vim.g.mundo_return_on_revert = 0
+      vim.cmd("nnoremap <F6> :MundoToggle<CR>")
+    end
+  },
   'junegunn/vim-easy-align',
   'itchyny/lightline.vim',
 })
 
 require("colortils").setup({
-    -- Register in which color codes will be copied
     register = "+",
-    -- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
     color_preview =  "█ %s",
-    -- The default in which colors should be saved
-    -- This can be hex, hsl or rgb
     default_format = "hex",
-    -- Border for the float
     border = "rounded",
-    -- Some mappings which are used inside the tools
     mappings = {
-        -- increment values
         increment = "l",
-        -- decrement values
         decrement = "h",
-        -- increment values with bigger steps
         increment_big = "L",
-        -- decrement values with bigger steps
         decrement_big = "H",
-        -- set values to the minimum
         min_value = "0",
-        -- set values to the maximum
         max_value = "$",
-        -- save the current color in the register specified above with the format specified above
         set_register_default_format = "<m-cr>",
-        -- save the current color in the register specified above with a format you can choose
         set_register_choose_format = "g<cr>",
-        -- replace the color under the cursor with the current color in the format specified above
         replace_default_format = "<cr>",
-        -- replace the color under the cursor with the current color in a format you can choose
         replace_choose_format = "g<m-cr>",
-        -- export the current color to a different tool
         export = "E",
-        -- set the value to a certain number (done by just entering numbers)
         set_value = "c",
-        -- toggle transparency
         transparency = "T",
-        -- choose the background (for transparent colors)
         choose_background = "B",
     }
 })
-
-
-vim.g.rg_command = 'rg --vimgrep --hidden --glob "!*-lock.json"'
-vim.g.rg_highlight = 1
-vim.g.rg_derive_root = 1
-vim.g.rg_root_types = {'.git', 'package.json'}
-vim.g.rg_format = 'f:l:c:m'
-
-vim.g.codegpt_model = 'text-davinci-003'
-vim.g.codegpt_max_tokens = '300'
-
-vim.g.mundo_prefer_python3 = 1
-vim.g.mundo_auto_preview = 0
-vim.g.mundo_return_on_revert = 0
-
-vim.g.surround_indent = 0
-vim.g.tmux_navigator_disable_when_zoomed = 1 -- when tmux pane is zoomed, don't zoomout when navigating out of vim
-vim.g.instant_markdown_autostart = 0 -- do npm i -g instant-markdown-d
-vim.g.elm_make_show_warnings = 1
-vim.g.elm_setup_keybindings = 0
-vim.g.elm_detailed_complete = 1
-vim.g.elm_format_autosave = 1
-vim.g.elm_format_fail_silently = 0

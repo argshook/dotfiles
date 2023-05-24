@@ -58,7 +58,6 @@ require('treesitter')
 require('coc')
 require('syntax-tree-surfer-config')
 require('leap').add_default_mappings()
-vim.cmd("source ~/.argsdotfiles/vim/plugins.vim")
 vim.cmd("source ~/.argsdotfiles/vim/lightline.vim")
 vim.cmd("source ~/.argsdotfiles/vim/comfortable-motion.vim")
 
@@ -69,6 +68,7 @@ vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black
 vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=black ctermbg=black")
 
 vim.cmd([[
+set completeopt-=preview
 autocmd BufEnter *.md set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
 autocmd VimEnter,WinEnter,BufWinEnter */doc/*.txt set scrolloff=999
