@@ -103,6 +103,12 @@ alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 
+gitprlog() {
+  local base_commit=$(git merge-base HEAD $(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master"))
+
+  git log --reverse --pretty=format:"* %s%n%w(0,4,4)%b" "$base_commit"..HEAD 
+}
+
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gl5="gl -5"
