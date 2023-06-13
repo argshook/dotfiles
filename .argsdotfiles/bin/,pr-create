@@ -6,6 +6,16 @@ import os
 import shlex
 from yaspin import yaspin
 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+current_branch = subprocess.check_output(
+    "git branch --show-current", shell=True, universal_newlines=True).strip()
+
+if current_branch == "main" or current_branch == "master":
+    print("Error: cannot create pull request from main or master branch. Checkout to some branch first.")
+    exit(1)
+
+
 def gitprlog():
     print("Collecting git log...")
     try:
@@ -20,35 +30,35 @@ def gitprlog():
             shell=True,
             universal_newlines=True
         )
-        print("Git log collected successfully.")
         return output
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while collecting git log: {str(e)}")
         return None
 
+
 def summarize_text(text):
     prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short PR title from git log:\n\n{text}\n\nCommit message:"
-    print("Summarizing git log with AI...")
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    
+    print("Summarizing git log...")
+    openai.api_key = OPENAI_API_KEY
+
     with yaspin(text="Summarizing", color="yellow") as spinner:
         try:
             response = openai.ChatCompletion.create(
                 model='gpt-3.5-turbo',
-                temperature=0.0,
+                temperature=0.1,
                 n=1,
                 messages=[
-                    { 'role': 'user', 'content': prompt}
+                    {'role': 'user', 'content': prompt}
                 ]
             )
-            summary = response.choices[0].message.content.strip()
+            summary = response.choices[0].message.content.strip().strip('"')
             spinner.ok("✔")
-            print("Summarization completed.")
             return summary
         except Exception as e:
             spinner.fail("✗")
             print(f"An error occurred during summarization: {str(e)}")
             return None
+
 
 def create_pull_request(title, body):
     print("Creating pull request...")
@@ -61,8 +71,9 @@ def create_pull_request(title, body):
     else:
         print("An error occurred while creating the pull request.")
 
-log_output = gitprlog()
-if log_output:
-    title = summarize_text(log_output)
+
+body = gitprlog()
+if body:
+    title = summarize_text(body)
     if title:
-        create_pull_request(title, log_output)
+        create_pull_request(title, body)
