@@ -37,8 +37,7 @@ def gitprlog():
 
 
 def summarize_text(text):
-    prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short PR title from git log:\n\n{text}\n\nCommit message:"
-    print("Summarizing git log...")
+    prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short (max 100 chars) PR title from git log:\n\n{text}\n\nCommit message:"
     openai.api_key = OPENAI_API_KEY
 
     with yaspin(text="Summarizing", color="yellow") as spinner:
