@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+
+import subprocess
+import openai
+import os
+import shlex
+from yaspin import yaspin
+
+def gitprlog():
+    print("Collecting git log...")
+    try:
+        base_commit = subprocess.check_output(
+            "git merge-base HEAD $(git show-ref --verify --quiet refs/heads/main && echo 'main' || echo 'master')",
+            shell=True,
+            universal_newlines=True
+        ).strip()
+
+        output = subprocess.check_output(
+            f'git log --reverse --pretty=format:"* %s%n%w(0,4,4)%b" {base_commit}..HEAD',
+            shell=True,
+            universal_newlines=True
+        )
+        print("Git log collected successfully.")
+        return output
+    except subprocess.CalledProcessError as e:
+        print(f"An error occurred while collecting git log: {str(e)}")
+        return None
+
+def summarize_text(text):
+    prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short PR title from git log:\n\n{text}\n\nCommit message:"
+    print("Summarizing git log with AI...")
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    
+    with yaspin(text="Summarizing", color="yellow") as spinner:
+        try:
+            response = openai.ChatCompletion.create(
+                model='gpt-3.5-turbo',
+                temperature=0.0,
+                n=1,
+                messages=[
+                    { 'role': 'user', 'content': prompt}
+                ]
+            )
+            summary = response.choices[0].message.content.strip()
+            spinner.ok("✔")
+            print("Summarization completed.")
+            return summary
+        except Exception as e:
+            spinner.fail("✗")
+            print(f"An error occurred during summarization: {str(e)}")
+            return None
+
+def create_pull_request(title, body):
+    print("Creating pull request...")
+    title = shlex.quote(title)
+    body = shlex.quote(body)
+    command = f'gh pr create --assignee @me --title {title} --body {body}'
+    exit_code = os.system(command)
+    if exit_code == 0:
+        print("Pull request created successfully.")
+    else:
+        print("An error occurred while creating the pull request.")
+
+log_output = gitprlog()
+if log_output:
+    title = summarize_text(log_output)
+    if title:
+        create_pull_request(title, log_output)
