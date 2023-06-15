@@ -35,10 +35,12 @@ require("lazy").setup({
     end
   },
 
-  'MunifTanjim/nui.nvim',
-  'nvim-lua/plenary.nvim',
   {
     'dpayne/CodeGPT.nvim',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       require('codegpt.config')
       vim.g['codegpt_commands'] = {
@@ -126,7 +128,6 @@ require("lazy").setup({
   'chrisbra/Colorizer',
   'junegunn/goyo.vim',
   'gertjanreynaert/cobalt2-vim-theme',
-  'wellle/visual-split.vim',
   'dhruvasagar/vim-table-mode',
   'ggandor/leap.nvim',
   'nvim-colortils/colortils.nvim',
