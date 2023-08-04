@@ -46,7 +46,6 @@ require("lazy").setup({
       vim.g['codegpt_commands'] = {
         ["refactor"] = {
           user_message_template = "I have {{language}} code: ```{{filetype}}\n{{text_selection}}```\nRefactor to reduce complexity, improve maintainability and reuse. Return only code snippet. {{language_instructions}}",
-          max_tokens = 4000,
           temperature = 0,
         },
 
@@ -70,6 +69,7 @@ require("lazy").setup({
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_filetypes = {
         markdown = true,
+        gitcommit = true
       }
     end
   },

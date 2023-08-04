@@ -48,6 +48,7 @@ vim.opt.listchars = {
   precedes = '<',
   nbsp = '%'
 }
+vim.opt.list = true
 vim.opt.fillchars.eob = ' '
 vim.opt.updatetime = 300
 vim.opt.timeoutlen = 400

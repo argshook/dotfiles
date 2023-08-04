@@ -21,6 +21,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'github/copilot.vim'
 Plug 'romainl/vim-qf'
 
 call plug#end()
@@ -35,7 +36,10 @@ set splitright
 colorscheme cobalt2
 let g:surround_indent = 0
 
-source ~/.argsdotfiles/vim/treesitter.lua
+lua << EOF
+require('treesitter')
+EOF
+
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/lightline.vim
 source ~/.argsdotfiles/vim/comfortable-motion.vim
