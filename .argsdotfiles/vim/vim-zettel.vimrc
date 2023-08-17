@@ -23,6 +23,11 @@ Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'github/copilot.vim'
 Plug 'romainl/vim-qf'
+Plug 'github/copilot.vim'
+
+let g:copilot_filetypes = {
+    \ 'markdown': v:true,
+    \ }
 
 call plug#end()
 
