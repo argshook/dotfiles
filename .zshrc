@@ -185,3 +185,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   export C_INCLUDE_PATH=/opt/homebrew/Cellar/librdkafka/1.9.2/include
   export LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/1.9.2/lib
 fi
+
+# bun completions
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
