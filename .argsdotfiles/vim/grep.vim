@@ -1,5 +1,5 @@
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --ignore-case\ --hidden\ --glob\ '!.git'\ --glob\ '!*.gpg'\ --glob\ '!*.png'
+  set grepprg=rg\ --vimgrep\ --ignore-case\ --hidden\ --glob\ '!.git'\ --glob\ '!*.lock'\ --glob\ '!*.gpg'\ --glob\ '!*.png'
 endif
 
 function! Grep(...)

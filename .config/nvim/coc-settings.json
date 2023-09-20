@@ -29,5 +29,6 @@
   ],
   "eslint.format.enable": true,
   "Lua.diagnostics.globals": ["vim"],
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib"
 }

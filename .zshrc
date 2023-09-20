@@ -10,6 +10,7 @@ export MANPAGER="nvim +Man!"
 
 if [[ $OSTYPE == 'darwin'* ]]; then
   export ZETTEL="/Volumes/stuff"
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 else
   export ZETTEL=$HOME/zettel
 fi
@@ -191,4 +192,4 @@ fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$PATH:$BUN_INSTALL/bin"
