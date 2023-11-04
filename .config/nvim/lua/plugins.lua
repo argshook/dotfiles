@@ -36,29 +36,12 @@ require("lazy").setup({
   },
 
   {
-    'dpayne/CodeGPT.nvim',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
-    },
+    "robitx/gp.nvim",
     config = function()
-      require('codegpt.config')
-      vim.g['codegpt_commands'] = {
-        ["refactor"] = {
-          user_message_template = "I have {{language}} code: ```{{filetype}}\n{{text_selection}}```\nRefactor to reduce complexity, improve maintainability and reuse. Return only code snippet. {{language_instructions}}",
-          temperature = 0,
-        },
-
-        ["polish"] = {
-          system_message_template = "Revise the following sentences to make them more clear, concise, and coherent.",
-          user_message_template = "polish this text in English:\n {{text_selection}}",
-          callback_type = "text_popup",
-        },
-      }
-    end
+      require("gp").setup()
+    end,
   },
 
-  'tpope/vim-abolish',
   'tpope/vim-rhubarb',
   'tpope/vim-repeat',
   'tpope/vim-unimpaired',
