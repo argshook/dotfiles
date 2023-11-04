@@ -118,14 +118,7 @@ def generate_chat_response(prompt, log_text):
             return None, None
 
 
-def generate_title(text):
-    prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short (max 100 chars) PR title from git log:\n\n{text}\n\n"
 
-    return generate_chat_response(prompt, "Summarizing title")
-
-
-def generate_description(text):
-    prompt = f"You are expert programmer preparing a description of a PR. Use git log to generate a concise description written in markdown. Answer only with description. Git log:\n\n{text}"
 
     return generate_chat_response(prompt, "Summarizing body")
 
