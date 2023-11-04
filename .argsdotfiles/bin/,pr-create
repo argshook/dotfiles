@@ -5,6 +5,7 @@ import openai
 import os
 import shlex
 from yaspin import yaspin
+import json
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -51,7 +52,7 @@ def gitprlog():
             return None
 
 
-def generate_chat_response(prompt, log_text):
+def generate_chat_response(current_branch, git_log, log_text):
     openai.api_key = OPENAI_API_KEY
 
     with yaspin(text=log_text, color="yellow") as spinner:
@@ -118,31 +119,57 @@ def generate_chat_response(prompt, log_text):
             return None, None
 
 
-
-
-    return generate_chat_response(prompt, "Summarizing body")
-
-
 def create_pull_request(title, body):
-    print("Creating pull request...")
-    title = shlex.quote(title)
-    body = shlex.quote(body)
-    command = f'gh pr create --assignee @me --title {title} --body {body}'
-    exit_code = os.system(command)
-    if exit_code == 0:
-        print("Pull request created successfully.")
-    else:
-        print("An error occurred while creating the pull request.")
+    with yaspin(text="Creating pull request", color="yellow") as spinner:
+        command = ['gh', 'pr', 'create', '--assignee',
+                   '@me', '--title', shlex.quote(title), '--body', shlex.quote(body)]
+        result = subprocess.run(command, text=True, capture_output=True)
+
+        if result.returncode == 0:
+            spinner.ok("✔")
+        elif "already exists" in result.stderr:
+            spinner.stop()
+            print("Pull request already exists, will edit it.")
+            edit_pull_request(title, body)
+        elif result.stderr not in ["", "\n"]:
+            spinner.fail("✗")
+            raise Exception(result.stderr)
+        else:
+            spinner.fail("✗")
+            raise Exception(
+                f"Pull request creation failed with exit code {result.returncode}")
+
+
+def edit_pull_request(title, body):
+    with yaspin(text="Editing pull request", color="yellow") as spinner:
+        command = f'gh pr edit --title {shlex.quote(title)} --body {shlex.quote(body)}'
+        exit_code = os.system(command)
+
+        if exit_code == 0:
+            spinner.ok("✔")
+            print("Pull request edited successfully.")
+        else:
+            spinner.fail("✗")
+            raise Exception(
+                f"Pull request edit failed with exit code {exit_code}")
 
 
 git_log = gitprlog()
+current_branch = git_branch()
+
 if git_log:
-    title = generate_title(git_log)
-    description = generate_description(git_log)
+    title, description = generate_chat_response(
+        current_branch,
+        git_log, "Generating title and description")
+
     log = git_log.replace('\n\n', '\n')
-    body = f"{description}\n\nCommit log:\n\n{log}"
+    body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
-        create_pull_request(title, body)
+        try:
+            create_pull_request(title, body)
+        except Exception as e:
+            print(
+                f"An error occurred while creating pull request:\n\n{str(e)}")
     else:
-        print("An error occurred while generating title or description.")
+        print("An error occurred while generating title and description.")
         print("Pull request will not be created.")
