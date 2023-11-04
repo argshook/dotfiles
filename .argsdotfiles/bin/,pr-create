@@ -5,6 +5,7 @@ import openai
 import os
 import shlex
 from yaspin import yaspin
+import json
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -14,6 +15,19 @@ current_branch = subprocess.check_output(
 if current_branch == "main" or current_branch == "master":
     print("Error: cannot create pull request from main or master branch. Checkout to some branch first.")
     exit(1)
+
+
+def git_branch():
+    with yaspin(text="Collecting git branch", color="yellow") as spinner:
+        try:
+            output = subprocess.check_output(
+                "git branch --show-current", shell=True, universal_newlines=True).strip()
+            spinner.ok("✔")
+            return output
+        except subprocess.CalledProcessError as e:
+            spinner.fail("✗")
+            print(f"An error occurred while collecting git branch: {str(e)}")
+            return None
 
 
 def gitprlog():
@@ -38,7 +52,7 @@ def gitprlog():
             return None
 
 
-def generate_chat_response(prompt, log_text):
+def generate_chat_response(current_branch, git_log, log_text):
     openai.api_key = OPENAI_API_KEY
 
     with yaspin(text=log_text, color="yellow") as spinner:
@@ -46,53 +60,116 @@ def generate_chat_response(prompt, log_text):
             response = openai.ChatCompletion.create(
                 model='gpt-4',
                 temperature=0.2,
+                function_call={'name': "create_pr"},
+                functions=[
+                    {
+                        'name': "create_pr",
+                        'description': "Generate next step of the story, illustration and two choices",
+                        'parameters': {
+                            'type': "object",
+                            'properties': {
+                                'title': {
+                                    'type': "string",
+                                    'description': "Short title (max 100) chars",
+                                },
+                                'description': {
+                                    'type': "string",
+                                    'description':
+                                    """Short and accurate description. It should be quick and easy to understand for reviewers. Use markdown format if needed (e.g. bullet lists, code snippets and similar).""",
+                                },
+                            },
+                            'required': ['title', 'description'],
+                        },
+                    },
+                ],
                 n=1,
                 messages=[
-                    {'role': 'user', 'content': prompt}
+                    {
+                        'role': 'system',
+                        'content': """you are expert software engineer preparing title and description for GitHub Pull
+                        Request. You are given branch name and git commit log and using them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
+                    },
+                    {'role': 'user', 'content': f"Branch name: {current_branch}"},
+                    {'role': 'user', 'content': f"Git log:\n\n{git_log}"}
                 ]
             )
-            output = response.choices[0].message.content.strip().strip('"')
-            spinner.ok("✔")
-            return output
+
+            api_response: str | None = response['choices'][0]['message']['function_call'][
+                'arguments'] if 'function_call' in response['choices'][0]['message'] else None
+
+            if api_response:
+                try:
+                    parsed = json.loads(api_response)
+                    title = parsed['title']
+                    description = parsed['description']
+                    spinner.ok("✔")
+                    return title, description
+                except Exception as e:
+                    spinner.fail("✗")
+                    print(
+                        f"An error occurred during chat response parsing: {str(e)}")
+                    return None, None
+
+            spinner.fail("✗")
+            return None, None
         except Exception as e:
             spinner.fail("✗")
             print(
                 f"An error occurred during chat response generation: {str(e)}")
-            return None
-
-
-def generate_title(text):
-    prompt = f"You are expert software engineer preparing a title of PR. Summarize a key changes into a short (max 100 chars) PR title from git log:\n\n{text}\n\n"
-
-    return generate_chat_response(prompt, "Summarizing title")
-
-
-def generate_description(text):
-    prompt = f"You are expert programmer preparing a description of a PR. Use git log to generate a concise description written in markdown. Answer only with description. Git log:\n\n{text}"
-
-    return generate_chat_response(prompt, "Summarizing body")
+            return None, None
 
 
 def create_pull_request(title, body):
-    print("Creating pull request...")
-    title = shlex.quote(title)
-    body = shlex.quote(body)
-    command = f'gh pr create --assignee @me --title {title} --body {body}'
-    exit_code = os.system(command)
-    if exit_code == 0:
-        print("Pull request created successfully.")
-    else:
-        print("An error occurred while creating the pull request.")
+    with yaspin(text="Creating pull request", color="yellow") as spinner:
+        command = ['gh', 'pr', 'create', '--assignee',
+                   '@me', '--title', title, '--body', body]
+        result = subprocess.run(command, text=True, capture_output=True)
+
+        if result.returncode == 0:
+            spinner.ok("✔")
+        elif "already exists" in result.stderr:
+            spinner.stop()
+            print("Pull request already exists, will edit it.")
+            edit_pull_request(title, body)
+        elif result.stderr not in ["", "\n"]:
+            spinner.fail("✗")
+            raise Exception(result.stderr)
+        else:
+            spinner.fail("✗")
+            raise Exception(
+                f"Pull request creation failed with exit code {result.returncode}")
+
+
+def edit_pull_request(title, body):
+    with yaspin(text="Editing pull request", color="yellow") as spinner:
+        command = f'gh pr edit --title {shlex.quote(title)} --body {shlex.quote(body)}'
+        exit_code = os.system(command)
+
+        if exit_code == 0:
+            spinner.ok("✔")
+            print("Pull request edited successfully.")
+        else:
+            spinner.fail("✗")
+            raise Exception(
+                f"Pull request edit failed with exit code {exit_code}")
 
 
 git_log = gitprlog()
+current_branch = git_branch()
+
 if git_log:
-    title = generate_title(git_log)
-    description = generate_description(git_log)
+    title, description = generate_chat_response(
+        current_branch,
+        git_log, "Generating title and description")
+
     log = git_log.replace('\n\n', '\n')
-    body = f"{description}\n\nCommit log:\n\n{log}"
+    body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
-        create_pull_request(title, body)
+        try:
+            create_pull_request(title, body)
+        except Exception as e:
+            print(
+                f"An error occurred while creating pull request:\n\n{str(e)}")
     else:
-        print("An error occurred while generating title or description.")
+        print("An error occurred while generating title and description.")
         print("Pull request will not be created.")
