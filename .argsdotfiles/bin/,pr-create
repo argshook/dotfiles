@@ -16,6 +16,19 @@ if current_branch == "main" or current_branch == "master":
     exit(1)
 
 
+def git_branch():
+    with yaspin(text="Collecting git branch", color="yellow") as spinner:
+        try:
+            output = subprocess.check_output(
+                "git branch --show-current", shell=True, universal_newlines=True).strip()
+            spinner.ok("✔")
+            return output
+        except subprocess.CalledProcessError as e:
+            spinner.fail("✗")
+            print(f"An error occurred while collecting git branch: {str(e)}")
+            return None
+
+
 def gitprlog():
     with yaspin(text="Collecting git log", color="yellow") as spinner:
         try:
