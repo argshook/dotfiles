@@ -59,19 +59,63 @@ def generate_chat_response(prompt, log_text):
             response = openai.ChatCompletion.create(
                 model='gpt-4',
                 temperature=0.2,
+                function_call={'name': "create_pr"},
+                functions=[
+                    {
+                        'name': "create_pr",
+                        'description': "Generate next step of the story, illustration and two choices",
+                        'parameters': {
+                            'type': "object",
+                            'properties': {
+                                'title': {
+                                    'type': "string",
+                                    'description': "Short title (max 100) chars",
+                                },
+                                'description': {
+                                    'type': "string",
+                                    'description':
+                                    """Short and accurate description. It should be quick and easy to understand for reviewers. Use markdown format if needed (e.g. bullet lists, code snippets and similar).""",
+                                },
+                            },
+                            'required': ['title', 'description'],
+                        },
+                    },
+                ],
                 n=1,
                 messages=[
-                    {'role': 'user', 'content': prompt}
+                    {
+                        'role': 'system',
+                        'content': """you are expert software engineer preparing title and description for GitHub Pull
+                        Request. You are given branch name and git commit log and using them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
+                    },
+                    {'role': 'user', 'content': f"Branch name: {current_branch}"},
+                    {'role': 'user', 'content': f"Git log:\n\n{git_log}"}
                 ]
             )
-            output = response.choices[0].message.content.strip().strip('"')
-            spinner.ok("✔")
-            return output
+
+            api_response: str | None = response['choices'][0]['message']['function_call'][
+                'arguments'] if 'function_call' in response['choices'][0]['message'] else None
+
+            if api_response:
+                try:
+                    parsed = json.loads(api_response)
+                    title = parsed['title']
+                    description = parsed['description']
+                    spinner.ok("✔")
+                    return title, description
+                except Exception as e:
+                    spinner.fail("✗")
+                    print(
+                        f"An error occurred during chat response parsing: {str(e)}")
+                    return None, None
+
+            spinner.fail("✗")
+            return None, None
         except Exception as e:
             spinner.fail("✗")
             print(
                 f"An error occurred during chat response generation: {str(e)}")
-            return None
+            return None, None
 
 
 def generate_title(text):
