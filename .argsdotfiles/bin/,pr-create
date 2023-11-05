@@ -122,8 +122,8 @@ def generate_chat_response(current_branch, git_log, log_text):
 def check_remote_branch_exists(branch):
     command = ['git', 'ls-remote', '--heads', 'origin', f'refs/heads/{branch}']
     result = subprocess.run(command, text=True, capture_output=True)
-    # Return True if the command was successful (which means the branch exists)
-    return result.returncode == 0
+    # Branch exists if result.stdout (which will contain the SHA1 hashes) is not empty.
+    return bool(result.stdout.strip())
 
 
 def push_create_pr_if_needed(branch):
@@ -145,6 +145,7 @@ def create_pull_request(title, body, current_branch):
 
         if result.returncode == 0:
             spinner.ok("✔")
+            print(result.stdout)
         elif "already exists" in result.stderr:
             spinner.stop()
             print("Pull request already exists, will edit it.")
