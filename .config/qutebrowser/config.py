@@ -60,13 +60,13 @@ config.set('content.javascript.enabled', True, 'chrome-devtools://*')
 config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
-config.set('content.javascript.can_access_clipboard', True,
+config.set('content.javascript.clipboard', 'access-paste',
            'https://github.com/*')
-config.set('content.javascript.can_access_clipboard', True,
+config.set('content.javascript.clipboard', 'access-paste',
            'https://web.telegram.org')
-config.set('content.javascript.can_access_clipboard', True,
+config.set('content.javascript.clipboard', 'access-paste',
            'https://*.slab.com/*')
-config.set('content.javascript.can_access_clipboard', True,
+config.set('content.javascript.clipboard', 'access-paste',
            'http://localhost/*')
 
 config.set('content.notifications.enabled', False, 'https://www.reddit.com')
