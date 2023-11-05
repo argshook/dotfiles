@@ -119,14 +119,25 @@ def generate_chat_response(current_branch, git_log, log_text):
             return None, None
 
 
-def create_pull_request(title, body):
+def push_create_pr_if_needed(branch):
+    command = ['git', 'push', 'origin', branch]
+    result = subprocess.run(command, text=True, capture_output=True)
+    if result.returncode != 0:
+        raise Exception(
+            f'Push to branch {branch} failed with exit code {result.returncode}')
+
+
+def create_pull_request(title, body, current_branch):
+    push_create_pr_if_needed(current_branch)
+
     with yaspin(text="Creating pull request", color="yellow") as spinner:
-        command = ['gh', 'pr', 'create', '--assignee',
-                   '@me', '--title', title, '--body', body]
+        command = ['gh', 'pr', 'create', '--assignee', '@me',
+                   '--title', title, '--body', body]
         result = subprocess.run(command, text=True, capture_output=True)
 
         if result.returncode == 0:
             spinner.ok("✔")
+            print(result.stdout)
         elif "already exists" in result.stderr:
             spinner.stop()
             print("Pull request already exists, will edit it.")
@@ -166,10 +177,11 @@ if git_log:
     body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
         try:
-            create_pull_request(title, body)
+            create_pull_request(title, body, current_branch)
         except Exception as e:
             print(
                 f"An error occurred while creating pull request:\n\n{str(e)}")
+            raise e
     else:
         print("An error occurred while generating title and description.")
         print("Pull request will not be created.")
