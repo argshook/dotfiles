@@ -119,7 +119,25 @@ def generate_chat_response(current_branch, git_log, log_text):
             return None, None
 
 
-def create_pull_request(title, body):
+def check_remote_branch_exists(branch):
+    command = ['git', 'ls-remote', '--heads', 'origin', f'refs/heads/{branch}']
+    result = subprocess.run(command, text=True, capture_output=True)
+    # Return True if the command was successful (which means the branch exists)
+    return result.returncode == 0
+
+
+def push_create_pr_if_needed(branch):
+    if not check_remote_branch_exists(branch):
+        command = ['git', 'push', 'origin', branch]
+        result = subprocess.run(command, text=True, capture_output=True)
+        if result.returncode != 0:
+            raise Exception(
+                f'Push to branch {branch} failed with exit code {result.returncode}')
+
+
+def create_pull_request(title, body, current_branch):
+    push_create_pr_if_needed(current_branch)
+
     with yaspin(text="Creating pull request", color="yellow") as spinner:
         command = ['gh', 'pr', 'create', '--assignee', '@me',
                    '--title', title, '--body', body]
@@ -168,7 +186,7 @@ if git_log:
     body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
         try:
-            create_pull_request(title, body)
+            create_pull_request(title, body, current_branch)
         except Exception as e:
             print(
                 f"An error occurred while creating pull request:\n\n{str(e)}")
