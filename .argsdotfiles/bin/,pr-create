@@ -119,20 +119,12 @@ def generate_chat_response(current_branch, git_log, log_text):
             return None, None
 
 
-def check_remote_branch_exists(branch):
-    command = ['git', 'ls-remote', '--heads', 'origin', f'refs/heads/{branch}']
-    result = subprocess.run(command, text=True, capture_output=True)
-    # Branch exists if result.stdout (which will contain the SHA1 hashes) is not empty.
-    return bool(result.stdout.strip())
-
-
 def push_create_pr_if_needed(branch):
-    if not check_remote_branch_exists(branch):
-        command = ['git', 'push', 'origin', branch]
-        result = subprocess.run(command, text=True, capture_output=True)
-        if result.returncode != 0:
-            raise Exception(
-                f'Push to branch {branch} failed with exit code {result.returncode}')
+    command = ['git', 'push', 'origin', branch]
+    result = subprocess.run(command, text=True, capture_output=True)
+    if result.returncode != 0:
+        raise Exception(
+            f'Push to branch {branch} failed with exit code {result.returncode}')
 
 
 def create_pull_request(title, body, current_branch):
@@ -177,10 +169,12 @@ git_log = gitprlog()
 current_branch = git_branch()
 
 if git_log:
-    title, description = generate_chat_response(
-        current_branch,
-        git_log, "Generating title and description")
+    #  title, description = generate_chat_response(
+    #  current_branch,
+    #  git_log, "Generating title and description")
 
+    title = 'test'
+    description = 'test'
     log = git_log.replace('\n\n', '\n')
     body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
@@ -189,6 +183,7 @@ if git_log:
         except Exception as e:
             print(
                 f"An error occurred while creating pull request:\n\n{str(e)}")
+            raise e
     else:
         print("An error occurred while generating title and description.")
         print("Pull request will not be created.")
