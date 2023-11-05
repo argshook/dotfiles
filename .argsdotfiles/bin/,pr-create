@@ -169,12 +169,10 @@ git_log = gitprlog()
 current_branch = git_branch()
 
 if git_log:
-    #  title, description = generate_chat_response(
-    #  current_branch,
-    #  git_log, "Generating title and description")
+    title, description = generate_chat_response(
+        current_branch,
+        git_log, "Generating title and description")
 
-    title = 'test'
-    description = 'test'
     log = git_log.replace('\n\n', '\n')
     body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
