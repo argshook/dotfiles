@@ -119,10 +119,10 @@ def generate_chat_response(current_branch, git_log, log_text):
             return None, None
 
 
-def create_pull_request(title, body):
+def create_pull_request(title, body, current_branch):
     with yaspin(text="Creating pull request", color="yellow") as spinner:
-        command = ['gh', 'pr', 'create', '--assignee',
-                   '@me', '--title', title, '--body', body]
+        command = ['gh', 'pr', 'create', '--assignee', '@me', '--head', current_branch,
+                   '--title', title, '--body', body]
         result = subprocess.run(command, text=True, capture_output=True)
 
         if result.returncode == 0:
@@ -158,15 +158,17 @@ git_log = gitprlog()
 current_branch = git_branch()
 
 if git_log:
-    title, description = generate_chat_response(
-        current_branch,
-        git_log, "Generating title and description")
+    #  title, description = generate_chat_response(
+    #  current_branch,
+    #  git_log, "Generating title and description")
 
+    title = 'test'
+    description = 'test'
     log = git_log.replace('\n\n', '\n')
     body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
     if title and body:
         try:
-            create_pull_request(title, body)
+            create_pull_request(title, body, current_branch)
         except Exception as e:
             print(
                 f"An error occurred while creating pull request:\n\n{str(e)}")
