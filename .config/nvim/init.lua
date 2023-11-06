@@ -61,11 +61,10 @@ require('syntax-tree-surfer-config')
 require('leap').add_default_mappings()
 vim.cmd("source ~/.argsdotfiles/vim/lightline.vim")
 vim.cmd("source ~/.argsdotfiles/vim/comfortable-motion.vim")
-
-vim.cmd("colorscheme cobalt2")
+vim.cmd.colorscheme "tokyonight"
 vim.cmd("highlight SignColumn ctermbg=NONE")
 vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=19")
-vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
+-- vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
 vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=black ctermbg=black")
 
 vim.cmd([[

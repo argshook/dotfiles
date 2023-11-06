@@ -28,7 +28,7 @@
     "yaml"
   ],
   "eslint.format.enable": true,
-  "Lua.diagnostics.globals": ["vim"],
   "suggest.noselect": true,
-  "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib"
+  "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
+  "colors.enable": true
 }
