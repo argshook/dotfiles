@@ -42,7 +42,6 @@ key('n', 'K', lua_fn(function() show_documentation() end), {})
 key('i', '<c-space>', 'coc#refresh()', { silent = true, expr = true })
 
 vim.cmd([[
-autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 ]])
 

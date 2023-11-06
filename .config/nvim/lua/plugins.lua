@@ -110,7 +110,12 @@ require("lazy").setup({
   'tmsvg/pear-tree',
   'chrisbra/Colorizer',
   'junegunn/goyo.vim',
-  'gertjanreynaert/cobalt2-vim-theme',
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   'dhruvasagar/vim-table-mode',
   'ggandor/leap.nvim',
   'nvim-colortils/colortils.nvim',
@@ -139,6 +144,34 @@ require("lazy").setup({
   },
   'junegunn/vim-easy-align',
   'itchyny/lightline.vim',
+})
+
+require("tokyonight").setup({
+  style = "night",
+  light_style = "day",
+  transparent = true,
+  terminal_colors = true,
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    sidebars = "dark",
+    floats = "dark",
+  },
+  sidebars = { "qf", "help" },
+  day_brightness = 0.3,
+  hide_inactive_statusline = false,
+  dim_inactive = true,
+  on_colors = function(colors)
+    colors.hint = colors.orange
+  end,
+  on_highlights = function(highlights, colors)
+    highlights.Folded = {
+      bg = colors.NONE,
+      fg = colors.dark3,
+    }
+  end
 })
 
 require("colortils").setup({
