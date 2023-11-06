@@ -8,7 +8,8 @@ vim.g.coc_global_extensions = {
   'coc-tsserver',
   'coc-pyright',
   'coc-lua',
-  'coc-json'
+  'coc-json',
+  '@yaegassy/coc-tailwindcss3'
   }
 
 local function show_documentation()
