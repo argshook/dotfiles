@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 import subprocess
-import openai
+from openai import OpenAI
 import os
 import shlex
 from yaspin import yaspin
 import json
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 current_branch = subprocess.check_output(
     "git branch --show-current", shell=True, universal_newlines=True).strip()
@@ -53,33 +54,35 @@ def gitprlog():
 
 
 def generate_chat_response(current_branch, git_log, log_text):
-    openai.api_key = OPENAI_API_KEY
-
     with yaspin(text=log_text, color="yellow") as spinner:
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model='gpt-4',
                 temperature=0.2,
-                function_call={'name': "create_pr"},
-                functions=[
+                tool_choice={"type": "function",
+                             "function": {"name": "create_pr"}},
+                tools=[
                     {
-                        'name': "create_pr",
-                        'description': "Generate title and description for GitHub Pull Request. Use provided commit log",
-                        'parameters': {
-                            'type': "object",
-                            'properties': {
-                                'title': {
-                                    'type': "string",
-                                    'description': "Short title (max 100) chars",
+                        "type": "function",
+                        "function": {
+                            "name": "create_pr",
+                            'description': "Generate title and description for GitHub Pull Request. Use provided commit log",
+                            'parameters': {
+                                'type': "object",
+                                'properties': {
+                                    'title': {
+                                        'type': "string",
+                                        'description': "Short title (max 100) chars",
+                                    },
+                                    'description': {
+                                        'type': "string",
+                                        'description':
+                                        """Short and accurate description. It should be quick and easy to understand for reviewers. Use markdown format if needed (e.g. bullet lists, code snippets and similar).""",
+                                    },
                                 },
-                                'description': {
-                                    'type': "string",
-                                    'description':
-                                    """Short and accurate description. It should be quick and easy to understand for reviewers. Use markdown format if needed (e.g. bullet lists, code snippets and similar).""",
-                                },
+                                'required': ['title', 'description'],
                             },
-                            'required': ['title', 'description'],
-                        },
+                        }
                     },
                 ],
                 n=1,
@@ -87,19 +90,21 @@ def generate_chat_response(current_branch, git_log, log_text):
                     {
                         'role': 'system',
                         'content': """you are expert software engineer preparing title and description for GitHub Pull
-                        Request. You are given branch name and git commit log and using them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
+                    Request. You are given branch name and git commit log and using them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
                     },
-                    {'role': 'user', 'content': f"Branch name: {current_branch}"},
-                    {'role': 'user', 'content': f"Git log:\n\n{git_log}"}
-                ]
-            )
+                    {'role': 'user',
+                     'content': f"Branch name: {current_branch}"},
+                    {'role': 'user',
+                     'content': f"Git log:\n\n{git_log}"}
+                ])
 
-            api_response: str | None = response['choices'][0]['message']['function_call'][
-                'arguments'] if 'function_call' in response['choices'][0]['message'] else None
+            api_response: str | None = response.choices[
+                0].message.function_call.arguments if 'function_call' in response.choices[0].message else None
+            api_response = response.choices[0].message.tool_calls[0]
 
             if api_response:
                 try:
-                    parsed = json.loads(api_response)
+                    parsed = json.loads(api_response.function.arguments)
                     title = parsed['title']
                     description = parsed['description']
                     spinner.ok("✔")
