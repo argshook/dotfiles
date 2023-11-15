@@ -99,7 +99,30 @@ alias g="git"
 alias ga="git add"
 alias gc="git commit -m"
 alias gco="git checkout"
-alias gpl="git pull --rebase"
+
+function gpl() {
+    local changes_stashed=0
+
+    if ! git diff --quiet || ! git diff --staged --quiet; then
+        git stash push -u && changes_stashed=1
+    fi
+
+    if git pull --rebase; then
+        if [ "$changes_stashed" -eq 1 ]; then
+            git stash pop
+        fi
+    else
+        echo "Error: 'git pull' failed."
+
+        if [ "$changes_stashed" -eq 1 ]; then
+            git stash pop
+            echo "Your changes have been restored from stash."
+        fi
+
+        return 1
+    fi
+}
+
 alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
