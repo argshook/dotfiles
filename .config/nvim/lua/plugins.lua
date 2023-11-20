@@ -38,8 +38,10 @@ require("lazy").setup({
   {
     "robitx/gp.nvim",
     config = function()
-      require("gp").setup()
-    end,
+      require("gp").setup({
+        chat_model = { model = "gpt-4-1106-preview", temperature = 1.1, top_p = 1 },
+      })
+    end
   },
 
   'tpope/vim-rhubarb',

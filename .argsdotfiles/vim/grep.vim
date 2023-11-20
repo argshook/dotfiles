@@ -1,18 +1,20 @@
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --ignore-case\ --hidden\ --glob\ '!.git'\ --glob\ '!*.lock'\ --glob\ '!*.gpg'\ --glob\ '!*.png'
+  let g:rg_options = '--vimgrep --ignore-case --hidden'
+  let g:rg_globs = ['!.git', '!*.lock', '!*.gpg', '!*.png', '!.yarn', '!.pnp.cjs']
+  let g:rg_cmd = 'rg ' . g:rg_options . ' ' . join(map(copy(g:rg_globs), "'--glob ' . '''' . v:val . ''''"), ' ')
+  let &grepprg=g:rg_cmd
 endif
 
 function! Grep(...)
   if empty(a:000)
     let l:query = expand("<cword>")
   else
-    let l:query = expandcmd(join(a:000, ' '))
+    let l:query = join(a:000, ' ')
   endif
-
-  return system(join([&grepprg] + [shellescape(l:query)], ' '))
+  cexpr system(&grepprg . ' ' . shellescape(l:query))
 endfunction
 
-command! -nargs=* -complete=file_in_path Grep cgetexpr Grep(<f-args>)
+command! -nargs=* -complete=file_in_path Grep call Grep(<f-args>)
 
 augroup quickfix
   autocmd!
