@@ -1,0 +1,15 @@
+setxkbmap -option caps:escape
+setxkbmap -option ctrl:ralt_rctrl
+
+~/.argsdotfiles/bin/setup-display home
+~/.argsdotfiles/bin/tmux-resurrect-fix
+
+if ! tmux has-session 2>/dev/null; then
+  tmux new-session -d
+  tmux run-shell '~/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
+fi
+
+while ! tmux has-session 2>/dev/null; do
+  sleep 1
+done
+~/.argsdotfiles/bin/start-scratchpads
