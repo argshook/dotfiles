@@ -1,5 +1,6 @@
 editor: nvim
 prompt: enabled
 aliases:
-  prlist: '!gh pr list --limit 1000 | fzf --preview "gh pr view {1}"'
-  prcheckout: '!gh pr list --limit 1000 | fzf --preview "gh pr view {1}" | awk "{print \$1}" | xargs -I {} gh pr checkout {}'
+    prlist: '!gh pr list --limit 1000 | fzf --preview "gh pr view {1}"'
+    prcheckout: '!gh pr list --limit 1000 | fzf --preview "gh pr view {1}" | awk "{print \$1}" | xargs -I {} gh pr checkout {}'
+version: "1"

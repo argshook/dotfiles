@@ -39,7 +39,68 @@ require("lazy").setup({
     "robitx/gp.nvim",
     config = function()
       require("gp").setup({
-        chat_model = { model = "gpt-4-1106-preview", temperature = 1.1, top_p = 1 },
+        hooks = {
+          -- GpImplement rewrites the provided selection/range based on comments in it
+          Implement = function(gp, params)
+            local template = "Having code from {{filename}}:\n\n"
+            .. "```{{filetype}}\n{{selection}}\n```\n\n"
+            .. "Rewrite it according to instructions."
+            .. "\n\nRespond exclusively with snippet that should replace the selection above."
+
+            local agent = gp.get_command_agent()
+            gp.info("Implementing selection with agent: " .. agent.name)
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              nil, -- command will run directly without any prompting for user input
+              agent.model,
+              template,
+              agent.system_prompt
+            )
+          end,
+        },
+
+        agents = {
+          {
+            name = "ChatGPT4",
+            chat = true,
+            command = false,
+            model = { model = "gpt-4-1106-preview", temperature = 1.1, top_p = 1 },
+            system_prompt = "rules:\n\n"
+                .. "- Provide short answers—detail upon request.\n"
+                .. "- Forego confirmatory prefaces.\n"
+                .. "- Conserve tokens in responses.\n"
+          },
+          {
+            name = "ChatGPT3-5",
+            chat = true,
+            command = false,
+            model = { model = "gpt-3.5-turbo-1106", temperature = 1.1, top_p = 1 },
+            system_prompt = "rules:\n\n"
+                .. "- Provide short answers—detail upon request.\n"
+                .. "- Forego confirmatory prefaces.\n"
+                .. "- Conserve tokens in responses.\n"
+          },
+          {
+            name = "CodeGPT4",
+            chat = false,
+            command = true,
+            model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
+            system_prompt = "You are AI working as a code editor.\n\n"
+              .. "Avoid commentary.\n"
+              .. "start and end your answer with:\n\n```",
+          },
+          {
+            name = "CodeGPT3-5",
+            chat = false,
+            command = true,
+            model = { model = "gpt-3.5-turbo-1106", temperature = 0.8, top_p = 1 },
+            system_prompt = "You are AI working as a code editor.\n\n"
+              .. "Avoid commentary.\n"
+              .. "start and end your answer with:\n\n```",
+          },
+        },
       })
     end
   },
