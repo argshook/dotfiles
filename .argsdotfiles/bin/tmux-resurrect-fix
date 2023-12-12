@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
-rm ~/.tmux/resurrect/last
+# this script checks if the last symlink is broken and if so, it will create a new one
+# sometimes it happens that the last symlink is broken, which causes tmux-resurrect to fail
+if [ -e ~/.tmux/resurrect/last ] && [ -L ~/.tmux/resurrect/last ] && [ -e "$(readlink -f ~/.tmux/resurrect/last)" ]; then
+  exit 0
+fi
+
 ln -s `ls -t ~/.tmux/resurrect | head -2 | tail -1` ~/.tmux/resurrect/last
