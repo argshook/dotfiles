@@ -1,18 +1,10 @@
 #!/usr/bin/env zsh
 
-WORKSTATION=$1
+WORKSTATION=${1:-home}
 
 case "$WORKSTATION" in
-  laptop|l)
-    xrandr \
-      --output eDP-1-1 --primary --mode 1920x1080 \
-      --output HDMI-1-1 --off
-    ;;
-
   home|h)
-    xrandr \
-      --output eDP-1-1 --off \
-      --output HDMI-1-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+    xrandr --output HDMI-0 --primary --mode 2560x1440 --pos 0x0 --output DP-0 --mode 2560x1440 --pos 2560x0
     ;;
   *)
     echo "Usage: $(basename $0) {laptop|l|station|s|home|h}"
