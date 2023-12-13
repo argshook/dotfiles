@@ -13,3 +13,4 @@ while ! tmux has-session 2>/dev/null; do
   sleep 1
 done
 ~/.argsdotfiles/bin/start-scratchpads
+~/.argsdotfiles/bin/random-wallpaper
