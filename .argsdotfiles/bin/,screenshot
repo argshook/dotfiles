@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+SCREENSHOT_PATH="$HOME/Pictures/screenshots"
+
+mkdir -p "$SCREENSHOT_PATH"
+
+FILENAME="$SCREENSHOT_PATH/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+
+screencapture -i "$FILENAME" && osascript -e "set the clipboard to (read (\"$FILENAME\") as TIFF picture)"
+
+if [ $? -eq 0 ]; then
+  echo "Screenshot saved to $FILENAME"
+else
+  echo "Screenshot failed"
+fi
