@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Ask user to select the area to capture
+SELECTION=$(slop -f "%x %y %w %h")
+read -r X Y WIDTH HEIGHT <<< $SELECTION
+
+WIDTH=$((WIDTH - WIDTH % 2))
+HEIGHT=$((HEIGHT - HEIGHT % 2))
+
+ROOT_DIR="$HOME/videos/screencapture"
+mkdir -p $ROOT_DIR
+TIME=$(date +%Y-%m-%d_%H-%M-%S)
+OUTPUT_FILE="$ROOT_DIR/$TIME.mp4"
+
+# Start recording the selected screen area in the background
+ffmpeg -f x11grab -framerate 25 -video_size ${WIDTH}x${HEIGHT} -i :0.0+${X},${Y} -c:v libx264 -pix_fmt yuv420p -preset ultrafast -crf 18 -y ${OUTPUT_FILE}
