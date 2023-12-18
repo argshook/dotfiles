@@ -150,6 +150,7 @@ require("lazy").setup({
     'suan/vim-instant-markdown',
     config = function()
       vim.g.instant_markdown_autostart = 0 -- do npm i -g instant-markdown-d
+      vim.g.instant_markdown_theme = 'dark'
     end
   },
   {
