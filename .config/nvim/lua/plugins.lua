@@ -79,7 +79,6 @@ require("lazy").setup({
             model = { model = "gpt-3.5-turbo-1106", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
-                .. "- Forego confirmatory prefaces.\n"
                 .. "- Conserve tokens in responses.\n"
           },
           {

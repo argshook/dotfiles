@@ -197,7 +197,7 @@ unsetopt BEEP
 source_if_exists ~/.private.zshrc
 
 # fnm
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd --log-level quiet)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -212,3 +212,7 @@ fi
 
 # bun completions
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
