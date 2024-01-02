@@ -111,6 +111,7 @@ require("lazy").setup({
   {
     'github/copilot.vim',
     config = function()
+      vim.g.copilot_node_command = '~/.fnm/aliases/default/bin/node'
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_filetypes = {
         markdown = true,
