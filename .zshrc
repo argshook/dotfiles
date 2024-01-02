@@ -197,7 +197,7 @@ unsetopt BEEP
 source_if_exists ~/.private.zshrc
 
 # fnm
-eval "$(fnm env --use-on-cd --log-level quiet)"
+eval "`fnm env --use-on-cd --log-level quiet`"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
