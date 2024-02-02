@@ -79,7 +79,6 @@ require("lazy").setup({
             model = { model = "gpt-3.5-turbo-1106", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
-                .. "- Conserve tokens in responses.\n"
           },
           {
             name = "CodeGPT4",
@@ -182,7 +181,6 @@ require("lazy").setup({
   },
   'dhruvasagar/vim-table-mode',
   'ggandor/leap.nvim',
-  'nvim-colortils/colortils.nvim',
   {
     'scrooloose/nerdcommenter',
     config = function()
@@ -236,27 +234,4 @@ require("tokyonight").setup({
       fg = colors.dark3,
     }
   end
-})
-
-require("colortils").setup({
-    register = "+",
-    color_preview =  "█ %s",
-    default_format = "hex",
-    border = "rounded",
-    mappings = {
-        increment = "l",
-        decrement = "h",
-        increment_big = "L",
-        decrement_big = "H",
-        min_value = "0",
-        max_value = "$",
-        set_register_default_format = "<m-cr>",
-        set_register_choose_format = "g<cr>",
-        replace_default_format = "<cr>",
-        replace_choose_format = "g<m-cr>",
-        export = "E",
-        set_value = "c",
-        transparency = "T",
-        choose_background = "B",
-    }
 })

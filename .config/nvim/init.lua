@@ -64,10 +64,12 @@ vim.cmd("source ~/.argsdotfiles/vim/comfortable-motion.vim")
 vim.cmd.colorscheme "tokyonight"
 vim.cmd("highlight SignColumn ctermbg=NONE")
 vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=19")
--- vim.cmd("highlight Folded cterm=NONE ctermbg=NONE ctermfg=darkgrey ctermbg=black")
 vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=black ctermbg=black")
 
 vim.cmd([[
+autocmd BufRead,BufNewFile * match TODO /@TODO/
+autocmd BufRead,BufNewFile * highlight TODO ctermbg=None guibg=None ctermfg=DarkMagenta guifg=DarkMagenta
+
 set completeopt-=preview
 autocmd BufEnter *.md set shiftwidth=2
 " set scrolloff if the buffer is readonly (so mostly help files)
