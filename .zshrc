@@ -7,6 +7,8 @@ export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
+export PASSWORD_STORE_DIR="$ZETTEL/pass"
+export JAVA_HOME=`which java`
 
 if [[ $OSTYPE == 'darwin'* ]]; then
   export ZETTEL="/Volumes/stuff"
@@ -14,11 +16,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 else
   export ZETTEL=$HOME/zettel
 fi
-
-
-export PASSWORD_STORE_DIR="$ZETTEL/pass"
-export JAVA_HOME=`which java`
-export BROWSER=`which qutebrowser`
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 
@@ -167,7 +164,6 @@ alias killport="_kill_port"
 # misc
 alias grep="grep --color=auto"
 alias cl="clear"
-alias browse="xargs qutebrowser" # usage: echo google.com | browse
 
 kubectl () {
   command kubectl $*
@@ -200,9 +196,9 @@ source_if_exists ~/.private.zshrc
 eval "`fnm env --use-on-cd --log-level quiet`"
 
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null || export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$PATH:$HOME/.poetry/bin"
 
 
 if [[ $OSTYPE == 'darwin'* ]]; then
@@ -210,9 +206,6 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   export LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/1.9.2/lib
 fi
 
-# bun completions
-[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [[ -d $HOME/.ebcli-virtual-env/executables ]]; then
+  export PATH=$PATH:"$HOME/.ebcli-virtual-env/executables"
+fi

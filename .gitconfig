@@ -26,10 +26,6 @@
   tool = vimdiff
 [difftool]
   prompt = false
-[instaweb]
-  browser = qutebrowser
-[web]
-  browser = qutebrowser
 [commit]
   gpgsign = true
 

@@ -66,7 +66,7 @@ require("lazy").setup({
             name = "ChatGPT4",
             chat = true,
             command = false,
-            model = { model = "gpt-4-1106-preview", temperature = 1.1, top_p = 1 },
+            model = { model = "gpt-4-0125-preview", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
                 .. "- Forego confirmatory prefaces.\n"
@@ -76,9 +76,9 @@ require("lazy").setup({
             name = "ChatGPT3-5",
             chat = true,
             command = false,
-            model = { model = "gpt-3.5-turbo-1106", temperature = 1.1, top_p = 1 },
+            model = { model = "gpt-3.5-turbo-0125", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
-                .. "- Provide short answers—detail upon request.\n"
+                .. "- Provide short answers unless asked otherwise. Detail upon request.\n",
           },
           {
             name = "CodeGPT4",
@@ -99,6 +99,12 @@ require("lazy").setup({
               .. "start and end your answer with:\n\n```",
           },
         },
+
+        chat_user_prefix = "🗨:",
+        chat_template = "# topic: ?\n\n"
+          .. "- file: %s\n"
+          .. "---\n"
+          .. "🗨: "
       })
     end
   },

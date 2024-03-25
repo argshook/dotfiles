@@ -66,6 +66,19 @@ vim.cmd("highlight SignColumn ctermbg=NONE")
 vim.cmd("highlight Search cterm=NONE ctermbg=NONE ctermfg=white ctermbg=19")
 vim.cmd("highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=black ctermbg=black")
 
+local function keymapOptions(desc)
+  return {
+    noremap = true,
+    silent = true,
+    nowait = true,
+    desc = "GPT prompt " .. desc,
+  }
+end
+
+vim.keymap.set({ "n", "i" }, "<C-g>c", "<cmd>GpChatNew split<cr>", keymapOptions("New Chat split"))
+vim.keymap.set("v", "<C-g>c", ":<C-u>'<,'>GpChatNew split<cr>", keymapOptions("Visual Chat New split"))
+
+
 vim.cmd([[
 autocmd BufRead,BufNewFile * match TODO /@TODO/
 autocmd BufRead,BufNewFile * highlight TODO ctermbg=None guibg=None ctermfg=DarkMagenta guifg=DarkMagenta

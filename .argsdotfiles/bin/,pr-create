@@ -77,7 +77,7 @@ def generate_chat_response(current_branch, git_log, log_text):
                                     'description': {
                                         'type': "string",
                                         'description':
-                                        """Short and accurate description. It should be quick and easy to understand for reviewers. Use markdown format if needed (e.g. bullet lists, code snippets and similar).""",
+                                        """Short and accurate description. It should be easy to understand for reviewers. Use markdown format when needed (e.g. bullet lists, code snippets and similar).""",
                                     },
                                 },
                                 'required': ['title', 'description'],
@@ -90,7 +90,7 @@ def generate_chat_response(current_branch, git_log, log_text):
                     {
                         'role': 'system',
                         'content': """you are expert software engineer preparing title and description for GitHub Pull
-                    Request. You are given branch name and git commit log and using them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
+                    Request. You are given branch name and git commit log. From them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
                     },
                     {'role': 'user',
                      'content': f"Branch name: {current_branch}"},
