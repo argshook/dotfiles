@@ -69,3 +69,4 @@ endfunction
 
 
 vim.cmd("highlight CocMenuSel ctermfg=236 ctermbg=220 guifg=#3A3A3A guibg=#FFC600")
+

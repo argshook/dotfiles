@@ -30,5 +30,6 @@
   "eslint.format.enable": true,
   "suggest.noselect": true,
   "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
-  "colors.enable": true
+  "colors.enable": true,
+  "workspace.rootPatterns": [".git"]
 }
