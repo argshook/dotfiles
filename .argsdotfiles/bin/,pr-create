@@ -179,7 +179,7 @@ if git_log:
         git_log, "Generating title and description")
 
     log = git_log.replace('\n\n', '\n')
-    body = f"{description}\n\n<details><summary>Full commit log</summary>\n\n{log}\n\n</details>"
+    body = f"{description}\n\n<details><summary>Full commit log:</summary>\n\n{log}\n\n</details>"
     if title and body:
         try:
             create_pull_request(title, body, current_branch)

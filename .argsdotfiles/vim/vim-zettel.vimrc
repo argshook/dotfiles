@@ -120,17 +120,6 @@ nnoremap \| :RangerVSplit<cr>
 inoremap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %A")<CR>
 
-function! WordProcessorMode()
-  " Auto-capitalize script
-  augroup SENTENCES
-    au!
-    autocmd InsertCharPre * if search('\v(%^|[.!?]\_s+|\_^\-\s|\_^title\:\s|\n\n)%#', 'bcnw') != 0 | let v:char = toupper(v:char) | endif
-  augroup END
-endfunction
-
-command! WP call WordProcessorMode()
-au BufNewFile,BufRead *.md call WordProcessorMode()
-
 " wrap visually selected block with backticks
 vnoremap <leader>~ c```<cr>```<esc>P
 vnoremap <leader>` c``<esc>P
