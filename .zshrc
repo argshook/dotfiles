@@ -7,7 +7,6 @@ export FZF_ALT_C_COMMAND='rg'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --no-ignore --iglob !node_modules'
 export FZF_TMUX=1
 export MANPAGER="nvim +Man!"
-export PASSWORD_STORE_DIR="$ZETTEL/pass"
 export JAVA_HOME=`which java`
 
 if [[ $OSTYPE == 'darwin'* ]]; then
@@ -16,6 +15,8 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 else
   export ZETTEL=$HOME/zettel
 fi
+
+export PASSWORD_STORE_DIR="$ZETTEL/pass"
 
 source ~/.argsdotmodules/antigen/antigen.zsh
 

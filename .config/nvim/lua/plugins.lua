@@ -40,6 +40,44 @@ require("lazy").setup({
     config = function()
       require("gp").setup({
         hooks = {
+          DiffToCommit = function(gp, params)
+            local template = "I the following git diff:\n\n"
+            .. "```diff\n{{selection}}\n```\n\n"
+            .. "Convert the diff into a commit message subject and body. Subject should be about 70 characters."
+            .. "You and the reader are expert software developers. Keep professional tone and use imperative mood."
+            .. "\n\nRespond exclusively with snippet that should replace the given commit message draft."
+
+            local agent = gp.get_command_agent()
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              nil, -- command will run directly without any prompting for user input
+              agent.model,
+              template,
+              agent.system_prompt
+            )
+          end,
+
+          Commitify = function(gp, params)
+            local template = "I have commit message draft:\n\n"
+            .. "```\n{{selection}}\n```\n\n"
+            .. "Split it into subject and body. Make sure subject is less than 50 characters."
+            .. "You are expert software developer. Keep professional tone and use imperative mood."
+            .. "\n\nRespond exclusively with snippet that should replace the given commit message draft."
+
+            local agent = gp.get_command_agent()
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              nil, -- command will run directly without any prompting for user input
+              agent.model,
+              template,
+              agent.system_prompt
+            )
+          end,
+
           -- GpImplement rewrites the provided selection/range based on comments in it
           Implement = function(gp, params)
             local template = "Having code from {{filename}}:\n\n"
@@ -79,24 +117,6 @@ require("lazy").setup({
             model = { model = "gpt-3.5-turbo-0125", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers unless asked otherwise. Detail upon request.\n",
-          },
-          {
-            name = "CodeGPT4",
-            chat = false,
-            command = true,
-            model = { model = "gpt-4-1106-preview", temperature = 0.8, top_p = 1 },
-            system_prompt = "You are AI working as a code editor.\n\n"
-              .. "Avoid commentary.\n"
-              .. "start and end your answer with:\n\n```",
-          },
-          {
-            name = "CodeGPT3-5",
-            chat = false,
-            command = true,
-            model = { model = "gpt-3.5-turbo-1106", temperature = 0.8, top_p = 1 },
-            system_prompt = "You are AI working as a code editor.\n\n"
-              .. "Avoid commentary.\n"
-              .. "start and end your answer with:\n\n```",
           },
         },
 
