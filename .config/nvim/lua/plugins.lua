@@ -46,10 +46,10 @@ require("lazy").setup({
             local template = "Here's a git diff:\n\n"
             .. "```diff\n" .. table.concat(diff, "\n") .. "\n```\n\n"
             .. "You are expert software developer. You are preparing a commit message. Explain the changes from git diff."
-            .. "Generate a commit message title (first line) and body (in markdown). Use professional tone, imperative mood. Stay concise."
+            .. "Generate a commit message title (first line) and body (in markdown). Use professional tone, imperative mood, present tense. Stay concise."
             .. "In message body use markdown: paragraphs, bullet points, inline code, links etc."
             .. "Wrap all code references with backticks. Remain human readable."
-            .. "\n\nRespond only with commit message title as first line, then empty line and then body."
+            .. "\n\nRespond only with commit message. Return only title and body. Do not include diff."
 
 
             local agent = gp.get_command_agent()
