@@ -41,11 +41,16 @@ require("lazy").setup({
       require("gp").setup({
         hooks = {
           DiffToCommit = function(gp, params)
-            local template = "I the following git diff:\n\n"
-            .. "```diff\n{{selection}}\n```\n\n"
-            .. "Convert the diff into a commit message subject and body. Subject should be about 70 characters."
-            .. "You and the reader are expert software developers. Keep professional tone and use imperative mood."
-            .. "\n\nRespond exclusively with snippet that should replace the given commit message draft."
+            local diff = vim.fn.systemlist("git diff --cached --no-color")
+
+            local template = "Here's a git diff:\n\n"
+            .. "```diff\n" .. table.concat(diff, "\n") .. "\n```\n\n"
+            .. "You are expert software developer. You are preparing a commit message. Explain the changes from git diff."
+            .. "Generate a commit message title (first line) and body (in markdown). Use professional tone, imperative mood. Stay concise."
+            .. "In message body use markdown: paragraphs, bullet points, inline code, links etc."
+            .. "Wrap all code references with backticks. Remain human readable."
+            .. "\n\nRespond only with commit message title as first line, then empty line and then body."
+
 
             local agent = gp.get_command_agent()
 
@@ -64,6 +69,7 @@ require("lazy").setup({
             .. "```\n{{selection}}\n```\n\n"
             .. "Split it into subject and body. Make sure subject is less than 50 characters."
             .. "You are expert software developer. Keep professional tone and use imperative mood."
+            .. "Keep short and concise. Use markdown. Use bullet points if needed. Wrap code in backticks (like function or variable names etc)."
             .. "\n\nRespond exclusively with snippet that should replace the given commit message draft."
 
             local agent = gp.get_command_agent()
