@@ -203,7 +203,12 @@ require("lazy").setup({
     end
   },
   'tmsvg/pear-tree',
-  'chrisbra/Colorizer',
+  {
+    'chrisbra/Colorizer',
+    config = function()
+          vim.g.colorizer_disable_bufleave = 1
+    end
+  },
   'junegunn/goyo.vim',
   {
     "folke/tokyonight.nvim",

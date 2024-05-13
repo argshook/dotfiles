@@ -210,3 +210,10 @@ fi
 if [[ -d $HOME/.ebcli-virtual-env/executables ]]; then
   export PATH=$PATH:"$HOME/.ebcli-virtual-env/executables"
 fi
+
+# bun completions
+source_if_exists $HOME/.bun/_bun
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$PATH:$BUN_INSTALL/bin"

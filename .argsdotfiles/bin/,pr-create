@@ -57,8 +57,8 @@ def generate_chat_response(current_branch, git_log, log_text):
     with yaspin(text=log_text, color="yellow") as spinner:
         try:
             response = client.chat.completions.create(
-                model='gpt-4',
-                temperature=0.2,
+                model='gpt-4-0125-preview',
+                temperature=0.4,
                 tool_choice={"type": "function",
                              "function": {"name": "create_pr"}},
                 tools=[
@@ -66,7 +66,7 @@ def generate_chat_response(current_branch, git_log, log_text):
                         "type": "function",
                         "function": {
                             "name": "create_pr",
-                            'description': "Generate title and description for GitHub Pull Request. Use provided commit log",
+                            'description': "Generate title and concise description focusing on the key points without unnecessary repetitions for GitHub Pull Request",
                             'parameters': {
                                 'type': "object",
                                 'properties': {
@@ -77,8 +77,9 @@ def generate_chat_response(current_branch, git_log, log_text):
                                     'description': {
                                         'type': "string",
                                         'description':
-                                        """Short and accurate description. It should be easy to understand for reviewers. Use markdown format when needed (e.g. bullet lists, code snippets and similar).""",
-                                    },
+                                        """Brief, accurate and concise description. Summarize the key ideas and the
+                                        motivation. Make sure to describe the "why" behind changes. Avoid describing
+                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion paragraphs. Use imperative mood. Remain concise and to the point. Do not include sentences like "This PR fixes ...", "introduces several optimizations and improvements" and similar. Format with markdown.""", },
                                 },
                                 'required': ['title', 'description'],
                             },
@@ -89,8 +90,9 @@ def generate_chat_response(current_branch, git_log, log_text):
                 messages=[
                     {
                         'role': 'system',
-                        'content': """you are expert software engineer preparing title and description for GitHub Pull
-                    Request. You are given branch name and git commit log. From them you summarize the key changes into a short (max 100 chars) title and description.""".strip()
+                        'content': """Brief, accurate and concise description. Summarize the key ideas and the
+                                        motivation. Make sure to describe the "why" behind changes. Avoid describing
+                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion paragraphs. Use imperative mood. Remain concise and to the point. Do not include sentences like "This PR fixes ...", "introduces several optimizations and improvements" and similar. Format with markdown.""".strip()
                     },
                     {'role': 'user',
                      'content': f"Branch name: {current_branch}"},
