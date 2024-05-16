@@ -12,5 +12,14 @@ mkdir -p $ROOT_DIR
 TIME=$(date +%Y-%m-%d_%H-%M-%S)
 OUTPUT_FILE="$ROOT_DIR/$TIME.mp4"
 
-# Start recording the selected screen area in the background
-ffmpeg -f x11grab -framerate 25 -video_size ${WIDTH}x${HEIGHT} -i :0.0+${X},${Y} -c:v libx264 -pix_fmt yuv420p -preset ultrafast -crf 18 -y ${OUTPUT_FILE}
+ffmpeg -f x11grab \
+    -framerate 25 \
+    -video_size ${WIDTH}x${HEIGHT} \
+    -i :0.0+${X},${Y} \
+    -f pulse -i default \
+    -c:a aac -af "pan=mono|c0=c0+0.5*c1, volume=2" \
+    -c:v libx264 \
+    -pix_fmt yuv420p \
+    -preset ultrafast \
+    -crf 18 \
+    -y ${OUTPUT_FILE}
