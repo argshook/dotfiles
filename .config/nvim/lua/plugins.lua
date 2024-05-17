@@ -45,11 +45,9 @@ require("lazy").setup({
 
             local template = "Here's a git diff:\n\n"
             .. "```diff\n" .. table.concat(diff, "\n") .. "\n```\n\n"
-            .. "You are expert software developer. You are preparing a commit message. Explain the changes from git diff."
-            .. "Generate a commit message title (first line) and body (in markdown). Use professional tone, imperative mood, present tense. Stay concise."
-            .. "In message body use markdown: paragraphs, bullet points, inline code, links etc."
-            .. "Wrap all code references with backticks. Remain human readable."
-            .. "\n\nRespond only with commit message. Return only title and body. Do not include diff."
+            .. "You are expert software developer, preparing a commit message. You have a git diff from which you generate a commit message title (first line) and body (in markdown)."
+            .. "Use professional tone, imperative mood, present tense. Stay concise."
+            .. "\n\nRespond only with title and body separated by empty line."
 
 
             local agent = gp.get_command_agent()
@@ -110,7 +108,7 @@ require("lazy").setup({
             name = "ChatGPT4",
             chat = true,
             command = false,
-            model = { model = "gpt-4-0125-preview", temperature = 1.1, top_p = 1 },
+            model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
                 .. "- Forego confirmatory prefaces.\n"

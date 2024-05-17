@@ -57,7 +57,7 @@ def generate_chat_response(current_branch, git_log, log_text):
     with yaspin(text=log_text, color="yellow") as spinner:
         try:
             response = client.chat.completions.create(
-                model='gpt-4-0125-preview',
+                model='gpt-4o',
                 temperature=0.4,
                 tool_choice={"type": "function",
                              "function": {"name": "create_pr"}},
