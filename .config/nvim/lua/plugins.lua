@@ -36,39 +36,19 @@ require("lazy").setup({
   },
 
   {
-    "robitx/gp.nvim",
+    "argshook/gp.nvim",
     config = function()
       require("gp").setup({
         hooks = {
           DiffToCommit = function(gp, params)
             local diff = vim.fn.systemlist("git diff --cached --no-color")
 
-            local template = "Here's a git diff:\n\n"
-            .. "```diff\n" .. table.concat(diff, "\n") .. "\n```\n\n"
-            .. "You are expert software developer, preparing a commit message. You have a git diff from which you generate a commit message title (first line) and body (in markdown)."
-            .. "Use professional tone, imperative mood, present tense. Stay concise."
-            .. "\n\nRespond only with title and body separated by empty line."
-
-
-            local agent = gp.get_command_agent()
-
-            gp.Prompt(
-              params,
-              gp.Target.rewrite,
-              nil, -- command will run directly without any prompting for user input
-              agent.model,
-              template,
-              agent.system_prompt
-            )
-          end,
-
-          Commitify = function(gp, params)
-            local template = "I have commit message draft:\n\n"
-            .. "```\n{{selection}}\n```\n\n"
-            .. "Split it into subject and body. Make sure subject is less than 50 characters."
-            .. "You are expert software developer. Keep professional tone and use imperative mood."
-            .. "Keep short and concise. Use markdown. Use bullet points if needed. Wrap code in backticks (like function or variable names etc)."
-            .. "\n\nRespond exclusively with snippet that should replace the given commit message draft."
+            local template = "Git diff:\n```diff\n" 
+            .. table.concat(diff, "\n") .. "\n```\n\n"
+            .. "Generate a concise commit title (max 50 characters)."
+            .. "Add a brief markdown body only if changes are significant (max 72 characters per line)."
+            .. "Use a professional tone, imperative mood, and present tense.\n\n"
+            .. "Respond with title and optional body, separated by an empty line."
 
             local agent = gp.get_command_agent()
 
@@ -84,10 +64,10 @@ require("lazy").setup({
 
           -- GpImplement rewrites the provided selection/range based on comments in it
           Implement = function(gp, params)
-            local template = "Having code from {{filename}}:\n\n"
-            .. "```{{filetype}}\n{{selection}}\n```\n\n"
-            .. "Rewrite it according to instructions."
-            .. "\n\nRespond exclusively with snippet that should replace the selection above."
+            local template = "Rewrite the code snippet below using best practices as per instructions:\n\n"
+            .. "Filename: {{filename}}\nType: {{filetype}}\n\n"
+            .. "Snippet:\n{{selection}}\n```\n"
+            .. "\nRespond with the improved snippet."
 
             local agent = gp.get_command_agent()
             gp.info("Implementing selection with agent: " .. agent.name)
@@ -125,6 +105,7 @@ require("lazy").setup({
         },
 
         chat_user_prefix = "🗨:",
+        chat_dir = os.getenv('ZETTEL') .. "/gpt-chats",
         chat_template = "# topic: ?\n\n"
           .. "- file: %s\n"
           .. "---\n"

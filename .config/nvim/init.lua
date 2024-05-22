@@ -58,6 +58,7 @@ require('plugins')
 require('treesitter')
 require('coc')
 require('syntax-tree-surfer-config')
+require('prettify')
 require('leap').add_default_mappings()
 vim.cmd("source ~/.argsdotfiles/vim/lightline.vim")
 vim.cmd("source ~/.argsdotfiles/vim/comfortable-motion.vim")
@@ -98,7 +99,6 @@ source ~/.argsdotfiles/vim/abbreviations.vim
 source ~/.argsdotfiles/vim/fzf.vim
 source ~/.argsdotfiles/vim/grep.vim
 source ~/.argsdotfiles/vim/curl.vim
-source ~/.argsdotfiles/vim/prettify.vim
 source ~/.argsdotfiles/vim/neosnippet.vim
 
 let $PATH.='node_modules'
