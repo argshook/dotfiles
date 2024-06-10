@@ -14,6 +14,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 else
   export ZETTEL=$HOME/zettel
+  export GTK_THEME=Adwaita-dark
 fi
 
 export PASSWORD_STORE_DIR="$ZETTEL/pass"
@@ -217,3 +218,6 @@ source_if_exists $HOME/.bun/_bun
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
+
+export DENO_INSTALL="/home/arijus/.deno"
+export PATH="$PATH:$DENO_INSTALL/bin"

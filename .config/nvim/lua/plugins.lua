@@ -109,8 +109,36 @@ require("lazy").setup({
         chat_template = "# topic: ?\n\n"
           .. "- file: %s\n"
           .. "---\n"
-          .. "🗨: "
+          .. "🗨: ",
+
+        -- templates
+        template_selection = "from `{{filename}}`:"
+          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}",
+
+        template_rewrite = "from `{{filename}}`:"
+          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+          .. "\n\nRespond only with replacement for selection above.",
+
+        template_append = "from {{filename}}:"
+          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+          .. "\n\nRespond only with replacement that should append the selection above.",
+
+        template_prepend = "from {{filename}}:"
+          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+          .. "\n\nRespond only with replacement that should prepend the selection above.",
+
+        template_command = "{{command}}",
       })
+
+      local function keymapOptions(desc)
+          return {
+              noremap = true,
+              silent = true,
+              nowait = true,
+              desc = "GPT prompt " .. desc,
+          }
+      end
+      vim.keymap.set("v", "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
     end
   },
 
