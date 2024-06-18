@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+# Parse options
+NO_AUDIO=false
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --no-audio)
+            NO_AUDIO=true
+            shift
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
 # Ask user to select the area to capture
 SELECTION=$(slop -f "%x %y %w %h")
 read -r X Y WIDTH HEIGHT <<< $SELECTION
@@ -12,14 +26,29 @@ mkdir -p $ROOT_DIR
 TIME=$(date +%Y-%m-%d_%H-%M-%S)
 OUTPUT_FILE="$ROOT_DIR/$TIME.mp4"
 
-ffmpeg -f x11grab \
-    -framerate 25 \
-    -video_size ${WIDTH}x${HEIGHT} \
-    -i :0.0+${X},${Y} \
-    -f pulse -i default \
-    -c:a aac -af "pan=mono|c0=c0+0.5*c1, volume=2" \
-    -c:v libx264 \
-    -pix_fmt yuv420p \
-    -preset ultrafast \
-    -crf 18 \
-    -y ${OUTPUT_FILE}
+FFMPEG_CMD=(
+    ffmpeg
+    -f x11grab
+    -framerate 25
+    -video_size "${WIDTH}x${HEIGHT}"
+    -i ":0.0+${X},${Y}"
+)
+
+if [ "$NO_AUDIO" = false ]; then
+    FFMPEG_CMD+=(
+        -f pulse
+        -i default
+        -c:a aac
+        -af "pan=mono|c0=c0+0.5*c1, volume=2"
+    )
+fi
+
+FFMPEG_CMD+=(
+    -c:v libx264
+    -pix_fmt yuv420p
+    -preset ultrafast
+    -crf 18
+    -y "${OUTPUT_FILE}"
+)
+
+"${FFMPEG_CMD[@]}"
