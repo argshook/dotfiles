@@ -4,16 +4,7 @@ local init_path = path_helpers.join_paths(home, ".config", "nvim", "init.lua")
 
 vim.cmd("source " .. vim.fn.expand(init_path))
 
-local function MegaSave()
-  vim.cmd('write')
-  
-  local is_public = string.find(vim.fn.expand('%:p'), home .. "/zettel-public") ~= nil
-  local cwd = is_public and home .. "/zettel-public" or zettel
-  
-  vim.fn.jobstart("git add . && git commit -a -m '" .. os.date('%s') .. "'", { cwd = cwd })
-end
-
-vim.api.nvim_set_keymap('n', '<leader>s', ':lua MegaSave()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>s', ':lua require("zettel-save").ZettelSave()<CR>', { noremap = true, silent = true })
 
 local function PlayYoutube()
   local line = vim.fn.getline('.')
