@@ -4,7 +4,7 @@ cd $ZETTEL
 
 # no arguments, open zettel index
 if [ $# -eq 0 ]; then
-  nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc -c ZettelIndex
+  nvim -u ~/.argsdotfiles/vim/vim-zettel.lua -c ZettelIndex
 else
   case "$1" in
     # `zet new *` for new wiki page
@@ -16,7 +16,7 @@ else
         printf "# $title" >> $file
         printf "\n\n\n" >> $file
       fi
-      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G" -c "startinsert!"
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.lua $file -c "norm G" -c "startinsert!"
       ;;
 
     # `zet open *` to open existing one
@@ -24,12 +24,12 @@ else
       shift
       title=${@}
       file=$ZETTEL/${title// /-}.md
-      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.lua $file
       ;;
 
     public)
       cd ~/zettel-public
-      nvim -u ~/.argsdotfiles/vim/vim-zettel-public.vimrc -c ZettelPublicIndex
+      nvim -u ~/.argsdotfiles/vim/vim-zettel-public.lua -c ZettelPublicIndex
       ;;
 
     *)
@@ -42,6 +42,6 @@ else
       fi
 
       printf -- "- `date +%H:%M:%S` $*" >> $file
-      nvim -u ~/.argsdotfiles/vim/vim-zettel.vimrc $file -c "norm G\$A " -c "startinsert!"
+      nvim -u ~/.argsdotfiles/vim/vim-zettel.lua $file -c "norm G\$A " -c "startinsert!"
   esac
 fi
