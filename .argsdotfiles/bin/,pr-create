@@ -79,7 +79,10 @@ def generate_chat_response(current_branch, git_log, log_text):
                                         'description':
                                         """Brief, accurate and concise description. Summarize the key ideas and the
                                         motivation. Make sure to describe the "why" behind changes. Avoid describing
-                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion paragraphs. Use imperative mood. Remain concise and to the point. Do not include sentences like "This PR fixes ...", "introduces several optimizations and improvements" and similar. Format with markdown.""", },
+                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion
+                                        paragraphs. Use imperative mood. Remain concise and to the point. Stay away from
+                                        sentences like "This PR fixes ...", "introduces several optimizations and
+                                        improvements", "enhance readability and structure" and similar. Format with markdown.""", },
                                 },
                                 'required': ['title', 'description'],
                             },
@@ -92,7 +95,10 @@ def generate_chat_response(current_branch, git_log, log_text):
                         'role': 'system',
                         'content': """Brief, accurate and concise description. Summarize the key ideas and the
                                         motivation. Make sure to describe the "why" behind changes. Avoid describing
-                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion paragraphs. Use imperative mood. Remain concise and to the point. Do not include sentences like "This PR fixes ...", "introduces several optimizations and improvements" and similar. Format with markdown.""".strip()
+                                        implementation details. Avoid fillers and fluff. Avoid intro and conclusion
+                                        paragraphs. Use imperative mood. Remain concise and to the point. Stay away from
+                                        sentences like "This PR fixes ...", "introduces several optimizations and
+                                        improvements", "enhance readability and structure" and similar. Format with markdown.""".strip()
                     },
                     {'role': 'user',
                      'content': f"Branch name: {current_branch}"},

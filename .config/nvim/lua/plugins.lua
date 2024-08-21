@@ -36,7 +36,7 @@ require("lazy").setup({
   },
 
   {
-    "argshook/gp.nvim",
+    "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
         hooks = {
@@ -55,10 +55,8 @@ require("lazy").setup({
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              nil, -- command will run directly without any prompting for user input
-              agent.model,
-              template,
-              agent.system_prompt
+              agent,
+              template
             )
           end,
 
@@ -85,31 +83,40 @@ require("lazy").setup({
 
         agents = {
           {
-            name = "ChatGPT4",
+            name = "openai",
             chat = true,
-            command = false,
+            command = true,
             model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
                 .. "- Forego confirmatory prefaces.\n"
                 .. "- Conserve tokens in responses.\n"
           },
+
           {
-            name = "ChatGPT3-5",
+            provider = "anthropic",
+            name = "claude",
             chat = true,
-            command = false,
-            model = { model = "gpt-3.5-turbo-0125", temperature = 1.1, top_p = 1 },
+            command = true,
+            model = { model = "claude-3-5-sonnet-20240620", temperature = 0.8, top_p = 1 },
             system_prompt = "rules:\n\n"
-                .. "- Provide short answers unless asked otherwise. Detail upon request.\n",
+                .. "- Provide short answers.\n"
+                .. "- Detail upon request.\n"
+                .. "- Forego confirmatory prefaces.\n"
+                .. "- Conserve tokens in responses.\n"
+          },
+        },
+
+        providers = {
+          anthropic = {
+            endpoint = "https://api.anthropic.com/v1/messages",
+            secret = os.getenv("ANTHROPIC_API_KEY"),
           },
         },
 
         chat_user_prefix = "🗨:",
         chat_dir = os.getenv('ZETTEL') .. "/gpt-chats",
-        chat_template = "# topic: ?\n\n"
-          .. "- file: %s\n"
-          .. "---\n"
-          .. "🗨: ",
+        chat_template = require("gp.defaults").short_chat_template,
 
         -- templates
         template_selection = "from `{{filename}}`:"
@@ -146,6 +153,21 @@ require("lazy").setup({
   'tpope/vim-repeat',
   'tpope/vim-unimpaired',
   'wellle/targets.vim',
+
+  {
+    dir = vim.fn.stdpath("config") .. "/lua/blame-line",
+    config = function()
+      require("blame-line").setup({
+        delay = 1000,  -- Set your preferred delay in milliseconds
+        virtual_text_highlight = 'CustomDimBlame',
+        -- Add any other configuration options here
+      })
+    end,
+    init = function()
+      vim.api.nvim_set_hl(0, 'CustomDimBlame', { fg = '#333952', italic = true })
+    end
+  },
+
   {
     'github/copilot.vim',
     config = function()
