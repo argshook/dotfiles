@@ -158,12 +158,15 @@ require("lazy").setup({
     dir = vim.fn.stdpath("config") .. "/lua/blame-line",
     config = function()
       require("blame-line").setup({
-        delay = 1000,  -- Set your preferred delay in milliseconds
+        delay = 1000,
         virtual_text_highlight = 'CustomDimBlame',
-        -- Add any other configuration options here
       })
     end,
     init = function()
+      -- start enabled
+      require("blame-line").enable_blame_line()
+
+      -- add more dim color for the virtual text
       vim.api.nvim_set_hl(0, 'CustomDimBlame', { fg = '#333952', italic = true })
     end
   },
