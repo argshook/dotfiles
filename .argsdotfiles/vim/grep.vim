@@ -1,6 +1,6 @@
 if executable('rg')
   let g:rg_options = '--vimgrep --ignore-case --hidden'
-  let g:rg_globs = ['!.git', '!*.lock', '!*.gpg', '!*.png', '!.yarn', '!.pnp.cjs']
+  let g:rg_globs = ['!.git', '!*.lock', '!*.gpg', '!*.png', '!.yarn', '!.pnp.cjs', '!pnpm-lock.yaml']
   let g:rg_cmd = 'rg ' . g:rg_options . ' ' . join(map(copy(g:rg_globs), "'--glob ' . '''' . v:val . ''''"), ' ')
   let &grepprg=g:rg_cmd
 endif

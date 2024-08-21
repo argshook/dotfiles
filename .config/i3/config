@@ -167,7 +167,6 @@ exec picom
 exec --no-startup-id stalonetray --window-type utility
 exec unclutter -idle 3 # hide mouse cursor after 3 seconds
 exec redshift -l 54.677039:25.274023 # lat:long for vilnius
-exec nextcloud
 exec cryptomator
 
 bindsym $mod+bracketright [con_mark=_last] focus

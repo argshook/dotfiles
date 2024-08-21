@@ -5,7 +5,6 @@ require('nvim-treesitter.configs').setup ({
   },
   highlight = {
     enable = true,
-
     -- disable treesitter highlight for markdown because it eats up too much CPU
     disable = { 'markdown' }
   },
