@@ -24,7 +24,6 @@
     "typescript",
     "typescriptreact",
     "python",
-    "markdown",
     "yaml"
   ],
   "eslint.format.enable": true,
