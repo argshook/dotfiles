@@ -150,8 +150,6 @@ bindsym XF86TouchpadToggle exec ~/.argsdotfiles/toggle-touchpad.sh
 # Screen lock key
 bindsym $mod+shift+x exec ~/.config/i3lock/lock.sh
 
-default_border none
-
 # Hide window title bar
 # from https://gist.github.com/lirenlin/9892945?permalink_comment_id=4312849#gistcomment-4312849
 default_border pixel 0

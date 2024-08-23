@@ -3,6 +3,11 @@ local filetype_to_plugin = {
 }
 
 local function prettify(filetype)
+  -- Fallback to buffer's filetype if no filetype was provided
+  if not filetype or filetype == '' then
+    filetype = vim.bo.filetype
+  end
+
   local start_pos = vim.fn.getpos("'<")
   local end_pos = vim.fn.getpos("'>")
   local start_line = start_pos[2]
@@ -47,5 +52,5 @@ vim.api.nvim_create_user_command(
   function(params)
     prettify(params.args)
   end,
-  { range = true, nargs = 1, complete = 'filetype' }
+  { range = true, nargs = '?', complete = 'filetype' }
 )
