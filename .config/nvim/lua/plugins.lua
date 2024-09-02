@@ -158,7 +158,7 @@ require("lazy").setup({
     dir = vim.fn.stdpath("config") .. "/lua/blame-line",
     config = function()
       require("blame-line").setup({
-        delay = 1000,
+        delay = 300,
         virtual_text_highlight = 'CustomDimBlame',
       })
     end,
