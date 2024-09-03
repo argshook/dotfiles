@@ -28,8 +28,8 @@ else
       ;;
 
     public)
-      cd ~/zettel-public
-      nvim -u ~/.argsdotfiles/vim/vim-zettel-public.lua -c ZettelPublicIndex
+      LOCATION="${2:-~/zettel-public}"
+      nvim -u ~/.argsdotfiles/vim/vim-zettel-public.lua $LOCATION/index.md
       ;;
 
     *)

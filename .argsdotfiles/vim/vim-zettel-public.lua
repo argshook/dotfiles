@@ -4,11 +4,7 @@ local init_path = path_helpers.join_paths(home, ".config", "nvim", "init.lua")
 local zettelSave = require('zettel-save')
 
 vim.cmd('source ~/.argsdotfiles/vim/vim-zettel.lua')
-
 vim.api.nvim_del_keymap('n', '<leader>ww')
-vim.api.nvim_create_user_command('ZettelPublicIndex', function()
-  vim.cmd('edit ~/zettel-public/index.md')
-end, {})
 
 local function Publish()
   local handle = io.popen("git diff origin/main --name-only")
