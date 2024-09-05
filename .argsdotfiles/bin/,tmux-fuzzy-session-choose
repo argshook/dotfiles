@@ -4,4 +4,4 @@ tmux list-sessions \
   | sed -E 's/:.*$//' \
   | grep -v "^$(tmux display-message -p '#S')\$\" | sed 's/[[:space:]]/&/g')\$" \
   | fzf --reverse \
-  | xargs tmux switch-client -t
+  | xargs -r -I {} tmux switch-client -t "{}"
