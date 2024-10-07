@@ -219,8 +219,10 @@ source_if_exists $HOME/.bun/_bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
 
+# deno
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$PATH:$DENO_INSTALL/bin"
+if [[ ":$FPATH:" != *":/Users/argshook/.zsh/completions:"* ]]; then export FPATH="/Users/argshook/.zsh/completions:$FPATH"; fi
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

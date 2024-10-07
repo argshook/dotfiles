@@ -16,19 +16,13 @@
       }
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "css",
-    "scss",
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "python",
-    "yaml"
-  ],
+  "coc.preferences.formatOnSave": true,
   "eslint.format.enable": true,
   "suggest.noselect": true,
   "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
   "colors.enable": true,
-  "workspace.rootPatterns": [".git"]
+  "workspace.rootPatterns": [".git"],
+  "tailwindCSS.headwind.runOnSave": true,
+  "tailwindCSS.headwind.removeDuplicates": true,
+  "tailwindCSS.headwind.prependCustomClasses": true
 }

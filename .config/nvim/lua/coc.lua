@@ -9,7 +9,8 @@ vim.g.coc_global_extensions = {
   'coc-pyright',
   'coc-lua',
   'coc-json',
-  '@yaegassy/coc-tailwindcss3'
+  '@yaegassy/coc-tailwindcss3',
+  'coc-deno'
   }
 
 local function show_documentation()

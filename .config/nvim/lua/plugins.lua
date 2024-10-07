@@ -83,6 +83,16 @@ require("lazy").setup({
 
         agents = {
           {
+            name = "openai-o1",
+            chat = true,
+            command = true,
+            model = { model = "o1-preview-2024-09-12", temperature = 1.1, top_p = 1 },
+            system_prompt = "rules:\n\n"
+              .. "- Provide short answers—detail upon request.\n"
+              .. "- Forego confirmatory prefaces.\n"
+              .. "- Conserve tokens in responses.\n"
+          },
+          {
             name = "openai",
             chat = true,
             command = true,
@@ -115,7 +125,7 @@ require("lazy").setup({
         },
 
         chat_user_prefix = "🗨:",
-        chat_dir = os.getenv('ZETTEL') .. "/gpt-chats",
+        chat_dir = os.getenv('HOME') .. "/gpt-chats",
         chat_template = require("gp.defaults").short_chat_template,
 
         -- templates
