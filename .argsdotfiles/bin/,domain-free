@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "Error: No domain provided."
+  echo "Usage: $0 domain"
+  exit 1
+fi
+
+response=$(curl -s "https://www.domreg.lt/api/whois/status/$1")
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to retrieve domain status."
+  exit 1
+fi
+
+domain_status=$(echo "$response" | jq -r '.domainstatus')
+
+if [ "$domain_status" == "null" ]; then
+  echo "Error: Invalid response from API."
+else
+  if [ "$domain_status" == "\"available\"" ]; then
+    echo -e "\e[42m$domain_status\e[0m"  # Green background
+  else
+    echo -e "\e[41m$domain_status\e[0m"  # Red background
+  fi
+fi

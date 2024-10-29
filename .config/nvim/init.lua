@@ -104,3 +104,6 @@ source ~/.argsdotfiles/vim/neosnippet.vim
 
 let $PATH.='node_modules'
 ]])
+
+
+vim.api.nvim_create_user_command('DenoRestart', 'CocCommand deno.restart', {})
