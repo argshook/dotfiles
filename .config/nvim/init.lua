@@ -107,3 +107,19 @@ let $PATH.='node_modules'
 
 
 vim.api.nvim_create_user_command('DenoRestart', 'CocCommand deno.restart', {})
+
+function run_domain_free()
+  local word = vim.fn.expand('<cword>')
+  local command = ',domain-free -tld .lt ' .. word
+  local handle = io.popen(command)
+  local result = handle:read("*a")
+  handle:close()
+  
+  if result then
+    -- Remove ANSI color codes
+    result = result:gsub('\x1b%[%d+m', '')
+    vim.api.nvim_set_current_line(vim.api.nvim_get_current_line() .. ' ' .. result:gsub('\n$', ''))
+  end
+end
+
+-- vim.api.nvim_set_keymap('n', '<leader>d', [[:lua run_domain_free()<CR>]], { noremap = true, silent = true })

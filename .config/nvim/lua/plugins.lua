@@ -73,10 +73,23 @@ require("lazy").setup({
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              nil, -- command will run directly without any prompting for user input
-              agent.model,
-              template,
-              agent.system_prompt
+              agent,
+              template
+            )
+          end,
+
+          TranslateToLithuanian = function(gp, params)
+            local template = "Translate the following English text to Lithuanian:\n\n"
+            .. "```\n{{selection}}\n```\n"
+            .. "\nRespond only with the translated text."
+
+            local agent = gp.get_command_agent()
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              agent,
+              template
             )
           end,
         },
