@@ -104,9 +104,8 @@ require("lazy").setup({
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              nil, -- command will run directly without any prompting for user input
               agent,
-              template,
+              template
             )
           end,
 
@@ -145,9 +144,8 @@ require("lazy").setup({
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              nil, -- command will run directly without any prompting for user input
               agent,
-              template,
+              template
             )
           end,
         },
