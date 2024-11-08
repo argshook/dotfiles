@@ -93,7 +93,6 @@ require("lazy").setup({
             )
           end,
 
-
           ToLt = function(gp, params)
             local template = "Translate the following content from English to Lithuanian:\n\n"
             .. "\n{{selection}}\n```\n"
@@ -106,9 +105,49 @@ require("lazy").setup({
               params,
               gp.Target.rewrite,
               nil, -- command will run directly without any prompting for user input
-              agent.model,
+              agent,
               template,
-              agent.system_prompt
+            )
+          end,
+
+          SvgToComponent = function(gp, params)
+            local template = 
+            "Convert SVG into a valid JSX component. Expose `className` prop and use typescript."
+            .. "Clean up the SVG attributes like `id`s or `title`."
+            .. "Avoid adding any imports. Use a single named export: `export const Icon`."
+            .. "Example SVG:\n"
+            .. "```<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>```\n"
+            .. "Example output:\n"
+            .. "```\n"
+            .. "export const Icon = ({ className }: { className?: string }) => ("
+            .. "  <svg"
+            .. "    xmlns=\"http://www.w3.org/2000/svg\""
+            .. "    width=\"24\""
+            .. "    height=\"24\""
+            .. "    viewBox=\"0 0 24 24\""
+            .. "    fill=\"none\""
+            .. "    stroke=\"currentColor\""
+            .. "    strokeWidth=\"2\""
+            .. "    strokeLinecap=\"round\""
+            .. "    strokeLinejoin=\"round\""
+            .. "    className={className}"
+            .. "  >"
+            .. "    <circle cx=\"12\" cy=\"12\" r=\"10\" />"
+            .. "  </svg>"
+            .. ");\n```"
+            .. "Input:\n```\n"
+            .. "{{selection}}\n"
+            .. "```\n"
+            .. "Output:\n```"
+
+            local agent = gp.get_command_agent()
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              nil, -- command will run directly without any prompting for user input
+              agent,
+              template,
             )
           end,
         },
