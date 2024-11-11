@@ -112,10 +112,10 @@ require("lazy").setup({
           SvgToComponent = function(gp, params)
             local template = 
             "Convert SVG into a valid JSX component. Expose `className` prop and use typescript."
-            .. "Clean up the SVG attributes like `id`s or `title`."
+            .. "Clean up the SVG attributes like `class`, `id`s or `title`."
             .. "Avoid adding any imports. Use a single named export: `export const Icon`."
             .. "Example SVG:\n"
-            .. "```<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>```\n"
+            .. "```<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"useless-classname\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>```\n"
             .. "Example output:\n"
             .. "```\n"
             .. "export const Icon = ({ className }: { className?: string }) => ("
