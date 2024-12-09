@@ -234,7 +234,8 @@ require("lazy").setup({
   'wellle/targets.vim',
 
   {
-    dir = vim.fn.stdpath("config") .. "/lua/blame-line",
+    vim.fn.stdpath("config") .. "/lua/blame-line.lua",
+    virtual = true,
     config = function()
       require("blame-line").setup({
         delay = 300,
