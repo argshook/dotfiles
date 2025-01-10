@@ -243,9 +243,6 @@ require("lazy").setup({
       })
     end,
     init = function()
-      -- start enabled
-      require("blame-line").enable_blame_line()
-
       -- add more dim color for the virtual text
       vim.api.nvim_set_hl(0, 'CustomDimBlame', { fg = '#333952', italic = true })
     end
