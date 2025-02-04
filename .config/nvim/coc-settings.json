@@ -9,8 +9,12 @@
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
+      "filetypes": [
+        "elm"
+      ],
+      "rootPatterns": [
+        "elm.json"
+      ],
       "initializationOptions": {
         "elmAnalyseTrigger": "change"
       }
@@ -18,11 +22,16 @@
   },
   "coc.preferences.formatOnSave": true,
   "eslint.format.enable": true,
+  "coc.preferences.enableMarkdown": true,
   "suggest.noselect": true,
   "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
   "colors.enable": true,
-  "workspace.rootPatterns": [".git"],
-  "tailwindCSS.includeLanguages": { "astro": "html" },
+  "workspace.rootPatterns": [
+    ".git"
+  ],
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
   "tailwindCSS.headwind.runOnSave": true,
   "tailwindCSS.headwind.removeDuplicates": true,
   "tailwindCSS.headwind.prependCustomClasses": true

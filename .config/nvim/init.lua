@@ -123,3 +123,5 @@ function run_domain_free()
 end
 
 -- vim.api.nvim_set_keymap('n', '<leader>d', [[:lua run_domain_free()<CR>]], { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('i', '<F5>', '<C-R>=strftime("%Y-%m-%dT%H:%M:%S")<CR>', { noremap = true, silent = true })
