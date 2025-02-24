@@ -1,9 +1,17 @@
 #!/usr/bin/env sh
 
-VERSION=`python --version | awk '{print $2}' | awk -F '.' '{print $1}'`
+VERSION=$(python --version | awk '{print $2}' | awk -F '.' '{print $1}')
 
-if [ $VERSION -eq "3" ]; then
-  python -m http.server $@
+if [ -z "$1" ]; then
+  DIRECTORY="."
 else
-  python -m SimpleHTTPServer
+  DIRECTORY="$1"
+fi
+
+if [ "$VERSION" -eq "3" ]; then
+  shift
+  python -m http.server "$@" -d "$DIRECTORY"
+else
+  cd "$DIRECTORY" || exit
+  python -m SimpleHTTPServer "$@"
 fi
