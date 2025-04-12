@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+interval=$1
+shift
+
+while true; do
+    clear
+    "$@"
+    sleep "$interval"
+done

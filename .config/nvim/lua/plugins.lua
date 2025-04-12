@@ -43,12 +43,12 @@ require("lazy").setup({
           DiffToCommit = function(gp, params)
             local diff = vim.fn.systemlist("git diff --cached --no-color")
 
-            local template = "Git diff:\n```diff\n" 
-            .. table.concat(diff, "\n") .. "\n```\n\n"
-            .. "Generate a concise commit title (max 50 characters)."
-            .. "Add a brief markdown body only if changes are significant (max 72 characters per line)."
-            .. "Use a professional tone, imperative mood, and present tense.\n\n"
-            .. "Respond with title and optional body, separated by an empty line."
+            local template = "Git diff:\n```diff\n"
+                .. table.concat(diff, "\n") .. "\n```\n\n"
+                .. "Generate a concise commit title (max 50 characters)."
+                .. "Add a brief markdown body only if changes are significant (max 72 characters per line)."
+                .. "Use a professional tone, imperative mood, and present tense.\n\n"
+                .. "Respond with title and optional body, separated by an empty line."
 
             local agent = gp.get_command_agent()
 
@@ -63,9 +63,9 @@ require("lazy").setup({
           -- GpImplement rewrites the provided selection/range based on comments in it
           Implement = function(gp, params)
             local template = "Rewrite the code snippet below using best practices as per instructions:\n\n"
-            .. "Filename: {{filename}}\nType: {{filetype}}\n\n"
-            .. "Snippet:\n{{selection}}\n```\n"
-            .. "\nRespond with the improved snippet."
+                .. "Filename: {{filename}}\nType: {{filetype}}\n\n"
+                .. "Snippet:\n{{selection}}\n```\n"
+                .. "\nRespond with the improved snippet."
 
             local agent = gp.get_command_agent()
             gp.info("Implementing selection with agent: " .. agent.name)
@@ -80,8 +80,8 @@ require("lazy").setup({
 
           TranslateToLithuanian = function(gp, params)
             local template = "Translate the following English text to Lithuanian:\n\n"
-            .. "```\n{{selection}}\n```\n"
-            .. "\nRespond only with the translated text."
+                .. "```\n{{selection}}\n```\n"
+                .. "\nRespond only with the translated text."
 
             local agent = gp.get_command_agent()
 
@@ -95,8 +95,8 @@ require("lazy").setup({
 
           ToLt = function(gp, params)
             local template = "Translate the following content from English to Lithuanian:\n\n"
-            .. "\n{{selection}}\n```\n"
-            .. "\nRespond only with the translation."
+                .. "\n{{selection}}\n```\n"
+                .. "\nRespond only with the translation."
 
             local agent = gp.get_command_agent()
             gp.info("Translating with " .. agent.name)
@@ -110,34 +110,35 @@ require("lazy").setup({
           end,
 
           SvgToComponent = function(gp, params)
-            local template = 
-            "Convert SVG into a valid JSX component. Expose `className` prop and use typescript."
-            .. "Clean up the SVG attributes like `class`, `id`s or `title`."
-            .. "Avoid adding any imports. Use a single named export: `export const Icon`."
-            .. "Example SVG:\n"
-            .. "```<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"useless-classname\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>```\n"
-            .. "Example output:\n"
-            .. "```\n"
-            .. "export const Icon = ({ className }: { className?: string }) => ("
-            .. "  <svg"
-            .. "    xmlns=\"http://www.w3.org/2000/svg\""
-            .. "    width=\"24\""
-            .. "    height=\"24\""
-            .. "    viewBox=\"0 0 24 24\""
-            .. "    fill=\"none\""
-            .. "    stroke=\"currentColor\""
-            .. "    strokeWidth=\"2\""
-            .. "    strokeLinecap=\"round\""
-            .. "    strokeLinejoin=\"round\""
-            .. "    className={className}"
-            .. "  >"
-            .. "    <circle cx=\"12\" cy=\"12\" r=\"10\" />"
-            .. "  </svg>"
-            .. ");\n```"
-            .. "Input:\n```\n"
-            .. "{{selection}}\n"
-            .. "```\n"
-            .. "Output:\n```"
+            local template =
+                "Convert SVG into a valid JSX component. Expose `className` prop and use typescript."
+                .. "Clean up the SVG attributes like `class`, `id`s or `title`."
+                .. "Avoid adding any imports. Use a single named export: `export const Icon`."
+                .. "Example SVG:\n"
+                ..
+                "```<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"useless-classname\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>```\n"
+                .. "Example output:\n"
+                .. "```\n"
+                .. "export const Icon = ({ className }: { className?: string }) => ("
+                .. "  <svg"
+                .. "    xmlns=\"http://www.w3.org/2000/svg\""
+                .. "    width=\"24\""
+                .. "    height=\"24\""
+                .. "    viewBox=\"0 0 24 24\""
+                .. "    fill=\"none\""
+                .. "    stroke=\"currentColor\""
+                .. "    strokeWidth=\"2\""
+                .. "    strokeLinecap=\"round\""
+                .. "    strokeLinejoin=\"round\""
+                .. "    className={className}"
+                .. "  >"
+                .. "    <circle cx=\"12\" cy=\"12\" r=\"10\" />"
+                .. "  </svg>"
+                .. ");\n```"
+                .. "Input:\n```\n"
+                .. "{{selection}}\n"
+                .. "```\n"
+                .. "Output:\n```"
 
             local agent = gp.get_command_agent()
 
@@ -157,9 +158,9 @@ require("lazy").setup({
             command = true,
             model = { model = "o1-preview-2024-09-12", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
-              .. "- Provide short answers—detail upon request.\n"
-              .. "- Forego confirmatory prefaces.\n"
-              .. "- Conserve tokens in responses.\n"
+                .. "- Provide short answers—detail upon request.\n"
+                .. "- Forego confirmatory prefaces.\n"
+                .. "- Conserve tokens in responses.\n"
           },
           {
             name = "openai",
@@ -199,30 +200,30 @@ require("lazy").setup({
 
         -- templates
         template_selection = "from `{{filename}}`:"
-          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}",
+            .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}",
 
         template_rewrite = "from `{{filename}}`:"
-          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
-          .. "\n\nRespond only with replacement for selection above.",
+            .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+            .. "\n\nRespond only with replacement for selection above.",
 
         template_append = "from {{filename}}:"
-          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
-          .. "\n\nRespond only with replacement that should append the selection above.",
+            .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+            .. "\n\nRespond only with replacement that should append the selection above.",
 
         template_prepend = "from {{filename}}:"
-          .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
-          .. "\n\nRespond only with replacement that should prepend the selection above.",
+            .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}"
+            .. "\n\nRespond only with replacement that should prepend the selection above.",
 
         template_command = "{{command}}",
       })
 
       local function keymapOptions(desc)
-          return {
-              noremap = true,
-              silent = true,
-              nowait = true,
-              desc = "GPT prompt " .. desc,
-          }
+        return {
+          noremap = true,
+          silent = true,
+          nowait = true,
+          desc = "GPT prompt " .. desc,
+        }
       end
       vim.keymap.set("v", "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
     end
@@ -266,7 +267,7 @@ require("lazy").setup({
   'tpope/vim-obsession',
   'ziontee113/syntax-tree-surfer',
   {
-  'tpope/vim-surround',
+    'tpope/vim-surround',
     config = function()
       vim.g.surround_indent = 0
     end
@@ -284,7 +285,7 @@ require("lazy").setup({
   'moll/vim-node',
   'nikvdp/ejs-syntax',
   'mattn/emmet-vim',
-  {'neoclide/coc.nvim', run = 'coc#util#install()'},
+  { 'neoclide/coc.nvim', run = 'coc#util#install()' },
   'lbrayner/vim-rzip',
   {
     'suan/vim-instant-markdown',
@@ -315,9 +316,63 @@ require("lazy").setup({
   {
     'chrisbra/Colorizer',
     config = function()
-          vim.g.colorizer_disable_bufleave = 1
+      vim.g.colorizer_disable_bufleave = 1
     end
   },
+
+  {
+    "max397574/colortils.nvim",
+    cmd = "Colortils",
+    config = function()
+      require("colortils").setup({
+        -- Register in which color codes will be copied
+        register = "+",
+        -- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
+        color_preview = "█ %s",
+        -- The default in which colors should be saved
+        -- This can be hex, hsl or rgb
+        default_format = "hex",
+        -- String: default color if no color is found
+        default_color = "#000000",
+        -- Border for the float
+        border = "rounded",
+        -- Some mappings which are used inside the tools
+        mappings = {
+          -- increment values
+          increment = "l",
+          -- decrement values
+          decrement = "h",
+          -- increment values with bigger steps
+          increment_big = "L",
+          -- decrement values with bigger steps
+          decrement_big = "H",
+          -- set values to the minimum
+          min_value = "0",
+          -- set values to the maximum
+          max_value = "$",
+          -- save the current color in the register specified above with the format specified above
+          set_register_default_format = "<m-cr>",
+          -- save the current color in the register specified above with a format you can choose
+          set_register_choose_format = "g<cr>",
+          -- replace the color under the cursor with the current color in the format specified above
+          replace_default_format = "<cr>",
+          -- replace the color under the cursor with the current color in a format you can choose
+          replace_choose_format = "g<m-cr>",
+          -- export the current color to a different tool
+          export = "E",
+          -- set the value to a certain number (done by just entering numbers)
+          set_value = "c",
+          -- toggle transparency
+          transparency = "T",
+          -- choose the background (for transparent colors)
+          choose_background = "B",
+          -- quit window
+          quit_window = { "q", "<esc>" }
+        }
+      })
+    end,
+  },
+
   'junegunn/goyo.vim',
   {
     "folke/tokyonight.nvim",

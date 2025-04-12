@@ -13,6 +13,10 @@ case "$COMMAND" in
     play-soma $@
     ;;
 
+  ai)
+    mpv "https://a8.asurahosting.com:7960/radio.mp3"
+    ;;
+
   save)
     TITLE=$(echo '{ "command": ["get_property", "metadata"] }' | socat - /tmp/mpvsocket | jq '.data."icy-title"' --raw-output)
     echo $TITLE >> ~/zettel/radio-favorites.md
