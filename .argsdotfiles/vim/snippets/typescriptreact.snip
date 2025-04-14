@@ -8,3 +8,16 @@ snippet theme
 options word
   ${({ theme }) => theme.${1:color}.${2:background}};
 
+
+snippet rdec
+options word
+  type Props = {
+    children: React.ReactNode;
+  }
+  export default function ${1:ComponentName}({ children }: Props) {
+    return (
+      <div>
+        {children}
+      </div>
+    );
+  }

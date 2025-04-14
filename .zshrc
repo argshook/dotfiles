@@ -230,3 +230,5 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$HOME/.flashlight/bin"
