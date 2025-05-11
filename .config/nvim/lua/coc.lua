@@ -11,7 +11,7 @@ vim.g.coc_global_extensions = {
   'coc-json',
   '@yaegassy/coc-tailwindcss3',
   'coc-deno'
-  }
+}
 
 local function show_documentation()
   local filetype = vim.bo.filetype
@@ -26,9 +26,9 @@ end
 
 key('n', '[l', '<Plug>(coc-diagnostic-prev)', {})
 key('n', ']l', '<Plug>(coc-diagnostic-next)', {})
-key('n', '<leader>rn', '<Plug>(coc-rename)' , {})
-key('n', '<leader>rr', '<Plug>(coc-refactor)' , {})
-key('n', '<leader>f', '<Plug>(coc-format)' , {})
+key('n', '<leader>rn', '<Plug>(coc-rename)', {})
+key('n', '<leader>rr', '<Plug>(coc-refactor)', {})
+key('n', '<leader>f', '<Plug>(coc-format)', {})
 key('n', 'gd', '<Plug>(coc-definition)', { silent = true })
 key('n', '<leader>gd', '<Plug>(coc-type-definition)', { silent = true })
 key('n', 'gD', '<Plug>(coc-declaration)', { silent = true })
@@ -38,6 +38,7 @@ key('n', 'gr', '<Plug>(coc-references-used)', { silent = true })
 key('n', 'go', ':CocList outline<cr>', { silent = true })
 key('n', '<leader>qf', '<Plug>(coc-fix-current)', {})
 key('n', '<leader>ac', '<Plug>(coc-codeaction-cursor)', {})
+key('n', '<leader>cl', '<Plug>(coc-codelens-action)', {})
 key('v', '<leader>ac', '<Plug>(coc-codeaction)', {})
 key('n', 'K', lua_fn(function() show_documentation() end), {})
 
@@ -70,4 +71,3 @@ endfunction
 
 
 vim.cmd("highlight CocMenuSel ctermfg=236 ctermbg=220 guifg=#3A3A3A guibg=#FFC600")
-

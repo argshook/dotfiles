@@ -1,5 +1,7 @@
 {
   "tsserver.log": "verbose",
+  "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "float",
   "diagnostic.enableMessage": "jump",
@@ -9,12 +11,8 @@
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
-      "filetypes": [
-        "elm"
-      ],
-      "rootPatterns": [
-        "elm.json"
-      ],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
       "initializationOptions": {
         "elmAnalyseTrigger": "change"
       }
@@ -24,11 +22,8 @@
   "eslint.format.enable": true,
   "coc.preferences.enableMarkdown": true,
   "suggest.noselect": true,
-  "tsserver.tsdk": "~/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
   "colors.enable": true,
-  "workspace.rootPatterns": [
-    ".git"
-  ],
+  "workspace.rootPatterns": [".git"],
   "tailwindCSS.includeLanguages": {
     "astro": "html"
   },

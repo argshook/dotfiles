@@ -24,7 +24,7 @@ noremap <F5> :setlocal spell! spelllang=en_us<CR>
 imap  <Esc>[s1z=`]a
 
 " set paste/nopaste toggle key
-set pastetoggle=<leader>p
+" set pastetoggle=<leader>p
 
 nmap g. `[v`] " select inserted text
 
