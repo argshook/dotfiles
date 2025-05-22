@@ -39,6 +39,8 @@ require("lazy").setup({
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
+        default_command_agent = "ollama",
+        default_chat_agent = "ollama",
         hooks = {
           DiffToCommit = function(gp, params)
             local diff = vim.fn.systemlist("git diff --cached --no-color")
@@ -185,12 +187,64 @@ require("lazy").setup({
                 .. "- Forego confirmatory prefaces.\n"
                 .. "- Conserve tokens in responses.\n"
           },
+
+          {
+            disable = true,
+            name = "CodeOllamaLlama3.1-8B",
+          },
+
+          {
+            disable = true,
+            name = "CodeGPT-o3-mini",
+          },
+
+          {
+            disable = true,
+            name = "CodeGPT4o",
+          },
+
+          {
+            disable = true,
+            name = "CodeGPT4o-mini",
+          },
+
+          {
+            disable = true,
+            name = "CodeClaude-3-7-Sonnet",
+          },
+
+          {
+            disable = true,
+            name = "CodeClaude-3-5-Haiku",
+          },
+
+          {
+            provider = "ollama",
+            name = "ollama",
+            chat = true,
+            command = true,
+            model = {
+              model = "llama3.2",
+              temperature = 0.6,
+              top_p = 1,
+              min_p = 0.05,
+            },
+            system_prompt = "rules:\n\n"
+                .. "- Provide short answers.\n"
+                .. "- Detail upon request.\n"
+                .. "- Forego confirmatory prefaces.\n"
+          },
         },
 
         providers = {
           anthropic = {
             endpoint = "https://api.anthropic.com/v1/messages",
             secret = os.getenv("ANTHROPIC_API_KEY"),
+          },
+
+          ollama = {
+            endpoint = "http://localhost:11434/v1/chat/completions",
+            secret = "dummy_secret",
           },
         },
 
