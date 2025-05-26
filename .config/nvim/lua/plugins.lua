@@ -39,8 +39,8 @@ require("lazy").setup({
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
-        default_command_agent = "ollama",
-        default_chat_agent = "ollama",
+        default_command_agent = "openai",
+        default_chat_agent = "openai",
         hooks = {
           DiffToCommit = function(gp, params)
             local diff = vim.fn.systemlist("git diff --cached --no-color")
