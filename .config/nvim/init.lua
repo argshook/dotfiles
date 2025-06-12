@@ -114,7 +114,7 @@ function run_domain_free()
   local handle = io.popen(command)
   local result = handle:read("*a")
   handle:close()
-  
+
   if result then
     -- Remove ANSI color codes
     result = result:gsub('\x1b%[%d+m', '')
