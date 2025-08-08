@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Find and select a file interactively with fzf, then print and play it with mpv.
+fd --type f -0 | fzf --read0 --print0 | xargs -0 sh -c 'printf "%s\n" "$1"; mpv "$1" >/dev/null 2>&1' _
+

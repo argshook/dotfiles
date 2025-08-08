@@ -81,21 +81,6 @@ require("lazy").setup({
             )
           end,
 
-          TranslateToLithuanian = function(gp, params)
-            local template = "Translate the following English text to Lithuanian:\n\n"
-                .. "```\n{{selection}}\n```\n"
-                .. "\nRespond only with the translated text."
-
-            local agent = gp.get_command_agent()
-
-            gp.Prompt(
-              params,
-              gp.Target.rewrite,
-              agent,
-              template
-            )
-          end,
-
           ToLt = function(gp, params)
             local template = "Translate the following content from English to Lithuanian:\n\n"
                 .. "\n{{selection}}\n```\n"
@@ -282,6 +267,7 @@ require("lazy").setup({
         }
       end
       vim.keymap.set("v", "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
+      vim.keymap.set({ "n", "i" }, "<C-g>t", "<cmd>GpChatToggle split<cr>", keymapOptions("Toggle Chat"))
     end
   },
 
