@@ -21,7 +21,7 @@
 [credential]
   helper = cache --timeout=3600
 [diff]
-  tool = vimdiff
+	tool = meld
 [merge]
   tool = vimdiff
 [difftool]
@@ -46,3 +46,5 @@
   rebase = true
 [init]
   defaultBranch = main
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
