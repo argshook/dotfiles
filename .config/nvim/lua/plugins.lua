@@ -36,6 +36,12 @@ require("lazy").setup({
   },
 
   {
+    "davidmh/mdx.nvim",
+    config = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter" }
+  },
+
+  {
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
@@ -448,7 +454,14 @@ require("lazy").setup({
     opts = {},
   },
   'dhruvasagar/vim-table-mode',
-  'ggandor/leap.nvim',
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
+      vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+      vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
+    end
+  },
   {
     'scrooloose/nerdcommenter',
     config = function()

@@ -219,6 +219,10 @@ source_if_exists $HOME/.bun/_bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
 
+# dvm
+export DVM_DIR="$HOME/.dvm"
+export PATH="$PATH:$DVM_DIR/bin:"
+
 # deno
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$PATH:$DENO_INSTALL/bin"
