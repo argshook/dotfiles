@@ -237,6 +237,5 @@ esac
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$HOME/.flashlight/bin"
 export PATH="$PATH:$HOME/.lmstudio/bin"
-
-# opencode
 export PATH="$PATH:$HOME/.opencode/bin"
+export PATH="$PATH:$HOME/.antigravity/antigravity/bin"
