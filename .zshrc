@@ -221,7 +221,7 @@ export PATH="$PATH:$BUN_INSTALL/bin"
 
 # dvm
 export DVM_DIR="$HOME/.dvm"
-export PATH="$PATH:$DVM_DIR/bin:"
+export PATH="$DVM_DIR/bin:$PATH"
 
 # deno
 export DENO_INSTALL="$HOME/.deno"

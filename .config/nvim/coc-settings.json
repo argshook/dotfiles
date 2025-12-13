@@ -10,6 +10,11 @@
   "suggest.autoTrigger": "always",
   "list.previewSplitRight": true,
   "languageserver": {
+    "swift": {
+      "command": "sourcekit-lsp",
+      "filetypes": ["swift"],
+      "rootPatterns": [".git", "Package.swift", "*.xcodeproj"]
+    },
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": ["elm"],

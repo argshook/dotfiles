@@ -37,7 +37,6 @@ require("lazy").setup({
 
   {
     "davidmh/mdx.nvim",
-    config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" }
   },
 
