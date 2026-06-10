@@ -44,8 +44,8 @@ require("lazy").setup({
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
-        default_command_agent = "openai-4.1",
-        default_chat_agent = "openai-4.1",
+        default_command_agent = "openai-4o",
+        default_chat_agent = "openai-4o",
         chat_free_cursor = true,
         hooks = {
           DiffToCommit = function(gp, params)
@@ -146,10 +146,10 @@ require("lazy").setup({
 
         agents = {
           {
-            name = "openai-4.1",
+            name = "openai-4o",
             chat = true,
             command = true,
-            model = { model = "gpt-4.1-2025-04-14", temperature = 1.1, top_p = 1 },
+            model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
             system_prompt = "rules:\n\n"
                 .. "- Provide short answers—detail upon request.\n"
                 .. "- Forego confirmatory prefaces.\n"
