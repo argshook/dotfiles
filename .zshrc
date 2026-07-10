@@ -187,7 +187,6 @@ KEYTIMEOUT=1
 # required by gpg-agent
 GPG_TTY=$(tty)
 export GPG_TTY
-unset zle_bracketed_paste
 
 unsetopt BEEP
 
