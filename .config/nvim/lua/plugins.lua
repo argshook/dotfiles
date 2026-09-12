@@ -154,8 +154,6 @@ require("lazy").setup({
             command = true,
             model = {
               model = "gpt-5.6-terra",
-              temperature = 0.5,
-              top_p = 1,
             },
             system_prompt = "Be concise and direct. Follow the requested output format exactly.",
           },
