@@ -44,36 +44,40 @@ require("lazy").setup({
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
-        default_command_agent = "openai-4o",
-        default_chat_agent = "openai-4o",
+        default_command_agent = "openai-terra",
+        default_chat_agent = "openai-terra",
         chat_free_cursor = true,
+
         hooks = {
           DiffToCommit = function(gp, params)
             local diff = vim.fn.systemlist("git diff --cached --no-color")
 
-            local template = "Git diff:\n```diff\n"
-                .. table.concat(diff, "\n") .. "\n```\n\n"
-                .. "Generate a concise commit title (max 50 characters)."
-                .. "Add a brief markdown body only if changes are significant (max 72 characters per line)."
-                .. "Use a professional tone, imperative mood, and present tense.\n\n"
-                .. "Respond with title and optional body, separated by an empty line."
-
-            local agent = gp.get_command_agent()
+            local template = "Write a Git commit message for this staged diff.\n"
+                .. "- Imperative, present tense.\n"
+                .. "- Title: max 50 characters.\n"
+                .. "- Add a body only when useful, max 72 characters per line.\n"
+                .. "- Output only the commit message.\n\n"
+                .. "```diff\n"
+                .. table.concat(diff, "\n")
+                .. "\n```"
 
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              agent,
+              gp.get_command_agent(),
               template
             )
           end,
 
-          -- GpImplement rewrites the provided selection/range based on comments in it
           Implement = function(gp, params)
-            local template = "Rewrite the code snippet below using best practices as per instructions:\n\n"
-                .. "Filename: {{filename}}\nType: {{filetype}}\n\n"
-                .. "Snippet:\n{{selection}}\n```\n"
-                .. "\nRespond with the improved snippet."
+            local template = "Improve this code according to the instructions in it and current best practices.\n"
+                .. "Preserve behavior unless the instructions require otherwise.\n"
+                .. "Output only the replacement code.\n\n"
+                .. "File: {{filename}}\n"
+                .. "Type: {{filetype}}\n\n"
+                .. "```{{filetype}}\n"
+                .. "{{selection}}\n"
+                .. "```"
 
             local agent = gp.get_command_agent()
             gp.info("Implementing selection with agent: " .. agent.name)
@@ -87,9 +91,10 @@ require("lazy").setup({
           end,
 
           ToLt = function(gp, params)
-            local template = "Translate the following content from English to Lithuanian:\n\n"
-                .. "\n{{selection}}\n```\n"
-                .. "\nRespond only with the translation."
+            local template = "Translate the following text to natural Lithuanian."
+                .. " Preserve meaning, tone, and formatting."
+                .. " Output only the translation.\n\n"
+                .. "{{selection}}"
 
             local agent = gp.get_command_agent()
             gp.info("Translating with " .. agent.name)
@@ -133,12 +138,10 @@ require("lazy").setup({
                 .. "```\n"
                 .. "Output:\n```"
 
-            local agent = gp.get_command_agent()
-
             gp.Prompt(
               params,
               gp.Target.rewrite,
-              agent,
+              gp.get_command_agent(),
               template
             )
           end,
@@ -146,105 +149,22 @@ require("lazy").setup({
 
         agents = {
           {
-            name = "openai-4o",
-            chat = true,
-            command = true,
-            model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
-            system_prompt = "rules:\n\n"
-                .. "- Provide short answers—detail upon request.\n"
-                .. "- Forego confirmatory prefaces.\n"
-                .. "- Conserve tokens in responses.\n"
-          },
-
-          {
-            name = "openai",
-            chat = true,
-            command = true,
-            model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
-            system_prompt = "rules:\n\n"
-                .. "- Provide short answers—detail upon request.\n"
-                .. "- Forego confirmatory prefaces.\n"
-                .. "- Conserve tokens in responses.\n"
-          },
-
-          {
-            provider = "anthropic",
-            name = "claude",
-            chat = true,
-            command = true,
-            model = { model = "claude-3-5-sonnet-20240620", temperature = 0.8, top_p = 1 },
-            system_prompt = "rules:\n\n"
-                .. "- Provide short answers.\n"
-                .. "- Detail upon request.\n"
-                .. "- Forego confirmatory prefaces.\n"
-                .. "- Conserve tokens in responses.\n"
-          },
-
-          {
-            disable = true,
-            name = "CodeOllamaLlama3.1-8B",
-          },
-
-          {
-            disable = true,
-            name = "CodeGPT-o3-mini",
-          },
-
-          {
-            disable = true,
-            name = "CodeGPT4o",
-          },
-
-          {
-            disable = true,
-            name = "CodeGPT4o-mini",
-          },
-
-          {
-            disable = true,
-            name = "CodeClaude-3-7-Sonnet",
-          },
-
-          {
-            disable = true,
-            name = "CodeClaude-3-5-Haiku",
-          },
-
-          {
-            provider = "ollama",
-            name = "ollama",
+            name = "openai-terra",
             chat = true,
             command = true,
             model = {
-              model = "llama3.2",
-              temperature = 0.6,
+              model = "gpt-5.6-terra",
+              temperature = 0.5,
               top_p = 1,
-              min_p = 0.05,
             },
-            system_prompt = "rules:\n\n"
-                .. "- Provide short answers.\n"
-                .. "- Detail upon request.\n"
-                .. "- Forego confirmatory prefaces.\n"
-          },
-        },
-
-        providers = {
-          anthropic = {
-            endpoint = "https://api.anthropic.com/v1/messages",
-            secret = os.getenv("ANTHROPIC_API_KEY"),
-          },
-
-          ollama = {
-            endpoint = "http://localhost:11434/v1/chat/completions",
-            secret = "dummy_secret",
+            system_prompt = "Be concise and direct. Follow the requested output format exactly.",
           },
         },
 
         chat_user_prefix = "🗨:",
-        chat_dir = os.getenv('HOME') .. "/gpt-chats",
+        chat_dir = os.getenv("HOME") .. "/gpt-chats",
         chat_template = require("gp.defaults").short_chat_template,
 
-        -- templates
         template_selection = "from `{{filename}}`:"
             .. "\n\n```{{filetype}}\n{{selection}}\n```\n\n{{command}}",
 
@@ -271,9 +191,21 @@ require("lazy").setup({
           desc = "GPT prompt " .. desc,
         }
       end
-      vim.keymap.set("v", "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
-      vim.keymap.set({ "n", "i" }, "<C-g>t", "<cmd>GpChatToggle split<cr>", keymapOptions("Toggle Chat"))
-    end
+
+      vim.keymap.set(
+        "v",
+        "<C-g>p",
+        ":<C-u>'<,'>GpChatPaste<cr>",
+        keymapOptions("Visual Chat Paste")
+      )
+
+      vim.keymap.set(
+        { "n", "i" },
+        "<C-g>t",
+        "<cmd>GpChatToggle split<cr>",
+        keymapOptions("Toggle Chat")
+      )
+    end,
   },
 
   'tpope/vim-rhubarb',
