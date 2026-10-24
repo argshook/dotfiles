@@ -44,8 +44,8 @@ require("lazy").setup({
     "Robitx/gp.nvim",
     config = function()
       require("gp").setup({
-        default_command_agent = "openai-terra",
-        default_chat_agent = "openai-terra",
+        default_command_agent = "openai-luna",
+        default_chat_agent = "openai-luna",
         chat_free_cursor = true,
 
         hooks = {
@@ -107,6 +107,27 @@ require("lazy").setup({
             )
           end,
 
+          Spell = function(gp, params)
+            local template = "Correct spelling only, in the text's original language."
+                .. " Restore missing or incorrect diacritics when the intended spelling is clear."
+                .. " Do not change grammar, wording, punctuation, or style."
+                .. " Preserve formatting and the original language variety."
+                .. " If unsure, leave the text unchanged."
+                .. " Fix obvious minor spelling mistakes."
+                .. " Output only the corrected text.\n\n"
+                .. "{{selection}}"
+
+            local agent = gp.get_command_agent()
+            vim.notify("Checking spelling with " .. agent.name, vim.log.levels.INFO)
+
+            gp.Prompt(
+              params,
+              gp.Target.rewrite,
+              agent,
+              template
+            )
+          end,
+
           SvgToComponent = function(gp, params)
             local template =
                 "Convert SVG into a valid JSX component. Assume `Icon` type is available."
@@ -149,11 +170,12 @@ require("lazy").setup({
 
         agents = {
           {
-            name = "openai-terra",
+            name = "openai-luna",
             chat = true,
             command = true,
             model = {
-              model = "gpt-5.6-terra",
+              model = "gpt-6-luna",
+              reasoning = "medium"
             },
             system_prompt = "Be concise and direct. Follow the requested output format exactly.",
           },
